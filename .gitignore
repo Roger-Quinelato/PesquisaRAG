@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Saidas regeneraveis pelo codigo
+figuras/*.png
+resultados/*.csv
+
+# Temporarios de Office
+~$*

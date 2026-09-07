@@ -1,0 +1,7 @@
+* text=auto eol=lf
+
+# Dados: preservar bytes exatos (BOM + CRLF), nao normalizar
+*.csv  -text
+*.pdf  binary
+*.xlsx binary
+*.png  binary
