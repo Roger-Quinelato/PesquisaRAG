@@ -8,5 +8,9 @@ venv/
 figuras/*.png
 resultados/*.csv
 
+# DOCX derivado do .md por experimento/gerar_docx.py -- o .md e' a fonte da verdade.
+# Para fixar em commit a versao exatamente submetida:  git add -f relatorios/*.docx
+relatorios/*.docx
+
 # Temporarios de Office
 ~$*
