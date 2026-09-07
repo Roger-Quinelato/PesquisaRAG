@@ -1,0 +1,127 @@
+"""Varredura de sensibilidade + verificacao dos criterios de aceitacao.
+
+Uso:  python experimento/varredura.py
+Saida: resultados/varredura.csv, resultados/fpr_por_ra.csv e um veredito
+       impresso sobre cada criterio declarado ANTES de rodar.
+"""
+import csv
+import itertools
+import os
+import sys
+
+import numpy as np
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from gerador import Params, gerar, RAS, COBERTURA          # noqa: E402
+from bracos import BRACOS, calcular                        # noqa: E402
+from metricas import brier, ece, precisao_topk, fpr_por_ra  # noqa: E402
+
+RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SAIDA = os.path.join(RAIZ, "resultados")
+
+N = 40_000
+K = 0.10
+SEMENTES = range(8)
+GRADE_RUIDO = np.round(np.linspace(0.01, 0.40, 14), 4)
+GRADE_BETA = (0.25, 0.40, 0.55, 0.70)
+GRADE_PI = (0.05, 0.10, 0.15, 0.25)
+
+# Config de referencia, usada nas figuras e na tabela por RA
+REF_BETA, REF_PI, REF_RUIDO = 0.55, 0.15, 0.16
+
+
+def uma_config(f_base, beta, pi, semente):
+    params = Params(pi=pi, f_base=f_base, beta=beta)
+    rng = np.random.default_rng(semente)
+    ra, F, E, f_true = gerar(N, params, rng)
+    scores = calcular(ra, F, E, f_true, params)
+
+    linha, fpr = {}, {}
+    for nome, s in scores.items():
+        p = np.clip(s, 0.0, 1.0)
+        prec, sel = precisao_topk(s, F, K, rng)
+        linha[nome] = {"prec": prec, "brier": brier(p, F), "ece": ece(p, F)}
+        fpr[nome] = fpr_por_ra(sel, ra, F, N, len(RAS))
+    return linha, fpr
+
+
+def main():
+    os.makedirs(SAIDA, exist_ok=True)
+    combos = list(itertools.product(GRADE_RUIDO, GRADE_BETA, GRADE_PI))
+    print(f"{len(combos)} configuracoes x {len(list(SEMENTES))} sementes x {N:,} casos")
+
+    linhas, fpr_ref = [], {b: [] for b in BRACOS}
+    for i, (f_base, beta, pi) in enumerate(combos, 1):
+        acumulado = {b: {m: [] for m in ("prec", "brier", "ece")} for b in BRACOS}
+        for semente in SEMENTES:
+            res, fpr = uma_config(f_base, beta, pi, semente)
+            for b in BRACOS:
+                for m in ("prec", "brier", "ece"):
+                    acumulado[b][m].append(res[b][m])
+                if (round(beta, 4) == REF_BETA and round(pi, 4) == REF_PI
+                        and abs(f_base - REF_RUIDO) < 1e-6):
+                    fpr_ref[b].append(fpr[b])
+        for b in BRACOS:
+            linhas.append({
+                "f_base": f_base, "beta": beta, "pi": pi, "braco": b,
+                **{f"{m}_media": float(np.mean(acumulado[b][m])) for m in ("prec", "brier", "ece")},
+                **{f"{m}_dp": float(np.std(acumulado[b][m])) for m in ("prec", "brier", "ece")},
+            })
+        if i % 28 == 0:
+            print(f"  {i}/{len(combos)}")
+
+    cam = os.path.join(SAIDA, "varredura.csv")
+    with open(cam, "w", newline="", encoding="utf-8") as fh:
+        w = csv.DictWriter(fh, fieldnames=list(linhas[0].keys()))
+        w.writeheader()
+        w.writerows(linhas)
+    print(f"\n-> {cam}  ({len(linhas)} linhas)")
+
+    cam2 = os.path.join(SAIDA, "fpr_por_ra.csv")
+    with open(cam2, "w", newline="", encoding="utf-8") as fh:
+        w = csv.writer(fh)
+        w.writerow(["ra", "cobertura"] + list(BRACOS))
+        medias = {b: np.mean(fpr_ref[b], axis=0) for b in BRACOS}
+        for r, nome in enumerate(RAS):
+            w.writerow([nome, COBERTURA[r]] + [f"{medias[b][r]:.6f}" for b in BRACOS])
+    print(f"-> {cam2}")
+
+    verificar(linhas, medias)
+
+
+def verificar(linhas, medias_fpr):
+    """Criterios declarados no plano ANTES de rodar."""
+    print("\n" + "=" * 66)
+    print("CRITERIOS DE ACEITACAO")
+    print("=" * 66)
+
+    idx = {}
+    for L in linhas:
+        idx.setdefault((L["f_base"], L["beta"], L["pi"]), {})[L["braco"]] = L
+
+    falhas_brier = [k for k, v in idx.items()
+                    if not (v["C"]["brier_media"] > v["A"]["brier_media"])]
+    falhas_ece = [k for k, v in idx.items()
+                  if not (v["C"]["ece_media"] > v["A"]["ece_media"])]
+    print(f"(i)  C pior que A em Brier: {len(idx)-len(falhas_brier)}/{len(idx)} "
+          f"-> {'PASSA' if not falhas_brier else 'FALHA'}")
+    print(f"     C pior que A em ECE  : {len(idx)-len(falhas_ece)}/{len(idx)} "
+          f"-> {'PASSA' if not falhas_ece else 'FALHA'}")
+
+    c_rule = np.corrcoef(COBERTURA, medias_fpr["RULE_CNT"])[0, 1]
+    c_b = np.corrcoef(COBERTURA, medias_fpr["B"])[0, 1]
+    c_c = np.corrcoef(COBERTURA, medias_fpr["C"])[0, 1]
+    print(f"\n(ii) corr(cobertura, FPR entre inocentes) na config de referencia:")
+    print(f"       RULE_CNT = {c_rule:+.3f}  (esperado NEGATIVO)  "
+          f"-> {'PASSA' if c_rule < -0.5 else 'FALHA'}")
+    print(f"       B        = {c_b:+.3f}  (esperado >= 0)      "
+          f"-> {'PASSA' if c_b >= -0.1 else 'FALHA'}")
+    print(f"       C        = {c_c:+.3f}  (redlining amplificado)")
+
+    b_vence = sum(1 for v in idx.values()
+                  if v["B"]["prec_media"] > max(v["A"]["prec_media"], v["LOOKUP"]["prec_media"]))
+    print(f"\n(iii) B supera A e LOOKUP em precisao@10%: {b_vence}/{len(idx)} configuracoes")
+
+
+if __name__ == "__main__":
+    main()
