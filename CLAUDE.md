@@ -107,12 +107,19 @@ Não reabrir sem novo experimento. Todos saem de `resultados/`.
 - Com taxa de fraude idêntica por construção e **nenhuma variável demográfica no modelo**, a
   discriminação territorial emerge sozinha: correlação **−0,997** entre cobertura cadastral e
   falsos positivos entre inocentes, em **48/48** configurações.
-- Mover a RA para a verossimilhança (`B`) melhora a acurácia de forma **modesta**: mediana
-  **+0,64 p.p.**, máximo +2,96.
-- **Reprovado pelo critério pré-registrado:** `B` *não* corrige a inequidade de forma robusta —
-  inverte o sinal da correlação em apenas **33/48** configurações, falhando sob ruído baixo e
-  gradiente territorial íngreme, e sua amplitude de disparidade (0,054) é **o triplo** da de
-  `A` (0,017). O achado foi removido do resumo.
+- Mover a RA para a verossimilhança (`B`) melhora a acurácia de forma **modesta**: mediana de
+  `B − LOOKUP` = **+0,673 p.p.** (mín −0,134; máx +2,956; positiva em **213/224**). O valor
+  **+0,64 p.p.** que constava aqui estava errado e não se reproduz em nenhum recorte de
+  `varredura.csv`. `B` é ligeiramente **pior** que `A` em calibração na referência
+  (ECE 0,002672 contra 0,002456): o ganho é de ordenação, não de calibração.
+- **Reprovado pelo critério pré-registrado:** `B` *não* corrige a inequidade de forma robusta.
+  Distinga os dois números, que já foram confundidos: **33/48** é a contagem do critério
+  pré-registrado (limiar `corr ≥ −0,10`); a inversão de sinal **estrita** (`corr ≥ 0`) ocorre em
+  **30/48**, e em **11/48** a correlação de `B` permanece abaixo de −0,5. Falha sob ruído baixo
+  com β íngreme e sob ruído alto com π alta. A amplitude de disparidade de `B` (0,054) é **o
+  triplo** da de `A` (0,017). O achado foi removido do resumo.
+- O ECE de `LOOKUP` é **zero degenerado** (~4,4e−17): a tabela empírica estima `P(F | padrão)`
+  nos próprios dados em que é avaliada. Nunca citar como vantagem de calibração.
 
 ## Decisões metodológicas vigentes
 
@@ -128,8 +135,13 @@ e não são deriváveis dos arquivos.
 - **Região Administrativa nunca entra no prior.** Está verificado que isso degrada calibração
   e amplifica a disparidade territorial. Não é apenas eticamente problemático: é
   estatisticamente incorreto.
+- **Numeração das hipóteses — já foi invertida por engano, confira sempre no PDF.** No texto da
+  proposta: **H2** = a explicitação em linguagem natural reduz vieses contra populações
+  vulneráveis; **H3** = calibrar o *prior* com dados locais (CODEPLAN/GDF) supera modelos
+  nacionais. Ou seja, **H3 é a hipótese do prior regional e é a que o experimento reprovou.**
+  Ao citar pelo número, cite também o enunciado.
 - **A verossimilhança tampouco resolve a equidade.** A hipótese de que `P(E | ¬F, RA=r)`
-  reconciliaria H2 e H3 foi testada e **reprovada**. `B` pode ser usado para ganho de acurácia,
+  reconciliaria H3 com H2 foi testada e **reprovada**. `B` pode ser usado para ganho de acurácia,
   desde que a ressalva de robustez seja declarada — mas não deve ser apresentado como solução
   de equidade.
 - **Conclusão que orienta as próximas fases:** não existe correção, no nível da agregação de
@@ -140,11 +152,28 @@ e não são deriváveis dos arquivos.
 - **Pendência prioritária:** o vetor `COBERTURA` em `gerador.py` é **estipulado, não medido**.
   Obter o dado real no Geoportal/SEDUH é o maior ganho por esforço disponível, e o resumo
   declara essa limitação explicitamente.
-- **Trabalho anterior a considerar antes de reivindicar ineditismo:** BayesRAG (arXiv
-  2601.07329), Bayesian RAG para QA financeiro (PMC12886353), propagação bayesiana de incerteza
-  em RAG agêntico (arXiv 2607.00972), Srivastava & Shafer (funções de crença para agregação de
-  evidência de auditoria, 1995), Fellegi-Sunter (1969), ALICE/SOFIA/ADELE (CGU/TCU) e SynthFin
-  (gerador de fraude transacional brasileira; licença non-commercial, não adotar).
+- **Trabalho anterior — verificado contra a fonte, não citar de memória.** Os identificadores
+  antes marcados como suspeitos **existem**: BayesRAG (arXiv 2601.07329), Bayesian RAG para QA
+  financeiro (PMC12886353), incerteza em RAG agêntico (arXiv 2607.00972), RuleRAG/SymRAG/
+  NeuSym-RAG. Ver `relatorios/Relatorio_Benchmark_Estado_da_Arte.md` para o placar completo.
+- **Duas alegações de ineditismo caíram na verificação. Não reivindicar:**
+  - *Calibração de posterior agregado sob selective prediction é inédita* — **falso.** FinAbstain
+    (arXiv 2607.24875) faz predição seletiva calibrada em domínio financeiro, com curvas
+    risco–cobertura e encaminhamento explícito a revisão humana. Ver também SURE-RAG
+    (2605.03534) e EvidentialRAG (2607.10491, reporta ECE).
+  - *Disparidade sem atributo protegido é mecanismo novo* — **não é.** Akpinar, Lipton &
+    Chouldechova, "The Impact of Differential Feature Under-reporting on Algorithmic Fairness",
+    FAccT 2024 (arXiv 2401.08788), publicou o mecanismo geral. **Precisa ser citado**; a
+    posição desta pesquisa é aplicação/extensão, não descoberta.
+- O que sobra de específico: qualidade da fonte afetando a *especificidade* de uma evidência
+  (não a presença do dado), granularidade **intramunicipal**, e taxa do evento igualada por
+  construção. O achado sobre o prior tem nome conhecido — *double dipping* em Bayes empírico;
+  a contribuição é mostrar que ele domina a escolha que um analista faria naturalmente (224/224).
+- **Licenças:** SynthFin é Custom Non-Commercial e **SDV está sob Business Source License 1.1** —
+  nenhuma das duas é open source pela OSI. A proposta PIDTI lista SDV no stack e afirma uso
+  "exclusivamente open source": as duas coisas são incompatíveis e a proposta precisa ser
+  corrigida. Alternativa OSI: `synthcity` (Apache 2.0). Nada disso é necessário — o gerador
+  causal roda em numpy.
 
 ## Dataset legado — por que `dataset_sintetico_500_casos.csv` não serve
 

@@ -24,7 +24,9 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RELATORIOS = os.path.join(RAIZ, "relatorios")
 
 LARGURA_UTIL_CM = 16.0          # A4 com margens de 2,5 cm
-RE_INLINE = re.compile(r"(\*\*.+?\*\*|(?<!\*)\*[^*]+?\*(?!\*)|`[^`]+?`)")
+# O negrito fecha em "**" nao seguido de outro "*", para que "**a *b***" case o
+# trecho inteiro em vez de parar no meio e deixar um asterisco solto no texto.
+RE_INLINE = re.compile(r"(\*\*.+?\*\*(?!\*)|(?<!\*)\*(?!\*)[^*]+\*(?!\*)|`[^`]+?`)")
 RE_IMAGEM = re.compile(r"^!\[(?P<alt>[^\]]*)\]\((?P<src>[^)]+)\)\s*$")
 RE_TITULO = re.compile(r"^(?P<nivel>#{1,6})\s+(?P<texto>.+?)\s*#*\s*$")
 RE_LISTA_NUM = re.compile(r"^\s*\d+[.)]\s+(?P<texto>.+)$")
@@ -32,29 +34,60 @@ RE_LISTA_MARC = re.compile(r"^\s*[-*+]\s+(?P<texto>.+)$")
 RE_SEPARADOR = re.compile(r"^\s*(-{3,}|\*{3,}|_{3,})\s*$")
 
 
-def escrever_inline(paragrafo, texto):
-    """Quebra o texto em trechos formatados e os adiciona como runs."""
+def escrever_inline(paragrafo, texto, negrito=False, italico=False):
+    """Quebra o texto em trechos formatados e os adiciona como runs.
+    Recursivo, para que enfase aninhada ("**negrito com *italico* dentro**")
+    preserve as duas marcacoes em vez de perder a interna."""
     for trecho in RE_INLINE.split(texto):
         if not trecho:
             continue
-        if trecho.startswith("**") and trecho.endswith("**"):
-            paragrafo.add_run(trecho[2:-2]).bold = True
-        elif trecho.startswith("`") and trecho.endswith("`"):
+        if len(trecho) > 4 and trecho.startswith("**") and trecho.endswith("**"):
+            escrever_inline(paragrafo, trecho[2:-2], True, italico)
+        elif len(trecho) > 2 and trecho.startswith("`") and trecho.endswith("`"):
             r = paragrafo.add_run(trecho[1:-1])
             r.font.name = "Consolas"
             r.font.size = Pt(10)
-        elif trecho.startswith("*") and trecho.endswith("*"):
-            paragrafo.add_run(trecho[1:-1]).italic = True
+            r.bold, r.italic = negrito, italico
+        elif len(trecho) > 2 and trecho.startswith("*") and trecho.endswith("*"):
+            escrever_inline(paragrafo, trecho[1:-1], negrito, True)
         else:
-            paragrafo.add_run(trecho)
+            # "\|" e' escape de markdown; fora de tabela ainda precisa virar "|".
+            r = paragrafo.add_run(trecho.replace("\\|", "|"))
+            r.bold, r.italic = negrito, italico
 
 
 def linha_de_tabela(linha):
     return linha.lstrip().startswith("|") and linha.rstrip().endswith("|")
 
 
+def inicia_bloco(linha):
+    """A linha abre um novo bloco (em vez de continuar o anterior)?"""
+    return bool(RE_TITULO.match(linha) or linha_de_tabela(linha)
+                or RE_LISTA_NUM.match(linha) or RE_LISTA_MARC.match(linha)
+                or RE_SEPARADOR.match(linha) or linha.strip().startswith("```")
+                or linha.lstrip().startswith(">") or RE_IMAGEM.match(linha.strip()))
+
+
+def juntar_continuacao(linhas, i, texto):
+    """Absorve as linhas de continuacao de um item de lista.
+
+    Sem isto, enfase que atravessa a quebra de linha no fonte ("**inicio ...
+    \\n ... fim**") chega ao Word com os asteriscos visiveis, porque cada
+    linha isolada tem marcadores desbalanceados."""
+    while i < len(linhas) and linhas[i].strip() and not inicia_bloco(linhas[i]):
+        texto += " " + linhas[i].strip()
+        i += 1
+    return texto, i
+
+
 def celulas(linha):
-    return [c.strip() for c in linha.strip().strip("|").split("|")]
+    """Divide a linha em celulas. Barra escapada (\\|) e' conteudo, nao delimitador --
+    a notacao condicional do projeto, como P(F | padrao), depende disso."""
+    corpo = linha.strip()
+    corpo = corpo[1:] if corpo.startswith("|") else corpo
+    if corpo.endswith("|") and not corpo.endswith("\\|"):
+        corpo = corpo[:-1]
+    return [c.strip().replace("\\|", "|") for c in re.split(r"(?<!\\)\|", corpo)]
 
 
 def eh_separador_de_tabela(linha):
@@ -64,6 +97,13 @@ def eh_separador_de_tabela(linha):
 def inserir_tabela(doc, blocos):
     """blocos: linhas de uma tabela markdown, ja sem a linha separadora."""
     dados = [celulas(l) for l in blocos]
+    # Cabecalho vazio ("| | |") e' tabela de definicao, sem cabecalho real.
+    # Mante-lo produziria uma primeira linha em branco e em negrito no Word.
+    com_cabecalho = bool(dados) and any(c for c in dados[0])
+    if not com_cabecalho:
+        dados = dados[1:]
+    if not dados:
+        return
     n_col = max(len(l) for l in dados)
     tabela = doc.add_table(rows=len(dados), cols=n_col)
     tabela.style = "Table Grid"
@@ -76,7 +116,7 @@ def inserir_tabela(doc, blocos):
             escrever_inline(p, linha[j] if j < len(linha) else "")
             for run in p.runs:
                 run.font.size = Pt(9)
-                if i == 0:
+                if i == 0 and com_cabecalho:
                     run.bold = True
     doc.add_paragraph()
 
@@ -162,39 +202,42 @@ def converter(caminho_md):
 
         m = RE_LISTA_NUM.match(linha)
         if m:
-            escrever_inline(doc.add_paragraph(style="List Number"), m.group("texto"))
-            i += 1
+            texto, i = juntar_continuacao(linhas, i + 1, m.group("texto"))
+            escrever_inline(doc.add_paragraph(style="List Number"), texto)
             continue
 
         m = RE_LISTA_MARC.match(linha)
         if m:
-            escrever_inline(doc.add_paragraph(style="List Bullet"), m.group("texto"))
-            i += 1
+            texto, i = juntar_continuacao(linhas, i + 1, m.group("texto"))
+            escrever_inline(doc.add_paragraph(style="List Bullet"), texto)
             continue
 
         if linha.lstrip().startswith(">"):
-            p = doc.add_paragraph()
-            p.paragraph_format.left_indent = Cm(1)
-            escrever_inline(p, linha.lstrip().lstrip(">").strip())
-            for r in p.runs:
-                r.italic = True
-            i += 1
+            # Uma citacao pode ocupar varias linhas e ate varios paragrafos
+            # (separados por uma linha ">" vazia). Junta cada paragrafo antes
+            # de formatar, pela mesma razao de juntar_continuacao.
+            paragrafos, atual = [], []
+            while i < len(linhas) and linhas[i].lstrip().startswith(">"):
+                conteudo = linhas[i].lstrip().lstrip(">").strip()
+                if conteudo:
+                    atual.append(conteudo)
+                elif atual:
+                    paragrafos.append(" ".join(atual))
+                    atual = []
+                i += 1
+            if atual:
+                paragrafos.append(" ".join(atual))
+            for texto in paragrafos:
+                p = doc.add_paragraph()
+                p.paragraph_format.left_indent = Cm(1)
+                escrever_inline(p, texto, italico=True)
             continue
 
         # Paragrafo: junta linhas ate a proxima linha em branco ou marcador de bloco.
-        bloco = []
-        while i < len(linhas) and linhas[i].strip() and not (
-            RE_TITULO.match(linhas[i]) or linha_de_tabela(linhas[i])
-            or RE_LISTA_NUM.match(linhas[i]) or RE_LISTA_MARC.match(linhas[i])
-            or RE_SEPARADOR.match(linhas[i]) or linhas[i].strip().startswith("```")
-            or linhas[i].lstrip().startswith(">") or RE_IMAGEM.match(linhas[i].strip())
-        ):
-            bloco.append(linhas[i].strip())
-            i += 1
-        if bloco:
-            p = doc.add_paragraph()
-            p.paragraph_format.space_after = Pt(8)
-            escrever_inline(p, " ".join(bloco))
+        texto, i = juntar_continuacao(linhas, i + 1, linha.strip())
+        p = doc.add_paragraph()
+        p.paragraph_format.space_after = Pt(8)
+        escrever_inline(p, texto)
 
     saida = os.path.splitext(caminho_md)[0] + ".docx"
     doc.save(saida)

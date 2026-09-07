@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib.ticker import FuncFormatter
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from gerador import RAS, COBERTURA  # noqa: E402
@@ -21,6 +22,27 @@ ESTILO = {"RULE_OR": ":", "RULE_CNT": "--", "LOOKUP": "-.", "A": "-", "B": "-", 
 
 plt.rcParams.update({"font.size": 13, "axes.labelsize": 14, "axes.titlesize": 15,
                      "legend.fontsize": 11.5, "figure.dpi": 160})
+
+
+def num(x, casas=2):
+    """Numero no padrao brasileiro: virgula decimal e sinal de menos tipografico.
+    Os documentos sao em portugues; ponto decimal na figura destoa do texto."""
+    return f"{x:+.{casas}f}".replace("-", "−").replace(".", ",")
+
+
+def _tick_ptbr(x, _pos=None):
+    return f"{x:g}".replace("-", "−").replace(".", ",")
+
+
+VIRGULA = FuncFormatter(_tick_ptbr)
+
+
+def eixo_ptbr(*eixos):
+    """Aplica virgula decimal aos ticks. Nao usar em eixo com rotulo fixo
+    definido por set_xticklabels -- o formatador sobrescreveria o rotulo."""
+    for ax in eixos:
+        ax.xaxis.set_major_formatter(VIRGULA)
+        ax.yaxis.set_major_formatter(VIRGULA)
 
 
 def ler(nome):
@@ -69,6 +91,7 @@ def fig1():
     for a in ax:
         a.set_xlabel("Ruído da evidência (taxa de falso-positivo base)")
         a.grid(alpha=0.25)
+    eixo_ptbr(*ax)
     fig.tight_layout()
     fig.savefig(os.path.join(FIG, "fig1_precisao_calibracao.png"), bbox_inches="tight")
     plt.close(fig)
@@ -83,7 +106,7 @@ def fig2():
         y = np.array([float(L[b]) for L in R]) * 100
         r = np.corrcoef(cob, y)[0, 1]
         ax.plot(cob * 100, y, "o-", color=COR[b], lw=2.4, ms=7,
-                label=f"{ROTULO[b]}  (r = {r:+.2f})")
+                label=f"{ROTULO[b]}  (r = {num(r)})")
     for x, y, nm in zip(cob * 100, [float(L["C"]) * 100 for L in R], nomes):
         if nm == "Ceilândia":
             ax.annotate(nm, (x, y), textcoords="offset points", xytext=(14, -4),
@@ -97,6 +120,7 @@ def fig2():
                  "(taxa de fraude idêntica em todas as regiões, por construção)")
     ax.margins(y=0.12)
     ax.grid(alpha=0.25); ax.legend(frameon=False, loc="upper right")
+    eixo_ptbr(ax)
     # Ressalva obrigatoria: a inversao de sinal de B NAO e' robusta.
     ax.text(0.0, -0.20,
             "Configuração de referência (β = 0,55; π = 0,15; ruído = 0,16). "
