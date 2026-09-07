@@ -10,8 +10,8 @@ fonte, nunca da populacao.
 from dataclasses import dataclass, field
 import numpy as np
 
-RAS = ["Plano Piloto", "Aguas Claras", "Guara", "Taguatinga",
-       "Gama", "Sobradinho", "Samambaia", "Ceilandia"]
+RAS = ["Plano Piloto", "Águas Claras", "Guará", "Taguatinga",
+       "Gama", "Sobradinho", "Samambaia", "Ceilândia"]
 
 # Cobertura do cadastro territorial por RA.
 # ESTIPULADO, nao medido -- ver Etapa 3a do plano (buscar dado real no
