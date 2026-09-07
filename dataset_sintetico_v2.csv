@@ -1,0 +1,5001 @@
+﻿case_id;regiao_administrativa;cobertura_cadastral;evidencia_status;evidencia_endereco;evidencia_valor;n_evidencias;fraude_latente
+CASE-00001;Sobradinho;0.70;0;0;0;0;0
+CASE-00002;Águas Claras;0.94;1;0;1;2;1
+CASE-00003;Águas Claras;0.94;0;0;0;0;0
+CASE-00004;Taguatinga;0.84;0;1;0;1;0
+CASE-00005;Sobradinho;0.70;0;0;0;0;0
+CASE-00006;Gama;0.76;0;0;0;0;0
+CASE-00007;Gama;0.76;0;0;0;0;0
+CASE-00008;Taguatinga;0.84;1;1;1;3;1
+CASE-00009;Ceilândia;0.55;0;1;0;1;0
+CASE-00010;Taguatinga;0.84;0;0;0;0;0
+CASE-00011;Guará;0.90;0;0;0;0;0
+CASE-00012;Taguatinga;0.84;0;1;0;1;0
+CASE-00013;Taguatinga;0.84;0;1;0;1;0
+CASE-00014;Samambaia;0.62;0;1;0;1;0
+CASE-00015;Sobradinho;0.70;1;0;0;1;0
+CASE-00016;Samambaia;0.62;0;1;0;1;0
+CASE-00017;Águas Claras;0.94;1;0;0;1;0
+CASE-00018;Sobradinho;0.70;0;0;0;0;0
+CASE-00019;Samambaia;0.62;0;1;0;1;0
+CASE-00020;Ceilândia;0.55;0;0;1;1;1
+CASE-00021;Taguatinga;0.84;1;0;0;1;0
+CASE-00022;Guará;0.90;0;1;0;1;0
+CASE-00023;Samambaia;0.62;1;1;1;3;0
+CASE-00024;Taguatinga;0.84;0;1;0;1;0
+CASE-00025;Taguatinga;0.84;0;0;0;0;0
+CASE-00026;Águas Claras;0.94;0;0;0;0;0
+CASE-00027;Gama;0.76;0;0;0;0;0
+CASE-00028;Guará;0.90;1;1;0;2;0
+CASE-00029;Águas Claras;0.94;0;0;0;0;0
+CASE-00030;Gama;0.76;0;0;0;0;0
+CASE-00031;Samambaia;0.62;1;0;0;1;0
+CASE-00032;Ceilândia;0.55;0;0;1;1;0
+CASE-00033;Samambaia;0.62;0;0;0;0;0
+CASE-00034;Sobradinho;0.70;0;1;0;1;0
+CASE-00035;Gama;0.76;0;0;0;0;0
+CASE-00036;Plano Piloto;0.97;0;1;0;1;1
+CASE-00037;Samambaia;0.62;1;0;0;1;0
+CASE-00038;Samambaia;0.62;0;0;0;0;0
+CASE-00039;Águas Claras;0.94;0;0;0;0;0
+CASE-00040;Gama;0.76;1;0;0;1;0
+CASE-00041;Plano Piloto;0.97;0;0;0;0;0
+CASE-00042;Guará;0.90;0;0;1;1;0
+CASE-00043;Guará;0.90;0;0;0;0;0
+CASE-00044;Águas Claras;0.94;0;0;1;1;0
+CASE-00045;Gama;0.76;0;0;0;0;0
+CASE-00046;Plano Piloto;0.97;0;0;0;0;0
+CASE-00047;Samambaia;0.62;1;0;0;1;0
+CASE-00048;Ceilândia;0.55;0;0;0;0;0
+CASE-00049;Sobradinho;0.70;0;0;1;1;0
+CASE-00050;Ceilândia;0.55;0;0;0;0;0
+CASE-00051;Gama;0.76;1;0;1;2;1
+CASE-00052;Taguatinga;0.84;1;0;0;1;0
+CASE-00053;Gama;0.76;1;1;1;3;0
+CASE-00054;Taguatinga;0.84;0;0;0;0;0
+CASE-00055;Sobradinho;0.70;0;0;1;1;0
+CASE-00056;Taguatinga;0.84;0;0;0;0;0
+CASE-00057;Sobradinho;0.70;0;1;0;1;0
+CASE-00058;Ceilândia;0.55;0;0;0;0;0
+CASE-00059;Sobradinho;0.70;0;0;0;0;0
+CASE-00060;Águas Claras;0.94;1;1;1;3;1
+CASE-00061;Ceilândia;0.55;0;0;0;0;0
+CASE-00062;Samambaia;0.62;1;1;1;3;1
+CASE-00063;Águas Claras;0.94;1;0;0;1;0
+CASE-00064;Guará;0.90;0;0;0;0;0
+CASE-00065;Gama;0.76;0;0;0;0;0
+CASE-00066;Plano Piloto;0.97;0;0;0;0;0
+CASE-00067;Samambaia;0.62;0;0;0;0;0
+CASE-00068;Ceilândia;0.55;1;1;0;2;1
+CASE-00069;Sobradinho;0.70;0;0;1;1;0
+CASE-00070;Sobradinho;0.70;0;0;0;0;0
+CASE-00071;Samambaia;0.62;0;0;0;0;0
+CASE-00072;Taguatinga;0.84;0;0;0;0;0
+CASE-00073;Samambaia;0.62;0;0;0;0;0
+CASE-00074;Ceilândia;0.55;0;0;0;0;0
+CASE-00075;Ceilândia;0.55;1;0;0;1;0
+CASE-00076;Ceilândia;0.55;1;0;1;2;0
+CASE-00077;Gama;0.76;0;0;0;0;0
+CASE-00078;Gama;0.76;0;1;0;1;0
+CASE-00079;Águas Claras;0.94;0;0;0;0;0
+CASE-00080;Taguatinga;0.84;1;0;0;1;1
+CASE-00081;Samambaia;0.62;0;1;0;1;0
+CASE-00082;Gama;0.76;0;0;0;0;0
+CASE-00083;Taguatinga;0.84;1;1;0;2;1
+CASE-00084;Guará;0.90;0;0;0;0;0
+CASE-00085;Águas Claras;0.94;0;1;0;1;0
+CASE-00086;Gama;0.76;1;1;1;3;1
+CASE-00087;Samambaia;0.62;1;0;0;1;1
+CASE-00088;Plano Piloto;0.97;0;1;1;2;1
+CASE-00089;Ceilândia;0.55;0;0;0;0;0
+CASE-00090;Ceilândia;0.55;0;1;0;1;0
+CASE-00091;Guará;0.90;0;0;0;0;0
+CASE-00092;Gama;0.76;0;0;0;0;0
+CASE-00093;Taguatinga;0.84;1;1;1;3;1
+CASE-00094;Águas Claras;0.94;0;0;1;1;0
+CASE-00095;Águas Claras;0.94;0;0;0;0;0
+CASE-00096;Ceilândia;0.55;1;0;1;2;0
+CASE-00097;Guará;0.90;0;0;0;0;0
+CASE-00098;Sobradinho;0.70;0;0;0;0;0
+CASE-00099;Águas Claras;0.94;0;0;0;0;0
+CASE-00100;Plano Piloto;0.97;0;0;0;0;0
+CASE-00101;Águas Claras;0.94;0;0;0;0;0
+CASE-00102;Ceilândia;0.55;0;0;1;1;0
+CASE-00103;Ceilândia;0.55;0;0;0;0;0
+CASE-00104;Plano Piloto;0.97;1;1;0;2;1
+CASE-00105;Gama;0.76;0;0;0;0;0
+CASE-00106;Taguatinga;0.84;1;1;1;3;1
+CASE-00107;Ceilândia;0.55;0;1;0;1;0
+CASE-00108;Taguatinga;0.84;1;1;0;2;1
+CASE-00109;Ceilândia;0.55;0;0;0;0;0
+CASE-00110;Plano Piloto;0.97;1;1;1;3;1
+CASE-00111;Gama;0.76;0;1;0;1;0
+CASE-00112;Gama;0.76;0;0;0;0;0
+CASE-00113;Ceilândia;0.55;0;1;0;1;0
+CASE-00114;Sobradinho;0.70;0;0;1;1;0
+CASE-00115;Ceilândia;0.55;0;1;0;1;0
+CASE-00116;Águas Claras;0.94;0;0;0;0;0
+CASE-00117;Plano Piloto;0.97;0;1;0;1;0
+CASE-00118;Plano Piloto;0.97;1;1;1;3;1
+CASE-00119;Taguatinga;0.84;0;0;0;0;0
+CASE-00120;Plano Piloto;0.97;1;0;0;1;0
+CASE-00121;Samambaia;0.62;1;0;1;2;0
+CASE-00122;Samambaia;0.62;0;0;0;0;0
+CASE-00123;Águas Claras;0.94;0;0;0;0;0
+CASE-00124;Gama;0.76;0;0;0;0;0
+CASE-00125;Ceilândia;0.55;0;0;0;0;0
+CASE-00126;Samambaia;0.62;0;0;0;0;0
+CASE-00127;Plano Piloto;0.97;0;1;0;1;0
+CASE-00128;Gama;0.76;0;0;0;0;0
+CASE-00129;Gama;0.76;1;0;0;1;0
+CASE-00130;Taguatinga;0.84;0;0;1;1;1
+CASE-00131;Guará;0.90;0;0;0;0;0
+CASE-00132;Plano Piloto;0.97;0;0;1;1;0
+CASE-00133;Águas Claras;0.94;1;0;0;1;0
+CASE-00134;Águas Claras;0.94;0;0;0;0;0
+CASE-00135;Taguatinga;0.84;0;0;0;0;0
+CASE-00136;Plano Piloto;0.97;0;0;0;0;0
+CASE-00137;Samambaia;0.62;0;0;0;0;0
+CASE-00138;Ceilândia;0.55;0;1;0;1;0
+CASE-00139;Águas Claras;0.94;0;1;0;1;1
+CASE-00140;Sobradinho;0.70;0;1;0;1;0
+CASE-00141;Sobradinho;0.70;0;0;0;0;0
+CASE-00142;Gama;0.76;0;0;0;0;0
+CASE-00143;Ceilândia;0.55;0;0;0;0;0
+CASE-00144;Samambaia;0.62;0;1;0;1;0
+CASE-00145;Plano Piloto;0.97;0;1;0;1;1
+CASE-00146;Gama;0.76;0;0;0;0;0
+CASE-00147;Águas Claras;0.94;0;0;1;1;0
+CASE-00148;Ceilândia;0.55;0;1;0;1;0
+CASE-00149;Águas Claras;0.94;0;0;1;1;0
+CASE-00150;Ceilândia;0.55;0;1;0;1;0
+CASE-00151;Sobradinho;0.70;0;1;0;1;1
+CASE-00152;Samambaia;0.62;0;1;0;1;0
+CASE-00153;Sobradinho;0.70;0;0;0;0;0
+CASE-00154;Águas Claras;0.94;0;0;0;0;0
+CASE-00155;Águas Claras;0.94;0;0;0;0;0
+CASE-00156;Águas Claras;0.94;0;0;0;0;0
+CASE-00157;Guará;0.90;0;0;0;0;0
+CASE-00158;Ceilândia;0.55;1;0;0;1;1
+CASE-00159;Águas Claras;0.94;0;0;1;1;0
+CASE-00160;Gama;0.76;0;1;0;1;0
+CASE-00161;Águas Claras;0.94;0;0;1;1;0
+CASE-00162;Taguatinga;0.84;0;1;0;1;0
+CASE-00163;Gama;0.76;0;0;0;0;0
+CASE-00164;Gama;0.76;1;1;0;2;0
+CASE-00165;Plano Piloto;0.97;0;0;0;0;0
+CASE-00166;Taguatinga;0.84;0;1;0;1;1
+CASE-00167;Sobradinho;0.70;0;1;0;1;0
+CASE-00168;Plano Piloto;0.97;0;0;1;1;0
+CASE-00169;Águas Claras;0.94;0;0;0;0;0
+CASE-00170;Taguatinga;0.84;0;1;0;1;0
+CASE-00171;Águas Claras;0.94;0;0;0;0;0
+CASE-00172;Gama;0.76;0;0;0;0;0
+CASE-00173;Sobradinho;0.70;0;0;0;0;0
+CASE-00174;Águas Claras;0.94;0;0;0;0;0
+CASE-00175;Ceilândia;0.55;0;1;1;2;0
+CASE-00176;Águas Claras;0.94;0;0;0;0;0
+CASE-00177;Águas Claras;0.94;0;0;0;0;0
+CASE-00178;Sobradinho;0.70;1;1;0;2;1
+CASE-00179;Ceilândia;0.55;0;0;1;1;0
+CASE-00180;Sobradinho;0.70;0;0;1;1;0
+CASE-00181;Samambaia;0.62;1;1;1;3;1
+CASE-00182;Águas Claras;0.94;0;0;0;0;0
+CASE-00183;Águas Claras;0.94;0;1;0;1;0
+CASE-00184;Plano Piloto;0.97;0;0;0;0;0
+CASE-00185;Samambaia;0.62;0;0;0;0;0
+CASE-00186;Águas Claras;0.94;0;0;0;0;0
+CASE-00187;Ceilândia;0.55;0;0;0;0;0
+CASE-00188;Sobradinho;0.70;0;0;0;0;0
+CASE-00189;Samambaia;0.62;0;0;0;0;0
+CASE-00190;Sobradinho;0.70;0;0;0;0;0
+CASE-00191;Samambaia;0.62;1;0;0;1;0
+CASE-00192;Gama;0.76;1;1;0;2;0
+CASE-00193;Sobradinho;0.70;0;0;0;0;0
+CASE-00194;Guará;0.90;1;1;1;3;1
+CASE-00195;Samambaia;0.62;0;0;0;0;0
+CASE-00196;Sobradinho;0.70;1;0;0;1;0
+CASE-00197;Guará;0.90;0;0;0;0;0
+CASE-00198;Samambaia;0.62;0;0;1;1;0
+CASE-00199;Ceilândia;0.55;0;0;0;0;0
+CASE-00200;Águas Claras;0.94;0;0;1;1;0
+CASE-00201;Guará;0.90;1;0;0;1;0
+CASE-00202;Guará;0.90;0;1;0;1;0
+CASE-00203;Sobradinho;0.70;1;0;1;2;1
+CASE-00204;Guará;0.90;0;0;0;0;0
+CASE-00205;Gama;0.76;0;0;0;0;0
+CASE-00206;Plano Piloto;0.97;0;0;0;0;0
+CASE-00207;Plano Piloto;0.97;0;0;0;0;0
+CASE-00208;Taguatinga;0.84;1;0;0;1;0
+CASE-00209;Ceilândia;0.55;0;1;0;1;0
+CASE-00210;Samambaia;0.62;0;0;0;0;0
+CASE-00211;Águas Claras;0.94;0;0;0;0;0
+CASE-00212;Águas Claras;0.94;1;1;1;3;1
+CASE-00213;Águas Claras;0.94;0;1;0;1;0
+CASE-00214;Sobradinho;0.70;0;0;0;0;0
+CASE-00215;Samambaia;0.62;0;0;1;1;0
+CASE-00216;Gama;0.76;1;1;0;2;0
+CASE-00217;Águas Claras;0.94;1;0;0;1;0
+CASE-00218;Ceilândia;0.55;0;0;0;0;0
+CASE-00219;Samambaia;0.62;0;1;1;2;1
+CASE-00220;Samambaia;0.62;1;0;0;1;0
+CASE-00221;Sobradinho;0.70;1;1;0;2;1
+CASE-00222;Plano Piloto;0.97;0;1;0;1;0
+CASE-00223;Sobradinho;0.70;0;0;0;0;0
+CASE-00224;Samambaia;0.62;0;0;0;0;0
+CASE-00225;Ceilândia;0.55;0;1;0;1;0
+CASE-00226;Águas Claras;0.94;1;0;1;2;0
+CASE-00227;Plano Piloto;0.97;0;0;1;1;0
+CASE-00228;Sobradinho;0.70;0;0;0;0;0
+CASE-00229;Samambaia;0.62;0;0;0;0;0
+CASE-00230;Gama;0.76;0;0;0;0;0
+CASE-00231;Sobradinho;0.70;0;1;0;1;0
+CASE-00232;Ceilândia;0.55;0;1;0;1;0
+CASE-00233;Sobradinho;0.70;0;0;1;1;0
+CASE-00234;Ceilândia;0.55;1;1;0;2;0
+CASE-00235;Ceilândia;0.55;0;1;0;1;0
+CASE-00236;Gama;0.76;0;0;0;0;0
+CASE-00237;Samambaia;0.62;0;0;0;0;0
+CASE-00238;Plano Piloto;0.97;0;1;1;2;1
+CASE-00239;Águas Claras;0.94;0;0;0;0;0
+CASE-00240;Plano Piloto;0.97;0;0;0;0;0
+CASE-00241;Gama;0.76;0;1;1;2;1
+CASE-00242;Samambaia;0.62;0;0;1;1;1
+CASE-00243;Taguatinga;0.84;0;0;0;0;0
+CASE-00244;Sobradinho;0.70;0;0;0;0;0
+CASE-00245;Taguatinga;0.84;1;1;1;3;1
+CASE-00246;Guará;0.90;0;1;0;1;0
+CASE-00247;Guará;0.90;0;0;0;0;0
+CASE-00248;Plano Piloto;0.97;0;1;0;1;0
+CASE-00249;Taguatinga;0.84;0;1;0;1;1
+CASE-00250;Guará;0.90;0;0;0;0;0
+CASE-00251;Plano Piloto;0.97;0;1;0;1;0
+CASE-00252;Ceilândia;0.55;0;0;1;1;0
+CASE-00253;Taguatinga;0.84;1;1;0;2;0
+CASE-00254;Plano Piloto;0.97;1;1;0;2;0
+CASE-00255;Taguatinga;0.84;1;0;0;1;0
+CASE-00256;Gama;0.76;0;0;0;0;0
+CASE-00257;Guará;0.90;0;1;0;1;1
+CASE-00258;Guará;0.90;0;1;1;2;1
+CASE-00259;Ceilândia;0.55;0;0;0;0;0
+CASE-00260;Gama;0.76;1;0;0;1;0
+CASE-00261;Taguatinga;0.84;0;1;0;1;0
+CASE-00262;Águas Claras;0.94;1;0;0;1;0
+CASE-00263;Águas Claras;0.94;0;1;1;2;1
+CASE-00264;Águas Claras;0.94;0;1;0;1;1
+CASE-00265;Plano Piloto;0.97;0;1;0;1;0
+CASE-00266;Guará;0.90;0;1;1;2;1
+CASE-00267;Plano Piloto;0.97;0;0;0;0;0
+CASE-00268;Taguatinga;0.84;0;0;0;0;0
+CASE-00269;Sobradinho;0.70;0;0;0;0;0
+CASE-00270;Samambaia;0.62;0;1;0;1;0
+CASE-00271;Ceilândia;0.55;1;0;1;2;1
+CASE-00272;Gama;0.76;0;0;0;0;0
+CASE-00273;Sobradinho;0.70;1;1;0;2;0
+CASE-00274;Águas Claras;0.94;0;1;0;1;0
+CASE-00275;Guará;0.90;0;0;0;0;0
+CASE-00276;Ceilândia;0.55;1;1;0;2;0
+CASE-00277;Taguatinga;0.84;0;1;0;1;0
+CASE-00278;Samambaia;0.62;0;0;0;0;0
+CASE-00279;Sobradinho;0.70;0;0;0;0;0
+CASE-00280;Taguatinga;0.84;0;1;0;1;0
+CASE-00281;Plano Piloto;0.97;0;1;1;2;1
+CASE-00282;Ceilândia;0.55;0;1;0;1;0
+CASE-00283;Águas Claras;0.94;1;0;0;1;0
+CASE-00284;Guará;0.90;1;1;1;3;1
+CASE-00285;Taguatinga;0.84;0;0;0;0;0
+CASE-00286;Samambaia;0.62;0;0;0;0;0
+CASE-00287;Gama;0.76;0;0;0;0;0
+CASE-00288;Guará;0.90;0;0;0;0;0
+CASE-00289;Ceilândia;0.55;0;0;0;0;0
+CASE-00290;Ceilândia;0.55;0;0;0;0;0
+CASE-00291;Guará;0.90;0;0;1;1;0
+CASE-00292;Samambaia;0.62;0;0;0;0;0
+CASE-00293;Gama;0.76;0;0;0;0;0
+CASE-00294;Ceilândia;0.55;0;0;0;0;0
+CASE-00295;Taguatinga;0.84;1;0;0;1;0
+CASE-00296;Guará;0.90;0;0;0;0;0
+CASE-00297;Guará;0.90;0;0;1;1;1
+CASE-00298;Plano Piloto;0.97;0;0;0;0;0
+CASE-00299;Sobradinho;0.70;0;0;0;0;0
+CASE-00300;Plano Piloto;0.97;1;1;0;2;1
+CASE-00301;Taguatinga;0.84;0;0;0;0;0
+CASE-00302;Gama;0.76;0;0;0;0;0
+CASE-00303;Águas Claras;0.94;0;0;0;0;0
+CASE-00304;Taguatinga;0.84;0;0;0;0;0
+CASE-00305;Samambaia;0.62;0;1;0;1;0
+CASE-00306;Taguatinga;0.84;0;1;1;2;0
+CASE-00307;Plano Piloto;0.97;0;0;0;0;1
+CASE-00308;Plano Piloto;0.97;0;1;0;1;0
+CASE-00309;Guará;0.90;0;0;0;0;0
+CASE-00310;Samambaia;0.62;1;0;0;1;0
+CASE-00311;Taguatinga;0.84;0;1;1;2;0
+CASE-00312;Plano Piloto;0.97;1;0;0;1;1
+CASE-00313;Ceilândia;0.55;0;0;0;0;0
+CASE-00314;Guará;0.90;0;0;0;0;0
+CASE-00315;Águas Claras;0.94;0;1;1;2;1
+CASE-00316;Guará;0.90;0;0;0;0;0
+CASE-00317;Águas Claras;0.94;0;0;0;0;0
+CASE-00318;Taguatinga;0.84;0;0;0;0;0
+CASE-00319;Águas Claras;0.94;0;0;0;0;0
+CASE-00320;Plano Piloto;0.97;0;0;0;0;0
+CASE-00321;Águas Claras;0.94;1;0;0;1;0
+CASE-00322;Guará;0.90;0;0;0;0;0
+CASE-00323;Plano Piloto;0.97;0;0;0;0;0
+CASE-00324;Sobradinho;0.70;1;1;0;2;0
+CASE-00325;Plano Piloto;0.97;0;0;1;1;0
+CASE-00326;Guará;0.90;0;0;0;0;0
+CASE-00327;Taguatinga;0.84;0;0;0;0;0
+CASE-00328;Ceilândia;0.55;0;0;0;0;0
+CASE-00329;Águas Claras;0.94;1;0;1;2;0
+CASE-00330;Samambaia;0.62;1;1;0;2;0
+CASE-00331;Samambaia;0.62;0;0;0;0;0
+CASE-00332;Ceilândia;0.55;0;1;0;1;0
+CASE-00333;Ceilândia;0.55;1;1;0;2;0
+CASE-00334;Taguatinga;0.84;1;0;1;2;1
+CASE-00335;Sobradinho;0.70;0;0;0;0;0
+CASE-00336;Samambaia;0.62;0;0;0;0;0
+CASE-00337;Guará;0.90;0;0;1;1;0
+CASE-00338;Gama;0.76;0;0;0;0;0
+CASE-00339;Plano Piloto;0.97;0;1;1;2;1
+CASE-00340;Águas Claras;0.94;0;0;0;0;0
+CASE-00341;Plano Piloto;0.97;0;0;0;0;0
+CASE-00342;Sobradinho;0.70;1;0;0;1;0
+CASE-00343;Plano Piloto;0.97;0;0;0;0;0
+CASE-00344;Plano Piloto;0.97;0;0;0;0;0
+CASE-00345;Águas Claras;0.94;0;0;0;0;0
+CASE-00346;Ceilândia;0.55;0;1;0;1;0
+CASE-00347;Gama;0.76;0;0;0;0;0
+CASE-00348;Águas Claras;0.94;1;0;1;2;0
+CASE-00349;Taguatinga;0.84;0;0;1;1;0
+CASE-00350;Sobradinho;0.70;0;1;0;1;0
+CASE-00351;Taguatinga;0.84;1;0;1;2;0
+CASE-00352;Taguatinga;0.84;0;0;0;0;0
+CASE-00353;Guará;0.90;0;0;0;0;0
+CASE-00354;Gama;0.76;1;1;1;3;1
+CASE-00355;Ceilândia;0.55;1;0;0;1;0
+CASE-00356;Gama;0.76;1;1;0;2;0
+CASE-00357;Plano Piloto;0.97;0;0;0;0;0
+CASE-00358;Ceilândia;0.55;0;1;0;1;0
+CASE-00359;Guará;0.90;0;1;0;1;0
+CASE-00360;Ceilândia;0.55;0;0;0;0;0
+CASE-00361;Plano Piloto;0.97;0;1;0;1;0
+CASE-00362;Samambaia;0.62;0;0;0;0;0
+CASE-00363;Sobradinho;0.70;0;0;1;1;0
+CASE-00364;Ceilândia;0.55;0;0;0;0;0
+CASE-00365;Guará;0.90;1;0;0;1;0
+CASE-00366;Taguatinga;0.84;1;0;1;2;0
+CASE-00367;Taguatinga;0.84;0;0;0;0;0
+CASE-00368;Guará;0.90;1;1;0;2;1
+CASE-00369;Ceilândia;0.55;0;0;0;0;0
+CASE-00370;Sobradinho;0.70;0;0;1;1;0
+CASE-00371;Ceilândia;0.55;0;1;0;1;0
+CASE-00372;Águas Claras;0.94;0;0;0;0;0
+CASE-00373;Sobradinho;0.70;0;1;0;1;0
+CASE-00374;Plano Piloto;0.97;0;0;0;0;0
+CASE-00375;Plano Piloto;0.97;0;0;1;1;0
+CASE-00376;Águas Claras;0.94;1;1;0;2;0
+CASE-00377;Guará;0.90;0;1;0;1;0
+CASE-00378;Taguatinga;0.84;0;0;0;0;0
+CASE-00379;Guará;0.90;0;0;0;0;0
+CASE-00380;Ceilândia;0.55;0;1;0;1;0
+CASE-00381;Plano Piloto;0.97;0;1;0;1;0
+CASE-00382;Sobradinho;0.70;0;0;0;0;0
+CASE-00383;Plano Piloto;0.97;0;0;1;1;0
+CASE-00384;Plano Piloto;0.97;0;0;0;0;0
+CASE-00385;Plano Piloto;0.97;0;0;0;0;0
+CASE-00386;Gama;0.76;1;1;1;3;1
+CASE-00387;Águas Claras;0.94;1;0;0;1;0
+CASE-00388;Sobradinho;0.70;0;0;0;0;0
+CASE-00389;Plano Piloto;0.97;0;0;0;0;0
+CASE-00390;Taguatinga;0.84;0;0;1;1;0
+CASE-00391;Ceilândia;0.55;0;1;0;1;0
+CASE-00392;Samambaia;0.62;1;0;0;1;0
+CASE-00393;Taguatinga;0.84;0;0;0;0;0
+CASE-00394;Taguatinga;0.84;0;0;0;0;0
+CASE-00395;Guará;0.90;0;1;0;1;0
+CASE-00396;Guará;0.90;0;0;0;0;0
+CASE-00397;Gama;0.76;1;0;0;1;0
+CASE-00398;Ceilândia;0.55;0;0;0;0;0
+CASE-00399;Taguatinga;0.84;0;1;0;1;0
+CASE-00400;Guará;0.90;0;1;0;1;1
+CASE-00401;Samambaia;0.62;0;0;0;0;0
+CASE-00402;Ceilândia;0.55;0;0;1;1;0
+CASE-00403;Ceilândia;0.55;1;0;0;1;0
+CASE-00404;Plano Piloto;0.97;0;0;0;0;0
+CASE-00405;Samambaia;0.62;0;1;0;1;0
+CASE-00406;Taguatinga;0.84;0;1;1;2;0
+CASE-00407;Taguatinga;0.84;0;0;0;0;0
+CASE-00408;Plano Piloto;0.97;1;1;1;3;0
+CASE-00409;Sobradinho;0.70;0;0;1;1;0
+CASE-00410;Sobradinho;0.70;0;0;0;0;0
+CASE-00411;Taguatinga;0.84;0;0;0;0;0
+CASE-00412;Plano Piloto;0.97;1;1;1;3;1
+CASE-00413;Plano Piloto;0.97;0;0;0;0;0
+CASE-00414;Gama;0.76;1;1;0;2;1
+CASE-00415;Guará;0.90;0;0;0;0;0
+CASE-00416;Guará;0.90;1;1;1;3;1
+CASE-00417;Taguatinga;0.84;0;0;0;0;0
+CASE-00418;Plano Piloto;0.97;0;0;1;1;0
+CASE-00419;Gama;0.76;0;0;0;0;0
+CASE-00420;Sobradinho;0.70;1;1;0;2;1
+CASE-00421;Plano Piloto;0.97;1;0;0;1;0
+CASE-00422;Águas Claras;0.94;1;0;1;2;1
+CASE-00423;Sobradinho;0.70;0;1;1;2;1
+CASE-00424;Sobradinho;0.70;1;0;0;1;0
+CASE-00425;Sobradinho;0.70;0;0;0;0;0
+CASE-00426;Guará;0.90;1;0;0;1;0
+CASE-00427;Sobradinho;0.70;1;1;1;3;1
+CASE-00428;Águas Claras;0.94;0;0;0;0;0
+CASE-00429;Samambaia;0.62;0;1;0;1;0
+CASE-00430;Plano Piloto;0.97;0;0;0;0;0
+CASE-00431;Ceilândia;0.55;0;1;1;2;1
+CASE-00432;Guará;0.90;1;0;0;1;1
+CASE-00433;Samambaia;0.62;0;1;0;1;0
+CASE-00434;Taguatinga;0.84;0;1;0;1;0
+CASE-00435;Samambaia;0.62;0;0;0;0;0
+CASE-00436;Águas Claras;0.94;0;0;0;0;0
+CASE-00437;Águas Claras;0.94;1;0;0;1;0
+CASE-00438;Plano Piloto;0.97;0;0;0;0;0
+CASE-00439;Samambaia;0.62;0;1;0;1;0
+CASE-00440;Guará;0.90;0;0;0;0;0
+CASE-00441;Guará;0.90;0;0;0;0;0
+CASE-00442;Ceilândia;0.55;0;1;0;1;0
+CASE-00443;Sobradinho;0.70;0;0;0;0;0
+CASE-00444;Sobradinho;0.70;0;1;0;1;0
+CASE-00445;Plano Piloto;0.97;0;0;0;0;0
+CASE-00446;Sobradinho;0.70;0;0;1;1;0
+CASE-00447;Guará;0.90;0;0;0;0;0
+CASE-00448;Taguatinga;0.84;0;0;0;0;0
+CASE-00449;Samambaia;0.62;0;0;0;0;0
+CASE-00450;Taguatinga;0.84;0;0;0;0;0
+CASE-00451;Ceilândia;0.55;0;0;0;0;0
+CASE-00452;Plano Piloto;0.97;0;0;0;0;0
+CASE-00453;Plano Piloto;0.97;0;0;0;0;1
+CASE-00454;Samambaia;0.62;0;1;1;2;0
+CASE-00455;Gama;0.76;0;0;0;0;0
+CASE-00456;Sobradinho;0.70;0;0;0;0;0
+CASE-00457;Plano Piloto;0.97;0;0;0;0;0
+CASE-00458;Ceilândia;0.55;0;1;1;2;1
+CASE-00459;Sobradinho;0.70;0;0;0;0;0
+CASE-00460;Guará;0.90;0;1;0;1;0
+CASE-00461;Samambaia;0.62;1;1;0;2;0
+CASE-00462;Águas Claras;0.94;1;0;0;1;0
+CASE-00463;Águas Claras;0.94;0;0;0;0;0
+CASE-00464;Taguatinga;0.84;0;0;0;0;0
+CASE-00465;Guará;0.90;1;0;1;2;0
+CASE-00466;Ceilândia;0.55;0;0;0;0;0
+CASE-00467;Sobradinho;0.70;1;1;0;2;1
+CASE-00468;Guará;0.90;0;1;0;1;0
+CASE-00469;Sobradinho;0.70;0;0;1;1;0
+CASE-00470;Gama;0.76;0;0;0;0;0
+CASE-00471;Gama;0.76;0;0;0;0;0
+CASE-00472;Plano Piloto;0.97;1;1;1;3;1
+CASE-00473;Samambaia;0.62;0;1;1;2;0
+CASE-00474;Gama;0.76;0;0;0;0;0
+CASE-00475;Guará;0.90;0;0;0;0;0
+CASE-00476;Plano Piloto;0.97;0;0;1;1;1
+CASE-00477;Ceilândia;0.55;0;1;0;1;0
+CASE-00478;Plano Piloto;0.97;0;0;0;0;0
+CASE-00479;Sobradinho;0.70;0;1;1;2;0
+CASE-00480;Samambaia;0.62;0;0;0;0;0
+CASE-00481;Sobradinho;0.70;0;0;0;0;0
+CASE-00482;Samambaia;0.62;0;1;0;1;0
+CASE-00483;Águas Claras;0.94;0;0;1;1;0
+CASE-00484;Samambaia;0.62;1;0;1;2;1
+CASE-00485;Gama;0.76;0;0;1;1;0
+CASE-00486;Gama;0.76;1;0;0;1;0
+CASE-00487;Ceilândia;0.55;0;1;0;1;0
+CASE-00488;Sobradinho;0.70;1;1;0;2;0
+CASE-00489;Guará;0.90;1;0;0;1;0
+CASE-00490;Guará;0.90;1;0;0;1;0
+CASE-00491;Samambaia;0.62;0;0;0;0;0
+CASE-00492;Gama;0.76;0;1;0;1;0
+CASE-00493;Ceilândia;0.55;0;1;0;1;0
+CASE-00494;Plano Piloto;0.97;0;0;0;0;0
+CASE-00495;Plano Piloto;0.97;0;0;1;1;0
+CASE-00496;Sobradinho;0.70;0;1;0;1;0
+CASE-00497;Sobradinho;0.70;1;1;0;2;1
+CASE-00498;Samambaia;0.62;0;1;0;1;0
+CASE-00499;Guará;0.90;0;0;0;0;0
+CASE-00500;Gama;0.76;0;0;0;0;0
+CASE-00501;Plano Piloto;0.97;0;0;0;0;0
+CASE-00502;Taguatinga;0.84;0;0;0;0;1
+CASE-00503;Guará;0.90;0;0;0;0;0
+CASE-00504;Sobradinho;0.70;1;1;0;2;1
+CASE-00505;Gama;0.76;0;1;0;1;0
+CASE-00506;Guará;0.90;0;1;0;1;1
+CASE-00507;Gama;0.76;0;1;0;1;0
+CASE-00508;Sobradinho;0.70;1;1;0;2;1
+CASE-00509;Guará;0.90;1;0;0;1;0
+CASE-00510;Gama;0.76;0;0;0;0;0
+CASE-00511;Gama;0.76;1;1;1;3;1
+CASE-00512;Sobradinho;0.70;0;0;0;0;0
+CASE-00513;Samambaia;0.62;0;1;0;1;0
+CASE-00514;Samambaia;0.62;0;1;1;2;1
+CASE-00515;Taguatinga;0.84;0;0;1;1;0
+CASE-00516;Gama;0.76;0;0;0;0;0
+CASE-00517;Plano Piloto;0.97;0;0;0;0;0
+CASE-00518;Samambaia;0.62;1;0;0;1;0
+CASE-00519;Sobradinho;0.70;0;1;0;1;0
+CASE-00520;Gama;0.76;0;0;0;0;0
+CASE-00521;Ceilândia;0.55;0;1;0;1;1
+CASE-00522;Samambaia;0.62;1;1;0;2;1
+CASE-00523;Ceilândia;0.55;1;1;0;2;1
+CASE-00524;Ceilândia;0.55;0;0;0;0;0
+CASE-00525;Gama;0.76;1;1;0;2;1
+CASE-00526;Plano Piloto;0.97;0;0;1;1;0
+CASE-00527;Guará;0.90;0;1;0;1;0
+CASE-00528;Sobradinho;0.70;0;1;0;1;0
+CASE-00529;Taguatinga;0.84;0;0;0;0;0
+CASE-00530;Samambaia;0.62;0;0;0;0;0
+CASE-00531;Sobradinho;0.70;0;0;0;0;0
+CASE-00532;Taguatinga;0.84;0;0;0;0;0
+CASE-00533;Ceilândia;0.55;0;1;1;2;0
+CASE-00534;Taguatinga;0.84;0;1;0;1;0
+CASE-00535;Ceilândia;0.55;1;0;0;1;0
+CASE-00536;Águas Claras;0.94;0;0;0;0;1
+CASE-00537;Guará;0.90;0;0;0;0;0
+CASE-00538;Sobradinho;0.70;0;1;1;2;0
+CASE-00539;Sobradinho;0.70;1;1;0;2;0
+CASE-00540;Sobradinho;0.70;0;0;0;0;0
+CASE-00541;Samambaia;0.62;0;1;0;1;0
+CASE-00542;Plano Piloto;0.97;1;0;0;1;0
+CASE-00543;Ceilândia;0.55;1;1;0;2;0
+CASE-00544;Ceilândia;0.55;0;0;0;0;0
+CASE-00545;Guará;0.90;0;1;0;1;0
+CASE-00546;Guará;0.90;0;0;0;0;0
+CASE-00547;Plano Piloto;0.97;1;0;0;1;0
+CASE-00548;Gama;0.76;0;0;0;0;1
+CASE-00549;Taguatinga;0.84;0;1;0;1;0
+CASE-00550;Plano Piloto;0.97;0;0;0;0;0
+CASE-00551;Águas Claras;0.94;0;0;1;1;0
+CASE-00552;Sobradinho;0.70;0;0;0;0;0
+CASE-00553;Plano Piloto;0.97;0;0;0;0;0
+CASE-00554;Plano Piloto;0.97;0;0;0;0;0
+CASE-00555;Águas Claras;0.94;0;0;0;0;0
+CASE-00556;Plano Piloto;0.97;0;0;0;0;0
+CASE-00557;Taguatinga;0.84;0;0;0;0;0
+CASE-00558;Guará;0.90;0;0;0;0;0
+CASE-00559;Plano Piloto;0.97;0;0;0;0;0
+CASE-00560;Águas Claras;0.94;0;0;0;0;0
+CASE-00561;Ceilândia;0.55;0;1;0;1;0
+CASE-00562;Ceilândia;0.55;1;1;1;3;1
+CASE-00563;Guará;0.90;1;0;0;1;0
+CASE-00564;Águas Claras;0.94;0;0;0;0;0
+CASE-00565;Taguatinga;0.84;0;0;0;0;0
+CASE-00566;Sobradinho;0.70;0;1;0;1;0
+CASE-00567;Ceilândia;0.55;0;0;0;0;0
+CASE-00568;Gama;0.76;0;0;0;0;0
+CASE-00569;Plano Piloto;0.97;0;0;1;1;0
+CASE-00570;Sobradinho;0.70;1;1;1;3;1
+CASE-00571;Águas Claras;0.94;1;1;1;3;1
+CASE-00572;Águas Claras;0.94;1;0;0;1;0
+CASE-00573;Guará;0.90;1;0;0;1;0
+CASE-00574;Guará;0.90;1;1;1;3;1
+CASE-00575;Águas Claras;0.94;0;0;0;0;0
+CASE-00576;Plano Piloto;0.97;0;0;0;0;0
+CASE-00577;Sobradinho;0.70;0;0;0;0;0
+CASE-00578;Ceilândia;0.55;0;1;0;1;0
+CASE-00579;Plano Piloto;0.97;0;1;0;1;0
+CASE-00580;Plano Piloto;0.97;0;0;0;0;0
+CASE-00581;Águas Claras;0.94;0;0;0;0;0
+CASE-00582;Águas Claras;0.94;0;0;0;0;0
+CASE-00583;Taguatinga;0.84;1;0;1;2;0
+CASE-00584;Gama;0.76;0;0;1;1;0
+CASE-00585;Guará;0.90;0;0;0;0;0
+CASE-00586;Gama;0.76;0;1;1;2;1
+CASE-00587;Guará;0.90;0;0;0;0;0
+CASE-00588;Ceilândia;0.55;0;0;0;0;0
+CASE-00589;Samambaia;0.62;0;1;0;1;0
+CASE-00590;Samambaia;0.62;1;1;1;3;1
+CASE-00591;Sobradinho;0.70;0;0;0;0;0
+CASE-00592;Guará;0.90;0;0;0;0;0
+CASE-00593;Gama;0.76;0;1;0;1;1
+CASE-00594;Ceilândia;0.55;0;0;1;1;0
+CASE-00595;Plano Piloto;0.97;0;0;1;1;0
+CASE-00596;Plano Piloto;0.97;0;0;0;0;0
+CASE-00597;Sobradinho;0.70;0;0;0;0;0
+CASE-00598;Plano Piloto;0.97;0;0;0;0;0
+CASE-00599;Ceilândia;0.55;0;1;1;2;0
+CASE-00600;Gama;0.76;0;0;0;0;0
+CASE-00601;Samambaia;0.62;0;0;0;0;0
+CASE-00602;Guará;0.90;0;0;0;0;0
+CASE-00603;Samambaia;0.62;0;1;0;1;0
+CASE-00604;Plano Piloto;0.97;0;0;0;0;0
+CASE-00605;Plano Piloto;0.97;0;0;1;1;0
+CASE-00606;Águas Claras;0.94;0;0;0;0;0
+CASE-00607;Samambaia;0.62;1;0;1;2;1
+CASE-00608;Sobradinho;0.70;0;1;0;1;0
+CASE-00609;Sobradinho;0.70;0;0;0;0;0
+CASE-00610;Samambaia;0.62;0;0;0;0;0
+CASE-00611;Águas Claras;0.94;0;0;0;0;0
+CASE-00612;Samambaia;0.62;0;0;0;0;0
+CASE-00613;Gama;0.76;0;0;0;0;0
+CASE-00614;Águas Claras;0.94;0;0;0;0;0
+CASE-00615;Taguatinga;0.84;0;0;1;1;0
+CASE-00616;Plano Piloto;0.97;0;0;0;0;0
+CASE-00617;Sobradinho;0.70;0;0;0;0;0
+CASE-00618;Guará;0.90;1;1;1;3;1
+CASE-00619;Gama;0.76;0;1;0;1;0
+CASE-00620;Taguatinga;0.84;0;0;0;0;0
+CASE-00621;Gama;0.76;0;0;0;0;0
+CASE-00622;Samambaia;0.62;0;0;0;0;0
+CASE-00623;Sobradinho;0.70;1;0;0;1;0
+CASE-00624;Gama;0.76;0;0;0;0;0
+CASE-00625;Águas Claras;0.94;0;0;0;0;0
+CASE-00626;Gama;0.76;0;1;0;1;1
+CASE-00627;Samambaia;0.62;1;1;0;2;0
+CASE-00628;Taguatinga;0.84;0;0;0;0;0
+CASE-00629;Samambaia;0.62;0;0;0;0;0
+CASE-00630;Ceilândia;0.55;0;1;0;1;0
+CASE-00631;Samambaia;0.62;0;1;1;2;0
+CASE-00632;Sobradinho;0.70;1;0;0;1;0
+CASE-00633;Sobradinho;0.70;0;0;0;0;0
+CASE-00634;Taguatinga;0.84;1;0;0;1;0
+CASE-00635;Águas Claras;0.94;1;0;0;1;0
+CASE-00636;Águas Claras;0.94;1;0;0;1;0
+CASE-00637;Plano Piloto;0.97;0;0;0;0;0
+CASE-00638;Ceilândia;0.55;0;0;1;1;0
+CASE-00639;Gama;0.76;1;0;0;1;0
+CASE-00640;Samambaia;0.62;1;1;1;3;1
+CASE-00641;Taguatinga;0.84;0;0;0;0;0
+CASE-00642;Guará;0.90;1;0;0;1;0
+CASE-00643;Gama;0.76;0;1;0;1;0
+CASE-00644;Guará;0.90;1;0;0;1;0
+CASE-00645;Plano Piloto;0.97;0;0;0;0;0
+CASE-00646;Sobradinho;0.70;0;0;0;0;0
+CASE-00647;Ceilândia;0.55;0;1;1;2;0
+CASE-00648;Guará;0.90;0;1;0;1;0
+CASE-00649;Plano Piloto;0.97;0;0;0;0;0
+CASE-00650;Ceilândia;0.55;0;1;1;2;1
+CASE-00651;Ceilândia;0.55;0;0;0;0;0
+CASE-00652;Sobradinho;0.70;0;1;1;2;1
+CASE-00653;Guará;0.90;0;0;0;0;0
+CASE-00654;Taguatinga;0.84;0;0;0;0;0
+CASE-00655;Plano Piloto;0.97;0;0;0;0;0
+CASE-00656;Samambaia;0.62;0;1;1;2;1
+CASE-00657;Sobradinho;0.70;0;0;0;0;0
+CASE-00658;Águas Claras;0.94;0;0;0;0;0
+CASE-00659;Samambaia;0.62;0;1;0;1;0
+CASE-00660;Taguatinga;0.84;0;1;1;2;0
+CASE-00661;Taguatinga;0.84;1;1;0;2;1
+CASE-00662;Sobradinho;0.70;0;0;0;0;0
+CASE-00663;Guará;0.90;0;1;0;1;0
+CASE-00664;Gama;0.76;0;0;0;0;0
+CASE-00665;Águas Claras;0.94;0;0;1;1;1
+CASE-00666;Gama;0.76;1;1;0;2;1
+CASE-00667;Plano Piloto;0.97;0;0;1;1;0
+CASE-00668;Ceilândia;0.55;0;0;1;1;0
+CASE-00669;Guará;0.90;1;0;0;1;0
+CASE-00670;Sobradinho;0.70;0;0;0;0;0
+CASE-00671;Sobradinho;0.70;0;0;0;0;0
+CASE-00672;Águas Claras;0.94;1;1;0;2;1
+CASE-00673;Taguatinga;0.84;0;0;0;0;0
+CASE-00674;Sobradinho;0.70;0;0;0;0;0
+CASE-00675;Samambaia;0.62;0;1;0;1;0
+CASE-00676;Ceilândia;0.55;0;1;1;2;0
+CASE-00677;Águas Claras;0.94;1;0;0;1;0
+CASE-00678;Taguatinga;0.84;0;1;1;2;0
+CASE-00679;Gama;0.76;0;0;0;0;0
+CASE-00680;Ceilândia;0.55;1;1;0;2;1
+CASE-00681;Águas Claras;0.94;0;0;0;0;0
+CASE-00682;Samambaia;0.62;0;0;0;0;0
+CASE-00683;Gama;0.76;0;0;0;0;0
+CASE-00684;Plano Piloto;0.97;0;1;0;1;0
+CASE-00685;Águas Claras;0.94;1;1;1;3;1
+CASE-00686;Sobradinho;0.70;0;0;0;0;0
+CASE-00687;Águas Claras;0.94;0;0;0;0;0
+CASE-00688;Gama;0.76;0;1;0;1;0
+CASE-00689;Gama;0.76;0;0;0;0;0
+CASE-00690;Samambaia;0.62;0;0;0;0;0
+CASE-00691;Gama;0.76;0;0;0;0;0
+CASE-00692;Ceilândia;0.55;1;0;1;2;0
+CASE-00693;Águas Claras;0.94;0;0;0;0;0
+CASE-00694;Plano Piloto;0.97;1;0;1;2;0
+CASE-00695;Águas Claras;0.94;0;0;0;0;0
+CASE-00696;Ceilândia;0.55;0;0;0;0;0
+CASE-00697;Samambaia;0.62;0;0;1;1;0
+CASE-00698;Águas Claras;0.94;0;0;0;0;0
+CASE-00699;Taguatinga;0.84;0;0;0;0;0
+CASE-00700;Águas Claras;0.94;0;1;0;1;0
+CASE-00701;Plano Piloto;0.97;0;0;0;0;0
+CASE-00702;Sobradinho;0.70;0;0;0;0;0
+CASE-00703;Guará;0.90;0;0;1;1;0
+CASE-00704;Samambaia;0.62;0;0;0;0;0
+CASE-00705;Gama;0.76;1;0;0;1;0
+CASE-00706;Taguatinga;0.84;0;0;0;0;0
+CASE-00707;Samambaia;0.62;0;0;1;1;0
+CASE-00708;Sobradinho;0.70;0;0;0;0;0
+CASE-00709;Sobradinho;0.70;0;0;0;0;0
+CASE-00710;Gama;0.76;0;0;0;0;0
+CASE-00711;Samambaia;0.62;0;1;0;1;0
+CASE-00712;Sobradinho;0.70;1;1;1;3;1
+CASE-00713;Taguatinga;0.84;0;1;1;2;0
+CASE-00714;Ceilândia;0.55;0;0;0;0;0
+CASE-00715;Samambaia;0.62;0;1;1;2;1
+CASE-00716;Guará;0.90;0;0;0;0;0
+CASE-00717;Gama;0.76;1;0;0;1;0
+CASE-00718;Gama;0.76;0;0;0;0;0
+CASE-00719;Guará;0.90;0;1;0;1;0
+CASE-00720;Plano Piloto;0.97;1;0;1;2;1
+CASE-00721;Sobradinho;0.70;0;0;0;0;0
+CASE-00722;Taguatinga;0.84;0;1;0;1;0
+CASE-00723;Ceilândia;0.55;1;0;0;1;0
+CASE-00724;Taguatinga;0.84;0;0;0;0;0
+CASE-00725;Taguatinga;0.84;0;0;0;0;0
+CASE-00726;Taguatinga;0.84;0;0;1;1;0
+CASE-00727;Guará;0.90;0;0;0;0;0
+CASE-00728;Samambaia;0.62;0;0;1;1;0
+CASE-00729;Sobradinho;0.70;0;0;0;0;0
+CASE-00730;Samambaia;0.62;0;0;0;0;0
+CASE-00731;Sobradinho;0.70;0;0;1;1;1
+CASE-00732;Águas Claras;0.94;0;0;0;0;0
+CASE-00733;Taguatinga;0.84;0;0;0;0;0
+CASE-00734;Gama;0.76;0;0;1;1;1
+CASE-00735;Sobradinho;0.70;0;0;0;0;0
+CASE-00736;Águas Claras;0.94;0;0;1;1;1
+CASE-00737;Guará;0.90;0;1;1;2;0
+CASE-00738;Guará;0.90;1;0;0;1;0
+CASE-00739;Guará;0.90;1;0;0;1;0
+CASE-00740;Plano Piloto;0.97;0;0;0;0;0
+CASE-00741;Plano Piloto;0.97;0;0;0;0;0
+CASE-00742;Águas Claras;0.94;0;0;0;0;0
+CASE-00743;Samambaia;0.62;0;1;0;1;1
+CASE-00744;Taguatinga;0.84;0;0;0;0;0
+CASE-00745;Taguatinga;0.84;0;0;0;0;0
+CASE-00746;Sobradinho;0.70;0;1;0;1;0
+CASE-00747;Gama;0.76;0;1;0;1;0
+CASE-00748;Ceilândia;0.55;0;0;0;0;0
+CASE-00749;Gama;0.76;1;0;0;1;0
+CASE-00750;Taguatinga;0.84;1;0;0;1;0
+CASE-00751;Plano Piloto;0.97;0;0;0;0;0
+CASE-00752;Gama;0.76;0;0;0;0;0
+CASE-00753;Taguatinga;0.84;0;0;0;0;0
+CASE-00754;Gama;0.76;0;0;0;0;0
+CASE-00755;Águas Claras;0.94;0;1;0;1;0
+CASE-00756;Guará;0.90;0;0;0;0;0
+CASE-00757;Plano Piloto;0.97;0;0;0;0;0
+CASE-00758;Gama;0.76;0;1;1;2;0
+CASE-00759;Ceilândia;0.55;1;1;0;2;1
+CASE-00760;Gama;0.76;0;1;1;2;0
+CASE-00761;Águas Claras;0.94;0;0;0;0;0
+CASE-00762;Gama;0.76;0;0;0;0;0
+CASE-00763;Sobradinho;0.70;0;1;0;1;0
+CASE-00764;Ceilândia;0.55;0;1;0;1;0
+CASE-00765;Gama;0.76;1;1;0;2;0
+CASE-00766;Samambaia;0.62;0;0;0;0;0
+CASE-00767;Taguatinga;0.84;0;0;0;0;0
+CASE-00768;Samambaia;0.62;0;0;0;0;0
+CASE-00769;Sobradinho;0.70;1;0;0;1;0
+CASE-00770;Sobradinho;0.70;0;0;1;1;0
+CASE-00771;Águas Claras;0.94;0;1;0;1;0
+CASE-00772;Plano Piloto;0.97;0;0;0;0;0
+CASE-00773;Ceilândia;0.55;0;0;1;1;0
+CASE-00774;Gama;0.76;1;1;0;2;1
+CASE-00775;Guará;0.90;0;0;1;1;1
+CASE-00776;Guará;0.90;0;0;0;0;0
+CASE-00777;Ceilândia;0.55;0;0;1;1;0
+CASE-00778;Sobradinho;0.70;0;0;0;0;0
+CASE-00779;Ceilândia;0.55;0;1;0;1;0
+CASE-00780;Ceilândia;0.55;0;0;1;1;0
+CASE-00781;Taguatinga;0.84;0;1;0;1;0
+CASE-00782;Gama;0.76;0;0;1;1;0
+CASE-00783;Taguatinga;0.84;0;0;0;0;0
+CASE-00784;Ceilândia;0.55;0;0;0;0;0
+CASE-00785;Taguatinga;0.84;0;0;0;0;1
+CASE-00786;Guará;0.90;0;0;0;0;0
+CASE-00787;Gama;0.76;1;0;0;1;0
+CASE-00788;Gama;0.76;1;0;0;1;0
+CASE-00789;Plano Piloto;0.97;0;1;0;1;0
+CASE-00790;Sobradinho;0.70;0;0;0;0;0
+CASE-00791;Sobradinho;0.70;0;1;0;1;0
+CASE-00792;Gama;0.76;0;0;0;0;0
+CASE-00793;Guará;0.90;0;1;1;2;0
+CASE-00794;Sobradinho;0.70;0;0;1;1;0
+CASE-00795;Sobradinho;0.70;0;0;0;0;0
+CASE-00796;Sobradinho;0.70;1;0;1;2;0
+CASE-00797;Sobradinho;0.70;0;0;1;1;0
+CASE-00798;Taguatinga;0.84;1;1;0;2;1
+CASE-00799;Plano Piloto;0.97;0;0;0;0;0
+CASE-00800;Plano Piloto;0.97;1;1;0;2;1
+CASE-00801;Samambaia;0.62;0;1;0;1;1
+CASE-00802;Taguatinga;0.84;0;0;0;0;0
+CASE-00803;Guará;0.90;1;0;0;1;0
+CASE-00804;Plano Piloto;0.97;0;1;0;1;1
+CASE-00805;Sobradinho;0.70;0;0;1;1;1
+CASE-00806;Taguatinga;0.84;0;0;0;0;0
+CASE-00807;Ceilândia;0.55;0;0;0;0;0
+CASE-00808;Samambaia;0.62;0;1;0;1;0
+CASE-00809;Guará;0.90;1;0;0;1;0
+CASE-00810;Taguatinga;0.84;0;1;0;1;0
+CASE-00811;Plano Piloto;0.97;0;0;0;0;0
+CASE-00812;Águas Claras;0.94;0;0;0;0;0
+CASE-00813;Águas Claras;0.94;1;1;1;3;1
+CASE-00814;Taguatinga;0.84;1;0;1;2;1
+CASE-00815;Águas Claras;0.94;1;0;0;1;0
+CASE-00816;Taguatinga;0.84;0;1;0;1;0
+CASE-00817;Samambaia;0.62;0;1;1;2;0
+CASE-00818;Taguatinga;0.84;0;1;0;1;0
+CASE-00819;Sobradinho;0.70;0;0;0;0;0
+CASE-00820;Taguatinga;0.84;0;0;1;1;0
+CASE-00821;Taguatinga;0.84;1;1;0;2;0
+CASE-00822;Ceilândia;0.55;0;0;0;0;0
+CASE-00823;Ceilândia;0.55;0;0;0;0;0
+CASE-00824;Guará;0.90;0;0;0;0;0
+CASE-00825;Guará;0.90;0;1;0;1;0
+CASE-00826;Ceilândia;0.55;0;1;0;1;0
+CASE-00827;Taguatinga;0.84;0;1;0;1;0
+CASE-00828;Samambaia;0.62;1;1;1;3;1
+CASE-00829;Samambaia;0.62;1;0;0;1;0
+CASE-00830;Ceilândia;0.55;0;1;0;1;0
+CASE-00831;Gama;0.76;0;0;0;0;0
+CASE-00832;Ceilândia;0.55;0;0;1;1;0
+CASE-00833;Guará;0.90;0;1;0;1;0
+CASE-00834;Guará;0.90;0;0;0;0;0
+CASE-00835;Gama;0.76;1;1;0;2;1
+CASE-00836;Águas Claras;0.94;0;0;0;0;0
+CASE-00837;Samambaia;0.62;1;1;0;2;1
+CASE-00838;Gama;0.76;0;0;0;0;0
+CASE-00839;Sobradinho;0.70;0;0;0;0;0
+CASE-00840;Ceilândia;0.55;1;0;1;2;1
+CASE-00841;Taguatinga;0.84;1;1;0;2;0
+CASE-00842;Ceilândia;0.55;0;0;0;0;0
+CASE-00843;Sobradinho;0.70;0;1;0;1;1
+CASE-00844;Samambaia;0.62;0;0;0;0;0
+CASE-00845;Sobradinho;0.70;0;0;0;0;0
+CASE-00846;Samambaia;0.62;0;1;0;1;0
+CASE-00847;Samambaia;0.62;1;1;0;2;1
+CASE-00848;Samambaia;0.62;0;0;1;1;0
+CASE-00849;Plano Piloto;0.97;0;0;0;0;0
+CASE-00850;Samambaia;0.62;1;1;0;2;0
+CASE-00851;Gama;0.76;0;1;1;2;1
+CASE-00852;Samambaia;0.62;0;0;1;1;1
+CASE-00853;Plano Piloto;0.97;0;1;0;1;0
+CASE-00854;Gama;0.76;1;0;1;2;0
+CASE-00855;Ceilândia;0.55;0;1;0;1;0
+CASE-00856;Guará;0.90;0;0;0;0;0
+CASE-00857;Gama;0.76;0;0;0;0;0
+CASE-00858;Sobradinho;0.70;0;0;1;1;0
+CASE-00859;Ceilândia;0.55;1;0;0;1;0
+CASE-00860;Taguatinga;0.84;0;0;0;0;0
+CASE-00861;Guará;0.90;0;0;1;1;0
+CASE-00862;Plano Piloto;0.97;0;0;0;0;0
+CASE-00863;Guará;0.90;0;1;0;1;0
+CASE-00864;Sobradinho;0.70;0;0;0;0;0
+CASE-00865;Gama;0.76;0;0;1;1;1
+CASE-00866;Samambaia;0.62;0;1;0;1;0
+CASE-00867;Taguatinga;0.84;1;0;0;1;0
+CASE-00868;Sobradinho;0.70;0;0;0;0;0
+CASE-00869;Ceilândia;0.55;0;0;0;0;0
+CASE-00870;Gama;0.76;0;0;1;1;1
+CASE-00871;Águas Claras;0.94;0;0;0;0;0
+CASE-00872;Samambaia;0.62;1;1;1;3;1
+CASE-00873;Águas Claras;0.94;0;0;0;0;0
+CASE-00874;Águas Claras;0.94;1;0;1;2;1
+CASE-00875;Plano Piloto;0.97;0;0;0;0;0
+CASE-00876;Guará;0.90;0;1;0;1;0
+CASE-00877;Gama;0.76;0;1;0;1;0
+CASE-00878;Ceilândia;0.55;0;0;0;0;0
+CASE-00879;Samambaia;0.62;1;0;0;1;0
+CASE-00880;Guará;0.90;0;0;0;0;0
+CASE-00881;Gama;0.76;0;0;0;0;0
+CASE-00882;Taguatinga;0.84;0;1;0;1;0
+CASE-00883;Guará;0.90;0;0;0;0;0
+CASE-00884;Plano Piloto;0.97;0;0;0;0;0
+CASE-00885;Gama;0.76;0;0;0;0;0
+CASE-00886;Sobradinho;0.70;0;0;0;0;0
+CASE-00887;Guará;0.90;0;0;0;0;0
+CASE-00888;Ceilândia;0.55;0;0;0;0;0
+CASE-00889;Taguatinga;0.84;0;0;0;0;0
+CASE-00890;Guará;0.90;0;0;0;0;0
+CASE-00891;Samambaia;0.62;0;1;1;2;0
+CASE-00892;Sobradinho;0.70;0;0;0;0;0
+CASE-00893;Águas Claras;0.94;0;1;0;1;0
+CASE-00894;Taguatinga;0.84;1;0;1;2;1
+CASE-00895;Gama;0.76;0;1;0;1;0
+CASE-00896;Guará;0.90;1;1;0;2;1
+CASE-00897;Taguatinga;0.84;0;0;0;0;0
+CASE-00898;Sobradinho;0.70;0;0;0;0;0
+CASE-00899;Plano Piloto;0.97;0;1;0;1;0
+CASE-00900;Guará;0.90;1;1;0;2;0
+CASE-00901;Ceilândia;0.55;1;1;1;3;1
+CASE-00902;Ceilândia;0.55;0;1;0;1;0
+CASE-00903;Samambaia;0.62;0;1;0;1;0
+CASE-00904;Samambaia;0.62;1;0;0;1;0
+CASE-00905;Taguatinga;0.84;0;0;0;0;0
+CASE-00906;Gama;0.76;0;0;0;0;0
+CASE-00907;Gama;0.76;0;1;0;1;0
+CASE-00908;Águas Claras;0.94;0;0;0;0;0
+CASE-00909;Guará;0.90;0;0;0;0;0
+CASE-00910;Gama;0.76;0;0;0;0;0
+CASE-00911;Taguatinga;0.84;0;1;0;1;0
+CASE-00912;Gama;0.76;0;1;1;2;0
+CASE-00913;Plano Piloto;0.97;1;0;0;1;1
+CASE-00914;Águas Claras;0.94;0;0;0;0;0
+CASE-00915;Taguatinga;0.84;0;0;0;0;0
+CASE-00916;Taguatinga;0.84;0;1;0;1;0
+CASE-00917;Plano Piloto;0.97;0;0;0;0;0
+CASE-00918;Ceilândia;0.55;0;0;0;0;0
+CASE-00919;Gama;0.76;1;0;1;2;0
+CASE-00920;Ceilândia;0.55;1;0;0;1;0
+CASE-00921;Plano Piloto;0.97;0;0;0;0;0
+CASE-00922;Taguatinga;0.84;0;1;0;1;0
+CASE-00923;Taguatinga;0.84;1;0;0;1;0
+CASE-00924;Samambaia;0.62;0;1;0;1;1
+CASE-00925;Águas Claras;0.94;0;0;0;0;0
+CASE-00926;Águas Claras;0.94;0;0;1;1;0
+CASE-00927;Sobradinho;0.70;0;1;0;1;0
+CASE-00928;Gama;0.76;1;1;0;2;0
+CASE-00929;Sobradinho;0.70;0;1;0;1;0
+CASE-00930;Samambaia;0.62;0;0;0;0;0
+CASE-00931;Ceilândia;0.55;1;0;1;2;1
+CASE-00932;Samambaia;0.62;0;1;1;2;0
+CASE-00933;Plano Piloto;0.97;0;0;0;0;0
+CASE-00934;Guará;0.90;1;0;0;1;0
+CASE-00935;Ceilândia;0.55;0;1;1;2;0
+CASE-00936;Ceilândia;0.55;0;1;0;1;0
+CASE-00937;Sobradinho;0.70;0;0;1;1;0
+CASE-00938;Ceilândia;0.55;0;0;0;0;0
+CASE-00939;Sobradinho;0.70;0;0;0;0;0
+CASE-00940;Águas Claras;0.94;0;1;0;1;0
+CASE-00941;Plano Piloto;0.97;0;0;0;0;0
+CASE-00942;Gama;0.76;1;0;1;2;1
+CASE-00943;Samambaia;0.62;0;0;0;0;0
+CASE-00944;Gama;0.76;0;1;0;1;0
+CASE-00945;Samambaia;0.62;0;0;0;0;0
+CASE-00946;Guará;0.90;0;1;0;1;1
+CASE-00947;Gama;0.76;0;1;1;2;1
+CASE-00948;Águas Claras;0.94;0;0;0;0;0
+CASE-00949;Sobradinho;0.70;0;0;0;0;0
+CASE-00950;Taguatinga;0.84;0;0;0;0;0
+CASE-00951;Taguatinga;0.84;0;0;1;1;1
+CASE-00952;Sobradinho;0.70;0;1;0;1;0
+CASE-00953;Guará;0.90;1;1;1;3;1
+CASE-00954;Samambaia;0.62;0;0;0;0;0
+CASE-00955;Sobradinho;0.70;1;1;1;3;0
+CASE-00956;Plano Piloto;0.97;0;0;1;1;0
+CASE-00957;Samambaia;0.62;0;0;0;0;0
+CASE-00958;Ceilândia;0.55;0;0;0;0;0
+CASE-00959;Plano Piloto;0.97;0;0;0;0;0
+CASE-00960;Guará;0.90;0;1;0;1;0
+CASE-00961;Taguatinga;0.84;1;0;0;1;0
+CASE-00962;Sobradinho;0.70;0;0;0;0;0
+CASE-00963;Guará;0.90;1;1;0;2;1
+CASE-00964;Gama;0.76;1;1;1;3;1
+CASE-00965;Plano Piloto;0.97;0;0;0;0;0
+CASE-00966;Taguatinga;0.84;0;1;0;1;1
+CASE-00967;Gama;0.76;0;1;0;1;0
+CASE-00968;Samambaia;0.62;0;0;0;0;0
+CASE-00969;Águas Claras;0.94;0;1;0;1;0
+CASE-00970;Águas Claras;0.94;0;0;1;1;0
+CASE-00971;Plano Piloto;0.97;0;1;0;1;0
+CASE-00972;Taguatinga;0.84;0;0;0;0;0
+CASE-00973;Samambaia;0.62;0;1;0;1;0
+CASE-00974;Taguatinga;0.84;0;1;0;1;0
+CASE-00975;Guará;0.90;1;0;0;1;0
+CASE-00976;Sobradinho;0.70;0;0;0;0;0
+CASE-00977;Samambaia;0.62;0;0;0;0;0
+CASE-00978;Sobradinho;0.70;0;1;0;1;0
+CASE-00979;Guará;0.90;0;0;0;0;0
+CASE-00980;Taguatinga;0.84;0;0;0;0;0
+CASE-00981;Ceilândia;0.55;0;0;0;0;0
+CASE-00982;Taguatinga;0.84;1;1;0;2;0
+CASE-00983;Sobradinho;0.70;1;1;1;3;1
+CASE-00984;Plano Piloto;0.97;0;1;0;1;0
+CASE-00985;Águas Claras;0.94;1;0;0;1;0
+CASE-00986;Águas Claras;0.94;1;0;1;2;1
+CASE-00987;Taguatinga;0.84;0;1;0;1;1
+CASE-00988;Ceilândia;0.55;0;0;0;0;0
+CASE-00989;Gama;0.76;1;0;0;1;0
+CASE-00990;Gama;0.76;0;0;0;0;0
+CASE-00991;Plano Piloto;0.97;0;0;1;1;0
+CASE-00992;Guará;0.90;0;0;1;1;0
+CASE-00993;Ceilândia;0.55;1;0;0;1;0
+CASE-00994;Plano Piloto;0.97;0;0;0;0;0
+CASE-00995;Gama;0.76;0;0;1;1;0
+CASE-00996;Plano Piloto;0.97;0;0;0;0;0
+CASE-00997;Águas Claras;0.94;1;0;0;1;0
+CASE-00998;Ceilândia;0.55;0;1;0;1;0
+CASE-00999;Águas Claras;0.94;0;1;0;1;0
+CASE-01000;Sobradinho;0.70;1;1;0;2;1
+CASE-01001;Ceilândia;0.55;1;0;1;2;0
+CASE-01002;Taguatinga;0.84;1;1;1;3;1
+CASE-01003;Sobradinho;0.70;0;1;0;1;0
+CASE-01004;Águas Claras;0.94;0;0;1;1;0
+CASE-01005;Guará;0.90;0;0;0;0;0
+CASE-01006;Ceilândia;0.55;0;0;0;0;0
+CASE-01007;Guará;0.90;0;0;0;0;0
+CASE-01008;Gama;0.76;1;1;1;3;1
+CASE-01009;Guará;0.90;1;0;0;1;0
+CASE-01010;Taguatinga;0.84;1;0;1;2;1
+CASE-01011;Ceilândia;0.55;0;1;1;2;1
+CASE-01012;Guará;0.90;0;0;0;0;0
+CASE-01013;Guará;0.90;0;1;0;1;0
+CASE-01014;Taguatinga;0.84;0;1;0;1;1
+CASE-01015;Gama;0.76;0;0;0;0;0
+CASE-01016;Samambaia;0.62;0;0;0;0;0
+CASE-01017;Guará;0.90;0;0;0;0;0
+CASE-01018;Gama;0.76;0;1;1;2;0
+CASE-01019;Plano Piloto;0.97;0;0;0;0;0
+CASE-01020;Plano Piloto;0.97;0;0;0;0;0
+CASE-01021;Taguatinga;0.84;0;1;0;1;0
+CASE-01022;Taguatinga;0.84;0;0;0;0;0
+CASE-01023;Samambaia;0.62;0;0;1;1;0
+CASE-01024;Samambaia;0.62;0;0;0;0;0
+CASE-01025;Plano Piloto;0.97;0;0;0;0;0
+CASE-01026;Taguatinga;0.84;0;1;0;1;0
+CASE-01027;Ceilândia;0.55;0;1;0;1;0
+CASE-01028;Águas Claras;0.94;0;1;1;2;1
+CASE-01029;Gama;0.76;0;0;1;1;0
+CASE-01030;Ceilândia;0.55;0;0;0;0;0
+CASE-01031;Ceilândia;0.55;0;0;0;0;0
+CASE-01032;Taguatinga;0.84;0;1;0;1;0
+CASE-01033;Gama;0.76;0;1;1;2;0
+CASE-01034;Ceilândia;0.55;0;0;0;0;0
+CASE-01035;Taguatinga;0.84;0;0;0;0;0
+CASE-01036;Samambaia;0.62;1;1;1;3;1
+CASE-01037;Sobradinho;0.70;0;0;0;0;0
+CASE-01038;Taguatinga;0.84;0;0;0;0;0
+CASE-01039;Sobradinho;0.70;0;0;0;0;0
+CASE-01040;Samambaia;0.62;0;0;0;0;0
+CASE-01041;Ceilândia;0.55;1;0;0;1;0
+CASE-01042;Gama;0.76;1;0;0;1;0
+CASE-01043;Águas Claras;0.94;1;1;0;2;0
+CASE-01044;Samambaia;0.62;0;0;0;0;0
+CASE-01045;Sobradinho;0.70;0;0;0;0;0
+CASE-01046;Gama;0.76;0;0;0;0;0
+CASE-01047;Ceilândia;0.55;1;1;1;3;1
+CASE-01048;Sobradinho;0.70;0;1;1;2;1
+CASE-01049;Águas Claras;0.94;1;1;0;2;0
+CASE-01050;Ceilândia;0.55;0;1;0;1;0
+CASE-01051;Plano Piloto;0.97;0;0;0;0;0
+CASE-01052;Ceilândia;0.55;0;0;0;0;0
+CASE-01053;Ceilândia;0.55;1;0;0;1;1
+CASE-01054;Taguatinga;0.84;0;0;0;0;0
+CASE-01055;Plano Piloto;0.97;0;0;1;1;0
+CASE-01056;Ceilândia;0.55;0;1;0;1;0
+CASE-01057;Águas Claras;0.94;0;0;0;0;0
+CASE-01058;Taguatinga;0.84;0;1;0;1;1
+CASE-01059;Ceilândia;0.55;0;1;0;1;1
+CASE-01060;Plano Piloto;0.97;0;0;0;0;0
+CASE-01061;Águas Claras;0.94;0;0;0;0;0
+CASE-01062;Guará;0.90;1;0;0;1;0
+CASE-01063;Samambaia;0.62;0;0;0;0;0
+CASE-01064;Guará;0.90;0;1;0;1;0
+CASE-01065;Guará;0.90;0;1;0;1;0
+CASE-01066;Sobradinho;0.70;0;0;0;0;0
+CASE-01067;Guará;0.90;0;0;0;0;0
+CASE-01068;Samambaia;0.62;0;1;0;1;0
+CASE-01069;Águas Claras;0.94;1;0;0;1;0
+CASE-01070;Samambaia;0.62;1;0;0;1;0
+CASE-01071;Águas Claras;0.94;0;0;0;0;0
+CASE-01072;Taguatinga;0.84;1;0;0;1;0
+CASE-01073;Guará;0.90;0;0;0;0;1
+CASE-01074;Águas Claras;0.94;0;0;0;0;0
+CASE-01075;Plano Piloto;0.97;0;1;0;1;0
+CASE-01076;Taguatinga;0.84;0;0;0;0;0
+CASE-01077;Plano Piloto;0.97;0;0;0;0;0
+CASE-01078;Samambaia;0.62;1;0;0;1;0
+CASE-01079;Guará;0.90;0;0;1;1;0
+CASE-01080;Ceilândia;0.55;0;0;0;0;0
+CASE-01081;Águas Claras;0.94;1;1;0;2;1
+CASE-01082;Águas Claras;0.94;0;0;0;0;0
+CASE-01083;Guará;0.90;0;0;1;1;0
+CASE-01084;Taguatinga;0.84;0;0;0;0;0
+CASE-01085;Sobradinho;0.70;0;0;0;0;0
+CASE-01086;Ceilândia;0.55;1;1;1;3;0
+CASE-01087;Taguatinga;0.84;1;1;1;3;1
+CASE-01088;Gama;0.76;0;0;0;0;0
+CASE-01089;Gama;0.76;0;1;1;2;0
+CASE-01090;Gama;0.76;1;1;0;2;1
+CASE-01091;Plano Piloto;0.97;0;0;0;0;0
+CASE-01092;Ceilândia;0.55;0;0;0;0;0
+CASE-01093;Guará;0.90;0;0;1;1;0
+CASE-01094;Taguatinga;0.84;0;1;0;1;0
+CASE-01095;Ceilândia;0.55;0;0;0;0;0
+CASE-01096;Samambaia;0.62;0;1;0;1;0
+CASE-01097;Guará;0.90;0;1;0;1;0
+CASE-01098;Guará;0.90;0;0;0;0;0
+CASE-01099;Ceilândia;0.55;1;1;1;3;1
+CASE-01100;Taguatinga;0.84;1;1;0;2;0
+CASE-01101;Águas Claras;0.94;0;1;0;1;0
+CASE-01102;Gama;0.76;0;1;0;1;0
+CASE-01103;Plano Piloto;0.97;0;0;1;1;0
+CASE-01104;Gama;0.76;0;1;0;1;0
+CASE-01105;Águas Claras;0.94;1;1;1;3;1
+CASE-01106;Samambaia;0.62;0;0;0;0;0
+CASE-01107;Sobradinho;0.70;0;0;0;0;0
+CASE-01108;Águas Claras;0.94;0;0;0;0;0
+CASE-01109;Guará;0.90;0;0;0;0;0
+CASE-01110;Gama;0.76;0;0;0;0;0
+CASE-01111;Sobradinho;0.70;0;1;0;1;0
+CASE-01112;Plano Piloto;0.97;0;0;0;0;0
+CASE-01113;Sobradinho;0.70;0;0;0;0;0
+CASE-01114;Sobradinho;0.70;1;1;1;3;1
+CASE-01115;Samambaia;0.62;0;1;0;1;0
+CASE-01116;Taguatinga;0.84;0;1;0;1;0
+CASE-01117;Guará;0.90;1;1;0;2;0
+CASE-01118;Plano Piloto;0.97;0;0;0;0;0
+CASE-01119;Guará;0.90;0;0;0;0;0
+CASE-01120;Gama;0.76;0;1;0;1;0
+CASE-01121;Samambaia;0.62;1;0;0;1;0
+CASE-01122;Guará;0.90;0;1;0;1;0
+CASE-01123;Taguatinga;0.84;0;1;1;2;1
+CASE-01124;Gama;0.76;0;0;0;0;0
+CASE-01125;Guará;0.90;0;0;0;0;0
+CASE-01126;Gama;0.76;0;0;1;1;0
+CASE-01127;Sobradinho;0.70;0;1;0;1;0
+CASE-01128;Sobradinho;0.70;1;1;1;3;1
+CASE-01129;Gama;0.76;0;0;0;0;0
+CASE-01130;Sobradinho;0.70;0;0;0;0;0
+CASE-01131;Sobradinho;0.70;0;0;0;0;0
+CASE-01132;Sobradinho;0.70;0;0;0;0;0
+CASE-01133;Guará;0.90;0;0;0;0;0
+CASE-01134;Ceilândia;0.55;0;1;1;2;0
+CASE-01135;Ceilândia;0.55;0;1;0;1;0
+CASE-01136;Gama;0.76;0;0;0;0;0
+CASE-01137;Samambaia;0.62;1;1;1;3;1
+CASE-01138;Guará;0.90;1;1;0;2;1
+CASE-01139;Taguatinga;0.84;0;0;0;0;0
+CASE-01140;Guará;0.90;1;1;0;2;1
+CASE-01141;Gama;0.76;0;0;0;0;0
+CASE-01142;Taguatinga;0.84;0;0;1;1;0
+CASE-01143;Gama;0.76;0;0;1;1;1
+CASE-01144;Sobradinho;0.70;1;1;1;3;1
+CASE-01145;Ceilândia;0.55;0;0;0;0;0
+CASE-01146;Samambaia;0.62;0;1;0;1;0
+CASE-01147;Samambaia;0.62;0;0;0;0;0
+CASE-01148;Plano Piloto;0.97;0;1;0;1;0
+CASE-01149;Ceilândia;0.55;0;1;0;1;0
+CASE-01150;Plano Piloto;0.97;0;0;0;0;0
+CASE-01151;Águas Claras;0.94;1;0;1;2;1
+CASE-01152;Águas Claras;0.94;0;0;0;0;0
+CASE-01153;Taguatinga;0.84;0;0;0;0;0
+CASE-01154;Guará;0.90;1;1;0;2;1
+CASE-01155;Taguatinga;0.84;0;1;1;2;1
+CASE-01156;Samambaia;0.62;0;1;0;1;0
+CASE-01157;Águas Claras;0.94;1;0;0;1;0
+CASE-01158;Ceilândia;0.55;0;1;0;1;0
+CASE-01159;Plano Piloto;0.97;0;0;0;0;0
+CASE-01160;Samambaia;0.62;0;0;0;0;0
+CASE-01161;Gama;0.76;0;1;0;1;0
+CASE-01162;Ceilândia;0.55;0;0;0;0;0
+CASE-01163;Guará;0.90;1;0;0;1;0
+CASE-01164;Plano Piloto;0.97;0;1;0;1;0
+CASE-01165;Águas Claras;0.94;0;0;0;0;0
+CASE-01166;Gama;0.76;0;0;0;0;0
+CASE-01167;Taguatinga;0.84;0;0;1;1;0
+CASE-01168;Ceilândia;0.55;0;1;1;2;0
+CASE-01169;Guará;0.90;1;0;0;1;0
+CASE-01170;Guará;0.90;0;0;1;1;0
+CASE-01171;Águas Claras;0.94;0;0;0;0;0
+CASE-01172;Samambaia;0.62;0;0;0;0;0
+CASE-01173;Samambaia;0.62;0;1;1;2;1
+CASE-01174;Sobradinho;0.70;0;0;0;0;0
+CASE-01175;Plano Piloto;0.97;0;0;0;0;0
+CASE-01176;Águas Claras;0.94;0;0;0;0;0
+CASE-01177;Samambaia;0.62;0;1;0;1;0
+CASE-01178;Guará;0.90;0;0;0;0;0
+CASE-01179;Plano Piloto;0.97;0;0;0;0;0
+CASE-01180;Guará;0.90;0;0;1;1;0
+CASE-01181;Guará;0.90;0;0;0;0;0
+CASE-01182;Guará;0.90;1;0;0;1;0
+CASE-01183;Taguatinga;0.84;0;0;0;0;0
+CASE-01184;Ceilândia;0.55;0;0;0;0;0
+CASE-01185;Sobradinho;0.70;0;1;1;2;0
+CASE-01186;Plano Piloto;0.97;1;0;0;1;0
+CASE-01187;Guará;0.90;0;0;0;0;0
+CASE-01188;Samambaia;0.62;1;0;0;1;0
+CASE-01189;Guará;0.90;0;0;0;0;0
+CASE-01190;Gama;0.76;0;0;0;0;0
+CASE-01191;Samambaia;0.62;0;0;0;0;0
+CASE-01192;Plano Piloto;0.97;0;0;1;1;0
+CASE-01193;Águas Claras;0.94;0;1;0;1;1
+CASE-01194;Gama;0.76;0;0;0;0;0
+CASE-01195;Sobradinho;0.70;1;0;0;1;0
+CASE-01196;Plano Piloto;0.97;0;0;0;0;0
+CASE-01197;Taguatinga;0.84;0;0;1;1;0
+CASE-01198;Guará;0.90;0;1;0;1;0
+CASE-01199;Gama;0.76;0;0;0;0;0
+CASE-01200;Plano Piloto;0.97;0;0;0;0;0
+CASE-01201;Gama;0.76;0;0;0;0;0
+CASE-01202;Águas Claras;0.94;1;1;1;3;1
+CASE-01203;Águas Claras;0.94;1;0;1;2;0
+CASE-01204;Águas Claras;0.94;0;0;0;0;0
+CASE-01205;Taguatinga;0.84;0;1;0;1;1
+CASE-01206;Gama;0.76;0;0;0;0;0
+CASE-01207;Taguatinga;0.84;0;0;0;0;0
+CASE-01208;Ceilândia;0.55;0;0;0;0;0
+CASE-01209;Gama;0.76;0;0;0;0;0
+CASE-01210;Sobradinho;0.70;0;0;0;0;0
+CASE-01211;Ceilândia;0.55;0;0;0;0;0
+CASE-01212;Gama;0.76;0;0;0;0;0
+CASE-01213;Taguatinga;0.84;0;0;0;0;0
+CASE-01214;Plano Piloto;0.97;0;0;0;0;0
+CASE-01215;Ceilândia;0.55;1;1;0;2;0
+CASE-01216;Águas Claras;0.94;0;0;0;0;0
+CASE-01217;Sobradinho;0.70;0;0;1;1;0
+CASE-01218;Gama;0.76;0;0;0;0;0
+CASE-01219;Guará;0.90;0;0;0;0;0
+CASE-01220;Taguatinga;0.84;0;0;0;0;0
+CASE-01221;Ceilândia;0.55;0;0;0;0;0
+CASE-01222;Guará;0.90;0;0;0;0;0
+CASE-01223;Gama;0.76;0;0;0;0;0
+CASE-01224;Gama;0.76;1;1;0;2;0
+CASE-01225;Plano Piloto;0.97;1;0;0;1;0
+CASE-01226;Ceilândia;0.55;0;0;0;0;0
+CASE-01227;Sobradinho;0.70;0;0;0;0;0
+CASE-01228;Taguatinga;0.84;1;1;0;2;1
+CASE-01229;Gama;0.76;1;1;1;3;0
+CASE-01230;Samambaia;0.62;1;1;1;3;1
+CASE-01231;Taguatinga;0.84;0;0;0;0;0
+CASE-01232;Guará;0.90;0;0;0;0;0
+CASE-01233;Samambaia;0.62;1;0;0;1;0
+CASE-01234;Samambaia;0.62;0;1;0;1;0
+CASE-01235;Samambaia;0.62;0;0;1;1;1
+CASE-01236;Samambaia;0.62;1;0;0;1;1
+CASE-01237;Samambaia;0.62;0;1;0;1;0
+CASE-01238;Guará;0.90;0;0;0;0;0
+CASE-01239;Taguatinga;0.84;1;0;0;1;0
+CASE-01240;Taguatinga;0.84;0;0;0;0;0
+CASE-01241;Sobradinho;0.70;0;0;0;0;0
+CASE-01242;Guará;0.90;0;1;0;1;0
+CASE-01243;Ceilândia;0.55;1;1;0;2;0
+CASE-01244;Samambaia;0.62;1;0;1;2;1
+CASE-01245;Gama;0.76;0;0;0;0;0
+CASE-01246;Gama;0.76;0;0;0;0;0
+CASE-01247;Gama;0.76;0;0;0;0;0
+CASE-01248;Guará;0.90;0;0;0;0;0
+CASE-01249;Sobradinho;0.70;1;0;1;2;0
+CASE-01250;Guará;0.90;0;1;1;2;0
+CASE-01251;Sobradinho;0.70;1;1;1;3;1
+CASE-01252;Samambaia;0.62;1;1;0;2;0
+CASE-01253;Taguatinga;0.84;1;0;1;2;0
+CASE-01254;Plano Piloto;0.97;0;0;1;1;0
+CASE-01255;Sobradinho;0.70;0;1;0;1;1
+CASE-01256;Águas Claras;0.94;1;1;0;2;1
+CASE-01257;Águas Claras;0.94;1;1;1;3;1
+CASE-01258;Águas Claras;0.94;0;0;1;1;0
+CASE-01259;Guará;0.90;0;1;0;1;0
+CASE-01260;Águas Claras;0.94;0;1;1;2;1
+CASE-01261;Samambaia;0.62;0;0;0;0;0
+CASE-01262;Taguatinga;0.84;0;0;1;1;0
+CASE-01263;Samambaia;0.62;0;0;0;0;0
+CASE-01264;Plano Piloto;0.97;0;0;0;0;0
+CASE-01265;Taguatinga;0.84;0;1;0;1;1
+CASE-01266;Ceilândia;0.55;1;1;0;2;1
+CASE-01267;Guará;0.90;0;0;0;0;0
+CASE-01268;Plano Piloto;0.97;1;1;1;3;1
+CASE-01269;Guará;0.90;1;1;1;3;1
+CASE-01270;Samambaia;0.62;1;0;0;1;0
+CASE-01271;Taguatinga;0.84;0;1;0;1;0
+CASE-01272;Gama;0.76;0;0;0;0;0
+CASE-01273;Sobradinho;0.70;0;0;1;1;0
+CASE-01274;Ceilândia;0.55;1;0;1;2;1
+CASE-01275;Águas Claras;0.94;0;0;0;0;0
+CASE-01276;Taguatinga;0.84;0;0;0;0;0
+CASE-01277;Samambaia;0.62;1;1;1;3;0
+CASE-01278;Sobradinho;0.70;0;1;0;1;0
+CASE-01279;Samambaia;0.62;0;1;0;1;0
+CASE-01280;Gama;0.76;0;0;0;0;0
+CASE-01281;Plano Piloto;0.97;0;0;0;0;0
+CASE-01282;Taguatinga;0.84;0;0;0;0;0
+CASE-01283;Taguatinga;0.84;0;0;0;0;0
+CASE-01284;Gama;0.76;0;0;0;0;0
+CASE-01285;Guará;0.90;0;0;0;0;1
+CASE-01286;Sobradinho;0.70;0;1;0;1;0
+CASE-01287;Águas Claras;0.94;0;0;0;0;0
+CASE-01288;Águas Claras;0.94;0;1;1;2;0
+CASE-01289;Samambaia;0.62;0;0;1;1;0
+CASE-01290;Ceilândia;0.55;1;1;0;2;0
+CASE-01291;Ceilândia;0.55;0;1;0;1;0
+CASE-01292;Samambaia;0.62;0;0;0;0;0
+CASE-01293;Plano Piloto;0.97;0;0;0;0;0
+CASE-01294;Gama;0.76;1;1;1;3;1
+CASE-01295;Taguatinga;0.84;1;0;0;1;0
+CASE-01296;Guará;0.90;0;0;0;0;0
+CASE-01297;Ceilândia;0.55;0;0;0;0;0
+CASE-01298;Gama;0.76;0;0;0;0;0
+CASE-01299;Samambaia;0.62;0;0;0;0;0
+CASE-01300;Guará;0.90;0;0;0;0;0
+CASE-01301;Samambaia;0.62;0;0;0;0;0
+CASE-01302;Gama;0.76;1;0;0;1;0
+CASE-01303;Sobradinho;0.70;1;0;0;1;0
+CASE-01304;Águas Claras;0.94;0;0;1;1;0
+CASE-01305;Sobradinho;0.70;0;1;1;2;0
+CASE-01306;Águas Claras;0.94;0;1;0;1;0
+CASE-01307;Plano Piloto;0.97;0;0;0;0;0
+CASE-01308;Gama;0.76;0;1;1;2;1
+CASE-01309;Sobradinho;0.70;0;0;0;0;0
+CASE-01310;Samambaia;0.62;0;0;1;1;0
+CASE-01311;Águas Claras;0.94;0;0;0;0;0
+CASE-01312;Águas Claras;0.94;0;0;0;0;0
+CASE-01313;Gama;0.76;0;0;0;0;0
+CASE-01314;Águas Claras;0.94;0;1;0;1;0
+CASE-01315;Samambaia;0.62;1;0;0;1;0
+CASE-01316;Guará;0.90;0;0;0;0;0
+CASE-01317;Sobradinho;0.70;0;1;0;1;0
+CASE-01318;Taguatinga;0.84;0;0;0;0;0
+CASE-01319;Águas Claras;0.94;1;1;1;3;1
+CASE-01320;Guará;0.90;0;1;1;2;1
+CASE-01321;Taguatinga;0.84;1;0;1;2;1
+CASE-01322;Taguatinga;0.84;0;0;0;0;0
+CASE-01323;Taguatinga;0.84;0;1;0;1;1
+CASE-01324;Plano Piloto;0.97;0;1;1;2;1
+CASE-01325;Sobradinho;0.70;0;0;0;0;0
+CASE-01326;Plano Piloto;0.97;0;0;0;0;0
+CASE-01327;Ceilândia;0.55;1;0;0;1;0
+CASE-01328;Ceilândia;0.55;0;0;0;0;0
+CASE-01329;Guará;0.90;0;0;0;0;0
+CASE-01330;Samambaia;0.62;0;1;1;2;1
+CASE-01331;Samambaia;0.62;1;0;0;1;0
+CASE-01332;Plano Piloto;0.97;0;0;1;1;0
+CASE-01333;Gama;0.76;0;1;0;1;0
+CASE-01334;Águas Claras;0.94;1;1;1;3;1
+CASE-01335;Samambaia;0.62;0;0;0;0;0
+CASE-01336;Taguatinga;0.84;0;0;0;0;0
+CASE-01337;Águas Claras;0.94;0;0;0;0;1
+CASE-01338;Ceilândia;0.55;0;1;1;2;0
+CASE-01339;Samambaia;0.62;0;0;0;0;0
+CASE-01340;Águas Claras;0.94;0;0;0;0;0
+CASE-01341;Samambaia;0.62;1;0;0;1;0
+CASE-01342;Guará;0.90;0;1;1;2;0
+CASE-01343;Ceilândia;0.55;0;0;0;0;0
+CASE-01344;Plano Piloto;0.97;0;1;0;1;0
+CASE-01345;Guará;0.90;0;0;0;0;0
+CASE-01346;Samambaia;0.62;0;0;1;1;1
+CASE-01347;Gama;0.76;1;1;1;3;0
+CASE-01348;Taguatinga;0.84;0;1;0;1;0
+CASE-01349;Ceilândia;0.55;1;0;1;2;1
+CASE-01350;Águas Claras;0.94;0;0;1;1;0
+CASE-01351;Águas Claras;0.94;0;0;0;0;0
+CASE-01352;Ceilândia;0.55;0;0;0;0;0
+CASE-01353;Guará;0.90;0;0;0;0;0
+CASE-01354;Gama;0.76;0;1;0;1;0
+CASE-01355;Samambaia;0.62;0;1;0;1;0
+CASE-01356;Ceilândia;0.55;0;1;0;1;0
+CASE-01357;Águas Claras;0.94;1;1;1;3;1
+CASE-01358;Águas Claras;0.94;0;1;0;1;0
+CASE-01359;Samambaia;0.62;0;0;0;0;0
+CASE-01360;Taguatinga;0.84;0;0;0;0;0
+CASE-01361;Plano Piloto;0.97;0;0;0;0;0
+CASE-01362;Taguatinga;0.84;0;0;0;0;0
+CASE-01363;Plano Piloto;0.97;0;0;1;1;0
+CASE-01364;Taguatinga;0.84;0;0;0;0;0
+CASE-01365;Plano Piloto;0.97;1;0;0;1;0
+CASE-01366;Samambaia;0.62;0;0;0;0;0
+CASE-01367;Taguatinga;0.84;0;1;1;2;1
+CASE-01368;Ceilândia;0.55;0;1;0;1;0
+CASE-01369;Ceilândia;0.55;0;1;1;2;0
+CASE-01370;Samambaia;0.62;0;1;1;2;0
+CASE-01371;Gama;0.76;0;0;0;0;0
+CASE-01372;Sobradinho;0.70;0;0;0;0;0
+CASE-01373;Guará;0.90;0;0;0;0;0
+CASE-01374;Ceilândia;0.55;0;0;0;0;0
+CASE-01375;Águas Claras;0.94;0;0;0;0;0
+CASE-01376;Águas Claras;0.94;0;0;0;0;0
+CASE-01377;Guará;0.90;0;0;0;0;0
+CASE-01378;Plano Piloto;0.97;0;0;0;0;0
+CASE-01379;Plano Piloto;0.97;1;0;0;1;0
+CASE-01380;Águas Claras;0.94;0;1;1;2;1
+CASE-01381;Gama;0.76;0;0;0;0;0
+CASE-01382;Águas Claras;0.94;1;1;1;3;1
+CASE-01383;Plano Piloto;0.97;0;0;0;0;0
+CASE-01384;Plano Piloto;0.97;0;0;0;0;0
+CASE-01385;Ceilândia;0.55;0;0;1;1;0
+CASE-01386;Sobradinho;0.70;0;1;0;1;0
+CASE-01387;Taguatinga;0.84;0;0;0;0;0
+CASE-01388;Guará;0.90;0;0;0;0;0
+CASE-01389;Águas Claras;0.94;0;1;0;1;0
+CASE-01390;Guará;0.90;0;0;0;0;0
+CASE-01391;Samambaia;0.62;1;1;0;2;1
+CASE-01392;Ceilândia;0.55;1;1;0;2;1
+CASE-01393;Ceilândia;0.55;0;0;0;0;0
+CASE-01394;Sobradinho;0.70;0;0;0;0;0
+CASE-01395;Gama;0.76;1;0;0;1;0
+CASE-01396;Ceilândia;0.55;0;1;0;1;0
+CASE-01397;Gama;0.76;0;1;0;1;0
+CASE-01398;Taguatinga;0.84;0;0;0;0;0
+CASE-01399;Gama;0.76;0;1;0;1;0
+CASE-01400;Taguatinga;0.84;0;0;0;0;0
+CASE-01401;Águas Claras;0.94;0;1;0;1;0
+CASE-01402;Águas Claras;0.94;1;0;0;1;0
+CASE-01403;Samambaia;0.62;0;0;0;0;0
+CASE-01404;Samambaia;0.62;0;1;0;1;0
+CASE-01405;Ceilândia;0.55;0;1;1;2;1
+CASE-01406;Samambaia;0.62;0;1;0;1;0
+CASE-01407;Plano Piloto;0.97;0;0;0;0;0
+CASE-01408;Gama;0.76;1;0;0;1;0
+CASE-01409;Guará;0.90;0;0;1;1;0
+CASE-01410;Águas Claras;0.94;1;0;0;1;0
+CASE-01411;Plano Piloto;0.97;0;0;0;0;0
+CASE-01412;Guará;0.90;0;0;0;0;0
+CASE-01413;Guará;0.90;0;1;0;1;0
+CASE-01414;Ceilândia;0.55;0;0;0;0;0
+CASE-01415;Plano Piloto;0.97;1;1;0;2;1
+CASE-01416;Gama;0.76;0;1;0;1;0
+CASE-01417;Águas Claras;0.94;0;0;0;0;0
+CASE-01418;Ceilândia;0.55;0;0;0;0;0
+CASE-01419;Plano Piloto;0.97;0;1;0;1;0
+CASE-01420;Taguatinga;0.84;0;0;1;1;0
+CASE-01421;Taguatinga;0.84;0;1;0;1;0
+CASE-01422;Samambaia;0.62;0;1;1;2;0
+CASE-01423;Águas Claras;0.94;0;0;0;0;0
+CASE-01424;Águas Claras;0.94;0;1;0;1;0
+CASE-01425;Samambaia;0.62;0;0;0;0;0
+CASE-01426;Gama;0.76;0;1;0;1;0
+CASE-01427;Águas Claras;0.94;1;1;1;3;1
+CASE-01428;Samambaia;0.62;0;0;0;0;0
+CASE-01429;Plano Piloto;0.97;1;1;1;3;1
+CASE-01430;Taguatinga;0.84;0;1;0;1;0
+CASE-01431;Águas Claras;0.94;1;0;0;1;1
+CASE-01432;Plano Piloto;0.97;1;1;0;2;0
+CASE-01433;Sobradinho;0.70;0;0;1;1;0
+CASE-01434;Guará;0.90;1;1;0;2;0
+CASE-01435;Ceilândia;0.55;1;1;0;2;1
+CASE-01436;Ceilândia;0.55;0;0;0;0;0
+CASE-01437;Samambaia;0.62;0;1;0;1;0
+CASE-01438;Guará;0.90;0;0;0;0;0
+CASE-01439;Guará;0.90;0;0;0;0;1
+CASE-01440;Guará;0.90;0;0;0;0;0
+CASE-01441;Samambaia;0.62;0;1;0;1;0
+CASE-01442;Gama;0.76;0;0;1;1;0
+CASE-01443;Gama;0.76;1;0;0;1;0
+CASE-01444;Sobradinho;0.70;0;1;1;2;1
+CASE-01445;Ceilândia;0.55;1;1;1;3;1
+CASE-01446;Sobradinho;0.70;0;1;0;1;0
+CASE-01447;Plano Piloto;0.97;1;1;1;3;1
+CASE-01448;Águas Claras;0.94;0;0;0;0;0
+CASE-01449;Taguatinga;0.84;0;0;0;0;0
+CASE-01450;Gama;0.76;0;1;0;1;0
+CASE-01451;Águas Claras;0.94;0;0;1;1;0
+CASE-01452;Plano Piloto;0.97;0;0;1;1;0
+CASE-01453;Águas Claras;0.94;0;0;0;0;0
+CASE-01454;Plano Piloto;0.97;0;0;0;0;0
+CASE-01455;Guará;0.90;0;1;0;1;0
+CASE-01456;Guará;0.90;0;0;1;1;0
+CASE-01457;Guará;0.90;0;0;0;0;0
+CASE-01458;Taguatinga;0.84;0;1;1;2;0
+CASE-01459;Sobradinho;0.70;0;0;0;0;0
+CASE-01460;Gama;0.76;0;0;1;1;0
+CASE-01461;Samambaia;0.62;0;0;0;0;0
+CASE-01462;Samambaia;0.62;0;0;0;0;0
+CASE-01463;Guará;0.90;0;0;0;0;0
+CASE-01464;Taguatinga;0.84;0;1;1;2;0
+CASE-01465;Taguatinga;0.84;0;0;0;0;0
+CASE-01466;Águas Claras;0.94;0;0;0;0;0
+CASE-01467;Sobradinho;0.70;0;0;0;0;0
+CASE-01468;Plano Piloto;0.97;1;1;0;2;1
+CASE-01469;Gama;0.76;0;0;0;0;0
+CASE-01470;Samambaia;0.62;1;1;0;2;0
+CASE-01471;Gama;0.76;0;0;0;0;0
+CASE-01472;Taguatinga;0.84;0;1;0;1;0
+CASE-01473;Taguatinga;0.84;0;1;1;2;0
+CASE-01474;Taguatinga;0.84;0;0;1;1;1
+CASE-01475;Samambaia;0.62;1;1;1;3;0
+CASE-01476;Gama;0.76;0;1;0;1;0
+CASE-01477;Gama;0.76;1;1;0;2;0
+CASE-01478;Ceilândia;0.55;0;0;0;0;0
+CASE-01479;Plano Piloto;0.97;0;1;1;2;1
+CASE-01480;Sobradinho;0.70;0;0;0;0;0
+CASE-01481;Taguatinga;0.84;0;0;0;0;0
+CASE-01482;Sobradinho;0.70;0;0;0;0;0
+CASE-01483;Plano Piloto;0.97;0;0;0;0;0
+CASE-01484;Ceilândia;0.55;0;0;0;0;0
+CASE-01485;Ceilândia;0.55;0;0;1;1;0
+CASE-01486;Samambaia;0.62;0;1;0;1;0
+CASE-01487;Plano Piloto;0.97;0;1;1;2;1
+CASE-01488;Gama;0.76;0;1;0;1;0
+CASE-01489;Taguatinga;0.84;0;0;0;0;0
+CASE-01490;Ceilândia;0.55;0;0;1;1;0
+CASE-01491;Guará;0.90;0;1;0;1;0
+CASE-01492;Guará;0.90;0;0;0;0;0
+CASE-01493;Taguatinga;0.84;1;1;1;3;1
+CASE-01494;Guará;0.90;0;1;1;2;1
+CASE-01495;Gama;0.76;0;0;0;0;0
+CASE-01496;Samambaia;0.62;0;0;0;0;0
+CASE-01497;Taguatinga;0.84;0;1;0;1;0
+CASE-01498;Águas Claras;0.94;0;0;0;0;0
+CASE-01499;Gama;0.76;0;0;0;0;0
+CASE-01500;Taguatinga;0.84;0;1;0;1;0
+CASE-01501;Sobradinho;0.70;0;1;0;1;0
+CASE-01502;Gama;0.76;0;0;0;0;0
+CASE-01503;Sobradinho;0.70;1;1;1;3;1
+CASE-01504;Sobradinho;0.70;0;1;0;1;0
+CASE-01505;Ceilândia;0.55;1;1;0;2;1
+CASE-01506;Águas Claras;0.94;1;0;1;2;0
+CASE-01507;Ceilândia;0.55;1;0;0;1;0
+CASE-01508;Taguatinga;0.84;0;1;0;1;0
+CASE-01509;Plano Piloto;0.97;0;1;0;1;0
+CASE-01510;Sobradinho;0.70;0;0;1;1;0
+CASE-01511;Sobradinho;0.70;0;1;0;1;0
+CASE-01512;Plano Piloto;0.97;0;0;0;0;1
+CASE-01513;Samambaia;0.62;0;0;0;0;0
+CASE-01514;Samambaia;0.62;0;1;1;2;0
+CASE-01515;Guará;0.90;0;0;0;0;0
+CASE-01516;Samambaia;0.62;1;0;0;1;0
+CASE-01517;Plano Piloto;0.97;0;1;0;1;0
+CASE-01518;Gama;0.76;0;0;1;1;0
+CASE-01519;Samambaia;0.62;1;1;1;3;1
+CASE-01520;Guará;0.90;0;0;0;0;0
+CASE-01521;Plano Piloto;0.97;1;1;0;2;1
+CASE-01522;Taguatinga;0.84;0;0;0;0;0
+CASE-01523;Plano Piloto;0.97;0;0;0;0;0
+CASE-01524;Gama;0.76;0;0;0;0;0
+CASE-01525;Samambaia;0.62;1;0;0;1;0
+CASE-01526;Samambaia;0.62;0;1;0;1;1
+CASE-01527;Plano Piloto;0.97;0;1;0;1;0
+CASE-01528;Plano Piloto;0.97;0;0;0;0;0
+CASE-01529;Águas Claras;0.94;0;0;0;0;0
+CASE-01530;Plano Piloto;0.97;0;0;0;0;0
+CASE-01531;Guará;0.90;1;0;0;1;0
+CASE-01532;Gama;0.76;0;0;0;0;0
+CASE-01533;Ceilândia;0.55;0;0;0;0;0
+CASE-01534;Águas Claras;0.94;0;0;0;0;0
+CASE-01535;Ceilândia;0.55;1;0;1;2;1
+CASE-01536;Taguatinga;0.84;1;1;0;2;0
+CASE-01537;Samambaia;0.62;0;1;0;1;0
+CASE-01538;Plano Piloto;0.97;0;0;0;0;0
+CASE-01539;Sobradinho;0.70;0;1;0;1;0
+CASE-01540;Guará;0.90;0;1;0;1;0
+CASE-01541;Plano Piloto;0.97;0;0;1;1;0
+CASE-01542;Ceilândia;0.55;0;0;0;0;0
+CASE-01543;Taguatinga;0.84;1;1;1;3;1
+CASE-01544;Águas Claras;0.94;1;0;1;2;1
+CASE-01545;Taguatinga;0.84;0;0;0;0;0
+CASE-01546;Taguatinga;0.84;0;0;0;0;0
+CASE-01547;Plano Piloto;0.97;0;0;0;0;0
+CASE-01548;Plano Piloto;0.97;0;0;0;0;0
+CASE-01549;Sobradinho;0.70;1;0;0;1;0
+CASE-01550;Águas Claras;0.94;0;0;0;0;0
+CASE-01551;Samambaia;0.62;0;0;0;0;0
+CASE-01552;Guará;0.90;0;0;0;0;0
+CASE-01553;Gama;0.76;0;0;0;0;0
+CASE-01554;Samambaia;0.62;0;0;0;0;0
+CASE-01555;Guará;0.90;0;0;1;1;1
+CASE-01556;Sobradinho;0.70;0;1;1;2;0
+CASE-01557;Plano Piloto;0.97;1;0;0;1;0
+CASE-01558;Ceilândia;0.55;0;1;0;1;0
+CASE-01559;Ceilândia;0.55;1;0;0;1;0
+CASE-01560;Águas Claras;0.94;0;0;0;0;0
+CASE-01561;Gama;0.76;0;1;1;2;0
+CASE-01562;Sobradinho;0.70;0;0;0;0;0
+CASE-01563;Taguatinga;0.84;0;0;0;0;0
+CASE-01564;Ceilândia;0.55;1;1;1;3;1
+CASE-01565;Guará;0.90;0;1;0;1;0
+CASE-01566;Samambaia;0.62;0;0;0;0;0
+CASE-01567;Taguatinga;0.84;0;0;0;0;0
+CASE-01568;Guará;0.90;0;0;1;1;0
+CASE-01569;Sobradinho;0.70;0;0;0;0;0
+CASE-01570;Taguatinga;0.84;1;0;0;1;0
+CASE-01571;Ceilândia;0.55;0;1;0;1;0
+CASE-01572;Guará;0.90;0;1;0;1;0
+CASE-01573;Sobradinho;0.70;0;0;1;1;0
+CASE-01574;Samambaia;0.62;0;1;0;1;0
+CASE-01575;Guará;0.90;0;0;0;0;0
+CASE-01576;Águas Claras;0.94;1;1;1;3;1
+CASE-01577;Ceilândia;0.55;0;0;0;0;0
+CASE-01578;Sobradinho;0.70;0;0;0;0;0
+CASE-01579;Plano Piloto;0.97;1;1;0;2;1
+CASE-01580;Sobradinho;0.70;1;1;1;3;1
+CASE-01581;Guará;0.90;0;1;0;1;0
+CASE-01582;Gama;0.76;0;0;0;0;0
+CASE-01583;Guará;0.90;1;0;1;2;0
+CASE-01584;Sobradinho;0.70;0;0;1;1;0
+CASE-01585;Ceilândia;0.55;0;0;0;0;0
+CASE-01586;Gama;0.76;0;0;1;1;0
+CASE-01587;Águas Claras;0.94;0;1;0;1;0
+CASE-01588;Ceilândia;0.55;0;0;1;1;0
+CASE-01589;Águas Claras;0.94;0;0;0;0;0
+CASE-01590;Guará;0.90;0;0;0;0;0
+CASE-01591;Águas Claras;0.94;0;0;0;0;0
+CASE-01592;Gama;0.76;0;0;0;0;0
+CASE-01593;Ceilândia;0.55;0;0;0;0;0
+CASE-01594;Sobradinho;0.70;0;0;0;0;0
+CASE-01595;Ceilândia;0.55;0;1;0;1;0
+CASE-01596;Samambaia;0.62;0;1;0;1;1
+CASE-01597;Taguatinga;0.84;0;0;0;0;0
+CASE-01598;Águas Claras;0.94;0;0;0;0;0
+CASE-01599;Águas Claras;0.94;0;0;0;0;0
+CASE-01600;Gama;0.76;0;0;0;0;0
+CASE-01601;Guará;0.90;0;0;0;0;0
+CASE-01602;Samambaia;0.62;0;0;0;0;0
+CASE-01603;Ceilândia;0.55;0;0;0;0;0
+CASE-01604;Plano Piloto;0.97;0;0;0;0;0
+CASE-01605;Águas Claras;0.94;0;0;0;0;0
+CASE-01606;Plano Piloto;0.97;0;0;0;0;0
+CASE-01607;Guará;0.90;1;1;1;3;1
+CASE-01608;Sobradinho;0.70;0;0;0;0;0
+CASE-01609;Águas Claras;0.94;1;0;1;2;0
+CASE-01610;Plano Piloto;0.97;1;0;1;2;0
+CASE-01611;Águas Claras;0.94;0;1;1;2;1
+CASE-01612;Plano Piloto;0.97;0;0;0;0;0
+CASE-01613;Sobradinho;0.70;1;1;1;3;0
+CASE-01614;Samambaia;0.62;1;0;0;1;1
+CASE-01615;Ceilândia;0.55;0;0;0;0;0
+CASE-01616;Sobradinho;0.70;1;0;0;1;0
+CASE-01617;Sobradinho;0.70;0;0;0;0;0
+CASE-01618;Sobradinho;0.70;0;1;1;2;1
+CASE-01619;Taguatinga;0.84;0;0;0;0;1
+CASE-01620;Samambaia;0.62;1;1;1;3;0
+CASE-01621;Guará;0.90;1;0;0;1;0
+CASE-01622;Plano Piloto;0.97;0;1;1;2;0
+CASE-01623;Ceilândia;0.55;0;0;0;0;0
+CASE-01624;Plano Piloto;0.97;1;0;1;2;0
+CASE-01625;Guará;0.90;0;0;0;0;0
+CASE-01626;Plano Piloto;0.97;1;1;1;3;1
+CASE-01627;Sobradinho;0.70;0;0;1;1;1
+CASE-01628;Águas Claras;0.94;1;1;1;3;1
+CASE-01629;Ceilândia;0.55;0;0;0;0;0
+CASE-01630;Ceilândia;0.55;0;0;0;0;0
+CASE-01631;Ceilândia;0.55;0;1;1;2;0
+CASE-01632;Sobradinho;0.70;0;0;0;0;0
+CASE-01633;Sobradinho;0.70;0;1;0;1;0
+CASE-01634;Gama;0.76;0;1;1;2;1
+CASE-01635;Guará;0.90;0;1;1;2;1
+CASE-01636;Guará;0.90;0;0;0;0;0
+CASE-01637;Taguatinga;0.84;0;0;0;0;0
+CASE-01638;Sobradinho;0.70;0;0;0;0;0
+CASE-01639;Águas Claras;0.94;1;0;0;1;0
+CASE-01640;Sobradinho;0.70;1;1;0;2;1
+CASE-01641;Gama;0.76;0;0;0;0;0
+CASE-01642;Gama;0.76;0;0;0;0;0
+CASE-01643;Sobradinho;0.70;0;0;1;1;0
+CASE-01644;Guará;0.90;1;0;0;1;0
+CASE-01645;Taguatinga;0.84;1;1;0;2;1
+CASE-01646;Sobradinho;0.70;0;0;0;0;0
+CASE-01647;Plano Piloto;0.97;1;0;0;1;1
+CASE-01648;Plano Piloto;0.97;0;0;0;0;0
+CASE-01649;Gama;0.76;1;0;1;2;0
+CASE-01650;Plano Piloto;0.97;1;0;0;1;0
+CASE-01651;Ceilândia;0.55;0;0;0;0;0
+CASE-01652;Plano Piloto;0.97;0;1;0;1;0
+CASE-01653;Águas Claras;0.94;1;1;1;3;0
+CASE-01654;Águas Claras;0.94;0;0;0;0;0
+CASE-01655;Sobradinho;0.70;0;0;1;1;0
+CASE-01656;Guará;0.90;0;1;0;1;0
+CASE-01657;Guará;0.90;0;0;0;0;0
+CASE-01658;Plano Piloto;0.97;1;0;0;1;0
+CASE-01659;Taguatinga;0.84;0;1;0;1;0
+CASE-01660;Samambaia;0.62;0;0;1;1;0
+CASE-01661;Ceilândia;0.55;0;1;0;1;0
+CASE-01662;Samambaia;0.62;1;0;0;1;0
+CASE-01663;Taguatinga;0.84;0;0;0;0;0
+CASE-01664;Samambaia;0.62;0;1;0;1;0
+CASE-01665;Samambaia;0.62;0;0;0;0;0
+CASE-01666;Guará;0.90;0;0;1;1;1
+CASE-01667;Águas Claras;0.94;0;1;0;1;0
+CASE-01668;Ceilândia;0.55;1;0;1;2;0
+CASE-01669;Águas Claras;0.94;0;0;0;0;0
+CASE-01670;Ceilândia;0.55;0;0;0;0;0
+CASE-01671;Águas Claras;0.94;0;1;1;2;1
+CASE-01672;Guará;0.90;0;0;0;0;0
+CASE-01673;Gama;0.76;0;1;0;1;0
+CASE-01674;Samambaia;0.62;1;1;0;2;0
+CASE-01675;Taguatinga;0.84;0;0;1;1;0
+CASE-01676;Sobradinho;0.70;0;1;0;1;0
+CASE-01677;Ceilândia;0.55;0;1;0;1;0
+CASE-01678;Sobradinho;0.70;0;0;1;1;1
+CASE-01679;Taguatinga;0.84;0;1;1;2;1
+CASE-01680;Taguatinga;0.84;0;1;0;1;0
+CASE-01681;Samambaia;0.62;0;0;0;0;0
+CASE-01682;Gama;0.76;0;0;1;1;0
+CASE-01683;Taguatinga;0.84;0;0;0;0;0
+CASE-01684;Águas Claras;0.94;0;0;0;0;0
+CASE-01685;Plano Piloto;0.97;0;0;0;0;0
+CASE-01686;Águas Claras;0.94;1;1;1;3;1
+CASE-01687;Sobradinho;0.70;1;0;1;2;0
+CASE-01688;Guará;0.90;0;1;0;1;0
+CASE-01689;Ceilândia;0.55;0;1;0;1;0
+CASE-01690;Taguatinga;0.84;1;1;0;2;1
+CASE-01691;Plano Piloto;0.97;1;1;0;2;1
+CASE-01692;Plano Piloto;0.97;0;0;0;0;0
+CASE-01693;Guará;0.90;1;0;0;1;1
+CASE-01694;Taguatinga;0.84;1;1;1;3;1
+CASE-01695;Taguatinga;0.84;0;0;0;0;0
+CASE-01696;Sobradinho;0.70;0;1;0;1;0
+CASE-01697;Samambaia;0.62;0;0;0;0;0
+CASE-01698;Gama;0.76;1;1;0;2;0
+CASE-01699;Gama;0.76;1;0;0;1;0
+CASE-01700;Sobradinho;0.70;0;1;0;1;0
+CASE-01701;Sobradinho;0.70;1;0;1;2;1
+CASE-01702;Sobradinho;0.70;0;0;0;0;0
+CASE-01703;Ceilândia;0.55;0;0;0;0;0
+CASE-01704;Águas Claras;0.94;1;0;0;1;0
+CASE-01705;Águas Claras;0.94;1;0;0;1;0
+CASE-01706;Ceilândia;0.55;0;1;0;1;0
+CASE-01707;Plano Piloto;0.97;1;1;1;3;1
+CASE-01708;Taguatinga;0.84;0;1;1;2;0
+CASE-01709;Ceilândia;0.55;0;0;0;0;0
+CASE-01710;Taguatinga;0.84;0;0;0;0;0
+CASE-01711;Plano Piloto;0.97;0;0;0;0;0
+CASE-01712;Plano Piloto;0.97;0;0;0;0;0
+CASE-01713;Gama;0.76;1;1;1;3;1
+CASE-01714;Ceilândia;0.55;0;0;0;0;0
+CASE-01715;Samambaia;0.62;0;0;1;1;0
+CASE-01716;Águas Claras;0.94;0;0;0;0;0
+CASE-01717;Samambaia;0.62;0;1;0;1;0
+CASE-01718;Samambaia;0.62;0;0;0;0;0
+CASE-01719;Guará;0.90;0;0;0;0;0
+CASE-01720;Plano Piloto;0.97;0;1;0;1;0
+CASE-01721;Samambaia;0.62;0;0;0;0;0
+CASE-01722;Águas Claras;0.94;1;0;1;2;1
+CASE-01723;Taguatinga;0.84;1;0;0;1;0
+CASE-01724;Taguatinga;0.84;0;1;0;1;0
+CASE-01725;Ceilândia;0.55;0;0;0;0;0
+CASE-01726;Samambaia;0.62;1;0;0;1;0
+CASE-01727;Taguatinga;0.84;0;1;0;1;0
+CASE-01728;Samambaia;0.62;0;0;0;0;0
+CASE-01729;Taguatinga;0.84;0;1;1;2;0
+CASE-01730;Ceilândia;0.55;1;1;0;2;1
+CASE-01731;Ceilândia;0.55;0;0;1;1;0
+CASE-01732;Sobradinho;0.70;0;0;1;1;0
+CASE-01733;Plano Piloto;0.97;1;1;0;2;1
+CASE-01734;Guará;0.90;0;0;0;0;0
+CASE-01735;Ceilândia;0.55;0;0;1;1;0
+CASE-01736;Águas Claras;0.94;0;0;0;0;0
+CASE-01737;Gama;0.76;0;0;0;0;0
+CASE-01738;Samambaia;0.62;0;0;1;1;0
+CASE-01739;Plano Piloto;0.97;0;0;0;0;0
+CASE-01740;Gama;0.76;1;0;0;1;1
+CASE-01741;Ceilândia;0.55;1;1;0;2;1
+CASE-01742;Plano Piloto;0.97;0;0;0;0;0
+CASE-01743;Samambaia;0.62;1;1;0;2;1
+CASE-01744;Ceilândia;0.55;0;0;0;0;0
+CASE-01745;Sobradinho;0.70;0;1;0;1;0
+CASE-01746;Águas Claras;0.94;0;0;0;0;0
+CASE-01747;Guará;0.90;1;1;0;2;1
+CASE-01748;Guará;0.90;0;0;1;1;0
+CASE-01749;Samambaia;0.62;0;0;0;0;0
+CASE-01750;Guará;0.90;0;1;0;1;0
+CASE-01751;Sobradinho;0.70;0;0;0;0;0
+CASE-01752;Guará;0.90;0;0;0;0;0
+CASE-01753;Águas Claras;0.94;1;0;0;1;0
+CASE-01754;Taguatinga;0.84;0;0;0;0;0
+CASE-01755;Samambaia;0.62;1;0;0;1;0
+CASE-01756;Samambaia;0.62;1;1;0;2;1
+CASE-01757;Águas Claras;0.94;0;0;1;1;0
+CASE-01758;Ceilândia;0.55;0;1;0;1;0
+CASE-01759;Sobradinho;0.70;1;1;0;2;1
+CASE-01760;Gama;0.76;0;0;0;0;0
+CASE-01761;Gama;0.76;0;0;1;1;0
+CASE-01762;Gama;0.76;1;1;1;3;0
+CASE-01763;Sobradinho;0.70;0;1;0;1;0
+CASE-01764;Plano Piloto;0.97;1;0;0;1;1
+CASE-01765;Plano Piloto;0.97;0;0;1;1;0
+CASE-01766;Ceilândia;0.55;0;0;0;0;0
+CASE-01767;Samambaia;0.62;0;1;0;1;0
+CASE-01768;Águas Claras;0.94;0;1;1;2;0
+CASE-01769;Gama;0.76;1;1;0;2;1
+CASE-01770;Ceilândia;0.55;0;1;1;2;0
+CASE-01771;Plano Piloto;0.97;1;0;0;1;0
+CASE-01772;Guará;0.90;0;1;0;1;0
+CASE-01773;Águas Claras;0.94;0;0;0;0;0
+CASE-01774;Sobradinho;0.70;0;1;1;2;0
+CASE-01775;Taguatinga;0.84;1;1;1;3;0
+CASE-01776;Águas Claras;0.94;0;0;1;1;0
+CASE-01777;Taguatinga;0.84;0;0;0;0;0
+CASE-01778;Taguatinga;0.84;1;0;1;2;1
+CASE-01779;Gama;0.76;0;0;0;0;0
+CASE-01780;Ceilândia;0.55;0;1;1;2;1
+CASE-01781;Samambaia;0.62;1;1;0;2;0
+CASE-01782;Sobradinho;0.70;0;1;0;1;1
+CASE-01783;Ceilândia;0.55;0;1;0;1;0
+CASE-01784;Ceilândia;0.55;0;1;0;1;0
+CASE-01785;Guará;0.90;1;1;0;2;0
+CASE-01786;Taguatinga;0.84;0;0;0;0;0
+CASE-01787;Ceilândia;0.55;1;0;0;1;0
+CASE-01788;Guará;0.90;0;0;0;0;0
+CASE-01789;Guará;0.90;0;0;0;0;0
+CASE-01790;Sobradinho;0.70;1;1;1;3;1
+CASE-01791;Plano Piloto;0.97;0;0;0;0;0
+CASE-01792;Ceilândia;0.55;1;0;1;2;1
+CASE-01793;Sobradinho;0.70;0;1;1;2;0
+CASE-01794;Ceilândia;0.55;0;1;0;1;0
+CASE-01795;Águas Claras;0.94;1;1;0;2;1
+CASE-01796;Plano Piloto;0.97;0;0;0;0;0
+CASE-01797;Plano Piloto;0.97;0;0;0;0;0
+CASE-01798;Plano Piloto;0.97;0;0;0;0;0
+CASE-01799;Taguatinga;0.84;0;0;0;0;0
+CASE-01800;Samambaia;0.62;0;0;1;1;1
+CASE-01801;Águas Claras;0.94;1;0;0;1;0
+CASE-01802;Ceilândia;0.55;0;1;0;1;0
+CASE-01803;Ceilândia;0.55;0;1;0;1;0
+CASE-01804;Samambaia;0.62;0;0;0;0;0
+CASE-01805;Ceilândia;0.55;1;1;1;3;0
+CASE-01806;Ceilândia;0.55;0;0;0;0;0
+CASE-01807;Águas Claras;0.94;0;0;0;0;0
+CASE-01808;Taguatinga;0.84;0;0;0;0;0
+CASE-01809;Ceilândia;0.55;0;1;0;1;0
+CASE-01810;Águas Claras;0.94;0;0;0;0;0
+CASE-01811;Águas Claras;0.94;0;0;0;0;0
+CASE-01812;Guará;0.90;0;0;1;1;0
+CASE-01813;Guará;0.90;0;0;1;1;1
+CASE-01814;Guará;0.90;0;0;0;0;1
+CASE-01815;Gama;0.76;0;0;0;0;0
+CASE-01816;Guará;0.90;1;1;0;2;0
+CASE-01817;Taguatinga;0.84;0;0;0;0;0
+CASE-01818;Águas Claras;0.94;0;0;0;0;0
+CASE-01819;Plano Piloto;0.97;1;0;0;1;1
+CASE-01820;Taguatinga;0.84;0;0;0;0;0
+CASE-01821;Taguatinga;0.84;0;0;0;0;0
+CASE-01822;Ceilândia;0.55;1;1;0;2;0
+CASE-01823;Samambaia;0.62;0;0;0;0;0
+CASE-01824;Gama;0.76;0;1;0;1;0
+CASE-01825;Ceilândia;0.55;0;0;0;0;0
+CASE-01826;Guará;0.90;1;0;0;1;0
+CASE-01827;Samambaia;0.62;0;1;1;2;0
+CASE-01828;Águas Claras;0.94;0;1;0;1;0
+CASE-01829;Águas Claras;0.94;1;0;0;1;0
+CASE-01830;Ceilândia;0.55;0;0;0;0;0
+CASE-01831;Taguatinga;0.84;0;0;0;0;0
+CASE-01832;Águas Claras;0.94;0;0;0;0;0
+CASE-01833;Ceilândia;0.55;0;0;0;0;0
+CASE-01834;Águas Claras;0.94;0;1;0;1;0
+CASE-01835;Taguatinga;0.84;1;1;0;2;0
+CASE-01836;Taguatinga;0.84;0;0;0;0;0
+CASE-01837;Ceilândia;0.55;1;0;1;2;1
+CASE-01838;Guará;0.90;1;1;1;3;1
+CASE-01839;Plano Piloto;0.97;0;0;0;0;0
+CASE-01840;Ceilândia;0.55;1;0;1;2;0
+CASE-01841;Guará;0.90;0;0;0;0;0
+CASE-01842;Taguatinga;0.84;0;1;0;1;0
+CASE-01843;Águas Claras;0.94;1;1;1;3;1
+CASE-01844;Samambaia;0.62;0;1;0;1;0
+CASE-01845;Taguatinga;0.84;0;0;0;0;0
+CASE-01846;Guará;0.90;0;0;1;1;0
+CASE-01847;Gama;0.76;1;0;1;2;0
+CASE-01848;Águas Claras;0.94;0;1;1;2;1
+CASE-01849;Águas Claras;0.94;0;1;0;1;0
+CASE-01850;Ceilândia;0.55;0;0;0;0;0
+CASE-01851;Águas Claras;0.94;1;1;1;3;1
+CASE-01852;Samambaia;0.62;1;0;0;1;0
+CASE-01853;Samambaia;0.62;0;0;0;0;0
+CASE-01854;Guará;0.90;1;0;1;2;0
+CASE-01855;Plano Piloto;0.97;0;1;0;1;0
+CASE-01856;Ceilândia;0.55;0;1;0;1;0
+CASE-01857;Ceilândia;0.55;0;1;0;1;0
+CASE-01858;Águas Claras;0.94;0;0;0;0;0
+CASE-01859;Guará;0.90;0;0;0;0;0
+CASE-01860;Gama;0.76;0;0;1;1;0
+CASE-01861;Ceilândia;0.55;0;1;0;1;0
+CASE-01862;Samambaia;0.62;0;1;0;1;0
+CASE-01863;Plano Piloto;0.97;0;0;1;1;0
+CASE-01864;Taguatinga;0.84;0;1;0;1;0
+CASE-01865;Sobradinho;0.70;1;0;0;1;0
+CASE-01866;Sobradinho;0.70;0;1;0;1;0
+CASE-01867;Plano Piloto;0.97;1;0;0;1;0
+CASE-01868;Gama;0.76;0;1;0;1;0
+CASE-01869;Gama;0.76;0;1;1;2;1
+CASE-01870;Ceilândia;0.55;0;1;1;2;1
+CASE-01871;Gama;0.76;0;0;0;0;0
+CASE-01872;Águas Claras;0.94;0;0;0;0;0
+CASE-01873;Gama;0.76;0;1;1;2;1
+CASE-01874;Ceilândia;0.55;0;1;0;1;0
+CASE-01875;Sobradinho;0.70;1;1;0;2;0
+CASE-01876;Gama;0.76;0;0;0;0;0
+CASE-01877;Águas Claras;0.94;0;0;0;0;0
+CASE-01878;Guará;0.90;0;0;1;1;0
+CASE-01879;Plano Piloto;0.97;0;0;0;0;0
+CASE-01880;Águas Claras;0.94;0;1;0;1;0
+CASE-01881;Taguatinga;0.84;0;0;0;0;0
+CASE-01882;Samambaia;0.62;1;1;1;3;1
+CASE-01883;Sobradinho;0.70;0;0;0;0;0
+CASE-01884;Sobradinho;0.70;0;1;0;1;0
+CASE-01885;Ceilândia;0.55;0;1;0;1;1
+CASE-01886;Gama;0.76;0;1;0;1;0
+CASE-01887;Plano Piloto;0.97;0;0;0;0;0
+CASE-01888;Águas Claras;0.94;0;0;1;1;0
+CASE-01889;Plano Piloto;0.97;1;0;1;2;0
+CASE-01890;Sobradinho;0.70;0;1;1;2;1
+CASE-01891;Sobradinho;0.70;0;1;0;1;0
+CASE-01892;Plano Piloto;0.97;0;1;0;1;0
+CASE-01893;Ceilândia;0.55;1;0;0;1;0
+CASE-01894;Plano Piloto;0.97;0;1;0;1;1
+CASE-01895;Plano Piloto;0.97;0;0;0;0;0
+CASE-01896;Águas Claras;0.94;1;1;1;3;1
+CASE-01897;Gama;0.76;0;1;0;1;0
+CASE-01898;Guará;0.90;0;1;0;1;0
+CASE-01899;Sobradinho;0.70;0;0;0;0;0
+CASE-01900;Guará;0.90;1;1;0;2;1
+CASE-01901;Ceilândia;0.55;1;1;0;2;0
+CASE-01902;Ceilândia;0.55;1;0;1;2;1
+CASE-01903;Samambaia;0.62;1;1;0;2;0
+CASE-01904;Ceilândia;0.55;0;0;0;0;0
+CASE-01905;Plano Piloto;0.97;1;1;0;2;0
+CASE-01906;Samambaia;0.62;0;1;0;1;0
+CASE-01907;Guará;0.90;1;1;0;2;1
+CASE-01908;Águas Claras;0.94;0;0;0;0;0
+CASE-01909;Águas Claras;0.94;1;0;0;1;1
+CASE-01910;Sobradinho;0.70;0;1;0;1;0
+CASE-01911;Ceilândia;0.55;0;0;0;0;0
+CASE-01912;Águas Claras;0.94;0;0;0;0;0
+CASE-01913;Sobradinho;0.70;0;0;0;0;0
+CASE-01914;Gama;0.76;0;0;0;0;0
+CASE-01915;Águas Claras;0.94;0;0;1;1;0
+CASE-01916;Sobradinho;0.70;0;0;0;0;0
+CASE-01917;Plano Piloto;0.97;0;0;0;0;0
+CASE-01918;Guará;0.90;0;0;1;1;0
+CASE-01919;Ceilândia;0.55;0;0;0;0;0
+CASE-01920;Samambaia;0.62;0;0;0;0;0
+CASE-01921;Plano Piloto;0.97;0;0;1;1;0
+CASE-01922;Águas Claras;0.94;0;1;1;2;0
+CASE-01923;Ceilândia;0.55;1;1;0;2;0
+CASE-01924;Ceilândia;0.55;0;0;0;0;0
+CASE-01925;Gama;0.76;0;0;0;0;0
+CASE-01926;Águas Claras;0.94;0;1;1;2;0
+CASE-01927;Guará;0.90;0;0;0;0;0
+CASE-01928;Ceilândia;0.55;0;1;0;1;0
+CASE-01929;Sobradinho;0.70;0;0;0;0;0
+CASE-01930;Águas Claras;0.94;0;1;1;2;0
+CASE-01931;Ceilândia;0.55;0;0;0;0;0
+CASE-01932;Taguatinga;0.84;0;0;0;0;0
+CASE-01933;Águas Claras;0.94;0;0;0;0;0
+CASE-01934;Ceilândia;0.55;0;0;0;0;0
+CASE-01935;Taguatinga;0.84;0;0;1;1;0
+CASE-01936;Gama;0.76;0;0;1;1;0
+CASE-01937;Guará;0.90;1;1;1;3;1
+CASE-01938;Guará;0.90;0;0;0;0;0
+CASE-01939;Guará;0.90;0;0;0;0;0
+CASE-01940;Plano Piloto;0.97;1;0;1;2;0
+CASE-01941;Plano Piloto;0.97;0;0;0;0;0
+CASE-01942;Samambaia;0.62;0;0;0;0;0
+CASE-01943;Samambaia;0.62;1;0;0;1;0
+CASE-01944;Ceilândia;0.55;1;0;0;1;0
+CASE-01945;Sobradinho;0.70;0;0;0;0;0
+CASE-01946;Guará;0.90;0;0;1;1;0
+CASE-01947;Samambaia;0.62;0;0;0;0;0
+CASE-01948;Taguatinga;0.84;0;0;1;1;0
+CASE-01949;Plano Piloto;0.97;0;0;1;1;0
+CASE-01950;Ceilândia;0.55;1;1;1;3;0
+CASE-01951;Sobradinho;0.70;0;1;0;1;0
+CASE-01952;Samambaia;0.62;0;0;0;0;0
+CASE-01953;Sobradinho;0.70;0;1;0;1;0
+CASE-01954;Sobradinho;0.70;1;0;0;1;0
+CASE-01955;Plano Piloto;0.97;0;0;0;0;0
+CASE-01956;Gama;0.76;0;0;0;0;0
+CASE-01957;Plano Piloto;0.97;0;1;1;2;0
+CASE-01958;Plano Piloto;0.97;0;0;0;0;0
+CASE-01959;Sobradinho;0.70;0;1;0;1;0
+CASE-01960;Ceilândia;0.55;0;0;0;0;0
+CASE-01961;Taguatinga;0.84;0;1;1;2;0
+CASE-01962;Samambaia;0.62;0;1;0;1;0
+CASE-01963;Samambaia;0.62;1;1;1;3;1
+CASE-01964;Gama;0.76;0;0;0;0;0
+CASE-01965;Ceilândia;0.55;0;0;0;0;0
+CASE-01966;Guará;0.90;0;1;1;2;1
+CASE-01967;Águas Claras;0.94;0;1;0;1;0
+CASE-01968;Taguatinga;0.84;1;0;1;2;0
+CASE-01969;Ceilândia;0.55;0;1;0;1;0
+CASE-01970;Sobradinho;0.70;0;0;0;0;0
+CASE-01971;Ceilândia;0.55;0;0;0;0;0
+CASE-01972;Guará;0.90;0;1;0;1;0
+CASE-01973;Sobradinho;0.70;1;0;0;1;0
+CASE-01974;Ceilândia;0.55;0;1;0;1;0
+CASE-01975;Samambaia;0.62;1;1;1;3;1
+CASE-01976;Plano Piloto;0.97;0;0;0;0;0
+CASE-01977;Águas Claras;0.94;0;1;1;2;1
+CASE-01978;Ceilândia;0.55;0;1;0;1;0
+CASE-01979;Sobradinho;0.70;0;0;0;0;0
+CASE-01980;Plano Piloto;0.97;0;1;0;1;0
+CASE-01981;Guará;0.90;1;1;0;2;1
+CASE-01982;Ceilândia;0.55;0;1;0;1;0
+CASE-01983;Ceilândia;0.55;0;0;1;1;0
+CASE-01984;Samambaia;0.62;0;1;1;2;0
+CASE-01985;Taguatinga;0.84;0;0;1;1;0
+CASE-01986;Sobradinho;0.70;0;1;1;2;1
+CASE-01987;Guará;0.90;0;0;1;1;0
+CASE-01988;Gama;0.76;0;0;0;0;0
+CASE-01989;Ceilândia;0.55;0;0;0;0;0
+CASE-01990;Ceilândia;0.55;0;0;0;0;0
+CASE-01991;Gama;0.76;0;0;1;1;0
+CASE-01992;Samambaia;0.62;0;1;1;2;1
+CASE-01993;Águas Claras;0.94;0;0;0;0;0
+CASE-01994;Gama;0.76;0;1;1;2;0
+CASE-01995;Taguatinga;0.84;1;0;0;1;0
+CASE-01996;Taguatinga;0.84;1;1;0;2;0
+CASE-01997;Águas Claras;0.94;1;1;1;3;1
+CASE-01998;Ceilândia;0.55;0;0;0;0;0
+CASE-01999;Ceilândia;0.55;0;0;0;0;0
+CASE-02000;Sobradinho;0.70;0;0;0;0;0
+CASE-02001;Águas Claras;0.94;0;0;0;0;0
+CASE-02002;Guará;0.90;1;0;0;1;0
+CASE-02003;Plano Piloto;0.97;1;0;0;1;0
+CASE-02004;Guará;0.90;0;1;0;1;1
+CASE-02005;Plano Piloto;0.97;0;0;1;1;0
+CASE-02006;Taguatinga;0.84;0;0;0;0;0
+CASE-02007;Plano Piloto;0.97;0;0;0;0;0
+CASE-02008;Sobradinho;0.70;1;1;1;3;1
+CASE-02009;Samambaia;0.62;0;0;0;0;0
+CASE-02010;Taguatinga;0.84;0;0;1;1;0
+CASE-02011;Ceilândia;0.55;0;1;1;2;1
+CASE-02012;Sobradinho;0.70;0;0;1;1;0
+CASE-02013;Taguatinga;0.84;0;0;0;0;0
+CASE-02014;Guará;0.90;0;0;0;0;0
+CASE-02015;Gama;0.76;0;0;0;0;0
+CASE-02016;Plano Piloto;0.97;0;0;0;0;0
+CASE-02017;Plano Piloto;0.97;0;0;0;0;0
+CASE-02018;Guará;0.90;0;0;0;0;0
+CASE-02019;Águas Claras;0.94;0;0;0;0;0
+CASE-02020;Samambaia;0.62;1;1;0;2;0
+CASE-02021;Taguatinga;0.84;1;1;0;2;0
+CASE-02022;Plano Piloto;0.97;0;0;1;1;1
+CASE-02023;Águas Claras;0.94;0;1;0;1;0
+CASE-02024;Guará;0.90;1;1;0;2;1
+CASE-02025;Plano Piloto;0.97;0;0;0;0;0
+CASE-02026;Plano Piloto;0.97;0;1;0;1;0
+CASE-02027;Gama;0.76;0;1;0;1;0
+CASE-02028;Águas Claras;0.94;1;1;1;3;1
+CASE-02029;Samambaia;0.62;0;1;1;2;0
+CASE-02030;Taguatinga;0.84;1;1;0;2;0
+CASE-02031;Sobradinho;0.70;0;0;1;1;0
+CASE-02032;Guará;0.90;0;0;0;0;0
+CASE-02033;Guará;0.90;1;0;0;1;0
+CASE-02034;Ceilândia;0.55;0;1;0;1;0
+CASE-02035;Ceilândia;0.55;0;0;0;0;0
+CASE-02036;Sobradinho;0.70;0;0;1;1;0
+CASE-02037;Plano Piloto;0.97;0;1;1;2;1
+CASE-02038;Ceilândia;0.55;1;1;0;2;0
+CASE-02039;Gama;0.76;1;0;0;1;0
+CASE-02040;Gama;0.76;0;1;0;1;1
+CASE-02041;Gama;0.76;0;0;0;0;0
+CASE-02042;Ceilândia;0.55;1;0;0;1;0
+CASE-02043;Plano Piloto;0.97;1;0;0;1;0
+CASE-02044;Samambaia;0.62;0;0;0;0;0
+CASE-02045;Gama;0.76;0;1;0;1;0
+CASE-02046;Gama;0.76;0;0;0;0;0
+CASE-02047;Gama;0.76;1;0;0;1;1
+CASE-02048;Taguatinga;0.84;0;0;0;0;0
+CASE-02049;Guará;0.90;0;0;0;0;0
+CASE-02050;Taguatinga;0.84;0;0;0;0;0
+CASE-02051;Águas Claras;0.94;0;0;0;0;0
+CASE-02052;Ceilândia;0.55;0;0;0;0;0
+CASE-02053;Taguatinga;0.84;1;0;0;1;0
+CASE-02054;Taguatinga;0.84;0;0;0;0;0
+CASE-02055;Guará;0.90;0;1;0;1;1
+CASE-02056;Plano Piloto;0.97;0;0;0;0;0
+CASE-02057;Águas Claras;0.94;1;0;0;1;0
+CASE-02058;Taguatinga;0.84;0;0;0;0;0
+CASE-02059;Ceilândia;0.55;1;1;0;2;0
+CASE-02060;Gama;0.76;0;1;0;1;0
+CASE-02061;Samambaia;0.62;0;0;1;1;0
+CASE-02062;Guará;0.90;0;1;1;2;0
+CASE-02063;Plano Piloto;0.97;0;0;0;0;0
+CASE-02064;Samambaia;0.62;0;0;0;0;0
+CASE-02065;Guará;0.90;0;1;0;1;0
+CASE-02066;Taguatinga;0.84;0;0;0;0;0
+CASE-02067;Sobradinho;0.70;0;0;0;0;0
+CASE-02068;Águas Claras;0.94;0;0;0;0;0
+CASE-02069;Sobradinho;0.70;0;0;0;0;0
+CASE-02070;Sobradinho;0.70;0;1;0;1;0
+CASE-02071;Sobradinho;0.70;1;1;1;3;1
+CASE-02072;Ceilândia;0.55;0;1;0;1;1
+CASE-02073;Samambaia;0.62;0;0;0;0;0
+CASE-02074;Águas Claras;0.94;0;0;0;0;0
+CASE-02075;Plano Piloto;0.97;1;1;0;2;0
+CASE-02076;Sobradinho;0.70;0;0;1;1;0
+CASE-02077;Taguatinga;0.84;0;0;0;0;0
+CASE-02078;Gama;0.76;0;1;0;1;0
+CASE-02079;Gama;0.76;0;1;0;1;0
+CASE-02080;Guará;0.90;0;0;0;0;0
+CASE-02081;Gama;0.76;0;0;0;0;0
+CASE-02082;Guará;0.90;0;0;0;0;0
+CASE-02083;Ceilândia;0.55;0;0;0;0;0
+CASE-02084;Ceilândia;0.55;1;0;0;1;0
+CASE-02085;Plano Piloto;0.97;0;0;0;0;0
+CASE-02086;Guará;0.90;0;0;0;0;0
+CASE-02087;Gama;0.76;0;1;0;1;0
+CASE-02088;Guará;0.90;0;0;0;0;0
+CASE-02089;Sobradinho;0.70;1;1;0;2;1
+CASE-02090;Águas Claras;0.94;0;0;0;0;0
+CASE-02091;Taguatinga;0.84;0;0;0;0;0
+CASE-02092;Águas Claras;0.94;1;1;0;2;0
+CASE-02093;Ceilândia;0.55;0;1;0;1;0
+CASE-02094;Águas Claras;0.94;0;0;0;0;0
+CASE-02095;Sobradinho;0.70;0;0;0;0;0
+CASE-02096;Taguatinga;0.84;0;0;0;0;0
+CASE-02097;Guará;0.90;0;0;0;0;0
+CASE-02098;Sobradinho;0.70;1;1;0;2;1
+CASE-02099;Águas Claras;0.94;0;0;0;0;0
+CASE-02100;Águas Claras;0.94;0;0;1;1;0
+CASE-02101;Samambaia;0.62;0;0;0;0;0
+CASE-02102;Sobradinho;0.70;0;1;0;1;0
+CASE-02103;Sobradinho;0.70;0;1;0;1;0
+CASE-02104;Plano Piloto;0.97;0;0;0;0;0
+CASE-02105;Águas Claras;0.94;0;1;0;1;0
+CASE-02106;Guará;0.90;0;0;1;1;0
+CASE-02107;Samambaia;0.62;0;0;0;0;0
+CASE-02108;Águas Claras;0.94;1;1;0;2;0
+CASE-02109;Plano Piloto;0.97;0;0;0;0;0
+CASE-02110;Samambaia;0.62;0;0;0;0;0
+CASE-02111;Sobradinho;0.70;1;1;0;2;1
+CASE-02112;Samambaia;0.62;0;1;0;1;0
+CASE-02113;Sobradinho;0.70;1;1;1;3;1
+CASE-02114;Gama;0.76;0;1;0;1;0
+CASE-02115;Plano Piloto;0.97;0;0;0;0;0
+CASE-02116;Ceilândia;0.55;1;0;0;1;0
+CASE-02117;Gama;0.76;0;0;0;0;0
+CASE-02118;Samambaia;0.62;0;0;0;0;0
+CASE-02119;Samambaia;0.62;0;0;1;1;0
+CASE-02120;Taguatinga;0.84;0;0;1;1;0
+CASE-02121;Águas Claras;0.94;0;0;1;1;0
+CASE-02122;Águas Claras;0.94;1;1;0;2;1
+CASE-02123;Sobradinho;0.70;0;0;0;0;0
+CASE-02124;Taguatinga;0.84;0;0;0;0;0
+CASE-02125;Guará;0.90;0;0;1;1;0
+CASE-02126;Guará;0.90;0;0;0;0;0
+CASE-02127;Guará;0.90;0;0;1;1;0
+CASE-02128;Guará;0.90;0;0;0;0;0
+CASE-02129;Samambaia;0.62;0;0;0;0;0
+CASE-02130;Ceilândia;0.55;0;0;0;0;0
+CASE-02131;Sobradinho;0.70;1;1;1;3;1
+CASE-02132;Sobradinho;0.70;1;1;0;2;1
+CASE-02133;Samambaia;0.62;0;0;1;1;0
+CASE-02134;Taguatinga;0.84;0;1;0;1;0
+CASE-02135;Gama;0.76;0;0;0;0;0
+CASE-02136;Taguatinga;0.84;1;1;1;3;1
+CASE-02137;Plano Piloto;0.97;0;0;1;1;0
+CASE-02138;Gama;0.76;1;0;1;2;1
+CASE-02139;Gama;0.76;0;0;0;0;0
+CASE-02140;Gama;0.76;0;0;0;0;0
+CASE-02141;Ceilândia;0.55;1;1;1;3;0
+CASE-02142;Plano Piloto;0.97;0;0;0;0;0
+CASE-02143;Águas Claras;0.94;1;0;0;1;0
+CASE-02144;Ceilândia;0.55;0;0;1;1;0
+CASE-02145;Taguatinga;0.84;0;0;0;0;0
+CASE-02146;Ceilândia;0.55;0;1;0;1;0
+CASE-02147;Águas Claras;0.94;0;1;0;1;0
+CASE-02148;Taguatinga;0.84;0;1;0;1;0
+CASE-02149;Sobradinho;0.70;0;0;0;0;0
+CASE-02150;Plano Piloto;0.97;0;1;0;1;0
+CASE-02151;Sobradinho;0.70;0;1;0;1;0
+CASE-02152;Guará;0.90;0;0;0;0;0
+CASE-02153;Ceilândia;0.55;0;1;0;1;1
+CASE-02154;Gama;0.76;0;1;0;1;0
+CASE-02155;Samambaia;0.62;0;1;1;2;0
+CASE-02156;Guará;0.90;1;0;1;2;1
+CASE-02157;Guará;0.90;0;0;0;0;0
+CASE-02158;Taguatinga;0.84;1;0;1;2;0
+CASE-02159;Gama;0.76;0;0;1;1;0
+CASE-02160;Taguatinga;0.84;1;0;0;1;0
+CASE-02161;Sobradinho;0.70;0;0;0;0;0
+CASE-02162;Águas Claras;0.94;0;0;0;0;0
+CASE-02163;Taguatinga;0.84;0;0;0;0;0
+CASE-02164;Gama;0.76;0;1;1;2;0
+CASE-02165;Ceilândia;0.55;0;1;0;1;1
+CASE-02166;Samambaia;0.62;0;1;0;1;0
+CASE-02167;Guará;0.90;1;0;0;1;0
+CASE-02168;Águas Claras;0.94;0;0;1;1;0
+CASE-02169;Sobradinho;0.70;1;0;0;1;0
+CASE-02170;Sobradinho;0.70;0;0;0;0;0
+CASE-02171;Samambaia;0.62;0;1;0;1;0
+CASE-02172;Plano Piloto;0.97;0;0;0;0;0
+CASE-02173;Samambaia;0.62;1;0;0;1;1
+CASE-02174;Ceilândia;0.55;1;0;1;2;0
+CASE-02175;Águas Claras;0.94;0;0;0;0;0
+CASE-02176;Taguatinga;0.84;0;0;1;1;0
+CASE-02177;Gama;0.76;0;0;0;0;0
+CASE-02178;Guará;0.90;0;0;0;0;0
+CASE-02179;Águas Claras;0.94;0;0;1;1;0
+CASE-02180;Águas Claras;0.94;1;0;0;1;0
+CASE-02181;Taguatinga;0.84;0;1;1;2;1
+CASE-02182;Gama;0.76;0;0;0;0;0
+CASE-02183;Guará;0.90;0;0;0;0;0
+CASE-02184;Sobradinho;0.70;0;1;1;2;0
+CASE-02185;Ceilândia;0.55;0;1;0;1;0
+CASE-02186;Guará;0.90;0;1;0;1;0
+CASE-02187;Ceilândia;0.55;0;1;0;1;0
+CASE-02188;Águas Claras;0.94;0;0;0;0;0
+CASE-02189;Samambaia;0.62;0;0;1;1;0
+CASE-02190;Águas Claras;0.94;0;0;0;0;0
+CASE-02191;Águas Claras;0.94;1;0;1;2;1
+CASE-02192;Sobradinho;0.70;1;1;0;2;0
+CASE-02193;Gama;0.76;0;0;1;1;0
+CASE-02194;Gama;0.76;0;1;0;1;0
+CASE-02195;Sobradinho;0.70;0;0;0;0;0
+CASE-02196;Gama;0.76;0;0;0;0;0
+CASE-02197;Plano Piloto;0.97;0;0;1;1;0
+CASE-02198;Guará;0.90;1;0;0;1;0
+CASE-02199;Samambaia;0.62;0;0;0;0;0
+CASE-02200;Sobradinho;0.70;1;0;0;1;1
+CASE-02201;Gama;0.76;0;1;0;1;0
+CASE-02202;Samambaia;0.62;0;1;1;2;0
+CASE-02203;Águas Claras;0.94;0;0;1;1;0
+CASE-02204;Samambaia;0.62;0;1;0;1;1
+CASE-02205;Plano Piloto;0.97;0;0;0;0;0
+CASE-02206;Plano Piloto;0.97;0;1;0;1;0
+CASE-02207;Águas Claras;0.94;0;1;1;2;0
+CASE-02208;Guará;0.90;0;0;0;0;0
+CASE-02209;Plano Piloto;0.97;0;0;0;0;0
+CASE-02210;Plano Piloto;0.97;0;0;0;0;0
+CASE-02211;Guará;0.90;0;0;0;0;0
+CASE-02212;Gama;0.76;0;1;0;1;0
+CASE-02213;Ceilândia;0.55;0;1;0;1;0
+CASE-02214;Ceilândia;0.55;0;0;0;0;0
+CASE-02215;Samambaia;0.62;0;0;0;0;0
+CASE-02216;Águas Claras;0.94;0;0;0;0;0
+CASE-02217;Ceilândia;0.55;0;0;0;0;0
+CASE-02218;Plano Piloto;0.97;1;1;0;2;1
+CASE-02219;Gama;0.76;0;0;0;0;0
+CASE-02220;Taguatinga;0.84;1;1;1;3;1
+CASE-02221;Samambaia;0.62;0;1;0;1;0
+CASE-02222;Guará;0.90;0;0;0;0;0
+CASE-02223;Gama;0.76;0;1;1;2;0
+CASE-02224;Ceilândia;0.55;1;1;0;2;0
+CASE-02225;Águas Claras;0.94;0;0;0;0;0
+CASE-02226;Guará;0.90;1;0;0;1;0
+CASE-02227;Águas Claras;0.94;1;0;0;1;0
+CASE-02228;Samambaia;0.62;1;1;0;2;0
+CASE-02229;Gama;0.76;0;0;0;0;0
+CASE-02230;Guará;0.90;0;0;0;0;0
+CASE-02231;Plano Piloto;0.97;0;0;0;0;0
+CASE-02232;Ceilândia;0.55;0;1;0;1;1
+CASE-02233;Sobradinho;0.70;0;1;0;1;0
+CASE-02234;Taguatinga;0.84;0;1;0;1;1
+CASE-02235;Águas Claras;0.94;1;1;0;2;1
+CASE-02236;Gama;0.76;0;0;0;0;0
+CASE-02237;Samambaia;0.62;0;0;0;0;0
+CASE-02238;Sobradinho;0.70;0;0;0;0;0
+CASE-02239;Sobradinho;0.70;0;1;0;1;0
+CASE-02240;Ceilândia;0.55;0;1;0;1;0
+CASE-02241;Guará;0.90;0;0;0;0;0
+CASE-02242;Águas Claras;0.94;1;1;1;3;1
+CASE-02243;Sobradinho;0.70;0;1;0;1;0
+CASE-02244;Gama;0.76;0;0;0;0;0
+CASE-02245;Plano Piloto;0.97;0;0;0;0;0
+CASE-02246;Guará;0.90;0;0;0;0;0
+CASE-02247;Sobradinho;0.70;0;0;0;0;0
+CASE-02248;Plano Piloto;0.97;1;1;0;2;0
+CASE-02249;Gama;0.76;0;0;0;0;0
+CASE-02250;Águas Claras;0.94;0;0;0;0;0
+CASE-02251;Guará;0.90;0;1;1;2;1
+CASE-02252;Taguatinga;0.84;0;0;0;0;0
+CASE-02253;Samambaia;0.62;0;1;0;1;0
+CASE-02254;Águas Claras;0.94;0;0;0;0;0
+CASE-02255;Águas Claras;0.94;0;0;0;0;0
+CASE-02256;Gama;0.76;0;0;0;0;0
+CASE-02257;Taguatinga;0.84;0;1;1;2;1
+CASE-02258;Sobradinho;0.70;0;1;0;1;0
+CASE-02259;Gama;0.76;1;0;1;2;0
+CASE-02260;Guará;0.90;0;1;1;2;1
+CASE-02261;Samambaia;0.62;0;0;1;1;0
+CASE-02262;Águas Claras;0.94;1;0;0;1;0
+CASE-02263;Ceilândia;0.55;0;1;0;1;1
+CASE-02264;Samambaia;0.62;1;0;0;1;0
+CASE-02265;Águas Claras;0.94;0;0;0;0;0
+CASE-02266;Taguatinga;0.84;0;1;1;2;0
+CASE-02267;Taguatinga;0.84;1;0;0;1;0
+CASE-02268;Guará;0.90;0;0;0;0;0
+CASE-02269;Águas Claras;0.94;0;0;0;0;0
+CASE-02270;Ceilândia;0.55;1;1;0;2;0
+CASE-02271;Plano Piloto;0.97;0;0;0;0;0
+CASE-02272;Gama;0.76;1;1;0;2;0
+CASE-02273;Águas Claras;0.94;0;1;1;2;1
+CASE-02274;Taguatinga;0.84;1;1;1;3;1
+CASE-02275;Ceilândia;0.55;0;0;0;0;0
+CASE-02276;Plano Piloto;0.97;0;1;0;1;0
+CASE-02277;Samambaia;0.62;0;0;0;0;0
+CASE-02278;Guará;0.90;0;0;0;0;0
+CASE-02279;Sobradinho;0.70;0;1;0;1;0
+CASE-02280;Taguatinga;0.84;1;0;0;1;0
+CASE-02281;Águas Claras;0.94;0;0;0;0;0
+CASE-02282;Águas Claras;0.94;0;1;0;1;0
+CASE-02283;Ceilândia;0.55;0;1;1;2;0
+CASE-02284;Sobradinho;0.70;0;0;0;0;0
+CASE-02285;Samambaia;0.62;0;1;0;1;0
+CASE-02286;Ceilândia;0.55;0;0;0;0;0
+CASE-02287;Guará;0.90;0;1;0;1;0
+CASE-02288;Águas Claras;0.94;0;0;0;0;1
+CASE-02289;Plano Piloto;0.97;1;1;1;3;1
+CASE-02290;Gama;0.76;0;0;0;0;0
+CASE-02291;Samambaia;0.62;0;0;0;0;0
+CASE-02292;Taguatinga;0.84;1;1;1;3;1
+CASE-02293;Taguatinga;0.84;0;0;0;0;0
+CASE-02294;Guará;0.90;1;1;0;2;0
+CASE-02295;Samambaia;0.62;0;0;0;0;1
+CASE-02296;Ceilândia;0.55;0;0;0;0;0
+CASE-02297;Sobradinho;0.70;1;1;1;3;0
+CASE-02298;Ceilândia;0.55;0;1;0;1;0
+CASE-02299;Ceilândia;0.55;0;1;0;1;0
+CASE-02300;Sobradinho;0.70;0;0;0;0;0
+CASE-02301;Sobradinho;0.70;0;0;1;1;0
+CASE-02302;Águas Claras;0.94;0;0;0;0;0
+CASE-02303;Plano Piloto;0.97;0;0;0;0;0
+CASE-02304;Taguatinga;0.84;0;1;0;1;0
+CASE-02305;Samambaia;0.62;1;0;1;2;1
+CASE-02306;Plano Piloto;0.97;0;0;1;1;0
+CASE-02307;Guará;0.90;1;0;0;1;0
+CASE-02308;Gama;0.76;0;0;0;0;0
+CASE-02309;Gama;0.76;0;1;0;1;0
+CASE-02310;Guará;0.90;0;1;1;2;1
+CASE-02311;Samambaia;0.62;0;0;1;1;0
+CASE-02312;Sobradinho;0.70;0;0;0;0;0
+CASE-02313;Plano Piloto;0.97;0;0;0;0;0
+CASE-02314;Plano Piloto;0.97;0;0;0;0;0
+CASE-02315;Ceilândia;0.55;0;1;0;1;0
+CASE-02316;Águas Claras;0.94;0;1;1;2;1
+CASE-02317;Samambaia;0.62;1;1;0;2;1
+CASE-02318;Guará;0.90;0;0;0;0;0
+CASE-02319;Samambaia;0.62;0;0;0;0;0
+CASE-02320;Ceilândia;0.55;0;0;0;0;0
+CASE-02321;Samambaia;0.62;1;1;0;2;0
+CASE-02322;Sobradinho;0.70;0;0;1;1;0
+CASE-02323;Águas Claras;0.94;0;0;0;0;0
+CASE-02324;Ceilândia;0.55;0;1;1;2;1
+CASE-02325;Plano Piloto;0.97;0;0;1;1;0
+CASE-02326;Gama;0.76;0;0;0;0;0
+CASE-02327;Ceilândia;0.55;0;0;0;0;0
+CASE-02328;Taguatinga;0.84;0;0;0;0;0
+CASE-02329;Águas Claras;0.94;1;1;0;2;1
+CASE-02330;Plano Piloto;0.97;0;0;1;1;0
+CASE-02331;Plano Piloto;0.97;0;1;0;1;1
+CASE-02332;Gama;0.76;0;1;0;1;0
+CASE-02333;Ceilândia;0.55;1;0;0;1;0
+CASE-02334;Samambaia;0.62;0;0;0;0;0
+CASE-02335;Samambaia;0.62;1;0;0;1;0
+CASE-02336;Samambaia;0.62;0;1;1;2;0
+CASE-02337;Taguatinga;0.84;0;0;0;0;0
+CASE-02338;Plano Piloto;0.97;1;0;0;1;0
+CASE-02339;Águas Claras;0.94;0;0;0;0;0
+CASE-02340;Águas Claras;0.94;1;0;0;1;0
+CASE-02341;Gama;0.76;1;1;1;3;1
+CASE-02342;Samambaia;0.62;1;0;0;1;0
+CASE-02343;Ceilândia;0.55;1;0;0;1;0
+CASE-02344;Gama;0.76;0;0;1;1;0
+CASE-02345;Ceilândia;0.55;1;0;0;1;0
+CASE-02346;Ceilândia;0.55;0;1;0;1;0
+CASE-02347;Gama;0.76;0;0;0;0;0
+CASE-02348;Plano Piloto;0.97;0;0;0;0;0
+CASE-02349;Águas Claras;0.94;0;0;0;0;0
+CASE-02350;Guará;0.90;0;0;1;1;0
+CASE-02351;Plano Piloto;0.97;1;0;1;2;0
+CASE-02352;Guará;0.90;0;0;1;1;0
+CASE-02353;Taguatinga;0.84;0;1;0;1;0
+CASE-02354;Samambaia;0.62;0;1;0;1;0
+CASE-02355;Samambaia;0.62;0;1;0;1;0
+CASE-02356;Guará;0.90;0;0;1;1;0
+CASE-02357;Guará;0.90;0;0;0;0;0
+CASE-02358;Gama;0.76;0;0;0;0;0
+CASE-02359;Sobradinho;0.70;0;0;0;0;0
+CASE-02360;Plano Piloto;0.97;0;0;0;0;0
+CASE-02361;Taguatinga;0.84;0;1;1;2;1
+CASE-02362;Guará;0.90;0;0;1;1;0
+CASE-02363;Gama;0.76;0;0;0;0;0
+CASE-02364;Guará;0.90;0;0;0;0;0
+CASE-02365;Plano Piloto;0.97;0;1;0;1;0
+CASE-02366;Sobradinho;0.70;1;0;1;2;0
+CASE-02367;Taguatinga;0.84;0;1;0;1;0
+CASE-02368;Plano Piloto;0.97;0;0;0;0;0
+CASE-02369;Sobradinho;0.70;0;0;0;0;0
+CASE-02370;Águas Claras;0.94;0;0;1;1;0
+CASE-02371;Taguatinga;0.84;1;0;0;1;0
+CASE-02372;Guará;0.90;1;0;0;1;0
+CASE-02373;Samambaia;0.62;0;0;0;0;0
+CASE-02374;Águas Claras;0.94;0;0;0;0;0
+CASE-02375;Gama;0.76;0;1;0;1;0
+CASE-02376;Guará;0.90;0;0;0;0;0
+CASE-02377;Sobradinho;0.70;0;1;0;1;0
+CASE-02378;Samambaia;0.62;0;1;0;1;0
+CASE-02379;Taguatinga;0.84;0;0;0;0;0
+CASE-02380;Guará;0.90;0;0;0;0;0
+CASE-02381;Sobradinho;0.70;0;0;0;0;0
+CASE-02382;Taguatinga;0.84;0;0;1;1;0
+CASE-02383;Águas Claras;0.94;0;0;0;0;0
+CASE-02384;Gama;0.76;0;0;1;1;0
+CASE-02385;Sobradinho;0.70;1;0;0;1;0
+CASE-02386;Plano Piloto;0.97;0;0;0;0;0
+CASE-02387;Águas Claras;0.94;0;1;1;2;0
+CASE-02388;Taguatinga;0.84;0;0;0;0;0
+CASE-02389;Plano Piloto;0.97;0;0;0;0;0
+CASE-02390;Taguatinga;0.84;0;1;1;2;1
+CASE-02391;Sobradinho;0.70;0;0;0;0;1
+CASE-02392;Taguatinga;0.84;0;1;1;2;1
+CASE-02393;Samambaia;0.62;0;0;0;0;0
+CASE-02394;Gama;0.76;0;0;0;0;0
+CASE-02395;Taguatinga;0.84;0;1;1;2;1
+CASE-02396;Sobradinho;0.70;0;1;1;2;0
+CASE-02397;Samambaia;0.62;0;0;0;0;0
+CASE-02398;Sobradinho;0.70;0;1;0;1;0
+CASE-02399;Plano Piloto;0.97;0;1;0;1;0
+CASE-02400;Plano Piloto;0.97;1;0;0;1;0
+CASE-02401;Águas Claras;0.94;0;0;0;0;0
+CASE-02402;Guará;0.90;0;1;0;1;0
+CASE-02403;Ceilândia;0.55;0;0;1;1;0
+CASE-02404;Águas Claras;0.94;0;0;1;1;0
+CASE-02405;Guará;0.90;0;0;0;0;0
+CASE-02406;Plano Piloto;0.97;0;0;1;1;0
+CASE-02407;Taguatinga;0.84;1;0;0;1;0
+CASE-02408;Águas Claras;0.94;0;0;0;0;0
+CASE-02409;Gama;0.76;1;0;1;2;1
+CASE-02410;Guará;0.90;1;0;0;1;0
+CASE-02411;Samambaia;0.62;0;0;0;0;0
+CASE-02412;Águas Claras;0.94;0;0;0;0;0
+CASE-02413;Sobradinho;0.70;0;1;0;1;0
+CASE-02414;Taguatinga;0.84;0;1;1;2;0
+CASE-02415;Plano Piloto;0.97;0;0;0;0;0
+CASE-02416;Taguatinga;0.84;0;0;0;0;0
+CASE-02417;Guará;0.90;1;0;1;2;1
+CASE-02418;Águas Claras;0.94;0;0;0;0;0
+CASE-02419;Taguatinga;0.84;0;1;0;1;0
+CASE-02420;Taguatinga;0.84;0;1;1;2;1
+CASE-02421;Samambaia;0.62;1;1;1;3;1
+CASE-02422;Guará;0.90;1;1;1;3;1
+CASE-02423;Águas Claras;0.94;1;0;0;1;0
+CASE-02424;Plano Piloto;0.97;1;1;0;2;1
+CASE-02425;Plano Piloto;0.97;0;0;1;1;0
+CASE-02426;Águas Claras;0.94;0;1;0;1;0
+CASE-02427;Plano Piloto;0.97;0;1;1;2;1
+CASE-02428;Taguatinga;0.84;0;0;1;1;0
+CASE-02429;Taguatinga;0.84;0;0;0;0;0
+CASE-02430;Taguatinga;0.84;1;0;0;1;0
+CASE-02431;Sobradinho;0.70;0;0;1;1;1
+CASE-02432;Águas Claras;0.94;1;1;0;2;1
+CASE-02433;Ceilândia;0.55;0;1;0;1;1
+CASE-02434;Guará;0.90;0;1;1;2;1
+CASE-02435;Águas Claras;0.94;1;0;0;1;0
+CASE-02436;Gama;0.76;1;0;0;1;1
+CASE-02437;Ceilândia;0.55;0;1;1;2;0
+CASE-02438;Sobradinho;0.70;1;0;0;1;0
+CASE-02439;Gama;0.76;1;0;1;2;0
+CASE-02440;Taguatinga;0.84;0;0;0;0;0
+CASE-02441;Ceilândia;0.55;0;1;0;1;0
+CASE-02442;Ceilândia;0.55;0;1;1;2;0
+CASE-02443;Taguatinga;0.84;0;1;0;1;0
+CASE-02444;Samambaia;0.62;0;0;0;0;0
+CASE-02445;Ceilândia;0.55;0;0;0;0;0
+CASE-02446;Ceilândia;0.55;0;1;0;1;0
+CASE-02447;Ceilândia;0.55;0;0;0;0;0
+CASE-02448;Guará;0.90;1;1;0;2;1
+CASE-02449;Sobradinho;0.70;0;1;0;1;0
+CASE-02450;Samambaia;0.62;0;1;0;1;0
+CASE-02451;Guará;0.90;0;0;0;0;0
+CASE-02452;Plano Piloto;0.97;1;0;0;1;0
+CASE-02453;Guará;0.90;0;0;0;0;0
+CASE-02454;Plano Piloto;0.97;0;0;0;0;0
+CASE-02455;Samambaia;0.62;0;1;0;1;0
+CASE-02456;Guará;0.90;1;0;0;1;0
+CASE-02457;Gama;0.76;1;1;0;2;0
+CASE-02458;Sobradinho;0.70;0;0;0;0;0
+CASE-02459;Sobradinho;0.70;0;1;0;1;0
+CASE-02460;Guará;0.90;0;0;0;0;0
+CASE-02461;Ceilândia;0.55;0;1;0;1;0
+CASE-02462;Plano Piloto;0.97;1;1;1;3;1
+CASE-02463;Ceilândia;0.55;0;1;1;2;1
+CASE-02464;Samambaia;0.62;0;0;0;0;0
+CASE-02465;Taguatinga;0.84;0;0;1;1;0
+CASE-02466;Taguatinga;0.84;0;1;0;1;0
+CASE-02467;Taguatinga;0.84;0;1;0;1;0
+CASE-02468;Samambaia;0.62;0;0;0;0;0
+CASE-02469;Plano Piloto;0.97;0;0;0;0;0
+CASE-02470;Gama;0.76;0;0;1;1;0
+CASE-02471;Gama;0.76;0;0;0;0;0
+CASE-02472;Ceilândia;0.55;0;0;1;1;1
+CASE-02473;Plano Piloto;0.97;0;0;0;0;0
+CASE-02474;Ceilândia;0.55;0;0;0;0;0
+CASE-02475;Samambaia;0.62;0;1;0;1;0
+CASE-02476;Guará;0.90;0;0;0;0;0
+CASE-02477;Guará;0.90;0;0;0;0;0
+CASE-02478;Ceilândia;0.55;1;1;0;2;0
+CASE-02479;Sobradinho;0.70;0;0;0;0;0
+CASE-02480;Gama;0.76;0;0;0;0;0
+CASE-02481;Taguatinga;0.84;1;1;0;2;1
+CASE-02482;Samambaia;0.62;0;0;0;0;0
+CASE-02483;Taguatinga;0.84;0;1;0;1;0
+CASE-02484;Sobradinho;0.70;1;1;0;2;0
+CASE-02485;Samambaia;0.62;0;1;1;2;0
+CASE-02486;Águas Claras;0.94;1;1;0;2;0
+CASE-02487;Guará;0.90;0;0;0;0;0
+CASE-02488;Taguatinga;0.84;0;0;1;1;0
+CASE-02489;Taguatinga;0.84;0;0;0;0;0
+CASE-02490;Guará;0.90;0;0;0;0;0
+CASE-02491;Ceilândia;0.55;0;0;1;1;0
+CASE-02492;Guará;0.90;0;0;1;1;0
+CASE-02493;Taguatinga;0.84;0;0;0;0;0
+CASE-02494;Sobradinho;0.70;0;1;0;1;0
+CASE-02495;Ceilândia;0.55;0;0;0;0;0
+CASE-02496;Guará;0.90;0;0;0;0;0
+CASE-02497;Águas Claras;0.94;0;1;0;1;0
+CASE-02498;Águas Claras;0.94;0;0;0;0;0
+CASE-02499;Guará;0.90;0;0;0;0;0
+CASE-02500;Águas Claras;0.94;0;0;0;0;0
+CASE-02501;Ceilândia;0.55;0;1;0;1;0
+CASE-02502;Ceilândia;0.55;1;0;0;1;0
+CASE-02503;Plano Piloto;0.97;0;1;0;1;0
+CASE-02504;Samambaia;0.62;0;1;1;2;1
+CASE-02505;Sobradinho;0.70;0;1;0;1;0
+CASE-02506;Guará;0.90;0;0;0;0;0
+CASE-02507;Taguatinga;0.84;0;1;0;1;0
+CASE-02508;Sobradinho;0.70;0;1;0;1;0
+CASE-02509;Plano Piloto;0.97;0;1;0;1;0
+CASE-02510;Gama;0.76;1;0;0;1;0
+CASE-02511;Gama;0.76;0;0;0;0;0
+CASE-02512;Guará;0.90;0;0;0;0;0
+CASE-02513;Ceilândia;0.55;0;0;1;1;0
+CASE-02514;Águas Claras;0.94;1;0;0;1;0
+CASE-02515;Sobradinho;0.70;0;1;1;2;0
+CASE-02516;Plano Piloto;0.97;0;0;0;0;0
+CASE-02517;Taguatinga;0.84;0;0;0;0;0
+CASE-02518;Taguatinga;0.84;1;1;1;3;1
+CASE-02519;Águas Claras;0.94;0;0;0;0;0
+CASE-02520;Sobradinho;0.70;0;1;1;2;0
+CASE-02521;Taguatinga;0.84;0;0;1;1;0
+CASE-02522;Guará;0.90;0;0;0;0;0
+CASE-02523;Taguatinga;0.84;1;0;0;1;0
+CASE-02524;Águas Claras;0.94;0;0;1;1;0
+CASE-02525;Guará;0.90;0;0;1;1;0
+CASE-02526;Gama;0.76;1;0;0;1;1
+CASE-02527;Taguatinga;0.84;1;1;0;2;0
+CASE-02528;Plano Piloto;0.97;0;0;0;0;0
+CASE-02529;Sobradinho;0.70;0;0;0;0;0
+CASE-02530;Guará;0.90;0;0;0;0;0
+CASE-02531;Gama;0.76;0;1;1;2;0
+CASE-02532;Sobradinho;0.70;0;0;0;0;0
+CASE-02533;Plano Piloto;0.97;0;1;0;1;0
+CASE-02534;Taguatinga;0.84;1;0;1;2;1
+CASE-02535;Guará;0.90;1;1;1;3;1
+CASE-02536;Guará;0.90;1;0;1;2;0
+CASE-02537;Guará;0.90;0;1;0;1;0
+CASE-02538;Taguatinga;0.84;0;1;1;2;0
+CASE-02539;Plano Piloto;0.97;0;0;0;0;0
+CASE-02540;Samambaia;0.62;0;0;1;1;0
+CASE-02541;Guará;0.90;0;0;0;0;0
+CASE-02542;Águas Claras;0.94;0;0;0;0;0
+CASE-02543;Taguatinga;0.84;0;1;0;1;0
+CASE-02544;Plano Piloto;0.97;0;0;0;0;0
+CASE-02545;Plano Piloto;0.97;0;0;0;0;0
+CASE-02546;Taguatinga;0.84;0;0;0;0;0
+CASE-02547;Ceilândia;0.55;0;0;0;0;0
+CASE-02548;Águas Claras;0.94;0;0;0;0;0
+CASE-02549;Sobradinho;0.70;1;1;1;3;1
+CASE-02550;Gama;0.76;0;1;1;2;1
+CASE-02551;Gama;0.76;1;0;1;2;1
+CASE-02552;Gama;0.76;1;1;0;2;0
+CASE-02553;Gama;0.76;0;0;0;0;0
+CASE-02554;Ceilândia;0.55;0;1;0;1;0
+CASE-02555;Gama;0.76;0;0;0;0;0
+CASE-02556;Águas Claras;0.94;1;0;0;1;0
+CASE-02557;Guará;0.90;0;0;0;0;0
+CASE-02558;Gama;0.76;0;0;0;0;0
+CASE-02559;Gama;0.76;0;0;0;0;0
+CASE-02560;Ceilândia;0.55;1;1;0;2;0
+CASE-02561;Águas Claras;0.94;0;0;1;1;0
+CASE-02562;Sobradinho;0.70;0;0;0;0;0
+CASE-02563;Gama;0.76;0;1;0;1;0
+CASE-02564;Taguatinga;0.84;0;0;0;0;0
+CASE-02565;Gama;0.76;0;1;0;1;1
+CASE-02566;Águas Claras;0.94;1;0;1;2;0
+CASE-02567;Sobradinho;0.70;0;0;0;0;0
+CASE-02568;Ceilândia;0.55;0;1;0;1;0
+CASE-02569;Ceilândia;0.55;0;1;0;1;0
+CASE-02570;Guará;0.90;0;1;0;1;0
+CASE-02571;Ceilândia;0.55;1;1;0;2;0
+CASE-02572;Gama;0.76;0;0;0;0;0
+CASE-02573;Taguatinga;0.84;1;0;1;2;0
+CASE-02574;Gama;0.76;1;0;0;1;1
+CASE-02575;Águas Claras;0.94;1;1;1;3;1
+CASE-02576;Gama;0.76;0;1;0;1;0
+CASE-02577;Ceilândia;0.55;0;0;0;0;0
+CASE-02578;Ceilândia;0.55;1;1;0;2;1
+CASE-02579;Águas Claras;0.94;0;0;1;1;1
+CASE-02580;Taguatinga;0.84;0;0;1;1;0
+CASE-02581;Ceilândia;0.55;0;0;0;0;0
+CASE-02582;Águas Claras;0.94;0;1;0;1;0
+CASE-02583;Samambaia;0.62;1;1;0;2;1
+CASE-02584;Águas Claras;0.94;0;0;0;0;0
+CASE-02585;Samambaia;0.62;1;0;0;1;0
+CASE-02586;Sobradinho;0.70;0;1;1;2;0
+CASE-02587;Plano Piloto;0.97;0;1;0;1;0
+CASE-02588;Plano Piloto;0.97;0;0;0;0;0
+CASE-02589;Gama;0.76;0;0;0;0;0
+CASE-02590;Águas Claras;0.94;1;1;1;3;1
+CASE-02591;Samambaia;0.62;0;1;0;1;0
+CASE-02592;Plano Piloto;0.97;0;0;1;1;0
+CASE-02593;Águas Claras;0.94;1;0;0;1;1
+CASE-02594;Guará;0.90;0;0;0;0;0
+CASE-02595;Sobradinho;0.70;1;1;0;2;0
+CASE-02596;Gama;0.76;0;0;0;0;0
+CASE-02597;Guará;0.90;0;0;0;0;0
+CASE-02598;Águas Claras;0.94;0;0;0;0;0
+CASE-02599;Taguatinga;0.84;0;0;0;0;0
+CASE-02600;Ceilândia;0.55;0;0;0;0;0
+CASE-02601;Taguatinga;0.84;0;1;1;2;1
+CASE-02602;Plano Piloto;0.97;0;0;0;0;0
+CASE-02603;Samambaia;0.62;0;0;1;1;0
+CASE-02604;Sobradinho;0.70;0;1;1;2;1
+CASE-02605;Plano Piloto;0.97;0;1;0;1;0
+CASE-02606;Taguatinga;0.84;0;1;0;1;0
+CASE-02607;Taguatinga;0.84;0;0;0;0;0
+CASE-02608;Samambaia;0.62;1;1;0;2;1
+CASE-02609;Ceilândia;0.55;1;1;1;3;1
+CASE-02610;Ceilândia;0.55;0;0;1;1;0
+CASE-02611;Sobradinho;0.70;0;1;0;1;0
+CASE-02612;Samambaia;0.62;0;1;0;1;0
+CASE-02613;Samambaia;0.62;0;1;0;1;0
+CASE-02614;Ceilândia;0.55;0;1;1;2;0
+CASE-02615;Águas Claras;0.94;0;0;0;0;0
+CASE-02616;Samambaia;0.62;0;0;1;1;0
+CASE-02617;Sobradinho;0.70;0;0;0;0;0
+CASE-02618;Samambaia;0.62;0;1;0;1;0
+CASE-02619;Sobradinho;0.70;1;1;1;3;1
+CASE-02620;Ceilândia;0.55;1;1;0;2;1
+CASE-02621;Taguatinga;0.84;0;0;0;0;0
+CASE-02622;Plano Piloto;0.97;0;0;0;0;0
+CASE-02623;Águas Claras;0.94;1;1;1;3;0
+CASE-02624;Águas Claras;0.94;0;0;0;0;0
+CASE-02625;Águas Claras;0.94;0;0;0;0;0
+CASE-02626;Sobradinho;0.70;0;1;0;1;0
+CASE-02627;Águas Claras;0.94;0;0;0;0;1
+CASE-02628;Ceilândia;0.55;0;1;0;1;0
+CASE-02629;Águas Claras;0.94;1;0;0;1;0
+CASE-02630;Águas Claras;0.94;0;1;0;1;0
+CASE-02631;Ceilândia;0.55;0;1;0;1;0
+CASE-02632;Taguatinga;0.84;1;1;1;3;1
+CASE-02633;Ceilândia;0.55;0;0;0;0;0
+CASE-02634;Sobradinho;0.70;1;0;0;1;0
+CASE-02635;Gama;0.76;0;1;1;2;0
+CASE-02636;Samambaia;0.62;0;0;0;0;0
+CASE-02637;Guará;0.90;0;1;0;1;0
+CASE-02638;Guará;0.90;0;0;0;0;0
+CASE-02639;Plano Piloto;0.97;1;1;1;3;1
+CASE-02640;Taguatinga;0.84;0;0;0;0;0
+CASE-02641;Águas Claras;0.94;0;0;0;0;0
+CASE-02642;Guará;0.90;0;0;0;0;0
+CASE-02643;Guará;0.90;0;0;1;1;0
+CASE-02644;Águas Claras;0.94;0;1;0;1;1
+CASE-02645;Gama;0.76;0;0;0;0;0
+CASE-02646;Águas Claras;0.94;0;0;0;0;0
+CASE-02647;Gama;0.76;1;1;1;3;1
+CASE-02648;Gama;0.76;1;1;1;3;1
+CASE-02649;Gama;0.76;0;0;0;0;0
+CASE-02650;Gama;0.76;0;1;0;1;0
+CASE-02651;Ceilândia;0.55;0;0;0;0;0
+CASE-02652;Águas Claras;0.94;0;0;0;0;0
+CASE-02653;Guará;0.90;0;0;0;0;0
+CASE-02654;Taguatinga;0.84;1;1;1;3;1
+CASE-02655;Sobradinho;0.70;0;1;0;1;0
+CASE-02656;Taguatinga;0.84;0;1;0;1;0
+CASE-02657;Sobradinho;0.70;0;1;1;2;1
+CASE-02658;Plano Piloto;0.97;0;0;0;0;0
+CASE-02659;Guará;0.90;0;0;0;0;0
+CASE-02660;Taguatinga;0.84;0;0;1;1;0
+CASE-02661;Guará;0.90;0;0;0;0;0
+CASE-02662;Taguatinga;0.84;1;1;0;2;1
+CASE-02663;Plano Piloto;0.97;0;0;0;0;0
+CASE-02664;Ceilândia;0.55;0;1;0;1;0
+CASE-02665;Ceilândia;0.55;0;0;0;0;0
+CASE-02666;Guará;0.90;0;0;0;0;0
+CASE-02667;Águas Claras;0.94;1;0;0;1;0
+CASE-02668;Samambaia;0.62;0;0;1;1;0
+CASE-02669;Águas Claras;0.94;1;1;1;3;1
+CASE-02670;Águas Claras;0.94;0;1;1;2;0
+CASE-02671;Plano Piloto;0.97;1;0;1;2;0
+CASE-02672;Águas Claras;0.94;0;0;0;0;0
+CASE-02673;Sobradinho;0.70;0;0;0;0;0
+CASE-02674;Taguatinga;0.84;1;0;0;1;0
+CASE-02675;Sobradinho;0.70;0;0;0;0;0
+CASE-02676;Sobradinho;0.70;0;0;0;0;0
+CASE-02677;Taguatinga;0.84;0;0;1;1;0
+CASE-02678;Plano Piloto;0.97;1;0;1;2;0
+CASE-02679;Plano Piloto;0.97;0;0;1;1;0
+CASE-02680;Gama;0.76;0;0;0;0;0
+CASE-02681;Ceilândia;0.55;0;0;0;0;0
+CASE-02682;Samambaia;0.62;0;0;0;0;0
+CASE-02683;Gama;0.76;0;0;0;0;0
+CASE-02684;Gama;0.76;0;0;0;0;0
+CASE-02685;Taguatinga;0.84;1;0;0;1;0
+CASE-02686;Plano Piloto;0.97;1;1;0;2;1
+CASE-02687;Sobradinho;0.70;0;1;0;1;0
+CASE-02688;Águas Claras;0.94;0;0;0;0;0
+CASE-02689;Samambaia;0.62;1;1;0;2;0
+CASE-02690;Sobradinho;0.70;1;0;0;1;0
+CASE-02691;Sobradinho;0.70;0;1;0;1;0
+CASE-02692;Ceilândia;0.55;1;1;0;2;1
+CASE-02693;Guará;0.90;1;1;0;2;1
+CASE-02694;Águas Claras;0.94;0;0;0;0;0
+CASE-02695;Águas Claras;0.94;0;0;0;0;0
+CASE-02696;Gama;0.76;0;0;0;0;0
+CASE-02697;Plano Piloto;0.97;0;0;0;0;0
+CASE-02698;Taguatinga;0.84;0;0;0;0;0
+CASE-02699;Ceilândia;0.55;0;1;0;1;0
+CASE-02700;Taguatinga;0.84;0;0;0;0;0
+CASE-02701;Taguatinga;0.84;0;0;1;1;0
+CASE-02702;Samambaia;0.62;0;0;0;0;0
+CASE-02703;Sobradinho;0.70;0;1;1;2;1
+CASE-02704;Águas Claras;0.94;0;0;0;0;1
+CASE-02705;Ceilândia;0.55;0;0;0;0;0
+CASE-02706;Guará;0.90;0;1;1;2;1
+CASE-02707;Águas Claras;0.94;0;0;0;0;0
+CASE-02708;Gama;0.76;0;0;0;0;0
+CASE-02709;Sobradinho;0.70;0;0;0;0;1
+CASE-02710;Guará;0.90;1;0;0;1;0
+CASE-02711;Sobradinho;0.70;1;0;0;1;0
+CASE-02712;Samambaia;0.62;1;1;1;3;1
+CASE-02713;Gama;0.76;0;1;0;1;1
+CASE-02714;Samambaia;0.62;1;1;0;2;0
+CASE-02715;Samambaia;0.62;0;1;0;1;0
+CASE-02716;Ceilândia;0.55;1;1;1;3;1
+CASE-02717;Samambaia;0.62;0;0;1;1;0
+CASE-02718;Ceilândia;0.55;1;0;1;2;0
+CASE-02719;Gama;0.76;0;1;0;1;0
+CASE-02720;Taguatinga;0.84;0;0;1;1;0
+CASE-02721;Gama;0.76;0;0;0;0;0
+CASE-02722;Águas Claras;0.94;0;0;0;0;0
+CASE-02723;Sobradinho;0.70;1;1;0;2;1
+CASE-02724;Sobradinho;0.70;1;0;0;1;0
+CASE-02725;Guará;0.90;0;0;0;0;0
+CASE-02726;Samambaia;0.62;0;0;0;0;0
+CASE-02727;Guará;0.90;1;0;0;1;0
+CASE-02728;Águas Claras;0.94;0;0;0;0;0
+CASE-02729;Gama;0.76;1;0;0;1;0
+CASE-02730;Águas Claras;0.94;0;0;1;1;0
+CASE-02731;Gama;0.76;1;0;0;1;0
+CASE-02732;Plano Piloto;0.97;0;0;0;0;0
+CASE-02733;Taguatinga;0.84;0;0;0;0;0
+CASE-02734;Águas Claras;0.94;1;0;0;1;0
+CASE-02735;Plano Piloto;0.97;0;0;0;0;0
+CASE-02736;Gama;0.76;0;0;0;0;0
+CASE-02737;Gama;0.76;1;1;0;2;0
+CASE-02738;Plano Piloto;0.97;0;0;1;1;1
+CASE-02739;Guará;0.90;0;0;1;1;0
+CASE-02740;Gama;0.76;1;0;1;2;0
+CASE-02741;Taguatinga;0.84;0;1;0;1;0
+CASE-02742;Samambaia;0.62;1;0;1;2;1
+CASE-02743;Ceilândia;0.55;0;0;1;1;1
+CASE-02744;Águas Claras;0.94;1;0;0;1;0
+CASE-02745;Samambaia;0.62;0;0;0;0;0
+CASE-02746;Ceilândia;0.55;1;1;1;3;1
+CASE-02747;Plano Piloto;0.97;0;0;0;0;0
+CASE-02748;Plano Piloto;0.97;0;0;0;0;0
+CASE-02749;Gama;0.76;1;0;0;1;0
+CASE-02750;Plano Piloto;0.97;0;0;0;0;0
+CASE-02751;Plano Piloto;0.97;0;0;0;0;0
+CASE-02752;Ceilândia;0.55;1;1;1;3;1
+CASE-02753;Sobradinho;0.70;0;0;1;1;0
+CASE-02754;Taguatinga;0.84;0;0;0;0;0
+CASE-02755;Taguatinga;0.84;0;0;0;0;0
+CASE-02756;Taguatinga;0.84;0;0;0;0;0
+CASE-02757;Guará;0.90;1;0;0;1;1
+CASE-02758;Gama;0.76;0;0;0;0;0
+CASE-02759;Samambaia;0.62;1;0;1;2;1
+CASE-02760;Sobradinho;0.70;0;0;0;0;0
+CASE-02761;Taguatinga;0.84;1;1;1;3;1
+CASE-02762;Águas Claras;0.94;0;0;0;0;0
+CASE-02763;Ceilândia;0.55;0;1;1;2;0
+CASE-02764;Taguatinga;0.84;1;1;0;2;0
+CASE-02765;Gama;0.76;0;0;0;0;0
+CASE-02766;Taguatinga;0.84;0;1;0;1;0
+CASE-02767;Samambaia;0.62;0;1;0;1;0
+CASE-02768;Taguatinga;0.84;0;0;0;0;0
+CASE-02769;Águas Claras;0.94;1;0;0;1;1
+CASE-02770;Águas Claras;0.94;1;0;0;1;0
+CASE-02771;Gama;0.76;0;1;0;1;0
+CASE-02772;Ceilândia;0.55;1;1;0;2;0
+CASE-02773;Plano Piloto;0.97;0;0;0;0;0
+CASE-02774;Gama;0.76;0;0;0;0;0
+CASE-02775;Sobradinho;0.70;0;1;0;1;0
+CASE-02776;Taguatinga;0.84;0;0;1;1;0
+CASE-02777;Águas Claras;0.94;0;1;0;1;0
+CASE-02778;Gama;0.76;1;0;0;1;0
+CASE-02779;Ceilândia;0.55;1;1;0;2;0
+CASE-02780;Samambaia;0.62;0;0;0;0;0
+CASE-02781;Águas Claras;0.94;0;0;0;0;0
+CASE-02782;Samambaia;0.62;0;0;0;0;0
+CASE-02783;Gama;0.76;0;0;0;0;0
+CASE-02784;Ceilândia;0.55;1;1;0;2;0
+CASE-02785;Águas Claras;0.94;0;1;0;1;0
+CASE-02786;Plano Piloto;0.97;0;0;0;0;0
+CASE-02787;Plano Piloto;0.97;0;0;0;0;0
+CASE-02788;Taguatinga;0.84;1;0;1;2;0
+CASE-02789;Águas Claras;0.94;1;0;0;1;0
+CASE-02790;Gama;0.76;0;0;0;0;0
+CASE-02791;Gama;0.76;0;0;0;0;0
+CASE-02792;Plano Piloto;0.97;0;0;0;0;0
+CASE-02793;Ceilândia;0.55;0;1;1;2;0
+CASE-02794;Samambaia;0.62;1;1;0;2;0
+CASE-02795;Ceilândia;0.55;0;1;0;1;0
+CASE-02796;Guará;0.90;0;0;0;0;1
+CASE-02797;Águas Claras;0.94;0;0;0;0;0
+CASE-02798;Gama;0.76;0;0;0;0;0
+CASE-02799;Plano Piloto;0.97;0;1;0;1;1
+CASE-02800;Ceilândia;0.55;1;1;0;2;0
+CASE-02801;Plano Piloto;0.97;1;1;0;2;1
+CASE-02802;Sobradinho;0.70;0;1;0;1;0
+CASE-02803;Samambaia;0.62;1;1;0;2;1
+CASE-02804;Gama;0.76;1;1;0;2;0
+CASE-02805;Taguatinga;0.84;0;1;0;1;0
+CASE-02806;Plano Piloto;0.97;0;0;1;1;0
+CASE-02807;Gama;0.76;0;0;0;0;0
+CASE-02808;Samambaia;0.62;0;1;0;1;0
+CASE-02809;Guará;0.90;0;1;0;1;0
+CASE-02810;Guará;0.90;0;0;0;0;0
+CASE-02811;Plano Piloto;0.97;1;1;0;2;0
+CASE-02812;Taguatinga;0.84;1;0;0;1;0
+CASE-02813;Sobradinho;0.70;0;1;0;1;0
+CASE-02814;Gama;0.76;1;0;0;1;0
+CASE-02815;Ceilândia;0.55;1;0;0;1;1
+CASE-02816;Ceilândia;0.55;0;0;1;1;0
+CASE-02817;Taguatinga;0.84;0;0;0;0;0
+CASE-02818;Ceilândia;0.55;1;0;0;1;0
+CASE-02819;Sobradinho;0.70;0;1;0;1;0
+CASE-02820;Guará;0.90;0;0;0;0;0
+CASE-02821;Sobradinho;0.70;0;0;0;0;0
+CASE-02822;Ceilândia;0.55;1;1;0;2;1
+CASE-02823;Guará;0.90;1;0;1;2;1
+CASE-02824;Sobradinho;0.70;1;0;0;1;0
+CASE-02825;Ceilândia;0.55;1;0;0;1;0
+CASE-02826;Ceilândia;0.55;1;1;0;2;0
+CASE-02827;Samambaia;0.62;1;1;0;2;0
+CASE-02828;Sobradinho;0.70;0;0;1;1;0
+CASE-02829;Águas Claras;0.94;0;0;0;0;0
+CASE-02830;Sobradinho;0.70;1;0;0;1;1
+CASE-02831;Gama;0.76;1;1;0;2;1
+CASE-02832;Samambaia;0.62;1;0;0;1;0
+CASE-02833;Plano Piloto;0.97;0;0;1;1;0
+CASE-02834;Samambaia;0.62;0;0;0;0;0
+CASE-02835;Sobradinho;0.70;0;0;0;0;0
+CASE-02836;Ceilândia;0.55;1;1;0;2;0
+CASE-02837;Gama;0.76;1;0;0;1;0
+CASE-02838;Guará;0.90;0;1;0;1;0
+CASE-02839;Plano Piloto;0.97;0;1;0;1;1
+CASE-02840;Águas Claras;0.94;0;1;0;1;1
+CASE-02841;Taguatinga;0.84;0;1;0;1;0
+CASE-02842;Águas Claras;0.94;0;1;0;1;0
+CASE-02843;Taguatinga;0.84;0;1;0;1;0
+CASE-02844;Guará;0.90;1;0;1;2;0
+CASE-02845;Gama;0.76;0;0;0;0;0
+CASE-02846;Sobradinho;0.70;1;0;0;1;0
+CASE-02847;Águas Claras;0.94;1;0;0;1;0
+CASE-02848;Águas Claras;0.94;0;0;0;0;0
+CASE-02849;Plano Piloto;0.97;0;0;0;0;0
+CASE-02850;Taguatinga;0.84;1;0;0;1;0
+CASE-02851;Sobradinho;0.70;0;0;1;1;0
+CASE-02852;Samambaia;0.62;0;0;0;0;0
+CASE-02853;Taguatinga;0.84;0;0;0;0;0
+CASE-02854;Samambaia;0.62;1;0;0;1;0
+CASE-02855;Ceilândia;0.55;0;0;0;0;0
+CASE-02856;Taguatinga;0.84;0;0;0;0;0
+CASE-02857;Gama;0.76;1;1;0;2;0
+CASE-02858;Ceilândia;0.55;0;1;0;1;0
+CASE-02859;Gama;0.76;0;0;0;0;0
+CASE-02860;Águas Claras;0.94;0;0;0;0;0
+CASE-02861;Gama;0.76;0;1;0;1;0
+CASE-02862;Gama;0.76;0;0;0;0;0
+CASE-02863;Águas Claras;0.94;1;1;1;3;1
+CASE-02864;Plano Piloto;0.97;1;0;0;1;0
+CASE-02865;Taguatinga;0.84;0;0;0;0;0
+CASE-02866;Gama;0.76;0;0;0;0;0
+CASE-02867;Guará;0.90;0;0;1;1;0
+CASE-02868;Taguatinga;0.84;0;1;0;1;0
+CASE-02869;Plano Piloto;0.97;0;0;0;0;0
+CASE-02870;Guará;0.90;0;0;0;0;0
+CASE-02871;Guará;0.90;0;0;0;0;0
+CASE-02872;Águas Claras;0.94;0;1;1;2;0
+CASE-02873;Ceilândia;0.55;0;0;0;0;0
+CASE-02874;Sobradinho;0.70;0;0;0;0;0
+CASE-02875;Taguatinga;0.84;0;0;0;0;0
+CASE-02876;Gama;0.76;0;0;0;0;0
+CASE-02877;Sobradinho;0.70;0;0;0;0;0
+CASE-02878;Samambaia;0.62;1;1;0;2;1
+CASE-02879;Guará;0.90;0;1;0;1;0
+CASE-02880;Plano Piloto;0.97;0;0;0;0;0
+CASE-02881;Taguatinga;0.84;1;1;0;2;1
+CASE-02882;Samambaia;0.62;0;0;0;0;0
+CASE-02883;Taguatinga;0.84;0;1;1;2;0
+CASE-02884;Gama;0.76;1;0;0;1;0
+CASE-02885;Samambaia;0.62;0;0;0;0;0
+CASE-02886;Samambaia;0.62;0;0;0;0;0
+CASE-02887;Sobradinho;0.70;1;0;0;1;0
+CASE-02888;Plano Piloto;0.97;0;0;0;0;0
+CASE-02889;Águas Claras;0.94;0;1;1;2;1
+CASE-02890;Gama;0.76;1;0;1;2;0
+CASE-02891;Taguatinga;0.84;1;1;0;2;1
+CASE-02892;Samambaia;0.62;0;0;0;0;0
+CASE-02893;Sobradinho;0.70;0;0;0;0;0
+CASE-02894;Águas Claras;0.94;0;0;0;0;0
+CASE-02895;Águas Claras;0.94;0;0;1;1;0
+CASE-02896;Guará;0.90;0;0;1;1;0
+CASE-02897;Taguatinga;0.84;0;0;1;1;0
+CASE-02898;Plano Piloto;0.97;0;0;0;0;0
+CASE-02899;Guará;0.90;0;0;0;0;0
+CASE-02900;Águas Claras;0.94;1;0;0;1;0
+CASE-02901;Gama;0.76;0;0;0;0;0
+CASE-02902;Taguatinga;0.84;0;0;0;0;0
+CASE-02903;Guará;0.90;0;0;0;0;0
+CASE-02904;Samambaia;0.62;0;0;0;0;0
+CASE-02905;Ceilândia;0.55;0;0;0;0;0
+CASE-02906;Plano Piloto;0.97;0;1;0;1;1
+CASE-02907;Guará;0.90;0;0;0;0;0
+CASE-02908;Águas Claras;0.94;0;0;0;0;0
+CASE-02909;Águas Claras;0.94;0;0;0;0;0
+CASE-02910;Ceilândia;0.55;0;1;0;1;0
+CASE-02911;Guará;0.90;0;0;0;0;0
+CASE-02912;Taguatinga;0.84;0;1;1;2;1
+CASE-02913;Taguatinga;0.84;0;1;0;1;0
+CASE-02914;Sobradinho;0.70;0;1;0;1;0
+CASE-02915;Sobradinho;0.70;0;1;0;1;0
+CASE-02916;Plano Piloto;0.97;0;0;0;0;0
+CASE-02917;Plano Piloto;0.97;0;1;0;1;0
+CASE-02918;Águas Claras;0.94;0;0;0;0;0
+CASE-02919;Ceilândia;0.55;1;0;0;1;0
+CASE-02920;Sobradinho;0.70;0;0;0;0;0
+CASE-02921;Ceilândia;0.55;0;0;0;0;0
+CASE-02922;Águas Claras;0.94;0;0;1;1;0
+CASE-02923;Samambaia;0.62;0;0;1;1;0
+CASE-02924;Sobradinho;0.70;1;1;0;2;1
+CASE-02925;Taguatinga;0.84;1;1;1;3;1
+CASE-02926;Plano Piloto;0.97;1;1;1;3;1
+CASE-02927;Taguatinga;0.84;0;0;0;0;0
+CASE-02928;Samambaia;0.62;1;0;0;1;0
+CASE-02929;Samambaia;0.62;0;0;0;0;0
+CASE-02930;Taguatinga;0.84;0;0;0;0;0
+CASE-02931;Gama;0.76;0;1;0;1;0
+CASE-02932;Guará;0.90;0;0;0;0;0
+CASE-02933;Águas Claras;0.94;1;0;0;1;0
+CASE-02934;Taguatinga;0.84;0;0;0;0;0
+CASE-02935;Ceilândia;0.55;0;1;0;1;0
+CASE-02936;Gama;0.76;0;0;0;0;0
+CASE-02937;Águas Claras;0.94;1;0;1;2;1
+CASE-02938;Gama;0.76;0;1;0;1;0
+CASE-02939;Águas Claras;0.94;0;0;0;0;0
+CASE-02940;Ceilândia;0.55;0;1;0;1;0
+CASE-02941;Águas Claras;0.94;0;0;0;0;0
+CASE-02942;Sobradinho;0.70;0;0;0;0;0
+CASE-02943;Samambaia;0.62;1;1;1;3;1
+CASE-02944;Águas Claras;0.94;1;0;0;1;0
+CASE-02945;Guará;0.90;0;0;0;0;0
+CASE-02946;Taguatinga;0.84;0;0;0;0;0
+CASE-02947;Samambaia;0.62;0;1;0;1;0
+CASE-02948;Taguatinga;0.84;1;0;0;1;0
+CASE-02949;Sobradinho;0.70;1;1;0;2;0
+CASE-02950;Plano Piloto;0.97;0;0;0;0;0
+CASE-02951;Samambaia;0.62;0;0;0;0;0
+CASE-02952;Plano Piloto;0.97;0;1;0;1;0
+CASE-02953;Taguatinga;0.84;0;0;0;0;0
+CASE-02954;Ceilândia;0.55;0;1;0;1;0
+CASE-02955;Plano Piloto;0.97;0;0;1;1;0
+CASE-02956;Guará;0.90;0;0;0;0;0
+CASE-02957;Sobradinho;0.70;1;0;0;1;0
+CASE-02958;Sobradinho;0.70;0;1;0;1;0
+CASE-02959;Taguatinga;0.84;0;1;0;1;0
+CASE-02960;Ceilândia;0.55;0;1;0;1;0
+CASE-02961;Samambaia;0.62;1;0;0;1;0
+CASE-02962;Taguatinga;0.84;0;0;0;0;0
+CASE-02963;Sobradinho;0.70;1;1;0;2;1
+CASE-02964;Águas Claras;0.94;0;0;0;0;0
+CASE-02965;Gama;0.76;0;0;0;0;0
+CASE-02966;Taguatinga;0.84;0;1;0;1;0
+CASE-02967;Taguatinga;0.84;0;0;0;0;0
+CASE-02968;Gama;0.76;0;0;1;1;0
+CASE-02969;Samambaia;0.62;1;1;0;2;1
+CASE-02970;Guará;0.90;0;0;0;0;0
+CASE-02971;Taguatinga;0.84;0;0;0;0;0
+CASE-02972;Plano Piloto;0.97;0;0;1;1;0
+CASE-02973;Sobradinho;0.70;0;0;0;0;0
+CASE-02974;Samambaia;0.62;0;1;0;1;0
+CASE-02975;Plano Piloto;0.97;0;0;0;0;0
+CASE-02976;Gama;0.76;1;1;0;2;0
+CASE-02977;Águas Claras;0.94;0;0;0;0;0
+CASE-02978;Gama;0.76;0;1;0;1;0
+CASE-02979;Águas Claras;0.94;0;1;0;1;0
+CASE-02980;Guará;0.90;0;0;0;0;0
+CASE-02981;Sobradinho;0.70;0;0;0;0;0
+CASE-02982;Gama;0.76;0;0;0;0;0
+CASE-02983;Plano Piloto;0.97;0;0;0;0;0
+CASE-02984;Águas Claras;0.94;0;0;0;0;0
+CASE-02985;Samambaia;0.62;1;0;0;1;0
+CASE-02986;Plano Piloto;0.97;0;0;0;0;0
+CASE-02987;Samambaia;0.62;0;1;0;1;0
+CASE-02988;Sobradinho;0.70;1;1;0;2;0
+CASE-02989;Ceilândia;0.55;1;1;1;3;0
+CASE-02990;Sobradinho;0.70;0;0;1;1;0
+CASE-02991;Plano Piloto;0.97;0;0;0;0;0
+CASE-02992;Samambaia;0.62;0;0;0;0;0
+CASE-02993;Taguatinga;0.84;0;1;0;1;0
+CASE-02994;Ceilândia;0.55;1;0;1;2;1
+CASE-02995;Ceilândia;0.55;1;1;0;2;1
+CASE-02996;Gama;0.76;0;0;0;0;0
+CASE-02997;Águas Claras;0.94;0;0;1;1;0
+CASE-02998;Taguatinga;0.84;0;1;0;1;0
+CASE-02999;Ceilândia;0.55;0;0;0;0;0
+CASE-03000;Guará;0.90;1;1;1;3;1
+CASE-03001;Águas Claras;0.94;0;1;1;2;0
+CASE-03002;Plano Piloto;0.97;0;1;0;1;0
+CASE-03003;Guará;0.90;0;0;0;0;0
+CASE-03004;Sobradinho;0.70;0;1;0;1;0
+CASE-03005;Ceilândia;0.55;1;1;1;3;1
+CASE-03006;Gama;0.76;0;1;1;2;0
+CASE-03007;Ceilândia;0.55;0;0;0;0;0
+CASE-03008;Águas Claras;0.94;0;0;0;0;0
+CASE-03009;Taguatinga;0.84;0;0;0;0;0
+CASE-03010;Sobradinho;0.70;0;0;0;0;0
+CASE-03011;Ceilândia;0.55;0;1;1;2;1
+CASE-03012;Sobradinho;0.70;0;0;0;0;0
+CASE-03013;Gama;0.76;0;0;0;0;0
+CASE-03014;Ceilândia;0.55;0;0;0;0;0
+CASE-03015;Águas Claras;0.94;0;0;1;1;0
+CASE-03016;Ceilândia;0.55;1;1;0;2;0
+CASE-03017;Ceilândia;0.55;1;1;1;3;1
+CASE-03018;Guará;0.90;0;0;0;0;0
+CASE-03019;Águas Claras;0.94;1;1;1;3;1
+CASE-03020;Águas Claras;0.94;0;0;0;0;0
+CASE-03021;Sobradinho;0.70;0;0;1;1;0
+CASE-03022;Gama;0.76;1;0;0;1;0
+CASE-03023;Gama;0.76;1;1;0;2;1
+CASE-03024;Samambaia;0.62;0;0;1;1;0
+CASE-03025;Gama;0.76;0;0;0;0;0
+CASE-03026;Taguatinga;0.84;0;1;0;1;1
+CASE-03027;Samambaia;0.62;0;0;0;0;0
+CASE-03028;Gama;0.76;0;0;0;0;0
+CASE-03029;Guará;0.90;1;0;0;1;0
+CASE-03030;Plano Piloto;0.97;1;1;0;2;1
+CASE-03031;Samambaia;0.62;0;1;0;1;0
+CASE-03032;Plano Piloto;0.97;0;0;0;0;0
+CASE-03033;Gama;0.76;0;1;0;1;0
+CASE-03034;Ceilândia;0.55;1;0;0;1;0
+CASE-03035;Samambaia;0.62;0;0;0;0;0
+CASE-03036;Ceilândia;0.55;0;0;0;0;0
+CASE-03037;Ceilândia;0.55;0;0;1;1;0
+CASE-03038;Águas Claras;0.94;0;0;0;0;0
+CASE-03039;Samambaia;0.62;0;0;0;0;0
+CASE-03040;Gama;0.76;0;0;0;0;0
+CASE-03041;Águas Claras;0.94;0;0;0;0;0
+CASE-03042;Samambaia;0.62;0;0;0;0;0
+CASE-03043;Ceilândia;0.55;0;1;0;1;0
+CASE-03044;Guará;0.90;0;0;0;0;0
+CASE-03045;Águas Claras;0.94;0;1;0;1;0
+CASE-03046;Guará;0.90;0;0;0;0;0
+CASE-03047;Ceilândia;0.55;0;0;0;0;0
+CASE-03048;Taguatinga;0.84;1;1;1;3;1
+CASE-03049;Taguatinga;0.84;0;1;0;1;0
+CASE-03050;Sobradinho;0.70;0;0;0;0;0
+CASE-03051;Plano Piloto;0.97;0;0;0;0;0
+CASE-03052;Samambaia;0.62;1;0;0;1;0
+CASE-03053;Guará;0.90;1;1;1;3;1
+CASE-03054;Ceilândia;0.55;0;1;0;1;0
+CASE-03055;Samambaia;0.62;0;0;0;0;0
+CASE-03056;Águas Claras;0.94;1;1;0;2;0
+CASE-03057;Sobradinho;0.70;0;0;0;0;0
+CASE-03058;Taguatinga;0.84;0;1;1;2;0
+CASE-03059;Gama;0.76;0;0;0;0;0
+CASE-03060;Taguatinga;0.84;0;1;0;1;0
+CASE-03061;Gama;0.76;1;0;0;1;0
+CASE-03062;Sobradinho;0.70;1;0;0;1;0
+CASE-03063;Taguatinga;0.84;0;0;0;0;0
+CASE-03064;Plano Piloto;0.97;1;0;1;2;1
+CASE-03065;Gama;0.76;0;0;0;0;0
+CASE-03066;Guará;0.90;0;0;0;0;0
+CASE-03067;Taguatinga;0.84;0;1;0;1;0
+CASE-03068;Águas Claras;0.94;0;0;0;0;0
+CASE-03069;Taguatinga;0.84;0;0;0;0;0
+CASE-03070;Samambaia;0.62;0;0;1;1;0
+CASE-03071;Ceilândia;0.55;1;0;0;1;0
+CASE-03072;Gama;0.76;1;1;0;2;0
+CASE-03073;Plano Piloto;0.97;1;1;0;2;1
+CASE-03074;Gama;0.76;0;1;0;1;0
+CASE-03075;Guará;0.90;0;0;0;0;0
+CASE-03076;Guará;0.90;0;1;0;1;0
+CASE-03077;Samambaia;0.62;0;1;0;1;0
+CASE-03078;Samambaia;0.62;0;1;1;2;0
+CASE-03079;Guará;0.90;0;0;0;0;0
+CASE-03080;Taguatinga;0.84;0;1;0;1;0
+CASE-03081;Taguatinga;0.84;0;0;0;0;0
+CASE-03082;Ceilândia;0.55;0;0;0;0;0
+CASE-03083;Samambaia;0.62;1;0;0;1;0
+CASE-03084;Guará;0.90;0;0;0;0;0
+CASE-03085;Guará;0.90;0;0;0;0;0
+CASE-03086;Águas Claras;0.94;0;0;0;0;0
+CASE-03087;Ceilândia;0.55;0;0;0;0;0
+CASE-03088;Águas Claras;0.94;0;0;0;0;0
+CASE-03089;Gama;0.76;0;1;1;2;0
+CASE-03090;Plano Piloto;0.97;1;1;1;3;1
+CASE-03091;Plano Piloto;0.97;0;0;1;1;0
+CASE-03092;Guará;0.90;1;0;0;1;0
+CASE-03093;Ceilândia;0.55;0;0;0;0;0
+CASE-03094;Gama;0.76;0;0;0;0;0
+CASE-03095;Gama;0.76;0;0;0;0;1
+CASE-03096;Taguatinga;0.84;0;0;0;0;0
+CASE-03097;Taguatinga;0.84;0;0;0;0;0
+CASE-03098;Samambaia;0.62;0;0;0;0;0
+CASE-03099;Plano Piloto;0.97;0;0;1;1;0
+CASE-03100;Samambaia;0.62;0;1;0;1;0
+CASE-03101;Águas Claras;0.94;0;0;0;0;0
+CASE-03102;Guará;0.90;0;0;0;0;0
+CASE-03103;Plano Piloto;0.97;1;0;1;2;0
+CASE-03104;Águas Claras;0.94;0;1;1;2;1
+CASE-03105;Taguatinga;0.84;0;0;0;0;0
+CASE-03106;Ceilândia;0.55;1;0;0;1;0
+CASE-03107;Guará;0.90;0;0;0;0;0
+CASE-03108;Taguatinga;0.84;0;1;1;2;1
+CASE-03109;Gama;0.76;0;1;0;1;0
+CASE-03110;Taguatinga;0.84;0;0;0;0;0
+CASE-03111;Taguatinga;0.84;0;1;0;1;1
+CASE-03112;Guará;0.90;0;1;0;1;0
+CASE-03113;Guará;0.90;0;0;0;0;0
+CASE-03114;Gama;0.76;1;0;1;2;1
+CASE-03115;Guará;0.90;0;0;0;0;0
+CASE-03116;Samambaia;0.62;0;0;0;0;0
+CASE-03117;Gama;0.76;1;0;0;1;0
+CASE-03118;Gama;0.76;0;1;0;1;0
+CASE-03119;Ceilândia;0.55;0;0;0;0;0
+CASE-03120;Taguatinga;0.84;1;0;0;1;0
+CASE-03121;Sobradinho;0.70;0;1;1;2;0
+CASE-03122;Samambaia;0.62;1;0;1;2;0
+CASE-03123;Guará;0.90;0;0;1;1;0
+CASE-03124;Samambaia;0.62;1;0;0;1;0
+CASE-03125;Sobradinho;0.70;0;1;0;1;0
+CASE-03126;Gama;0.76;0;0;0;0;0
+CASE-03127;Ceilândia;0.55;0;0;0;0;0
+CASE-03128;Gama;0.76;0;0;0;0;0
+CASE-03129;Ceilândia;0.55;0;0;0;0;0
+CASE-03130;Sobradinho;0.70;0;0;0;0;0
+CASE-03131;Guará;0.90;0;0;0;0;0
+CASE-03132;Plano Piloto;0.97;1;0;1;2;0
+CASE-03133;Samambaia;0.62;0;1;0;1;0
+CASE-03134;Sobradinho;0.70;0;0;1;1;0
+CASE-03135;Guará;0.90;0;0;0;0;0
+CASE-03136;Sobradinho;0.70;1;1;0;2;1
+CASE-03137;Sobradinho;0.70;0;0;0;0;0
+CASE-03138;Ceilândia;0.55;0;0;0;0;0
+CASE-03139;Taguatinga;0.84;1;0;1;2;0
+CASE-03140;Ceilândia;0.55;0;0;0;0;0
+CASE-03141;Taguatinga;0.84;0;0;0;0;0
+CASE-03142;Guará;0.90;1;1;1;3;0
+CASE-03143;Águas Claras;0.94;0;0;0;0;0
+CASE-03144;Plano Piloto;0.97;0;0;0;0;0
+CASE-03145;Taguatinga;0.84;0;0;0;0;0
+CASE-03146;Taguatinga;0.84;0;1;0;1;1
+CASE-03147;Plano Piloto;0.97;1;0;1;2;0
+CASE-03148;Samambaia;0.62;0;1;0;1;0
+CASE-03149;Guará;0.90;0;1;0;1;1
+CASE-03150;Sobradinho;0.70;0;0;0;0;0
+CASE-03151;Sobradinho;0.70;1;0;0;1;0
+CASE-03152;Sobradinho;0.70;0;1;1;2;1
+CASE-03153;Águas Claras;0.94;0;0;0;0;0
+CASE-03154;Taguatinga;0.84;1;1;1;3;1
+CASE-03155;Águas Claras;0.94;0;0;0;0;0
+CASE-03156;Sobradinho;0.70;0;0;0;0;0
+CASE-03157;Taguatinga;0.84;0;1;0;1;0
+CASE-03158;Samambaia;0.62;0;1;0;1;0
+CASE-03159;Samambaia;0.62;0;1;0;1;0
+CASE-03160;Plano Piloto;0.97;0;1;0;1;1
+CASE-03161;Plano Piloto;0.97;0;0;0;0;0
+CASE-03162;Guará;0.90;0;1;1;2;0
+CASE-03163;Samambaia;0.62;0;1;1;2;1
+CASE-03164;Ceilândia;0.55;0;0;1;1;0
+CASE-03165;Águas Claras;0.94;0;0;0;0;0
+CASE-03166;Sobradinho;0.70;0;0;0;0;0
+CASE-03167;Ceilândia;0.55;0;0;0;0;0
+CASE-03168;Guará;0.90;0;1;0;1;1
+CASE-03169;Taguatinga;0.84;1;0;1;2;1
+CASE-03170;Taguatinga;0.84;1;1;0;2;1
+CASE-03171;Águas Claras;0.94;1;0;0;1;0
+CASE-03172;Samambaia;0.62;0;0;1;1;0
+CASE-03173;Plano Piloto;0.97;0;0;0;0;0
+CASE-03174;Guará;0.90;0;1;0;1;0
+CASE-03175;Ceilândia;0.55;0;0;0;0;0
+CASE-03176;Gama;0.76;0;0;0;0;0
+CASE-03177;Sobradinho;0.70;1;1;1;3;1
+CASE-03178;Plano Piloto;0.97;0;0;0;0;0
+CASE-03179;Sobradinho;0.70;1;1;0;2;0
+CASE-03180;Gama;0.76;1;1;0;2;0
+CASE-03181;Sobradinho;0.70;0;1;0;1;0
+CASE-03182;Ceilândia;0.55;0;1;0;1;0
+CASE-03183;Samambaia;0.62;0;0;0;0;0
+CASE-03184;Sobradinho;0.70;0;1;0;1;0
+CASE-03185;Taguatinga;0.84;0;0;0;0;0
+CASE-03186;Águas Claras;0.94;0;0;1;1;0
+CASE-03187;Taguatinga;0.84;1;0;0;1;0
+CASE-03188;Samambaia;0.62;0;0;0;0;0
+CASE-03189;Gama;0.76;0;0;0;0;0
+CASE-03190;Ceilândia;0.55;0;0;0;0;0
+CASE-03191;Plano Piloto;0.97;0;0;0;0;1
+CASE-03192;Ceilândia;0.55;0;1;1;2;1
+CASE-03193;Taguatinga;0.84;0;0;0;0;0
+CASE-03194;Ceilândia;0.55;1;0;0;1;0
+CASE-03195;Taguatinga;0.84;0;1;1;2;0
+CASE-03196;Sobradinho;0.70;1;0;0;1;0
+CASE-03197;Plano Piloto;0.97;0;0;0;0;0
+CASE-03198;Águas Claras;0.94;0;0;0;0;0
+CASE-03199;Águas Claras;0.94;0;1;0;1;0
+CASE-03200;Samambaia;0.62;1;1;0;2;0
+CASE-03201;Samambaia;0.62;0;0;0;0;0
+CASE-03202;Águas Claras;0.94;0;1;0;1;0
+CASE-03203;Águas Claras;0.94;0;0;1;1;0
+CASE-03204;Ceilândia;0.55;0;0;0;0;0
+CASE-03205;Sobradinho;0.70;0;0;1;1;0
+CASE-03206;Guará;0.90;1;0;0;1;0
+CASE-03207;Taguatinga;0.84;0;1;0;1;1
+CASE-03208;Gama;0.76;1;0;1;2;0
+CASE-03209;Ceilândia;0.55;0;1;0;1;0
+CASE-03210;Plano Piloto;0.97;0;0;0;0;0
+CASE-03211;Ceilândia;0.55;0;1;0;1;0
+CASE-03212;Taguatinga;0.84;0;1;0;1;0
+CASE-03213;Sobradinho;0.70;1;0;1;2;1
+CASE-03214;Samambaia;0.62;0;0;1;1;0
+CASE-03215;Águas Claras;0.94;0;0;1;1;0
+CASE-03216;Taguatinga;0.84;0;1;0;1;0
+CASE-03217;Samambaia;0.62;0;0;0;0;0
+CASE-03218;Ceilândia;0.55;0;0;0;0;0
+CASE-03219;Gama;0.76;0;1;0;1;0
+CASE-03220;Ceilândia;0.55;1;1;1;3;1
+CASE-03221;Plano Piloto;0.97;0;0;0;0;0
+CASE-03222;Gama;0.76;0;0;0;0;0
+CASE-03223;Guará;0.90;0;0;1;1;0
+CASE-03224;Águas Claras;0.94;1;1;1;3;1
+CASE-03225;Plano Piloto;0.97;0;0;0;0;0
+CASE-03226;Sobradinho;0.70;0;1;1;2;1
+CASE-03227;Ceilândia;0.55;0;1;0;1;0
+CASE-03228;Águas Claras;0.94;0;0;0;0;0
+CASE-03229;Plano Piloto;0.97;0;0;0;0;0
+CASE-03230;Águas Claras;0.94;0;1;1;2;1
+CASE-03231;Plano Piloto;0.97;0;0;0;0;0
+CASE-03232;Gama;0.76;1;0;0;1;0
+CASE-03233;Sobradinho;0.70;0;1;0;1;0
+CASE-03234;Samambaia;0.62;0;0;0;0;0
+CASE-03235;Samambaia;0.62;0;0;0;0;0
+CASE-03236;Guará;0.90;0;1;1;2;0
+CASE-03237;Ceilândia;0.55;0;1;0;1;0
+CASE-03238;Taguatinga;0.84;0;0;0;0;0
+CASE-03239;Sobradinho;0.70;1;0;0;1;0
+CASE-03240;Taguatinga;0.84;0;0;0;0;0
+CASE-03241;Sobradinho;0.70;1;0;0;1;0
+CASE-03242;Ceilândia;0.55;0;0;0;0;0
+CASE-03243;Plano Piloto;0.97;1;1;1;3;1
+CASE-03244;Taguatinga;0.84;0;0;0;0;0
+CASE-03245;Guará;0.90;0;0;0;0;0
+CASE-03246;Samambaia;0.62;1;1;1;3;1
+CASE-03247;Plano Piloto;0.97;0;0;0;0;0
+CASE-03248;Sobradinho;0.70;0;1;0;1;0
+CASE-03249;Águas Claras;0.94;0;1;0;1;0
+CASE-03250;Taguatinga;0.84;0;0;0;0;0
+CASE-03251;Taguatinga;0.84;1;1;1;3;1
+CASE-03252;Plano Piloto;0.97;1;1;1;3;1
+CASE-03253;Gama;0.76;0;1;0;1;1
+CASE-03254;Plano Piloto;0.97;0;0;1;1;0
+CASE-03255;Sobradinho;0.70;1;1;1;3;1
+CASE-03256;Águas Claras;0.94;0;0;0;0;0
+CASE-03257;Plano Piloto;0.97;0;1;0;1;0
+CASE-03258;Plano Piloto;0.97;0;0;1;1;1
+CASE-03259;Águas Claras;0.94;1;0;0;1;1
+CASE-03260;Plano Piloto;0.97;0;0;0;0;0
+CASE-03261;Samambaia;0.62;0;0;0;0;0
+CASE-03262;Samambaia;0.62;0;1;0;1;0
+CASE-03263;Samambaia;0.62;0;1;0;1;0
+CASE-03264;Plano Piloto;0.97;0;1;0;1;0
+CASE-03265;Taguatinga;0.84;1;0;1;2;1
+CASE-03266;Sobradinho;0.70;0;1;0;1;1
+CASE-03267;Taguatinga;0.84;1;1;1;3;1
+CASE-03268;Ceilândia;0.55;0;0;0;0;0
+CASE-03269;Gama;0.76;0;0;0;0;0
+CASE-03270;Samambaia;0.62;0;1;0;1;0
+CASE-03271;Guará;0.90;0;0;1;1;0
+CASE-03272;Gama;0.76;0;0;0;0;0
+CASE-03273;Taguatinga;0.84;1;0;0;1;1
+CASE-03274;Guará;0.90;0;0;0;0;0
+CASE-03275;Sobradinho;0.70;0;0;0;0;0
+CASE-03276;Plano Piloto;0.97;0;0;0;0;0
+CASE-03277;Águas Claras;0.94;0;0;0;0;0
+CASE-03278;Gama;0.76;0;0;0;0;0
+CASE-03279;Samambaia;0.62;0;0;0;0;0
+CASE-03280;Taguatinga;0.84;1;1;0;2;1
+CASE-03281;Ceilândia;0.55;0;0;0;0;0
+CASE-03282;Taguatinga;0.84;0;0;0;0;0
+CASE-03283;Guará;0.90;0;0;0;0;0
+CASE-03284;Guará;0.90;0;0;0;0;0
+CASE-03285;Samambaia;0.62;0;1;0;1;0
+CASE-03286;Sobradinho;0.70;0;0;0;0;0
+CASE-03287;Sobradinho;0.70;0;1;0;1;1
+CASE-03288;Ceilândia;0.55;0;0;0;0;0
+CASE-03289;Plano Piloto;0.97;0;0;0;0;0
+CASE-03290;Águas Claras;0.94;0;0;0;0;0
+CASE-03291;Gama;0.76;0;0;0;0;0
+CASE-03292;Ceilândia;0.55;0;0;0;0;0
+CASE-03293;Taguatinga;0.84;0;0;0;0;1
+CASE-03294;Guará;0.90;0;1;0;1;0
+CASE-03295;Taguatinga;0.84;1;1;1;3;1
+CASE-03296;Guará;0.90;0;0;0;0;0
+CASE-03297;Samambaia;0.62;1;0;0;1;1
+CASE-03298;Guará;0.90;0;0;0;0;0
+CASE-03299;Guará;0.90;1;0;0;1;0
+CASE-03300;Taguatinga;0.84;0;1;0;1;0
+CASE-03301;Sobradinho;0.70;0;1;0;1;0
+CASE-03302;Sobradinho;0.70;0;1;0;1;0
+CASE-03303;Plano Piloto;0.97;0;1;1;2;0
+CASE-03304;Águas Claras;0.94;0;0;0;0;0
+CASE-03305;Gama;0.76;0;1;0;1;0
+CASE-03306;Samambaia;0.62;0;1;0;1;0
+CASE-03307;Ceilândia;0.55;1;0;1;2;0
+CASE-03308;Taguatinga;0.84;0;0;0;0;0
+CASE-03309;Guará;0.90;0;0;0;0;0
+CASE-03310;Sobradinho;0.70;0;0;1;1;0
+CASE-03311;Águas Claras;0.94;0;0;0;0;0
+CASE-03312;Samambaia;0.62;0;0;0;0;0
+CASE-03313;Samambaia;0.62;0;0;0;0;0
+CASE-03314;Gama;0.76;0;0;0;0;0
+CASE-03315;Ceilândia;0.55;0;0;1;1;0
+CASE-03316;Taguatinga;0.84;0;0;0;0;0
+CASE-03317;Ceilândia;0.55;0;0;1;1;0
+CASE-03318;Águas Claras;0.94;0;1;1;2;0
+CASE-03319;Samambaia;0.62;1;1;0;2;0
+CASE-03320;Sobradinho;0.70;1;0;0;1;0
+CASE-03321;Gama;0.76;1;0;1;2;0
+CASE-03322;Guará;0.90;0;1;1;2;0
+CASE-03323;Águas Claras;0.94;0;0;0;0;0
+CASE-03324;Sobradinho;0.70;0;0;1;1;0
+CASE-03325;Guará;0.90;0;0;0;0;0
+CASE-03326;Ceilândia;0.55;0;0;0;0;0
+CASE-03327;Ceilândia;0.55;0;1;0;1;0
+CASE-03328;Samambaia;0.62;0;0;0;0;0
+CASE-03329;Plano Piloto;0.97;0;0;0;0;0
+CASE-03330;Gama;0.76;0;1;0;1;0
+CASE-03331;Sobradinho;0.70;0;0;0;0;0
+CASE-03332;Sobradinho;0.70;0;0;0;0;0
+CASE-03333;Ceilândia;0.55;1;0;0;1;0
+CASE-03334;Gama;0.76;0;0;0;0;0
+CASE-03335;Taguatinga;0.84;1;0;0;1;0
+CASE-03336;Guará;0.90;0;0;0;0;0
+CASE-03337;Plano Piloto;0.97;0;0;0;0;0
+CASE-03338;Ceilândia;0.55;0;0;0;0;0
+CASE-03339;Águas Claras;0.94;1;0;1;2;0
+CASE-03340;Ceilândia;0.55;0;1;0;1;0
+CASE-03341;Águas Claras;0.94;1;0;0;1;0
+CASE-03342;Gama;0.76;1;1;0;2;1
+CASE-03343;Águas Claras;0.94;1;1;1;3;1
+CASE-03344;Ceilândia;0.55;0;0;0;0;0
+CASE-03345;Ceilândia;0.55;0;1;0;1;0
+CASE-03346;Taguatinga;0.84;0;0;0;0;0
+CASE-03347;Gama;0.76;0;0;1;1;0
+CASE-03348;Plano Piloto;0.97;0;0;1;1;0
+CASE-03349;Águas Claras;0.94;0;0;0;0;0
+CASE-03350;Gama;0.76;0;1;0;1;0
+CASE-03351;Taguatinga;0.84;1;0;0;1;0
+CASE-03352;Sobradinho;0.70;0;0;0;0;0
+CASE-03353;Gama;0.76;0;0;0;0;1
+CASE-03354;Plano Piloto;0.97;0;1;0;1;0
+CASE-03355;Samambaia;0.62;0;0;0;0;0
+CASE-03356;Gama;0.76;1;1;0;2;0
+CASE-03357;Taguatinga;0.84;1;1;0;2;0
+CASE-03358;Samambaia;0.62;0;1;0;1;0
+CASE-03359;Ceilândia;0.55;0;1;1;2;0
+CASE-03360;Águas Claras;0.94;1;0;0;1;0
+CASE-03361;Gama;0.76;0;1;1;2;0
+CASE-03362;Ceilândia;0.55;1;1;1;3;0
+CASE-03363;Águas Claras;0.94;0;0;0;0;0
+CASE-03364;Samambaia;0.62;0;1;1;2;0
+CASE-03365;Plano Piloto;0.97;0;0;0;0;0
+CASE-03366;Sobradinho;0.70;0;1;0;1;0
+CASE-03367;Sobradinho;0.70;0;0;1;1;0
+CASE-03368;Sobradinho;0.70;1;0;0;1;0
+CASE-03369;Águas Claras;0.94;0;0;0;0;0
+CASE-03370;Plano Piloto;0.97;0;1;1;2;1
+CASE-03371;Samambaia;0.62;0;0;0;0;0
+CASE-03372;Samambaia;0.62;0;0;0;0;0
+CASE-03373;Taguatinga;0.84;0;1;0;1;0
+CASE-03374;Taguatinga;0.84;0;0;0;0;0
+CASE-03375;Ceilândia;0.55;0;1;0;1;0
+CASE-03376;Samambaia;0.62;0;0;0;0;0
+CASE-03377;Taguatinga;0.84;0;0;0;0;0
+CASE-03378;Plano Piloto;0.97;0;1;0;1;0
+CASE-03379;Sobradinho;0.70;0;1;0;1;0
+CASE-03380;Sobradinho;0.70;0;0;0;0;0
+CASE-03381;Gama;0.76;0;0;0;0;0
+CASE-03382;Samambaia;0.62;0;0;1;1;0
+CASE-03383;Ceilândia;0.55;0;0;0;0;0
+CASE-03384;Gama;0.76;0;1;0;1;0
+CASE-03385;Águas Claras;0.94;0;0;0;0;0
+CASE-03386;Plano Piloto;0.97;0;0;0;0;0
+CASE-03387;Samambaia;0.62;0;0;0;0;0
+CASE-03388;Guará;0.90;0;0;0;0;0
+CASE-03389;Gama;0.76;0;0;0;0;0
+CASE-03390;Samambaia;0.62;0;0;1;1;0
+CASE-03391;Sobradinho;0.70;0;0;0;0;0
+CASE-03392;Samambaia;0.62;0;0;0;0;0
+CASE-03393;Samambaia;0.62;1;0;1;2;1
+CASE-03394;Gama;0.76;0;0;0;0;0
+CASE-03395;Taguatinga;0.84;0;0;0;0;0
+CASE-03396;Ceilândia;0.55;0;1;1;2;0
+CASE-03397;Sobradinho;0.70;0;0;0;0;0
+CASE-03398;Ceilândia;0.55;0;1;0;1;0
+CASE-03399;Taguatinga;0.84;0;0;0;0;0
+CASE-03400;Gama;0.76;0;0;0;0;0
+CASE-03401;Ceilândia;0.55;0;0;0;0;0
+CASE-03402;Taguatinga;0.84;0;0;0;0;0
+CASE-03403;Gama;0.76;0;0;0;0;0
+CASE-03404;Águas Claras;0.94;0;0;0;0;0
+CASE-03405;Ceilândia;0.55;0;0;1;1;0
+CASE-03406;Taguatinga;0.84;0;0;0;0;0
+CASE-03407;Plano Piloto;0.97;0;0;0;0;0
+CASE-03408;Plano Piloto;0.97;0;0;0;0;0
+CASE-03409;Gama;0.76;0;0;0;0;0
+CASE-03410;Águas Claras;0.94;0;0;0;0;0
+CASE-03411;Guará;0.90;0;0;0;0;0
+CASE-03412;Plano Piloto;0.97;0;0;0;0;0
+CASE-03413;Samambaia;0.62;0;0;0;0;0
+CASE-03414;Ceilândia;0.55;1;1;1;3;1
+CASE-03415;Guará;0.90;0;1;0;1;0
+CASE-03416;Sobradinho;0.70;1;0;1;2;1
+CASE-03417;Águas Claras;0.94;0;0;1;1;0
+CASE-03418;Taguatinga;0.84;0;0;0;0;0
+CASE-03419;Guará;0.90;0;0;0;0;0
+CASE-03420;Samambaia;0.62;1;0;1;2;1
+CASE-03421;Águas Claras;0.94;1;1;1;3;1
+CASE-03422;Ceilândia;0.55;1;1;0;2;0
+CASE-03423;Taguatinga;0.84;0;0;0;0;0
+CASE-03424;Samambaia;0.62;0;0;0;0;0
+CASE-03425;Taguatinga;0.84;0;1;0;1;0
+CASE-03426;Taguatinga;0.84;0;0;0;0;0
+CASE-03427;Gama;0.76;1;1;0;2;1
+CASE-03428;Taguatinga;0.84;1;0;0;1;0
+CASE-03429;Taguatinga;0.84;0;0;0;0;0
+CASE-03430;Águas Claras;0.94;0;0;0;0;0
+CASE-03431;Águas Claras;0.94;1;1;1;3;1
+CASE-03432;Águas Claras;0.94;1;1;0;2;0
+CASE-03433;Plano Piloto;0.97;0;1;0;1;0
+CASE-03434;Sobradinho;0.70;0;0;0;0;0
+CASE-03435;Guará;0.90;0;0;0;0;0
+CASE-03436;Ceilândia;0.55;0;1;0;1;0
+CASE-03437;Plano Piloto;0.97;0;1;0;1;0
+CASE-03438;Plano Piloto;0.97;0;0;0;0;0
+CASE-03439;Ceilândia;0.55;0;1;0;1;0
+CASE-03440;Taguatinga;0.84;1;0;0;1;0
+CASE-03441;Gama;0.76;0;1;0;1;0
+CASE-03442;Águas Claras;0.94;1;0;0;1;0
+CASE-03443;Gama;0.76;0;0;0;0;0
+CASE-03444;Taguatinga;0.84;0;1;0;1;0
+CASE-03445;Plano Piloto;0.97;0;0;0;0;0
+CASE-03446;Gama;0.76;0;0;0;0;0
+CASE-03447;Gama;0.76;0;0;0;0;0
+CASE-03448;Gama;0.76;0;0;0;0;0
+CASE-03449;Samambaia;0.62;0;0;1;1;0
+CASE-03450;Águas Claras;0.94;1;0;1;2;1
+CASE-03451;Samambaia;0.62;1;1;1;3;1
+CASE-03452;Águas Claras;0.94;0;0;0;0;0
+CASE-03453;Samambaia;0.62;0;0;1;1;0
+CASE-03454;Águas Claras;0.94;0;1;0;1;0
+CASE-03455;Taguatinga;0.84;0;0;0;0;1
+CASE-03456;Guará;0.90;1;0;0;1;0
+CASE-03457;Plano Piloto;0.97;0;0;0;0;0
+CASE-03458;Ceilândia;0.55;0;1;0;1;0
+CASE-03459;Samambaia;0.62;0;1;0;1;1
+CASE-03460;Taguatinga;0.84;0;0;0;0;0
+CASE-03461;Guará;0.90;0;0;0;0;0
+CASE-03462;Guará;0.90;0;0;0;0;0
+CASE-03463;Ceilândia;0.55;1;0;0;1;0
+CASE-03464;Águas Claras;0.94;0;0;0;0;0
+CASE-03465;Taguatinga;0.84;0;0;0;0;0
+CASE-03466;Guará;0.90;1;0;1;2;0
+CASE-03467;Sobradinho;0.70;1;0;0;1;0
+CASE-03468;Águas Claras;0.94;1;0;0;1;0
+CASE-03469;Guará;0.90;0;0;0;0;0
+CASE-03470;Ceilândia;0.55;0;1;1;2;0
+CASE-03471;Águas Claras;0.94;0;0;1;1;0
+CASE-03472;Águas Claras;0.94;0;0;0;0;0
+CASE-03473;Taguatinga;0.84;0;1;0;1;0
+CASE-03474;Sobradinho;0.70;1;0;0;1;0
+CASE-03475;Ceilândia;0.55;0;0;0;0;0
+CASE-03476;Sobradinho;0.70;0;1;0;1;0
+CASE-03477;Plano Piloto;0.97;0;0;0;0;0
+CASE-03478;Sobradinho;0.70;0;0;0;0;0
+CASE-03479;Samambaia;0.62;0;1;1;2;1
+CASE-03480;Samambaia;0.62;0;1;0;1;0
+CASE-03481;Sobradinho;0.70;0;0;0;0;0
+CASE-03482;Águas Claras;0.94;0;1;0;1;0
+CASE-03483;Ceilândia;0.55;0;1;0;1;0
+CASE-03484;Guará;0.90;0;0;0;0;0
+CASE-03485;Águas Claras;0.94;1;1;1;3;1
+CASE-03486;Gama;0.76;0;0;0;0;0
+CASE-03487;Taguatinga;0.84;0;0;0;0;0
+CASE-03488;Plano Piloto;0.97;0;0;0;0;0
+CASE-03489;Plano Piloto;0.97;0;0;0;0;0
+CASE-03490;Samambaia;0.62;1;1;0;2;1
+CASE-03491;Ceilândia;0.55;0;0;0;0;0
+CASE-03492;Águas Claras;0.94;0;0;0;0;0
+CASE-03493;Guará;0.90;0;1;0;1;0
+CASE-03494;Plano Piloto;0.97;1;0;0;1;0
+CASE-03495;Águas Claras;0.94;0;1;0;1;0
+CASE-03496;Gama;0.76;0;0;1;1;0
+CASE-03497;Plano Piloto;0.97;0;0;0;0;0
+CASE-03498;Gama;0.76;0;0;0;0;0
+CASE-03499;Samambaia;0.62;0;1;0;1;0
+CASE-03500;Águas Claras;0.94;0;0;0;0;0
+CASE-03501;Sobradinho;0.70;0;0;0;0;0
+CASE-03502;Sobradinho;0.70;0;0;1;1;0
+CASE-03503;Ceilândia;0.55;0;1;1;2;0
+CASE-03504;Sobradinho;0.70;0;0;0;0;0
+CASE-03505;Guará;0.90;0;0;0;0;0
+CASE-03506;Taguatinga;0.84;0;0;1;1;0
+CASE-03507;Plano Piloto;0.97;0;0;0;0;0
+CASE-03508;Plano Piloto;0.97;0;1;0;1;0
+CASE-03509;Ceilândia;0.55;0;0;0;0;0
+CASE-03510;Samambaia;0.62;0;0;0;0;0
+CASE-03511;Samambaia;0.62;0;1;0;1;1
+CASE-03512;Samambaia;0.62;0;0;0;0;0
+CASE-03513;Taguatinga;0.84;0;0;0;0;0
+CASE-03514;Ceilândia;0.55;0;1;1;2;1
+CASE-03515;Guará;0.90;1;0;0;1;0
+CASE-03516;Taguatinga;0.84;0;0;0;0;0
+CASE-03517;Gama;0.76;1;0;0;1;0
+CASE-03518;Águas Claras;0.94;0;0;1;1;0
+CASE-03519;Gama;0.76;0;0;0;0;0
+CASE-03520;Gama;0.76;0;1;0;1;0
+CASE-03521;Gama;0.76;0;0;0;0;0
+CASE-03522;Sobradinho;0.70;0;0;0;0;0
+CASE-03523;Guará;0.90;0;0;1;1;0
+CASE-03524;Plano Piloto;0.97;0;0;0;0;0
+CASE-03525;Taguatinga;0.84;1;1;0;2;1
+CASE-03526;Plano Piloto;0.97;0;1;0;1;0
+CASE-03527;Samambaia;0.62;0;1;0;1;0
+CASE-03528;Gama;0.76;0;0;0;0;0
+CASE-03529;Águas Claras;0.94;0;0;0;0;0
+CASE-03530;Taguatinga;0.84;0;0;0;0;0
+CASE-03531;Guará;0.90;0;0;0;0;0
+CASE-03532;Gama;0.76;0;1;0;1;0
+CASE-03533;Sobradinho;0.70;0;0;0;0;0
+CASE-03534;Sobradinho;0.70;0;0;1;1;1
+CASE-03535;Gama;0.76;0;0;0;0;0
+CASE-03536;Guará;0.90;0;0;0;0;0
+CASE-03537;Taguatinga;0.84;1;0;0;1;0
+CASE-03538;Gama;0.76;0;0;0;0;0
+CASE-03539;Gama;0.76;0;0;0;0;0
+CASE-03540;Gama;0.76;0;0;0;0;0
+CASE-03541;Guará;0.90;0;1;0;1;0
+CASE-03542;Ceilândia;0.55;0;1;0;1;0
+CASE-03543;Plano Piloto;0.97;0;1;1;2;0
+CASE-03544;Taguatinga;0.84;0;0;0;0;0
+CASE-03545;Ceilândia;0.55;0;1;0;1;0
+CASE-03546;Taguatinga;0.84;0;0;0;0;0
+CASE-03547;Sobradinho;0.70;0;1;0;1;0
+CASE-03548;Taguatinga;0.84;0;0;0;0;0
+CASE-03549;Taguatinga;0.84;0;0;0;0;0
+CASE-03550;Ceilândia;0.55;0;0;1;1;0
+CASE-03551;Guará;0.90;0;0;1;1;0
+CASE-03552;Taguatinga;0.84;0;1;0;1;0
+CASE-03553;Gama;0.76;1;0;1;2;0
+CASE-03554;Águas Claras;0.94;0;0;0;0;0
+CASE-03555;Samambaia;0.62;0;0;0;0;0
+CASE-03556;Gama;0.76;0;0;0;0;0
+CASE-03557;Águas Claras;0.94;1;0;1;2;1
+CASE-03558;Ceilândia;0.55;0;1;0;1;0
+CASE-03559;Sobradinho;0.70;0;1;1;2;0
+CASE-03560;Taguatinga;0.84;0;1;0;1;0
+CASE-03561;Sobradinho;0.70;0;0;0;0;0
+CASE-03562;Samambaia;0.62;1;1;0;2;0
+CASE-03563;Taguatinga;0.84;1;0;0;1;0
+CASE-03564;Gama;0.76;1;1;1;3;1
+CASE-03565;Taguatinga;0.84;0;1;0;1;0
+CASE-03566;Sobradinho;0.70;0;0;0;0;0
+CASE-03567;Gama;0.76;0;0;1;1;1
+CASE-03568;Samambaia;0.62;0;0;0;0;0
+CASE-03569;Sobradinho;0.70;1;1;0;2;1
+CASE-03570;Ceilândia;0.55;0;0;0;0;0
+CASE-03571;Ceilândia;0.55;0;1;0;1;0
+CASE-03572;Ceilândia;0.55;1;0;0;1;0
+CASE-03573;Ceilândia;0.55;0;1;1;2;0
+CASE-03574;Gama;0.76;0;0;0;0;0
+CASE-03575;Plano Piloto;0.97;0;0;1;1;0
+CASE-03576;Samambaia;0.62;0;0;1;1;0
+CASE-03577;Ceilândia;0.55;0;1;1;2;0
+CASE-03578;Sobradinho;0.70;1;1;0;2;0
+CASE-03579;Guará;0.90;0;0;1;1;0
+CASE-03580;Ceilândia;0.55;1;0;1;2;1
+CASE-03581;Samambaia;0.62;1;1;1;3;1
+CASE-03582;Ceilândia;0.55;0;0;0;0;0
+CASE-03583;Ceilândia;0.55;0;0;0;0;0
+CASE-03584;Plano Piloto;0.97;0;0;0;0;0
+CASE-03585;Plano Piloto;0.97;0;0;0;0;0
+CASE-03586;Gama;0.76;0;1;1;2;1
+CASE-03587;Guará;0.90;1;0;0;1;0
+CASE-03588;Águas Claras;0.94;0;0;0;0;0
+CASE-03589;Sobradinho;0.70;0;0;0;0;0
+CASE-03590;Samambaia;0.62;0;1;1;2;1
+CASE-03591;Plano Piloto;0.97;1;1;0;2;1
+CASE-03592;Samambaia;0.62;0;0;0;0;0
+CASE-03593;Guará;0.90;0;0;0;0;0
+CASE-03594;Taguatinga;0.84;0;0;0;0;0
+CASE-03595;Ceilândia;0.55;0;0;0;0;0
+CASE-03596;Gama;0.76;0;1;0;1;0
+CASE-03597;Samambaia;0.62;0;1;0;1;0
+CASE-03598;Samambaia;0.62;0;1;0;1;0
+CASE-03599;Taguatinga;0.84;0;0;0;0;0
+CASE-03600;Gama;0.76;0;0;1;1;0
+CASE-03601;Samambaia;0.62;0;0;0;0;0
+CASE-03602;Sobradinho;0.70;0;0;0;0;0
+CASE-03603;Águas Claras;0.94;1;0;1;2;0
+CASE-03604;Gama;0.76;0;1;1;2;0
+CASE-03605;Samambaia;0.62;0;0;1;1;0
+CASE-03606;Ceilândia;0.55;0;0;0;0;0
+CASE-03607;Gama;0.76;0;1;0;1;0
+CASE-03608;Samambaia;0.62;0;1;0;1;0
+CASE-03609;Samambaia;0.62;0;0;0;0;0
+CASE-03610;Sobradinho;0.70;1;1;0;2;1
+CASE-03611;Samambaia;0.62;1;0;1;2;1
+CASE-03612;Taguatinga;0.84;1;0;0;1;0
+CASE-03613;Ceilândia;0.55;1;0;1;2;1
+CASE-03614;Plano Piloto;0.97;0;0;0;0;0
+CASE-03615;Ceilândia;0.55;1;0;0;1;0
+CASE-03616;Samambaia;0.62;0;0;0;0;0
+CASE-03617;Gama;0.76;0;0;1;1;0
+CASE-03618;Sobradinho;0.70;0;0;0;0;0
+CASE-03619;Guará;0.90;1;0;0;1;0
+CASE-03620;Gama;0.76;1;1;1;3;1
+CASE-03621;Plano Piloto;0.97;0;0;1;1;0
+CASE-03622;Sobradinho;0.70;0;0;0;0;0
+CASE-03623;Sobradinho;0.70;1;1;1;3;1
+CASE-03624;Taguatinga;0.84;0;0;0;0;0
+CASE-03625;Guará;0.90;0;0;1;1;1
+CASE-03626;Sobradinho;0.70;1;0;0;1;0
+CASE-03627;Guará;0.90;0;1;0;1;0
+CASE-03628;Sobradinho;0.70;0;0;1;1;0
+CASE-03629;Plano Piloto;0.97;0;0;0;0;0
+CASE-03630;Samambaia;0.62;1;0;0;1;0
+CASE-03631;Samambaia;0.62;1;0;0;1;1
+CASE-03632;Ceilândia;0.55;0;0;0;0;0
+CASE-03633;Sobradinho;0.70;0;0;0;0;0
+CASE-03634;Águas Claras;0.94;0;0;0;0;0
+CASE-03635;Ceilândia;0.55;1;1;1;3;1
+CASE-03636;Taguatinga;0.84;0;0;0;0;0
+CASE-03637;Gama;0.76;1;0;1;2;0
+CASE-03638;Taguatinga;0.84;0;0;0;0;0
+CASE-03639;Gama;0.76;0;1;1;2;1
+CASE-03640;Águas Claras;0.94;0;0;1;1;0
+CASE-03641;Plano Piloto;0.97;1;0;0;1;0
+CASE-03642;Plano Piloto;0.97;1;1;1;3;1
+CASE-03643;Sobradinho;0.70;0;0;0;0;0
+CASE-03644;Samambaia;0.62;0;0;0;0;0
+CASE-03645;Guará;0.90;0;0;0;0;0
+CASE-03646;Ceilândia;0.55;0;1;1;2;0
+CASE-03647;Guará;0.90;1;0;0;1;0
+CASE-03648;Taguatinga;0.84;0;0;0;0;0
+CASE-03649;Ceilândia;0.55;0;1;1;2;1
+CASE-03650;Águas Claras;0.94;0;1;0;1;1
+CASE-03651;Águas Claras;0.94;1;0;1;2;1
+CASE-03652;Águas Claras;0.94;0;0;0;0;0
+CASE-03653;Ceilândia;0.55;1;0;0;1;0
+CASE-03654;Águas Claras;0.94;1;0;0;1;0
+CASE-03655;Plano Piloto;0.97;0;0;1;1;0
+CASE-03656;Gama;0.76;0;1;0;1;0
+CASE-03657;Plano Piloto;0.97;0;0;0;0;0
+CASE-03658;Taguatinga;0.84;0;1;0;1;0
+CASE-03659;Samambaia;0.62;0;1;0;1;1
+CASE-03660;Sobradinho;0.70;0;0;0;0;0
+CASE-03661;Águas Claras;0.94;0;0;0;0;0
+CASE-03662;Samambaia;0.62;1;0;0;1;0
+CASE-03663;Águas Claras;0.94;0;0;1;1;0
+CASE-03664;Plano Piloto;0.97;0;0;1;1;0
+CASE-03665;Taguatinga;0.84;0;1;1;2;1
+CASE-03666;Sobradinho;0.70;0;0;0;0;0
+CASE-03667;Gama;0.76;0;0;0;0;0
+CASE-03668;Plano Piloto;0.97;1;1;1;3;1
+CASE-03669;Guará;0.90;0;0;0;0;0
+CASE-03670;Ceilândia;0.55;1;1;0;2;1
+CASE-03671;Ceilândia;0.55;0;0;1;1;1
+CASE-03672;Águas Claras;0.94;0;0;0;0;0
+CASE-03673;Gama;0.76;0;1;1;2;0
+CASE-03674;Taguatinga;0.84;0;0;1;1;0
+CASE-03675;Samambaia;0.62;0;0;0;0;0
+CASE-03676;Taguatinga;0.84;0;0;0;0;0
+CASE-03677;Guará;0.90;0;0;0;0;0
+CASE-03678;Plano Piloto;0.97;0;1;1;2;1
+CASE-03679;Águas Claras;0.94;0;1;0;1;0
+CASE-03680;Plano Piloto;0.97;0;1;1;2;1
+CASE-03681;Ceilândia;0.55;0;0;0;0;0
+CASE-03682;Águas Claras;0.94;0;0;0;0;0
+CASE-03683;Plano Piloto;0.97;0;0;0;0;0
+CASE-03684;Plano Piloto;0.97;1;0;1;2;0
+CASE-03685;Guará;0.90;0;1;0;1;0
+CASE-03686;Águas Claras;0.94;0;0;0;0;0
+CASE-03687;Plano Piloto;0.97;0;0;0;0;0
+CASE-03688;Sobradinho;0.70;1;1;1;3;0
+CASE-03689;Gama;0.76;1;1;0;2;0
+CASE-03690;Águas Claras;0.94;0;0;0;0;0
+CASE-03691;Plano Piloto;0.97;0;1;0;1;0
+CASE-03692;Taguatinga;0.84;0;0;0;0;0
+CASE-03693;Águas Claras;0.94;0;0;0;0;0
+CASE-03694;Águas Claras;0.94;0;1;0;1;0
+CASE-03695;Samambaia;0.62;0;0;0;0;0
+CASE-03696;Samambaia;0.62;0;0;0;0;0
+CASE-03697;Ceilândia;0.55;1;0;0;1;0
+CASE-03698;Gama;0.76;0;1;0;1;0
+CASE-03699;Taguatinga;0.84;0;1;1;2;0
+CASE-03700;Águas Claras;0.94;0;0;0;0;0
+CASE-03701;Taguatinga;0.84;0;0;1;1;0
+CASE-03702;Guará;0.90;0;0;0;0;0
+CASE-03703;Guará;0.90;0;0;1;1;0
+CASE-03704;Taguatinga;0.84;0;0;0;0;0
+CASE-03705;Sobradinho;0.70;1;0;0;1;0
+CASE-03706;Samambaia;0.62;1;1;0;2;1
+CASE-03707;Gama;0.76;0;0;0;0;0
+CASE-03708;Sobradinho;0.70;0;0;0;0;0
+CASE-03709;Sobradinho;0.70;0;0;0;0;0
+CASE-03710;Plano Piloto;0.97;0;0;0;0;0
+CASE-03711;Plano Piloto;0.97;0;1;0;1;1
+CASE-03712;Gama;0.76;1;0;0;1;0
+CASE-03713;Samambaia;0.62;0;0;1;1;0
+CASE-03714;Sobradinho;0.70;0;0;0;0;0
+CASE-03715;Águas Claras;0.94;1;0;0;1;0
+CASE-03716;Guará;0.90;0;1;0;1;0
+CASE-03717;Taguatinga;0.84;0;0;0;0;0
+CASE-03718;Gama;0.76;1;0;0;1;0
+CASE-03719;Samambaia;0.62;1;0;0;1;0
+CASE-03720;Guará;0.90;0;0;0;0;0
+CASE-03721;Ceilândia;0.55;1;0;0;1;0
+CASE-03722;Águas Claras;0.94;0;1;0;1;0
+CASE-03723;Águas Claras;0.94;1;0;0;1;0
+CASE-03724;Sobradinho;0.70;0;1;0;1;0
+CASE-03725;Guará;0.90;1;0;0;1;1
+CASE-03726;Samambaia;0.62;0;1;0;1;0
+CASE-03727;Taguatinga;0.84;0;0;0;0;0
+CASE-03728;Taguatinga;0.84;0;1;0;1;0
+CASE-03729;Ceilândia;0.55;0;1;0;1;0
+CASE-03730;Guará;0.90;0;0;0;0;0
+CASE-03731;Ceilândia;0.55;1;1;1;3;1
+CASE-03732;Taguatinga;0.84;0;0;0;0;0
+CASE-03733;Taguatinga;0.84;0;0;0;0;0
+CASE-03734;Sobradinho;0.70;0;1;0;1;0
+CASE-03735;Taguatinga;0.84;1;0;0;1;0
+CASE-03736;Plano Piloto;0.97;0;1;0;1;1
+CASE-03737;Gama;0.76;0;1;0;1;0
+CASE-03738;Samambaia;0.62;0;0;1;1;0
+CASE-03739;Guará;0.90;0;0;1;1;0
+CASE-03740;Plano Piloto;0.97;0;0;0;0;0
+CASE-03741;Sobradinho;0.70;1;1;1;3;0
+CASE-03742;Plano Piloto;0.97;0;0;0;0;0
+CASE-03743;Guará;0.90;0;0;0;0;0
+CASE-03744;Samambaia;0.62;0;0;1;1;0
+CASE-03745;Gama;0.76;0;1;0;1;0
+CASE-03746;Águas Claras;0.94;0;1;0;1;0
+CASE-03747;Taguatinga;0.84;0;0;0;0;0
+CASE-03748;Samambaia;0.62;1;1;0;2;1
+CASE-03749;Sobradinho;0.70;0;0;0;0;0
+CASE-03750;Gama;0.76;0;0;0;0;0
+CASE-03751;Plano Piloto;0.97;1;1;1;3;1
+CASE-03752;Gama;0.76;0;0;0;0;0
+CASE-03753;Plano Piloto;0.97;0;1;0;1;0
+CASE-03754;Guará;0.90;0;0;0;0;0
+CASE-03755;Plano Piloto;0.97;0;0;0;0;0
+CASE-03756;Samambaia;0.62;0;0;1;1;0
+CASE-03757;Plano Piloto;0.97;0;0;1;1;0
+CASE-03758;Taguatinga;0.84;0;0;0;0;0
+CASE-03759;Guará;0.90;0;0;0;0;0
+CASE-03760;Plano Piloto;0.97;0;1;0;1;0
+CASE-03761;Gama;0.76;0;1;0;1;1
+CASE-03762;Sobradinho;0.70;0;0;0;0;0
+CASE-03763;Taguatinga;0.84;0;0;0;0;0
+CASE-03764;Samambaia;0.62;0;0;1;1;1
+CASE-03765;Guará;0.90;0;0;0;0;0
+CASE-03766;Guará;0.90;0;0;1;1;0
+CASE-03767;Samambaia;0.62;0;0;0;0;0
+CASE-03768;Guará;0.90;0;0;1;1;0
+CASE-03769;Plano Piloto;0.97;0;0;0;0;0
+CASE-03770;Guará;0.90;0;0;0;0;0
+CASE-03771;Águas Claras;0.94;1;0;1;2;1
+CASE-03772;Águas Claras;0.94;0;0;0;0;0
+CASE-03773;Plano Piloto;0.97;0;0;0;0;0
+CASE-03774;Guará;0.90;0;0;0;0;0
+CASE-03775;Taguatinga;0.84;0;1;0;1;0
+CASE-03776;Sobradinho;0.70;1;1;0;2;0
+CASE-03777;Ceilândia;0.55;0;1;1;2;1
+CASE-03778;Gama;0.76;0;1;0;1;0
+CASE-03779;Ceilândia;0.55;0;0;0;0;0
+CASE-03780;Sobradinho;0.70;1;0;0;1;0
+CASE-03781;Guará;0.90;1;1;1;3;1
+CASE-03782;Sobradinho;0.70;0;0;0;0;0
+CASE-03783;Águas Claras;0.94;0;0;0;0;0
+CASE-03784;Plano Piloto;0.97;0;0;1;1;0
+CASE-03785;Guará;0.90;1;1;0;2;0
+CASE-03786;Gama;0.76;0;1;0;1;0
+CASE-03787;Gama;0.76;0;1;1;2;0
+CASE-03788;Plano Piloto;0.97;0;1;0;1;0
+CASE-03789;Águas Claras;0.94;0;0;0;0;0
+CASE-03790;Guará;0.90;0;1;0;1;0
+CASE-03791;Ceilândia;0.55;1;1;0;2;0
+CASE-03792;Samambaia;0.62;0;0;1;1;1
+CASE-03793;Sobradinho;0.70;0;0;1;1;0
+CASE-03794;Plano Piloto;0.97;0;0;0;0;0
+CASE-03795;Plano Piloto;0.97;0;0;0;0;0
+CASE-03796;Samambaia;0.62;0;0;0;0;0
+CASE-03797;Sobradinho;0.70;0;1;0;1;1
+CASE-03798;Plano Piloto;0.97;0;0;0;0;0
+CASE-03799;Gama;0.76;1;1;1;3;1
+CASE-03800;Gama;0.76;0;0;0;0;0
+CASE-03801;Plano Piloto;0.97;0;0;0;0;0
+CASE-03802;Taguatinga;0.84;0;0;0;0;0
+CASE-03803;Ceilândia;0.55;1;1;0;2;1
+CASE-03804;Samambaia;0.62;0;0;0;0;0
+CASE-03805;Sobradinho;0.70;0;1;1;2;1
+CASE-03806;Sobradinho;0.70;0;0;0;0;0
+CASE-03807;Taguatinga;0.84;0;0;0;0;0
+CASE-03808;Samambaia;0.62;0;0;0;0;0
+CASE-03809;Sobradinho;0.70;0;0;0;0;0
+CASE-03810;Guará;0.90;0;1;0;1;0
+CASE-03811;Plano Piloto;0.97;1;0;0;1;0
+CASE-03812;Sobradinho;0.70;0;0;0;0;0
+CASE-03813;Gama;0.76;0;0;0;0;0
+CASE-03814;Samambaia;0.62;1;1;1;3;0
+CASE-03815;Ceilândia;0.55;0;1;0;1;0
+CASE-03816;Samambaia;0.62;1;1;1;3;1
+CASE-03817;Guará;0.90;1;0;1;2;1
+CASE-03818;Gama;0.76;0;0;0;0;0
+CASE-03819;Gama;0.76;0;0;0;0;0
+CASE-03820;Gama;0.76;1;0;0;1;0
+CASE-03821;Plano Piloto;0.97;1;1;1;3;1
+CASE-03822;Plano Piloto;0.97;0;0;0;0;0
+CASE-03823;Samambaia;0.62;0;0;0;0;0
+CASE-03824;Guará;0.90;0;0;0;0;0
+CASE-03825;Taguatinga;0.84;0;0;0;0;0
+CASE-03826;Guará;0.90;0;0;0;0;0
+CASE-03827;Sobradinho;0.70;0;0;0;0;0
+CASE-03828;Plano Piloto;0.97;0;0;0;0;0
+CASE-03829;Sobradinho;0.70;1;0;0;1;0
+CASE-03830;Ceilândia;0.55;0;0;0;0;0
+CASE-03831;Gama;0.76;1;0;0;1;0
+CASE-03832;Sobradinho;0.70;1;0;0;1;0
+CASE-03833;Gama;0.76;1;0;0;1;0
+CASE-03834;Taguatinga;0.84;0;0;0;0;0
+CASE-03835;Guará;0.90;0;0;1;1;0
+CASE-03836;Sobradinho;0.70;1;1;0;2;0
+CASE-03837;Samambaia;0.62;0;1;0;1;0
+CASE-03838;Taguatinga;0.84;0;0;0;0;0
+CASE-03839;Taguatinga;0.84;0;0;0;0;0
+CASE-03840;Taguatinga;0.84;0;0;0;0;0
+CASE-03841;Taguatinga;0.84;0;1;0;1;0
+CASE-03842;Samambaia;0.62;1;0;0;1;0
+CASE-03843;Samambaia;0.62;1;1;0;2;1
+CASE-03844;Ceilândia;0.55;0;0;0;0;0
+CASE-03845;Gama;0.76;0;0;0;0;0
+CASE-03846;Taguatinga;0.84;0;1;0;1;0
+CASE-03847;Ceilândia;0.55;0;1;0;1;0
+CASE-03848;Taguatinga;0.84;0;0;0;0;0
+CASE-03849;Ceilândia;0.55;0;0;0;0;0
+CASE-03850;Sobradinho;0.70;1;0;0;1;0
+CASE-03851;Samambaia;0.62;0;0;0;0;0
+CASE-03852;Samambaia;0.62;1;0;0;1;0
+CASE-03853;Taguatinga;0.84;0;1;0;1;0
+CASE-03854;Plano Piloto;0.97;0;1;1;2;1
+CASE-03855;Plano Piloto;0.97;0;0;0;0;0
+CASE-03856;Guará;0.90;0;0;0;0;0
+CASE-03857;Gama;0.76;0;0;0;0;0
+CASE-03858;Plano Piloto;0.97;0;1;0;1;1
+CASE-03859;Taguatinga;0.84;0;0;0;0;1
+CASE-03860;Taguatinga;0.84;0;0;0;0;0
+CASE-03861;Ceilândia;0.55;0;1;0;1;0
+CASE-03862;Ceilândia;0.55;0;1;0;1;0
+CASE-03863;Sobradinho;0.70;0;0;0;0;0
+CASE-03864;Sobradinho;0.70;0;1;0;1;0
+CASE-03865;Ceilândia;0.55;0;0;1;1;0
+CASE-03866;Gama;0.76;0;0;1;1;0
+CASE-03867;Ceilândia;0.55;0;1;0;1;0
+CASE-03868;Ceilândia;0.55;0;0;0;0;0
+CASE-03869;Águas Claras;0.94;0;1;0;1;0
+CASE-03870;Samambaia;0.62;0;0;0;0;0
+CASE-03871;Taguatinga;0.84;0;1;0;1;0
+CASE-03872;Guará;0.90;1;0;1;2;1
+CASE-03873;Guará;0.90;0;0;0;0;0
+CASE-03874;Guará;0.90;0;1;1;2;0
+CASE-03875;Samambaia;0.62;0;1;0;1;1
+CASE-03876;Ceilândia;0.55;1;0;0;1;0
+CASE-03877;Samambaia;0.62;0;0;0;0;0
+CASE-03878;Gama;0.76;0;0;0;0;0
+CASE-03879;Plano Piloto;0.97;0;0;0;0;0
+CASE-03880;Guará;0.90;0;0;0;0;0
+CASE-03881;Guará;0.90;0;0;1;1;0
+CASE-03882;Samambaia;0.62;0;0;0;0;0
+CASE-03883;Águas Claras;0.94;0;0;1;1;0
+CASE-03884;Águas Claras;0.94;0;0;0;0;1
+CASE-03885;Plano Piloto;0.97;0;0;0;0;0
+CASE-03886;Plano Piloto;0.97;1;1;0;2;1
+CASE-03887;Plano Piloto;0.97;0;1;0;1;0
+CASE-03888;Taguatinga;0.84;0;0;0;0;0
+CASE-03889;Gama;0.76;0;0;0;0;0
+CASE-03890;Sobradinho;0.70;0;1;0;1;0
+CASE-03891;Taguatinga;0.84;0;1;0;1;0
+CASE-03892;Taguatinga;0.84;0;1;0;1;0
+CASE-03893;Taguatinga;0.84;0;0;1;1;0
+CASE-03894;Águas Claras;0.94;1;0;1;2;1
+CASE-03895;Taguatinga;0.84;0;0;0;0;0
+CASE-03896;Taguatinga;0.84;0;1;0;1;0
+CASE-03897;Ceilândia;0.55;0;0;0;0;0
+CASE-03898;Guará;0.90;0;0;0;0;0
+CASE-03899;Plano Piloto;0.97;0;1;1;2;0
+CASE-03900;Guará;0.90;0;1;0;1;0
+CASE-03901;Samambaia;0.62;0;1;1;2;0
+CASE-03902;Guará;0.90;0;0;0;0;0
+CASE-03903;Sobradinho;0.70;0;1;1;2;0
+CASE-03904;Guará;0.90;1;0;0;1;0
+CASE-03905;Taguatinga;0.84;0;0;1;1;0
+CASE-03906;Plano Piloto;0.97;1;0;0;1;0
+CASE-03907;Ceilândia;0.55;0;0;0;0;0
+CASE-03908;Águas Claras;0.94;0;0;0;0;0
+CASE-03909;Samambaia;0.62;0;1;1;2;1
+CASE-03910;Ceilândia;0.55;0;0;0;0;0
+CASE-03911;Águas Claras;0.94;0;0;0;0;0
+CASE-03912;Gama;0.76;0;0;0;0;0
+CASE-03913;Águas Claras;0.94;1;0;0;1;0
+CASE-03914;Ceilândia;0.55;0;1;0;1;0
+CASE-03915;Ceilândia;0.55;1;1;1;3;1
+CASE-03916;Ceilândia;0.55;0;0;0;0;0
+CASE-03917;Guará;0.90;0;1;0;1;0
+CASE-03918;Ceilândia;0.55;0;0;0;0;0
+CASE-03919;Ceilândia;0.55;0;0;0;0;0
+CASE-03920;Taguatinga;0.84;0;0;0;0;0
+CASE-03921;Taguatinga;0.84;1;1;1;3;1
+CASE-03922;Gama;0.76;0;1;0;1;0
+CASE-03923;Águas Claras;0.94;0;0;1;1;1
+CASE-03924;Sobradinho;0.70;1;1;1;3;1
+CASE-03925;Gama;0.76;0;1;0;1;0
+CASE-03926;Sobradinho;0.70;1;0;0;1;0
+CASE-03927;Sobradinho;0.70;0;1;0;1;0
+CASE-03928;Ceilândia;0.55;1;0;1;2;1
+CASE-03929;Samambaia;0.62;0;1;0;1;0
+CASE-03930;Guará;0.90;1;1;0;2;1
+CASE-03931;Guará;0.90;0;1;0;1;0
+CASE-03932;Águas Claras;0.94;0;1;0;1;0
+CASE-03933;Guará;0.90;0;0;0;0;0
+CASE-03934;Plano Piloto;0.97;0;1;1;2;0
+CASE-03935;Ceilândia;0.55;0;1;1;2;1
+CASE-03936;Águas Claras;0.94;0;1;0;1;0
+CASE-03937;Samambaia;0.62;0;1;0;1;0
+CASE-03938;Guará;0.90;0;0;0;0;0
+CASE-03939;Sobradinho;0.70;0;0;0;0;0
+CASE-03940;Sobradinho;0.70;0;0;0;0;0
+CASE-03941;Plano Piloto;0.97;1;0;0;1;0
+CASE-03942;Samambaia;0.62;0;0;0;0;0
+CASE-03943;Taguatinga;0.84;1;1;0;2;1
+CASE-03944;Taguatinga;0.84;0;0;1;1;0
+CASE-03945;Sobradinho;0.70;0;0;1;1;0
+CASE-03946;Plano Piloto;0.97;0;0;0;0;0
+CASE-03947;Taguatinga;0.84;1;1;1;3;1
+CASE-03948;Sobradinho;0.70;0;0;0;0;0
+CASE-03949;Plano Piloto;0.97;0;1;0;1;1
+CASE-03950;Gama;0.76;0;0;0;0;0
+CASE-03951;Guará;0.90;0;0;0;0;0
+CASE-03952;Ceilândia;0.55;1;0;0;1;0
+CASE-03953;Samambaia;0.62;0;0;0;0;0
+CASE-03954;Sobradinho;0.70;0;1;0;1;0
+CASE-03955;Samambaia;0.62;0;0;0;0;0
+CASE-03956;Sobradinho;0.70;0;0;1;1;0
+CASE-03957;Gama;0.76;1;0;0;1;1
+CASE-03958;Taguatinga;0.84;0;1;1;2;1
+CASE-03959;Gama;0.76;0;0;0;0;0
+CASE-03960;Samambaia;0.62;0;0;0;0;0
+CASE-03961;Sobradinho;0.70;0;0;0;0;0
+CASE-03962;Ceilândia;0.55;1;1;0;2;0
+CASE-03963;Samambaia;0.62;0;0;0;0;0
+CASE-03964;Plano Piloto;0.97;0;0;0;0;0
+CASE-03965;Sobradinho;0.70;0;1;0;1;0
+CASE-03966;Gama;0.76;0;0;0;0;0
+CASE-03967;Plano Piloto;0.97;1;0;0;1;0
+CASE-03968;Gama;0.76;0;0;1;1;0
+CASE-03969;Sobradinho;0.70;0;0;0;0;0
+CASE-03970;Plano Piloto;0.97;0;0;0;0;0
+CASE-03971;Plano Piloto;0.97;1;1;0;2;1
+CASE-03972;Plano Piloto;0.97;0;0;1;1;0
+CASE-03973;Gama;0.76;0;0;0;0;0
+CASE-03974;Taguatinga;0.84;0;1;0;1;1
+CASE-03975;Gama;0.76;0;1;0;1;0
+CASE-03976;Samambaia;0.62;0;0;0;0;0
+CASE-03977;Sobradinho;0.70;0;0;0;0;0
+CASE-03978;Plano Piloto;0.97;1;0;1;2;0
+CASE-03979;Gama;0.76;1;0;1;2;1
+CASE-03980;Samambaia;0.62;0;1;0;1;0
+CASE-03981;Ceilândia;0.55;0;0;0;0;0
+CASE-03982;Taguatinga;0.84;0;0;0;0;0
+CASE-03983;Guará;0.90;0;0;1;1;0
+CASE-03984;Guará;0.90;1;0;0;1;0
+CASE-03985;Taguatinga;0.84;0;1;0;1;0
+CASE-03986;Águas Claras;0.94;0;0;0;0;0
+CASE-03987;Gama;0.76;1;0;1;2;1
+CASE-03988;Gama;0.76;1;1;1;3;1
+CASE-03989;Sobradinho;0.70;0;1;0;1;0
+CASE-03990;Ceilândia;0.55;0;1;0;1;0
+CASE-03991;Gama;0.76;0;0;0;0;0
+CASE-03992;Guará;0.90;0;1;1;2;1
+CASE-03993;Guará;0.90;1;1;0;2;1
+CASE-03994;Sobradinho;0.70;1;0;0;1;0
+CASE-03995;Gama;0.76;0;0;0;0;0
+CASE-03996;Taguatinga;0.84;1;0;1;2;1
+CASE-03997;Guará;0.90;0;1;0;1;1
+CASE-03998;Samambaia;0.62;0;0;0;0;0
+CASE-03999;Samambaia;0.62;0;0;0;0;0
+CASE-04000;Ceilândia;0.55;1;0;0;1;1
+CASE-04001;Gama;0.76;0;0;0;0;0
+CASE-04002;Ceilândia;0.55;0;1;0;1;0
+CASE-04003;Águas Claras;0.94;0;0;0;0;0
+CASE-04004;Samambaia;0.62;1;1;0;2;0
+CASE-04005;Gama;0.76;0;0;1;1;0
+CASE-04006;Samambaia;0.62;0;1;0;1;0
+CASE-04007;Ceilândia;0.55;0;0;0;0;0
+CASE-04008;Ceilândia;0.55;0;0;1;1;1
+CASE-04009;Gama;0.76;0;0;0;0;0
+CASE-04010;Taguatinga;0.84;1;1;1;3;0
+CASE-04011;Ceilândia;0.55;0;0;1;1;1
+CASE-04012;Plano Piloto;0.97;0;0;0;0;0
+CASE-04013;Guará;0.90;1;0;0;1;0
+CASE-04014;Taguatinga;0.84;0;0;0;0;0
+CASE-04015;Samambaia;0.62;0;1;1;2;0
+CASE-04016;Águas Claras;0.94;1;0;0;1;0
+CASE-04017;Sobradinho;0.70;0;0;0;0;0
+CASE-04018;Águas Claras;0.94;0;0;0;0;0
+CASE-04019;Gama;0.76;1;1;0;2;1
+CASE-04020;Taguatinga;0.84;0;0;0;0;0
+CASE-04021;Sobradinho;0.70;0;0;0;0;0
+CASE-04022;Águas Claras;0.94;0;0;0;0;0
+CASE-04023;Ceilândia;0.55;0;0;0;0;0
+CASE-04024;Plano Piloto;0.97;0;1;0;1;1
+CASE-04025;Samambaia;0.62;0;0;0;0;0
+CASE-04026;Sobradinho;0.70;0;0;0;0;0
+CASE-04027;Guará;0.90;0;0;0;0;0
+CASE-04028;Guará;0.90;1;1;1;3;1
+CASE-04029;Ceilândia;0.55;1;0;0;1;0
+CASE-04030;Plano Piloto;0.97;1;0;0;1;0
+CASE-04031;Taguatinga;0.84;0;0;0;0;0
+CASE-04032;Plano Piloto;0.97;0;0;0;0;0
+CASE-04033;Águas Claras;0.94;0;1;1;2;0
+CASE-04034;Sobradinho;0.70;0;1;0;1;0
+CASE-04035;Águas Claras;0.94;0;1;0;1;0
+CASE-04036;Sobradinho;0.70;0;0;0;0;0
+CASE-04037;Guará;0.90;1;0;0;1;0
+CASE-04038;Samambaia;0.62;0;0;1;1;1
+CASE-04039;Ceilândia;0.55;1;0;1;2;0
+CASE-04040;Gama;0.76;1;0;0;1;0
+CASE-04041;Sobradinho;0.70;0;0;0;0;0
+CASE-04042;Ceilândia;0.55;0;1;0;1;1
+CASE-04043;Gama;0.76;0;0;0;0;0
+CASE-04044;Águas Claras;0.94;1;1;0;2;0
+CASE-04045;Sobradinho;0.70;0;1;0;1;0
+CASE-04046;Guará;0.90;0;0;0;0;0
+CASE-04047;Taguatinga;0.84;0;0;0;0;0
+CASE-04048;Samambaia;0.62;0;0;0;0;0
+CASE-04049;Plano Piloto;0.97;0;0;1;1;0
+CASE-04050;Samambaia;0.62;0;0;0;0;0
+CASE-04051;Sobradinho;0.70;1;1;1;3;1
+CASE-04052;Taguatinga;0.84;0;0;0;0;0
+CASE-04053;Gama;0.76;0;0;0;0;0
+CASE-04054;Ceilândia;0.55;0;0;0;0;0
+CASE-04055;Plano Piloto;0.97;1;0;1;2;1
+CASE-04056;Taguatinga;0.84;1;1;0;2;0
+CASE-04057;Plano Piloto;0.97;0;0;0;0;0
+CASE-04058;Ceilândia;0.55;0;0;0;0;0
+CASE-04059;Águas Claras;0.94;0;1;0;1;0
+CASE-04060;Plano Piloto;0.97;0;0;0;0;0
+CASE-04061;Guará;0.90;0;0;1;1;0
+CASE-04062;Sobradinho;0.70;0;0;0;0;0
+CASE-04063;Guará;0.90;0;0;0;0;0
+CASE-04064;Ceilândia;0.55;0;1;1;2;0
+CASE-04065;Plano Piloto;0.97;0;0;0;0;0
+CASE-04066;Sobradinho;0.70;0;0;1;1;0
+CASE-04067;Águas Claras;0.94;1;0;1;2;1
+CASE-04068;Sobradinho;0.70;0;0;0;0;0
+CASE-04069;Taguatinga;0.84;0;0;0;0;0
+CASE-04070;Guará;0.90;0;1;0;1;0
+CASE-04071;Ceilândia;0.55;1;1;1;3;1
+CASE-04072;Ceilândia;0.55;1;0;1;2;1
+CASE-04073;Ceilândia;0.55;0;0;1;1;0
+CASE-04074;Gama;0.76;0;0;0;0;0
+CASE-04075;Ceilândia;0.55;0;1;0;1;0
+CASE-04076;Plano Piloto;0.97;1;1;1;3;1
+CASE-04077;Plano Piloto;0.97;0;0;0;0;0
+CASE-04078;Ceilândia;0.55;1;1;0;2;1
+CASE-04079;Taguatinga;0.84;0;1;0;1;0
+CASE-04080;Águas Claras;0.94;1;1;0;2;1
+CASE-04081;Águas Claras;0.94;0;0;0;0;0
+CASE-04082;Ceilândia;0.55;1;1;0;2;0
+CASE-04083;Guará;0.90;0;0;0;0;0
+CASE-04084;Águas Claras;0.94;0;0;0;0;0
+CASE-04085;Taguatinga;0.84;0;0;1;1;1
+CASE-04086;Águas Claras;0.94;0;0;0;0;0
+CASE-04087;Taguatinga;0.84;1;0;0;1;0
+CASE-04088;Águas Claras;0.94;0;0;0;0;0
+CASE-04089;Guará;0.90;0;0;0;0;0
+CASE-04090;Samambaia;0.62;0;0;0;0;0
+CASE-04091;Águas Claras;0.94;0;0;0;0;0
+CASE-04092;Águas Claras;0.94;0;1;0;1;0
+CASE-04093;Ceilândia;0.55;1;0;0;1;0
+CASE-04094;Taguatinga;0.84;0;0;1;1;0
+CASE-04095;Águas Claras;0.94;0;0;0;0;0
+CASE-04096;Gama;0.76;0;0;0;0;0
+CASE-04097;Ceilândia;0.55;0;1;0;1;1
+CASE-04098;Ceilândia;0.55;0;1;0;1;0
+CASE-04099;Águas Claras;0.94;0;0;0;0;0
+CASE-04100;Taguatinga;0.84;1;0;0;1;0
+CASE-04101;Sobradinho;0.70;0;1;0;1;0
+CASE-04102;Taguatinga;0.84;0;0;0;0;0
+CASE-04103;Águas Claras;0.94;0;0;0;0;0
+CASE-04104;Taguatinga;0.84;0;0;0;0;0
+CASE-04105;Gama;0.76;1;1;0;2;1
+CASE-04106;Ceilândia;0.55;1;0;0;1;0
+CASE-04107;Sobradinho;0.70;0;0;0;0;0
+CASE-04108;Plano Piloto;0.97;0;1;0;1;0
+CASE-04109;Plano Piloto;0.97;1;0;0;1;1
+CASE-04110;Ceilândia;0.55;0;0;0;0;0
+CASE-04111;Taguatinga;0.84;0;0;0;0;0
+CASE-04112;Ceilândia;0.55;1;0;0;1;0
+CASE-04113;Plano Piloto;0.97;0;0;0;0;0
+CASE-04114;Samambaia;0.62;0;1;0;1;0
+CASE-04115;Taguatinga;0.84;0;1;0;1;0
+CASE-04116;Águas Claras;0.94;0;1;0;1;0
+CASE-04117;Águas Claras;0.94;0;0;0;0;0
+CASE-04118;Plano Piloto;0.97;0;0;0;0;0
+CASE-04119;Ceilândia;0.55;0;0;0;0;0
+CASE-04120;Taguatinga;0.84;0;0;0;0;0
+CASE-04121;Águas Claras;0.94;0;1;1;2;0
+CASE-04122;Águas Claras;0.94;1;1;0;2;1
+CASE-04123;Sobradinho;0.70;0;0;0;0;0
+CASE-04124;Gama;0.76;1;1;0;2;0
+CASE-04125;Ceilândia;0.55;0;0;1;1;0
+CASE-04126;Guará;0.90;0;0;0;0;0
+CASE-04127;Águas Claras;0.94;1;1;0;2;1
+CASE-04128;Gama;0.76;0;0;0;0;0
+CASE-04129;Ceilândia;0.55;0;1;0;1;0
+CASE-04130;Gama;0.76;0;0;0;0;0
+CASE-04131;Sobradinho;0.70;0;0;0;0;0
+CASE-04132;Ceilândia;0.55;1;1;1;3;1
+CASE-04133;Guará;0.90;1;0;1;2;0
+CASE-04134;Sobradinho;0.70;0;0;0;0;0
+CASE-04135;Samambaia;0.62;0;1;0;1;0
+CASE-04136;Gama;0.76;0;0;0;0;0
+CASE-04137;Sobradinho;0.70;0;0;0;0;0
+CASE-04138;Sobradinho;0.70;0;0;0;0;0
+CASE-04139;Águas Claras;0.94;1;0;0;1;0
+CASE-04140;Sobradinho;0.70;0;0;0;0;0
+CASE-04141;Ceilândia;0.55;0;0;1;1;0
+CASE-04142;Gama;0.76;1;1;1;3;1
+CASE-04143;Águas Claras;0.94;0;0;0;0;0
+CASE-04144;Ceilândia;0.55;0;1;0;1;0
+CASE-04145;Gama;0.76;1;0;0;1;0
+CASE-04146;Gama;0.76;0;0;0;0;0
+CASE-04147;Gama;0.76;0;0;0;0;0
+CASE-04148;Gama;0.76;0;1;1;2;0
+CASE-04149;Águas Claras;0.94;0;0;0;0;0
+CASE-04150;Sobradinho;0.70;1;0;0;1;0
+CASE-04151;Samambaia;0.62;0;0;0;0;0
+CASE-04152;Plano Piloto;0.97;0;0;0;0;0
+CASE-04153;Guará;0.90;0;0;0;0;0
+CASE-04154;Ceilândia;0.55;0;1;1;2;0
+CASE-04155;Samambaia;0.62;0;0;0;0;0
+CASE-04156;Sobradinho;0.70;0;1;0;1;0
+CASE-04157;Ceilândia;0.55;0;0;1;1;0
+CASE-04158;Sobradinho;0.70;0;0;0;0;0
+CASE-04159;Ceilândia;0.55;0;1;0;1;0
+CASE-04160;Guará;0.90;0;0;1;1;0
+CASE-04161;Plano Piloto;0.97;0;0;1;1;0
+CASE-04162;Ceilândia;0.55;0;1;0;1;0
+CASE-04163;Plano Piloto;0.97;0;0;0;0;0
+CASE-04164;Gama;0.76;0;0;0;0;0
+CASE-04165;Guará;0.90;0;0;0;0;0
+CASE-04166;Guará;0.90;1;1;0;2;0
+CASE-04167;Taguatinga;0.84;0;0;0;0;0
+CASE-04168;Plano Piloto;0.97;0;0;0;0;0
+CASE-04169;Guará;0.90;1;0;0;1;0
+CASE-04170;Águas Claras;0.94;1;0;0;1;0
+CASE-04171;Guará;0.90;0;0;0;0;0
+CASE-04172;Samambaia;0.62;0;0;0;0;0
+CASE-04173;Águas Claras;0.94;1;0;1;2;0
+CASE-04174;Ceilândia;0.55;0;1;0;1;0
+CASE-04175;Sobradinho;0.70;0;0;0;0;0
+CASE-04176;Ceilândia;0.55;0;0;0;0;0
+CASE-04177;Guará;0.90;1;0;1;2;0
+CASE-04178;Plano Piloto;0.97;0;1;0;1;0
+CASE-04179;Taguatinga;0.84;0;0;0;0;0
+CASE-04180;Samambaia;0.62;0;0;0;0;0
+CASE-04181;Ceilândia;0.55;0;0;0;0;0
+CASE-04182;Plano Piloto;0.97;0;0;0;0;0
+CASE-04183;Sobradinho;0.70;1;0;1;2;0
+CASE-04184;Samambaia;0.62;0;0;0;0;0
+CASE-04185;Águas Claras;0.94;0;0;0;0;0
+CASE-04186;Taguatinga;0.84;0;1;0;1;0
+CASE-04187;Sobradinho;0.70;0;0;0;0;0
+CASE-04188;Samambaia;0.62;0;0;1;1;0
+CASE-04189;Guará;0.90;1;0;1;2;0
+CASE-04190;Ceilândia;0.55;0;0;1;1;0
+CASE-04191;Gama;0.76;1;0;0;1;0
+CASE-04192;Ceilândia;0.55;0;0;0;0;0
+CASE-04193;Sobradinho;0.70;0;1;0;1;0
+CASE-04194;Guará;0.90;0;0;0;0;0
+CASE-04195;Gama;0.76;0;0;0;0;0
+CASE-04196;Plano Piloto;0.97;0;0;0;0;0
+CASE-04197;Samambaia;0.62;0;1;1;2;0
+CASE-04198;Samambaia;0.62;0;1;1;2;1
+CASE-04199;Taguatinga;0.84;1;0;0;1;0
+CASE-04200;Taguatinga;0.84;0;0;0;0;0
+CASE-04201;Ceilândia;0.55;0;0;0;0;0
+CASE-04202;Sobradinho;0.70;1;0;0;1;0
+CASE-04203;Taguatinga;0.84;0;1;0;1;0
+CASE-04204;Gama;0.76;0;0;1;1;0
+CASE-04205;Samambaia;0.62;1;0;0;1;0
+CASE-04206;Samambaia;0.62;0;0;1;1;0
+CASE-04207;Ceilândia;0.55;0;0;0;0;0
+CASE-04208;Guará;0.90;0;0;1;1;0
+CASE-04209;Samambaia;0.62;1;1;1;3;1
+CASE-04210;Ceilândia;0.55;0;0;1;1;0
+CASE-04211;Samambaia;0.62;0;1;0;1;0
+CASE-04212;Gama;0.76;1;0;1;2;0
+CASE-04213;Sobradinho;0.70;0;0;0;0;0
+CASE-04214;Águas Claras;0.94;1;1;1;3;1
+CASE-04215;Águas Claras;0.94;1;1;0;2;1
+CASE-04216;Samambaia;0.62;0;0;0;0;0
+CASE-04217;Samambaia;0.62;0;0;1;1;0
+CASE-04218;Ceilândia;0.55;0;0;1;1;0
+CASE-04219;Sobradinho;0.70;0;1;0;1;0
+CASE-04220;Ceilândia;0.55;1;0;0;1;0
+CASE-04221;Samambaia;0.62;1;1;0;2;0
+CASE-04222;Águas Claras;0.94;0;1;0;1;0
+CASE-04223;Taguatinga;0.84;0;1;0;1;0
+CASE-04224;Águas Claras;0.94;0;0;0;0;0
+CASE-04225;Águas Claras;0.94;0;0;0;0;0
+CASE-04226;Taguatinga;0.84;1;0;0;1;0
+CASE-04227;Ceilândia;0.55;0;1;0;1;0
+CASE-04228;Plano Piloto;0.97;0;1;1;2;0
+CASE-04229;Águas Claras;0.94;0;1;0;1;0
+CASE-04230;Águas Claras;0.94;0;0;1;1;0
+CASE-04231;Samambaia;0.62;0;1;0;1;0
+CASE-04232;Águas Claras;0.94;0;0;0;0;0
+CASE-04233;Gama;0.76;0;0;1;1;1
+CASE-04234;Taguatinga;0.84;0;0;0;0;0
+CASE-04235;Samambaia;0.62;0;1;0;1;0
+CASE-04236;Samambaia;0.62;1;0;0;1;0
+CASE-04237;Gama;0.76;1;0;1;2;1
+CASE-04238;Águas Claras;0.94;1;0;0;1;0
+CASE-04239;Samambaia;0.62;1;1;0;2;0
+CASE-04240;Gama;0.76;0;0;0;0;0
+CASE-04241;Águas Claras;0.94;0;0;0;0;0
+CASE-04242;Ceilândia;0.55;0;0;0;0;0
+CASE-04243;Plano Piloto;0.97;0;1;0;1;0
+CASE-04244;Gama;0.76;1;0;0;1;0
+CASE-04245;Ceilândia;0.55;0;0;0;0;0
+CASE-04246;Águas Claras;0.94;0;0;0;0;0
+CASE-04247;Plano Piloto;0.97;0;0;1;1;1
+CASE-04248;Águas Claras;0.94;0;0;0;0;0
+CASE-04249;Taguatinga;0.84;0;0;0;0;0
+CASE-04250;Plano Piloto;0.97;0;0;0;0;0
+CASE-04251;Taguatinga;0.84;0;1;0;1;0
+CASE-04252;Plano Piloto;0.97;0;0;0;0;0
+CASE-04253;Plano Piloto;0.97;0;1;1;2;0
+CASE-04254;Samambaia;0.62;0;0;0;0;0
+CASE-04255;Guará;0.90;0;0;1;1;1
+CASE-04256;Samambaia;0.62;1;0;1;2;0
+CASE-04257;Sobradinho;0.70;1;1;1;3;1
+CASE-04258;Águas Claras;0.94;0;1;0;1;0
+CASE-04259;Sobradinho;0.70;0;1;0;1;0
+CASE-04260;Guará;0.90;0;1;0;1;0
+CASE-04261;Sobradinho;0.70;0;1;0;1;0
+CASE-04262;Plano Piloto;0.97;0;0;0;0;0
+CASE-04263;Sobradinho;0.70;0;0;1;1;0
+CASE-04264;Guará;0.90;0;0;0;0;0
+CASE-04265;Ceilândia;0.55;0;0;0;0;0
+CASE-04266;Sobradinho;0.70;1;0;0;1;0
+CASE-04267;Taguatinga;0.84;0;0;1;1;1
+CASE-04268;Águas Claras;0.94;1;1;1;3;1
+CASE-04269;Águas Claras;0.94;0;0;0;0;0
+CASE-04270;Plano Piloto;0.97;0;0;0;0;0
+CASE-04271;Águas Claras;0.94;0;0;0;0;0
+CASE-04272;Guará;0.90;0;0;0;0;0
+CASE-04273;Ceilândia;0.55;0;1;0;1;0
+CASE-04274;Taguatinga;0.84;1;0;0;1;0
+CASE-04275;Taguatinga;0.84;0;0;0;0;0
+CASE-04276;Taguatinga;0.84;0;1;1;2;0
+CASE-04277;Ceilândia;0.55;0;0;0;0;0
+CASE-04278;Samambaia;0.62;1;0;0;1;0
+CASE-04279;Plano Piloto;0.97;0;0;0;0;0
+CASE-04280;Taguatinga;0.84;0;0;0;0;0
+CASE-04281;Sobradinho;0.70;0;1;0;1;0
+CASE-04282;Gama;0.76;0;0;0;0;0
+CASE-04283;Taguatinga;0.84;1;0;0;1;0
+CASE-04284;Samambaia;0.62;0;1;1;2;0
+CASE-04285;Samambaia;0.62;0;1;0;1;0
+CASE-04286;Samambaia;0.62;0;0;1;1;0
+CASE-04287;Plano Piloto;0.97;0;1;0;1;1
+CASE-04288;Taguatinga;0.84;0;0;0;0;0
+CASE-04289;Gama;0.76;0;0;0;0;0
+CASE-04290;Ceilândia;0.55;1;0;0;1;0
+CASE-04291;Ceilândia;0.55;1;0;1;2;0
+CASE-04292;Guará;0.90;0;0;0;0;0
+CASE-04293;Sobradinho;0.70;0;1;0;1;0
+CASE-04294;Águas Claras;0.94;0;0;0;0;0
+CASE-04295;Sobradinho;0.70;0;1;1;2;0
+CASE-04296;Plano Piloto;0.97;0;0;1;1;0
+CASE-04297;Plano Piloto;0.97;0;0;0;0;0
+CASE-04298;Guará;0.90;0;1;0;1;0
+CASE-04299;Gama;0.76;0;0;0;0;0
+CASE-04300;Gama;0.76;1;0;0;1;0
+CASE-04301;Ceilândia;0.55;0;0;0;0;0
+CASE-04302;Gama;0.76;1;1;1;3;1
+CASE-04303;Gama;0.76;0;0;0;0;0
+CASE-04304;Gama;0.76;0;0;0;0;0
+CASE-04305;Gama;0.76;1;0;1;2;1
+CASE-04306;Samambaia;0.62;0;0;0;0;0
+CASE-04307;Plano Piloto;0.97;0;0;0;0;0
+CASE-04308;Guará;0.90;1;0;0;1;0
+CASE-04309;Guará;0.90;0;0;0;0;0
+CASE-04310;Águas Claras;0.94;0;0;1;1;0
+CASE-04311;Gama;0.76;0;1;0;1;0
+CASE-04312;Sobradinho;0.70;0;1;1;2;0
+CASE-04313;Ceilândia;0.55;0;1;0;1;0
+CASE-04314;Samambaia;0.62;0;0;0;0;0
+CASE-04315;Guará;0.90;0;1;0;1;0
+CASE-04316;Águas Claras;0.94;0;1;0;1;0
+CASE-04317;Águas Claras;0.94;0;0;0;0;0
+CASE-04318;Samambaia;0.62;0;0;0;0;0
+CASE-04319;Plano Piloto;0.97;0;0;1;1;0
+CASE-04320;Ceilândia;0.55;0;0;0;0;0
+CASE-04321;Samambaia;0.62;0;0;0;0;0
+CASE-04322;Gama;0.76;0;0;0;0;0
+CASE-04323;Gama;0.76;0;0;0;0;0
+CASE-04324;Sobradinho;0.70;0;0;1;1;0
+CASE-04325;Sobradinho;0.70;0;0;0;0;0
+CASE-04326;Sobradinho;0.70;0;0;0;0;0
+CASE-04327;Sobradinho;0.70;0;0;0;0;0
+CASE-04328;Guará;0.90;0;1;0;1;0
+CASE-04329;Gama;0.76;0;0;0;0;0
+CASE-04330;Gama;0.76;0;0;1;1;0
+CASE-04331;Ceilândia;0.55;1;1;0;2;0
+CASE-04332;Águas Claras;0.94;0;0;0;0;0
+CASE-04333;Águas Claras;0.94;0;0;0;0;0
+CASE-04334;Guará;0.90;0;0;1;1;0
+CASE-04335;Taguatinga;0.84;0;0;0;0;0
+CASE-04336;Guará;0.90;0;0;0;0;0
+CASE-04337;Sobradinho;0.70;1;1;1;3;0
+CASE-04338;Águas Claras;0.94;0;0;0;0;0
+CASE-04339;Guará;0.90;1;0;0;1;0
+CASE-04340;Sobradinho;0.70;0;1;0;1;0
+CASE-04341;Gama;0.76;1;1;1;3;0
+CASE-04342;Samambaia;0.62;0;1;0;1;0
+CASE-04343;Águas Claras;0.94;0;0;0;0;0
+CASE-04344;Taguatinga;0.84;0;0;0;0;0
+CASE-04345;Samambaia;0.62;0;1;0;1;0
+CASE-04346;Sobradinho;0.70;1;1;0;2;1
+CASE-04347;Ceilândia;0.55;0;0;0;0;0
+CASE-04348;Ceilândia;0.55;0;0;0;0;0
+CASE-04349;Plano Piloto;0.97;0;0;0;0;0
+CASE-04350;Plano Piloto;0.97;0;0;0;0;0
+CASE-04351;Águas Claras;0.94;0;1;1;2;0
+CASE-04352;Gama;0.76;1;1;0;2;1
+CASE-04353;Sobradinho;0.70;0;1;0;1;1
+CASE-04354;Plano Piloto;0.97;0;0;0;0;0
+CASE-04355;Ceilândia;0.55;0;1;0;1;0
+CASE-04356;Gama;0.76;0;1;0;1;0
+CASE-04357;Samambaia;0.62;0;1;0;1;0
+CASE-04358;Sobradinho;0.70;1;0;0;1;0
+CASE-04359;Taguatinga;0.84;0;0;0;0;0
+CASE-04360;Águas Claras;0.94;0;0;0;0;0
+CASE-04361;Samambaia;0.62;0;1;0;1;0
+CASE-04362;Águas Claras;0.94;1;0;1;2;0
+CASE-04363;Gama;0.76;1;1;1;3;1
+CASE-04364;Águas Claras;0.94;0;1;0;1;0
+CASE-04365;Sobradinho;0.70;0;1;1;2;0
+CASE-04366;Ceilândia;0.55;0;0;0;0;0
+CASE-04367;Gama;0.76;0;0;1;1;0
+CASE-04368;Samambaia;0.62;0;0;0;0;0
+CASE-04369;Taguatinga;0.84;0;0;0;0;0
+CASE-04370;Águas Claras;0.94;0;0;1;1;0
+CASE-04371;Ceilândia;0.55;0;1;1;2;0
+CASE-04372;Gama;0.76;1;0;0;1;1
+CASE-04373;Taguatinga;0.84;0;0;1;1;0
+CASE-04374;Guará;0.90;0;0;0;0;0
+CASE-04375;Gama;0.76;1;0;0;1;0
+CASE-04376;Guará;0.90;1;1;0;2;0
+CASE-04377;Gama;0.76;1;0;0;1;0
+CASE-04378;Guará;0.90;0;1;0;1;0
+CASE-04379;Ceilândia;0.55;0;1;0;1;0
+CASE-04380;Sobradinho;0.70;0;0;0;0;0
+CASE-04381;Gama;0.76;0;1;0;1;0
+CASE-04382;Sobradinho;0.70;0;0;0;0;0
+CASE-04383;Samambaia;0.62;1;1;1;3;1
+CASE-04384;Águas Claras;0.94;0;0;0;0;0
+CASE-04385;Samambaia;0.62;0;0;0;0;0
+CASE-04386;Samambaia;0.62;0;1;0;1;0
+CASE-04387;Sobradinho;0.70;0;0;0;0;0
+CASE-04388;Taguatinga;0.84;0;0;0;0;0
+CASE-04389;Samambaia;0.62;0;1;0;1;0
+CASE-04390;Guará;0.90;0;0;0;0;0
+CASE-04391;Samambaia;0.62;1;0;1;2;1
+CASE-04392;Taguatinga;0.84;0;1;0;1;1
+CASE-04393;Taguatinga;0.84;0;0;0;0;0
+CASE-04394;Gama;0.76;1;0;0;1;0
+CASE-04395;Águas Claras;0.94;0;0;0;0;0
+CASE-04396;Águas Claras;0.94;0;0;0;0;0
+CASE-04397;Samambaia;0.62;0;0;0;0;0
+CASE-04398;Plano Piloto;0.97;1;1;0;2;1
+CASE-04399;Sobradinho;0.70;0;1;0;1;0
+CASE-04400;Samambaia;0.62;0;0;0;0;0
+CASE-04401;Ceilândia;0.55;1;0;0;1;0
+CASE-04402;Plano Piloto;0.97;0;0;0;0;1
+CASE-04403;Ceilândia;0.55;0;0;0;0;0
+CASE-04404;Sobradinho;0.70;1;1;0;2;1
+CASE-04405;Sobradinho;0.70;0;1;0;1;0
+CASE-04406;Sobradinho;0.70;0;0;0;0;0
+CASE-04407;Guará;0.90;0;0;0;0;0
+CASE-04408;Guará;0.90;1;1;1;3;1
+CASE-04409;Sobradinho;0.70;0;0;0;0;0
+CASE-04410;Sobradinho;0.70;0;0;0;0;0
+CASE-04411;Sobradinho;0.70;1;1;0;2;0
+CASE-04412;Samambaia;0.62;0;1;1;2;1
+CASE-04413;Plano Piloto;0.97;1;1;1;3;1
+CASE-04414;Gama;0.76;0;1;0;1;0
+CASE-04415;Plano Piloto;0.97;0;0;0;0;0
+CASE-04416;Taguatinga;0.84;0;1;0;1;0
+CASE-04417;Guará;0.90;0;0;0;0;0
+CASE-04418;Taguatinga;0.84;0;0;0;0;0
+CASE-04419;Samambaia;0.62;0;1;0;1;0
+CASE-04420;Sobradinho;0.70;0;0;0;0;0
+CASE-04421;Taguatinga;0.84;0;0;0;0;0
+CASE-04422;Taguatinga;0.84;0;0;0;0;0
+CASE-04423;Ceilândia;0.55;1;0;0;1;0
+CASE-04424;Samambaia;0.62;1;1;0;2;0
+CASE-04425;Guará;0.90;0;0;1;1;0
+CASE-04426;Taguatinga;0.84;1;0;1;2;1
+CASE-04427;Taguatinga;0.84;0;0;0;0;0
+CASE-04428;Sobradinho;0.70;0;0;0;0;0
+CASE-04429;Guará;0.90;0;0;0;0;0
+CASE-04430;Águas Claras;0.94;0;0;0;0;0
+CASE-04431;Samambaia;0.62;0;0;0;0;0
+CASE-04432;Águas Claras;0.94;0;0;0;0;0
+CASE-04433;Guará;0.90;0;0;0;0;0
+CASE-04434;Gama;0.76;0;1;0;1;0
+CASE-04435;Águas Claras;0.94;0;0;0;0;0
+CASE-04436;Águas Claras;0.94;0;0;1;1;0
+CASE-04437;Águas Claras;0.94;1;0;0;1;0
+CASE-04438;Gama;0.76;1;0;0;1;0
+CASE-04439;Samambaia;0.62;0;0;0;0;0
+CASE-04440;Águas Claras;0.94;0;0;1;1;0
+CASE-04441;Guará;0.90;0;0;0;0;0
+CASE-04442;Guará;0.90;0;0;0;0;0
+CASE-04443;Plano Piloto;0.97;0;0;0;0;0
+CASE-04444;Guará;0.90;0;1;0;1;0
+CASE-04445;Ceilândia;0.55;0;0;1;1;0
+CASE-04446;Ceilândia;0.55;0;1;1;2;0
+CASE-04447;Taguatinga;0.84;1;0;0;1;0
+CASE-04448;Ceilândia;0.55;1;1;1;3;1
+CASE-04449;Sobradinho;0.70;0;0;0;0;0
+CASE-04450;Taguatinga;0.84;0;0;1;1;0
+CASE-04451;Ceilândia;0.55;1;1;0;2;0
+CASE-04452;Taguatinga;0.84;0;1;0;1;0
+CASE-04453;Guará;0.90;0;0;0;0;0
+CASE-04454;Samambaia;0.62;0;0;0;0;0
+CASE-04455;Plano Piloto;0.97;0;1;1;2;0
+CASE-04456;Samambaia;0.62;0;0;0;0;0
+CASE-04457;Taguatinga;0.84;0;0;0;0;0
+CASE-04458;Plano Piloto;0.97;0;0;0;0;0
+CASE-04459;Gama;0.76;0;0;0;0;0
+CASE-04460;Taguatinga;0.84;1;1;0;2;0
+CASE-04461;Samambaia;0.62;1;1;1;3;1
+CASE-04462;Gama;0.76;0;0;0;0;0
+CASE-04463;Sobradinho;0.70;0;1;0;1;0
+CASE-04464;Plano Piloto;0.97;1;0;1;2;0
+CASE-04465;Samambaia;0.62;0;0;0;0;0
+CASE-04466;Gama;0.76;0;0;0;0;0
+CASE-04467;Ceilândia;0.55;0;1;0;1;0
+CASE-04468;Gama;0.76;0;0;0;0;0
+CASE-04469;Plano Piloto;0.97;0;0;0;0;0
+CASE-04470;Samambaia;0.62;0;0;0;0;0
+CASE-04471;Guará;0.90;0;0;1;1;0
+CASE-04472;Sobradinho;0.70;1;0;1;2;0
+CASE-04473;Plano Piloto;0.97;0;1;0;1;1
+CASE-04474;Samambaia;0.62;0;0;0;0;0
+CASE-04475;Taguatinga;0.84;0;1;0;1;0
+CASE-04476;Samambaia;0.62;0;0;0;0;0
+CASE-04477;Águas Claras;0.94;0;0;0;0;0
+CASE-04478;Samambaia;0.62;0;0;0;0;0
+CASE-04479;Ceilândia;0.55;0;0;0;0;0
+CASE-04480;Gama;0.76;0;1;0;1;1
+CASE-04481;Sobradinho;0.70;0;0;0;0;0
+CASE-04482;Plano Piloto;0.97;1;0;0;1;0
+CASE-04483;Samambaia;0.62;0;0;0;0;0
+CASE-04484;Gama;0.76;1;1;0;2;1
+CASE-04485;Samambaia;0.62;1;0;0;1;0
+CASE-04486;Guará;0.90;0;0;0;0;0
+CASE-04487;Guará;0.90;0;0;1;1;0
+CASE-04488;Guará;0.90;0;0;0;0;0
+CASE-04489;Águas Claras;0.94;0;1;1;2;0
+CASE-04490;Sobradinho;0.70;0;0;0;0;0
+CASE-04491;Sobradinho;0.70;0;0;0;0;0
+CASE-04492;Plano Piloto;0.97;0;0;0;0;0
+CASE-04493;Guará;0.90;1;0;0;1;1
+CASE-04494;Gama;0.76;0;1;0;1;0
+CASE-04495;Sobradinho;0.70;1;1;1;3;1
+CASE-04496;Taguatinga;0.84;0;0;1;1;0
+CASE-04497;Sobradinho;0.70;0;0;0;0;0
+CASE-04498;Sobradinho;0.70;0;0;0;0;0
+CASE-04499;Taguatinga;0.84;1;1;1;3;1
+CASE-04500;Sobradinho;0.70;0;0;1;1;0
+CASE-04501;Guará;0.90;0;0;0;0;0
+CASE-04502;Plano Piloto;0.97;0;1;0;1;0
+CASE-04503;Sobradinho;0.70;1;0;0;1;0
+CASE-04504;Samambaia;0.62;1;0;0;1;0
+CASE-04505;Plano Piloto;0.97;0;0;0;0;0
+CASE-04506;Samambaia;0.62;0;1;0;1;1
+CASE-04507;Águas Claras;0.94;0;1;0;1;0
+CASE-04508;Ceilândia;0.55;1;1;1;3;1
+CASE-04509;Gama;0.76;0;0;0;0;0
+CASE-04510;Gama;0.76;0;0;0;0;0
+CASE-04511;Taguatinga;0.84;0;1;0;1;0
+CASE-04512;Taguatinga;0.84;0;0;0;0;0
+CASE-04513;Gama;0.76;0;0;0;0;0
+CASE-04514;Gama;0.76;0;1;0;1;0
+CASE-04515;Plano Piloto;0.97;1;0;0;1;0
+CASE-04516;Águas Claras;0.94;0;0;0;0;0
+CASE-04517;Guará;0.90;0;1;0;1;0
+CASE-04518;Águas Claras;0.94;0;0;0;0;0
+CASE-04519;Ceilândia;0.55;0;1;0;1;0
+CASE-04520;Samambaia;0.62;0;1;0;1;0
+CASE-04521;Águas Claras;0.94;0;0;0;0;0
+CASE-04522;Taguatinga;0.84;0;0;0;0;0
+CASE-04523;Ceilândia;0.55;0;0;0;0;0
+CASE-04524;Taguatinga;0.84;1;0;0;1;0
+CASE-04525;Gama;0.76;0;1;0;1;0
+CASE-04526;Guará;0.90;1;1;0;2;0
+CASE-04527;Gama;0.76;1;1;1;3;1
+CASE-04528;Gama;0.76;1;1;0;2;0
+CASE-04529;Taguatinga;0.84;0;0;0;0;0
+CASE-04530;Guará;0.90;0;0;0;0;0
+CASE-04531;Plano Piloto;0.97;0;0;1;1;0
+CASE-04532;Sobradinho;0.70;1;0;0;1;0
+CASE-04533;Ceilândia;0.55;1;1;1;3;0
+CASE-04534;Sobradinho;0.70;0;0;0;0;0
+CASE-04535;Gama;0.76;1;0;0;1;0
+CASE-04536;Guará;0.90;1;1;1;3;1
+CASE-04537;Guará;0.90;0;0;1;1;0
+CASE-04538;Guará;0.90;0;0;0;0;0
+CASE-04539;Samambaia;0.62;1;1;1;3;0
+CASE-04540;Guará;0.90;0;0;0;0;0
+CASE-04541;Ceilândia;0.55;0;0;1;1;0
+CASE-04542;Ceilândia;0.55;0;0;0;0;0
+CASE-04543;Ceilândia;0.55;0;0;1;1;1
+CASE-04544;Taguatinga;0.84;1;1;1;3;0
+CASE-04545;Taguatinga;0.84;0;0;0;0;0
+CASE-04546;Samambaia;0.62;0;0;0;0;0
+CASE-04547;Taguatinga;0.84;0;1;0;1;0
+CASE-04548;Águas Claras;0.94;0;1;0;1;0
+CASE-04549;Plano Piloto;0.97;0;0;0;0;0
+CASE-04550;Taguatinga;0.84;0;0;1;1;0
+CASE-04551;Samambaia;0.62;0;0;0;0;0
+CASE-04552;Taguatinga;0.84;0;0;0;0;0
+CASE-04553;Guará;0.90;0;0;0;0;0
+CASE-04554;Guará;0.90;0;1;1;2;0
+CASE-04555;Plano Piloto;0.97;0;0;1;1;0
+CASE-04556;Águas Claras;0.94;1;0;1;2;0
+CASE-04557;Ceilândia;0.55;1;0;0;1;1
+CASE-04558;Gama;0.76;0;0;0;0;0
+CASE-04559;Guará;0.90;1;0;0;1;0
+CASE-04560;Plano Piloto;0.97;0;0;0;0;0
+CASE-04561;Águas Claras;0.94;1;1;1;3;1
+CASE-04562;Taguatinga;0.84;1;1;1;3;1
+CASE-04563;Sobradinho;0.70;0;0;0;0;0
+CASE-04564;Sobradinho;0.70;0;0;0;0;0
+CASE-04565;Guará;0.90;0;1;1;2;0
+CASE-04566;Águas Claras;0.94;0;0;0;0;0
+CASE-04567;Taguatinga;0.84;1;0;0;1;0
+CASE-04568;Plano Piloto;0.97;1;1;0;2;0
+CASE-04569;Samambaia;0.62;0;1;0;1;0
+CASE-04570;Gama;0.76;1;1;0;2;1
+CASE-04571;Sobradinho;0.70;0;0;0;0;0
+CASE-04572;Taguatinga;0.84;0;0;0;0;0
+CASE-04573;Águas Claras;0.94;0;0;0;0;0
+CASE-04574;Águas Claras;0.94;0;0;0;0;0
+CASE-04575;Sobradinho;0.70;0;1;0;1;0
+CASE-04576;Ceilândia;0.55;1;0;1;2;1
+CASE-04577;Gama;0.76;1;1;1;3;1
+CASE-04578;Guará;0.90;0;0;1;1;0
+CASE-04579;Sobradinho;0.70;0;0;0;0;0
+CASE-04580;Sobradinho;0.70;1;0;0;1;0
+CASE-04581;Ceilândia;0.55;1;1;0;2;0
+CASE-04582;Ceilândia;0.55;0;1;0;1;0
+CASE-04583;Plano Piloto;0.97;1;0;0;1;0
+CASE-04584;Taguatinga;0.84;1;1;0;2;0
+CASE-04585;Taguatinga;0.84;0;0;0;0;1
+CASE-04586;Taguatinga;0.84;0;0;0;0;1
+CASE-04587;Sobradinho;0.70;0;0;0;0;0
+CASE-04588;Samambaia;0.62;0;0;1;1;0
+CASE-04589;Sobradinho;0.70;0;1;1;2;0
+CASE-04590;Ceilândia;0.55;0;1;0;1;0
+CASE-04591;Ceilândia;0.55;1;1;0;2;1
+CASE-04592;Taguatinga;0.84;1;1;1;3;1
+CASE-04593;Taguatinga;0.84;0;0;0;0;0
+CASE-04594;Gama;0.76;0;1;0;1;0
+CASE-04595;Guará;0.90;0;0;0;0;0
+CASE-04596;Ceilândia;0.55;0;0;0;0;0
+CASE-04597;Ceilândia;0.55;0;0;0;0;0
+CASE-04598;Samambaia;0.62;1;1;1;3;1
+CASE-04599;Gama;0.76;0;0;0;0;0
+CASE-04600;Gama;0.76;0;0;0;0;0
+CASE-04601;Sobradinho;0.70;1;0;0;1;0
+CASE-04602;Taguatinga;0.84;0;0;0;0;0
+CASE-04603;Gama;0.76;1;0;0;1;0
+CASE-04604;Ceilândia;0.55;0;0;0;0;0
+CASE-04605;Samambaia;0.62;0;1;0;1;0
+CASE-04606;Taguatinga;0.84;0;0;0;0;0
+CASE-04607;Águas Claras;0.94;0;1;0;1;0
+CASE-04608;Gama;0.76;0;1;0;1;1
+CASE-04609;Samambaia;0.62;0;1;0;1;0
+CASE-04610;Sobradinho;0.70;1;0;0;1;0
+CASE-04611;Samambaia;0.62;1;1;0;2;0
+CASE-04612;Gama;0.76;0;0;0;0;0
+CASE-04613;Águas Claras;0.94;0;1;1;2;1
+CASE-04614;Plano Piloto;0.97;0;1;1;2;0
+CASE-04615;Ceilândia;0.55;0;0;0;0;0
+CASE-04616;Guará;0.90;0;0;0;0;0
+CASE-04617;Samambaia;0.62;0;0;0;0;0
+CASE-04618;Sobradinho;0.70;0;1;1;2;0
+CASE-04619;Samambaia;0.62;0;0;0;0;0
+CASE-04620;Sobradinho;0.70;0;0;0;0;0
+CASE-04621;Ceilândia;0.55;0;0;1;1;0
+CASE-04622;Samambaia;0.62;0;1;1;2;0
+CASE-04623;Gama;0.76;1;0;0;1;0
+CASE-04624;Plano Piloto;0.97;0;0;0;0;0
+CASE-04625;Sobradinho;0.70;1;1;0;2;0
+CASE-04626;Sobradinho;0.70;0;0;0;0;0
+CASE-04627;Gama;0.76;1;0;0;1;0
+CASE-04628;Taguatinga;0.84;1;0;0;1;0
+CASE-04629;Sobradinho;0.70;1;1;0;2;1
+CASE-04630;Gama;0.76;0;0;0;0;0
+CASE-04631;Plano Piloto;0.97;0;0;0;0;0
+CASE-04632;Sobradinho;0.70;0;0;0;0;0
+CASE-04633;Águas Claras;0.94;0;1;1;2;0
+CASE-04634;Sobradinho;0.70;0;0;0;0;0
+CASE-04635;Sobradinho;0.70;0;0;0;0;0
+CASE-04636;Plano Piloto;0.97;0;0;0;0;0
+CASE-04637;Gama;0.76;1;1;0;2;1
+CASE-04638;Samambaia;0.62;0;0;0;0;0
+CASE-04639;Águas Claras;0.94;0;0;1;1;1
+CASE-04640;Guará;0.90;1;1;0;2;0
+CASE-04641;Guará;0.90;0;0;1;1;0
+CASE-04642;Taguatinga;0.84;0;0;0;0;0
+CASE-04643;Plano Piloto;0.97;1;1;1;3;1
+CASE-04644;Águas Claras;0.94;0;0;0;0;0
+CASE-04645;Águas Claras;0.94;1;0;0;1;0
+CASE-04646;Plano Piloto;0.97;1;0;1;2;0
+CASE-04647;Taguatinga;0.84;0;0;0;0;0
+CASE-04648;Plano Piloto;0.97;1;0;0;1;0
+CASE-04649;Sobradinho;0.70;0;0;0;0;0
+CASE-04650;Águas Claras;0.94;0;0;0;0;0
+CASE-04651;Samambaia;0.62;0;1;1;2;1
+CASE-04652;Águas Claras;0.94;1;1;0;2;1
+CASE-04653;Gama;0.76;0;1;0;1;1
+CASE-04654;Gama;0.76;0;0;1;1;0
+CASE-04655;Samambaia;0.62;0;1;0;1;0
+CASE-04656;Gama;0.76;0;1;0;1;0
+CASE-04657;Guará;0.90;1;0;0;1;0
+CASE-04658;Plano Piloto;0.97;0;0;0;0;0
+CASE-04659;Samambaia;0.62;0;0;1;1;0
+CASE-04660;Plano Piloto;0.97;0;0;0;0;0
+CASE-04661;Plano Piloto;0.97;0;1;1;2;0
+CASE-04662;Samambaia;0.62;0;1;0;1;0
+CASE-04663;Gama;0.76;0;1;1;2;0
+CASE-04664;Sobradinho;0.70;0;0;0;0;0
+CASE-04665;Guará;0.90;0;0;0;0;0
+CASE-04666;Gama;0.76;0;0;0;0;0
+CASE-04667;Samambaia;0.62;0;1;0;1;0
+CASE-04668;Samambaia;0.62;1;1;1;3;1
+CASE-04669;Águas Claras;0.94;0;1;0;1;0
+CASE-04670;Sobradinho;0.70;0;0;0;0;0
+CASE-04671;Águas Claras;0.94;0;0;0;0;0
+CASE-04672;Águas Claras;0.94;0;0;0;0;0
+CASE-04673;Plano Piloto;0.97;0;1;0;1;0
+CASE-04674;Samambaia;0.62;0;0;0;0;1
+CASE-04675;Ceilândia;0.55;0;1;0;1;0
+CASE-04676;Guará;0.90;0;0;0;0;0
+CASE-04677;Plano Piloto;0.97;1;1;0;2;1
+CASE-04678;Águas Claras;0.94;0;0;0;0;0
+CASE-04679;Águas Claras;0.94;0;0;0;0;0
+CASE-04680;Guará;0.90;0;0;0;0;0
+CASE-04681;Sobradinho;0.70;0;1;1;2;0
+CASE-04682;Guará;0.90;0;0;0;0;0
+CASE-04683;Gama;0.76;1;1;0;2;1
+CASE-04684;Gama;0.76;0;0;0;0;0
+CASE-04685;Ceilândia;0.55;0;0;0;0;0
+CASE-04686;Guará;0.90;0;0;0;0;0
+CASE-04687;Guará;0.90;0;0;1;1;0
+CASE-04688;Samambaia;0.62;0;0;0;0;0
+CASE-04689;Plano Piloto;0.97;0;0;0;0;0
+CASE-04690;Ceilândia;0.55;0;0;0;0;0
+CASE-04691;Águas Claras;0.94;0;0;0;0;0
+CASE-04692;Águas Claras;0.94;0;0;0;0;0
+CASE-04693;Ceilândia;0.55;0;1;0;1;0
+CASE-04694;Gama;0.76;0;1;0;1;0
+CASE-04695;Ceilândia;0.55;0;0;1;1;0
+CASE-04696;Sobradinho;0.70;0;0;0;0;0
+CASE-04697;Plano Piloto;0.97;0;0;0;0;0
+CASE-04698;Sobradinho;0.70;0;1;1;2;1
+CASE-04699;Guará;0.90;0;0;0;0;0
+CASE-04700;Plano Piloto;0.97;0;0;1;1;1
+CASE-04701;Sobradinho;0.70;1;1;1;3;1
+CASE-04702;Ceilândia;0.55;0;0;1;1;0
+CASE-04703;Ceilândia;0.55;0;1;1;2;0
+CASE-04704;Taguatinga;0.84;0;0;0;0;0
+CASE-04705;Sobradinho;0.70;0;0;0;0;0
+CASE-04706;Sobradinho;0.70;0;0;0;0;0
+CASE-04707;Guará;0.90;1;1;0;2;0
+CASE-04708;Ceilândia;0.55;0;0;0;0;0
+CASE-04709;Gama;0.76;0;0;0;0;0
+CASE-04710;Gama;0.76;0;1;0;1;1
+CASE-04711;Plano Piloto;0.97;0;0;0;0;0
+CASE-04712;Taguatinga;0.84;0;0;0;0;0
+CASE-04713;Sobradinho;0.70;0;0;0;0;0
+CASE-04714;Ceilândia;0.55;0;1;0;1;1
+CASE-04715;Águas Claras;0.94;0;0;0;0;0
+CASE-04716;Gama;0.76;0;0;0;0;0
+CASE-04717;Águas Claras;0.94;1;1;0;2;1
+CASE-04718;Águas Claras;0.94;0;1;0;1;0
+CASE-04719;Plano Piloto;0.97;1;0;0;1;0
+CASE-04720;Taguatinga;0.84;0;0;0;0;0
+CASE-04721;Plano Piloto;0.97;0;1;0;1;0
+CASE-04722;Gama;0.76;0;1;1;2;0
+CASE-04723;Samambaia;0.62;0;0;0;0;0
+CASE-04724;Sobradinho;0.70;0;0;0;0;0
+CASE-04725;Samambaia;0.62;0;0;0;0;0
+CASE-04726;Águas Claras;0.94;1;1;1;3;1
+CASE-04727;Plano Piloto;0.97;0;0;0;0;0
+CASE-04728;Águas Claras;0.94;0;0;0;0;0
+CASE-04729;Plano Piloto;0.97;0;1;0;1;0
+CASE-04730;Gama;0.76;1;1;0;2;0
+CASE-04731;Plano Piloto;0.97;1;0;0;1;0
+CASE-04732;Sobradinho;0.70;0;0;0;0;0
+CASE-04733;Taguatinga;0.84;0;0;0;0;0
+CASE-04734;Gama;0.76;0;1;0;1;0
+CASE-04735;Guará;0.90;1;1;0;2;0
+CASE-04736;Águas Claras;0.94;0;0;0;0;0
+CASE-04737;Águas Claras;0.94;0;0;0;0;0
+CASE-04738;Sobradinho;0.70;1;0;1;2;1
+CASE-04739;Plano Piloto;0.97;0;1;0;1;0
+CASE-04740;Gama;0.76;0;1;0;1;0
+CASE-04741;Sobradinho;0.70;0;0;0;0;0
+CASE-04742;Gama;0.76;0;1;1;2;1
+CASE-04743;Sobradinho;0.70;0;0;1;1;0
+CASE-04744;Sobradinho;0.70;1;1;1;3;1
+CASE-04745;Sobradinho;0.70;0;1;0;1;0
+CASE-04746;Águas Claras;0.94;0;0;1;1;0
+CASE-04747;Taguatinga;0.84;1;0;0;1;0
+CASE-04748;Ceilândia;0.55;0;0;0;0;0
+CASE-04749;Samambaia;0.62;0;0;0;0;0
+CASE-04750;Guará;0.90;1;1;1;3;1
+CASE-04751;Taguatinga;0.84;0;0;0;0;0
+CASE-04752;Samambaia;0.62;0;1;0;1;0
+CASE-04753;Taguatinga;0.84;0;1;1;2;0
+CASE-04754;Taguatinga;0.84;0;1;0;1;0
+CASE-04755;Águas Claras;0.94;1;0;0;1;0
+CASE-04756;Plano Piloto;0.97;1;1;1;3;1
+CASE-04757;Guará;0.90;0;0;0;0;0
+CASE-04758;Plano Piloto;0.97;0;0;0;0;0
+CASE-04759;Gama;0.76;0;1;1;2;0
+CASE-04760;Guará;0.90;0;0;0;0;0
+CASE-04761;Ceilândia;0.55;0;0;0;0;0
+CASE-04762;Samambaia;0.62;0;1;0;1;0
+CASE-04763;Plano Piloto;0.97;0;0;1;1;0
+CASE-04764;Gama;0.76;0;0;1;1;0
+CASE-04765;Sobradinho;0.70;0;1;1;2;0
+CASE-04766;Gama;0.76;0;1;0;1;1
+CASE-04767;Guará;0.90;1;1;0;2;1
+CASE-04768;Águas Claras;0.94;0;1;1;2;1
+CASE-04769;Gama;0.76;0;0;0;0;0
+CASE-04770;Samambaia;0.62;1;0;1;2;0
+CASE-04771;Ceilândia;0.55;0;1;0;1;0
+CASE-04772;Gama;0.76;0;0;0;0;0
+CASE-04773;Ceilândia;0.55;0;0;0;0;0
+CASE-04774;Taguatinga;0.84;0;0;0;0;0
+CASE-04775;Guará;0.90;1;1;1;3;1
+CASE-04776;Guará;0.90;1;1;0;2;1
+CASE-04777;Guará;0.90;0;0;0;0;0
+CASE-04778;Samambaia;0.62;1;0;0;1;0
+CASE-04779;Guará;0.90;1;1;0;2;0
+CASE-04780;Taguatinga;0.84;1;0;0;1;0
+CASE-04781;Gama;0.76;1;0;1;2;1
+CASE-04782;Sobradinho;0.70;1;0;0;1;0
+CASE-04783;Plano Piloto;0.97;0;0;0;0;0
+CASE-04784;Plano Piloto;0.97;0;0;0;0;0
+CASE-04785;Guará;0.90;0;0;0;0;0
+CASE-04786;Samambaia;0.62;0;0;0;0;0
+CASE-04787;Guará;0.90;0;0;0;0;0
+CASE-04788;Ceilândia;0.55;0;0;0;0;0
+CASE-04789;Gama;0.76;1;1;1;3;1
+CASE-04790;Gama;0.76;0;0;0;0;0
+CASE-04791;Plano Piloto;0.97;0;0;0;0;0
+CASE-04792;Guará;0.90;1;0;0;1;0
+CASE-04793;Plano Piloto;0.97;1;1;0;2;1
+CASE-04794;Águas Claras;0.94;0;0;0;0;0
+CASE-04795;Sobradinho;0.70;0;0;0;0;0
+CASE-04796;Samambaia;0.62;1;1;0;2;1
+CASE-04797;Samambaia;0.62;1;0;1;2;0
+CASE-04798;Gama;0.76;0;0;1;1;0
+CASE-04799;Guará;0.90;0;0;0;0;0
+CASE-04800;Taguatinga;0.84;0;1;0;1;0
+CASE-04801;Águas Claras;0.94;0;1;0;1;0
+CASE-04802;Plano Piloto;0.97;1;1;0;2;0
+CASE-04803;Ceilândia;0.55;0;1;0;1;0
+CASE-04804;Guará;0.90;1;0;0;1;0
+CASE-04805;Águas Claras;0.94;0;0;0;0;0
+CASE-04806;Gama;0.76;0;0;0;0;0
+CASE-04807;Gama;0.76;0;0;0;0;0
+CASE-04808;Gama;0.76;1;1;0;2;1
+CASE-04809;Samambaia;0.62;0;1;0;1;0
+CASE-04810;Gama;0.76;0;0;0;0;0
+CASE-04811;Gama;0.76;0;0;0;0;0
+CASE-04812;Gama;0.76;0;0;0;0;0
+CASE-04813;Águas Claras;0.94;1;0;1;2;1
+CASE-04814;Plano Piloto;0.97;0;1;1;2;0
+CASE-04815;Águas Claras;0.94;0;0;0;0;0
+CASE-04816;Ceilândia;0.55;0;1;0;1;0
+CASE-04817;Ceilândia;0.55;1;0;1;2;1
+CASE-04818;Gama;0.76;0;0;0;0;0
+CASE-04819;Ceilândia;0.55;1;1;0;2;1
+CASE-04820;Samambaia;0.62;0;0;0;0;0
+CASE-04821;Ceilândia;0.55;0;1;0;1;0
+CASE-04822;Guará;0.90;1;0;1;2;1
+CASE-04823;Taguatinga;0.84;0;0;0;0;0
+CASE-04824;Águas Claras;0.94;0;0;1;1;0
+CASE-04825;Gama;0.76;0;0;0;0;0
+CASE-04826;Águas Claras;0.94;0;1;0;1;0
+CASE-04827;Águas Claras;0.94;0;0;0;0;0
+CASE-04828;Guará;0.90;0;1;1;2;1
+CASE-04829;Águas Claras;0.94;0;1;1;2;0
+CASE-04830;Ceilândia;0.55;0;0;0;0;0
+CASE-04831;Sobradinho;0.70;0;1;0;1;0
+CASE-04832;Sobradinho;0.70;0;0;1;1;0
+CASE-04833;Samambaia;0.62;0;1;0;1;0
+CASE-04834;Ceilândia;0.55;0;0;0;0;0
+CASE-04835;Ceilândia;0.55;1;1;1;3;1
+CASE-04836;Gama;0.76;1;1;1;3;1
+CASE-04837;Plano Piloto;0.97;0;0;1;1;0
+CASE-04838;Sobradinho;0.70;0;0;0;0;0
+CASE-04839;Samambaia;0.62;0;0;0;0;0
+CASE-04840;Ceilândia;0.55;0;1;1;2;0
+CASE-04841;Gama;0.76;0;0;0;0;0
+CASE-04842;Plano Piloto;0.97;0;0;1;1;0
+CASE-04843;Taguatinga;0.84;0;0;0;0;0
+CASE-04844;Taguatinga;0.84;0;1;0;1;1
+CASE-04845;Samambaia;0.62;0;1;0;1;0
+CASE-04846;Plano Piloto;0.97;0;0;0;0;0
+CASE-04847;Águas Claras;0.94;0;1;0;1;0
+CASE-04848;Samambaia;0.62;0;0;0;0;0
+CASE-04849;Ceilândia;0.55;0;1;1;2;0
+CASE-04850;Taguatinga;0.84;1;0;0;1;1
+CASE-04851;Sobradinho;0.70;0;0;0;0;0
+CASE-04852;Ceilândia;0.55;1;0;0;1;0
+CASE-04853;Samambaia;0.62;0;0;1;1;0
+CASE-04854;Águas Claras;0.94;0;0;0;0;0
+CASE-04855;Sobradinho;0.70;0;1;0;1;1
+CASE-04856;Gama;0.76;0;1;1;2;0
+CASE-04857;Taguatinga;0.84;0;0;0;0;0
+CASE-04858;Samambaia;0.62;0;0;0;0;0
+CASE-04859;Samambaia;0.62;0;0;0;0;0
+CASE-04860;Sobradinho;0.70;1;1;0;2;0
+CASE-04861;Gama;0.76;1;1;0;2;1
+CASE-04862;Plano Piloto;0.97;0;0;1;1;0
+CASE-04863;Gama;0.76;0;0;0;0;0
+CASE-04864;Plano Piloto;0.97;0;0;0;0;0
+CASE-04865;Gama;0.76;1;0;0;1;0
+CASE-04866;Sobradinho;0.70;0;0;1;1;0
+CASE-04867;Samambaia;0.62;0;0;0;0;0
+CASE-04868;Plano Piloto;0.97;0;0;0;0;0
+CASE-04869;Samambaia;0.62;0;0;0;0;0
+CASE-04870;Ceilândia;0.55;1;1;1;3;1
+CASE-04871;Gama;0.76;0;0;1;1;1
+CASE-04872;Sobradinho;0.70;0;1;1;2;0
+CASE-04873;Gama;0.76;0;0;0;0;0
+CASE-04874;Plano Piloto;0.97;0;0;0;0;0
+CASE-04875;Guará;0.90;0;0;0;0;0
+CASE-04876;Sobradinho;0.70;0;1;0;1;0
+CASE-04877;Samambaia;0.62;1;1;1;3;0
+CASE-04878;Taguatinga;0.84;0;0;0;0;0
+CASE-04879;Samambaia;0.62;0;1;0;1;0
+CASE-04880;Samambaia;0.62;0;1;0;1;0
+CASE-04881;Sobradinho;0.70;1;0;1;2;0
+CASE-04882;Águas Claras;0.94;0;1;0;1;0
+CASE-04883;Taguatinga;0.84;0;0;0;0;0
+CASE-04884;Gama;0.76;0;0;0;0;0
+CASE-04885;Plano Piloto;0.97;0;0;0;0;0
+CASE-04886;Sobradinho;0.70;0;1;1;2;1
+CASE-04887;Águas Claras;0.94;1;0;0;1;0
+CASE-04888;Guará;0.90;0;0;0;0;0
+CASE-04889;Taguatinga;0.84;0;0;0;0;0
+CASE-04890;Ceilândia;0.55;0;0;0;0;0
+CASE-04891;Ceilândia;0.55;0;0;0;0;0
+CASE-04892;Taguatinga;0.84;1;0;0;1;0
+CASE-04893;Taguatinga;0.84;0;0;0;0;0
+CASE-04894;Gama;0.76;0;1;0;1;0
+CASE-04895;Guará;0.90;1;1;0;2;0
+CASE-04896;Guará;0.90;0;0;1;1;0
+CASE-04897;Guará;0.90;0;0;0;0;0
+CASE-04898;Samambaia;0.62;0;1;1;2;0
+CASE-04899;Plano Piloto;0.97;0;0;0;0;0
+CASE-04900;Águas Claras;0.94;0;0;0;0;0
+CASE-04901;Águas Claras;0.94;0;0;0;0;0
+CASE-04902;Plano Piloto;0.97;0;0;0;0;0
+CASE-04903;Sobradinho;0.70;1;0;0;1;0
+CASE-04904;Ceilândia;0.55;0;0;0;0;0
+CASE-04905;Guará;0.90;0;1;0;1;0
+CASE-04906;Sobradinho;0.70;1;0;0;1;0
+CASE-04907;Plano Piloto;0.97;0;0;0;0;0
+CASE-04908;Águas Claras;0.94;0;1;0;1;0
+CASE-04909;Plano Piloto;0.97;0;0;1;1;0
+CASE-04910;Samambaia;0.62;0;0;0;0;0
+CASE-04911;Ceilândia;0.55;0;0;0;0;0
+CASE-04912;Samambaia;0.62;0;1;0;1;0
+CASE-04913;Guará;0.90;1;1;0;2;0
+CASE-04914;Sobradinho;0.70;0;0;0;0;0
+CASE-04915;Gama;0.76;0;0;1;1;0
+CASE-04916;Samambaia;0.62;1;0;1;2;0
+CASE-04917;Gama;0.76;0;0;1;1;0
+CASE-04918;Plano Piloto;0.97;1;0;0;1;1
+CASE-04919;Taguatinga;0.84;0;0;0;0;0
+CASE-04920;Taguatinga;0.84;1;0;0;1;0
+CASE-04921;Plano Piloto;0.97;0;0;1;1;0
+CASE-04922;Guará;0.90;1;0;0;1;0
+CASE-04923;Gama;0.76;1;1;0;2;1
+CASE-04924;Guará;0.90;0;0;0;0;0
+CASE-04925;Guará;0.90;1;1;0;2;0
+CASE-04926;Taguatinga;0.84;0;0;0;0;0
+CASE-04927;Plano Piloto;0.97;1;0;0;1;0
+CASE-04928;Samambaia;0.62;1;0;0;1;0
+CASE-04929;Gama;0.76;0;0;0;0;0
+CASE-04930;Águas Claras;0.94;0;0;0;0;0
+CASE-04931;Gama;0.76;1;0;0;1;0
+CASE-04932;Gama;0.76;0;0;0;0;0
+CASE-04933;Águas Claras;0.94;0;0;0;0;0
+CASE-04934;Samambaia;0.62;0;0;0;0;0
+CASE-04935;Águas Claras;0.94;0;0;0;0;0
+CASE-04936;Gama;0.76;0;1;0;1;0
+CASE-04937;Gama;0.76;0;1;0;1;0
+CASE-04938;Plano Piloto;0.97;0;0;0;0;0
+CASE-04939;Samambaia;0.62;1;0;1;2;1
+CASE-04940;Ceilândia;0.55;0;1;0;1;0
+CASE-04941;Plano Piloto;0.97;0;0;0;0;0
+CASE-04942;Guará;0.90;0;0;0;0;0
+CASE-04943;Taguatinga;0.84;0;0;0;0;0
+CASE-04944;Gama;0.76;0;1;0;1;0
+CASE-04945;Taguatinga;0.84;0;0;0;0;0
+CASE-04946;Samambaia;0.62;1;1;0;2;1
+CASE-04947;Plano Piloto;0.97;0;1;0;1;0
+CASE-04948;Gama;0.76;0;1;0;1;0
+CASE-04949;Gama;0.76;0;0;0;0;0
+CASE-04950;Ceilândia;0.55;0;0;0;0;0
+CASE-04951;Plano Piloto;0.97;0;0;0;0;0
+CASE-04952;Gama;0.76;0;1;1;2;0
+CASE-04953;Taguatinga;0.84;0;0;0;0;0
+CASE-04954;Sobradinho;0.70;0;0;0;0;0
+CASE-04955;Sobradinho;0.70;0;0;1;1;0
+CASE-04956;Plano Piloto;0.97;0;1;1;2;1
+CASE-04957;Taguatinga;0.84;0;0;1;1;0
+CASE-04958;Guará;0.90;0;1;1;2;0
+CASE-04959;Sobradinho;0.70;0;0;0;0;0
+CASE-04960;Samambaia;0.62;0;1;0;1;1
+CASE-04961;Taguatinga;0.84;0;1;1;2;0
+CASE-04962;Gama;0.76;0;0;0;0;0
+CASE-04963;Taguatinga;0.84;1;1;1;3;1
+CASE-04964;Guará;0.90;0;0;0;0;0
+CASE-04965;Gama;0.76;0;0;0;0;0
+CASE-04966;Plano Piloto;0.97;0;1;0;1;0
+CASE-04967;Taguatinga;0.84;0;0;0;0;0
+CASE-04968;Sobradinho;0.70;0;0;0;0;0
+CASE-04969;Gama;0.76;0;0;0;0;0
+CASE-04970;Samambaia;0.62;0;1;0;1;0
+CASE-04971;Taguatinga;0.84;0;0;0;0;0
+CASE-04972;Sobradinho;0.70;0;1;1;2;1
+CASE-04973;Gama;0.76;0;1;0;1;0
+CASE-04974;Gama;0.76;0;0;0;0;0
+CASE-04975;Ceilândia;0.55;0;0;1;1;0
+CASE-04976;Samambaia;0.62;0;0;0;0;0
+CASE-04977;Gama;0.76;0;1;0;1;0
+CASE-04978;Ceilândia;0.55;0;0;1;1;0
+CASE-04979;Sobradinho;0.70;0;0;1;1;0
+CASE-04980;Plano Piloto;0.97;0;0;0;0;0
+CASE-04981;Ceilândia;0.55;0;1;0;1;0
+CASE-04982;Ceilândia;0.55;1;0;1;2;1
+CASE-04983;Gama;0.76;0;0;0;0;0
+CASE-04984;Gama;0.76;0;0;0;0;0
+CASE-04985;Gama;0.76;0;1;0;1;0
+CASE-04986;Águas Claras;0.94;0;0;0;0;0
+CASE-04987;Sobradinho;0.70;0;1;0;1;0
+CASE-04988;Guará;0.90;1;0;1;2;0
+CASE-04989;Gama;0.76;0;1;0;1;0
+CASE-04990;Águas Claras;0.94;1;1;1;3;1
+CASE-04991;Guará;0.90;0;0;0;0;0
+CASE-04992;Samambaia;0.62;1;1;0;2;0
+CASE-04993;Sobradinho;0.70;0;0;0;0;0
+CASE-04994;Plano Piloto;0.97;0;0;0;0;0
+CASE-04995;Águas Claras;0.94;0;0;0;0;0
+CASE-04996;Águas Claras;0.94;0;0;0;0;0
+CASE-04997;Plano Piloto;0.97;0;0;0;0;0
+CASE-04998;Guará;0.90;1;0;1;2;1
+CASE-04999;Guará;0.90;0;0;0;0;0
+CASE-05000;Ceilândia;0.55;0;0;0;0;0

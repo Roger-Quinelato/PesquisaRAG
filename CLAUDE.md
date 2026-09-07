@@ -19,7 +19,23 @@ Quando código for escrito, ele ainda não tem lugar definido — proponha a est
 
 ## Comandos úteis
 
-Não existem comandos de build/test/lint. Os comandos recorrentes são de leitura de dados:
+Reproduzir o experimento inteiro do zero (determinístico por semente; ~8 min):
+
+```bash
+python experimento/varredura.py && python experimento/equidade.py && python experimento/figuras.py
+```
+
+`varredura.py` imprime o veredito dos critérios de aceitação e escreve `resultados/`.
+`equidade.py` testa o critério de equidade na grade completa de β × π.
+`figuras.py` lê `resultados/` e escreve `figuras/`.
+
+Regerar o dataset de casos com rótulo latente:
+
+```bash
+python experimento/exportar_dataset.py 5000
+```
+
+Não existem comandos de build/lint/test. Os demais comandos recorrentes são de leitura:
 
 Extrair o texto da proposta (8 páginas) para o scratchpad:
 
@@ -48,6 +64,30 @@ python -c "import csv; rows=list(csv.DictReader(open(r'C:\Pesquisa_RAG\dataset_s
 | `fontes_oficiais.csv` | 7 fontes oficiais (Receita Federal, Geoportal/SEDUH, BCB/SCR) com URL e uso pretendido |
 | `base_paper_rag_bayesiano.xlsx` | 4 abas: `Fontes Oficiais`, `Dataset Sintetico` (espelho do CSV), `Schema` (dicionário de campos), `Experimento` (as 7 etapas do desenho experimental) |
 | `README.md` | Escopo sugerido do short paper e restrições de uso |
+| `dataset_sintetico_v2.csv` | **Use este.** 5.000 casos com `fraude_latente` separada das evidências — `OR(evidencias) != fraude_latente` em 41,5% das linhas. Gerado por `experimento/exportar_dataset.py` |
+| `Resumo Congresso IC UnB - Modelo Preditivo.md` | Resumo de IC anterior (projeto de dengue). **É o modelo de formato e de registro** para qualquer resumo novo |
+| `Resumo Congresso IC UnB - RAG Bayesiano.md` | Resumo desta pesquisa |
+
+## Experimento
+
+`experimento/` — `gerador.py` (mecanismo causal), `bracos.py` (as seis abordagens),
+`metricas.py`, `varredura.py`, `equidade.py`, `figuras.py`, `exportar_dataset.py`.
+Saídas em `resultados/` e `figuras/`, ambas fora do versionamento por serem regeneráveis.
+
+Dependências: apenas `numpy` e `matplotlib`. **Não instalar** scipy, sklearn, PyMC, SDV nem
+geradores baseados em GAN — nenhum é necessário, e um gerador ajustado destruiria a
+verificabilidade da calibração, que depende de conhecer os parâmetros verdadeiros.
+
+### Achados verificados (não reabrir sem novo experimento)
+
+- A variante bayesiana sem território **não supera** a tabela empírica: diferença mediana de
+  0,059 p.p. na precisão sob orçamento.
+- Condicionar o **prior** à taxa observada da região é dominado em **224/224** configurações
+  (Brier e ECE piores) — a mesma evidência é contada duas vezes.
+- Com taxa de fraude **idêntica por construção**, a discriminação territorial emerge sozinha:
+  correlação −0,997 entre cobertura cadastral e falsos positivos, em **48/48** configurações.
+- **Reprovado e removido do resumo:** mover o território para a verossimilhança *não* corrige
+  a inequidade de forma robusta (inverte o sinal em apenas 33/48).
 
 ## Semântica do dataset
 
