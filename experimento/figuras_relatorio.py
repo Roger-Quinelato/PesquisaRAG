@@ -1,5 +1,6 @@
 """Figuras do relatorio (fig3, fig4, fig5). Nao toca em figuras.py, que
-produz as figuras ja aprovadas do banner -- so reaproveita a paleta e os rotulos.
+produz as figuras ja aprovadas do banner -- so reaproveita a paleta e os
+rotulos de paleta_sns.py. Renderizacao via seaborn sobre matplotlib.
 
 Uso:  python experimento/figuras_relatorio.py
 Saida: figuras/fig3_confiabilidade.png
@@ -11,16 +12,21 @@ modo que duas execucoes produzem bytes identicos.
 """
 import csv, os, sys
 import numpy as np
+import pandas as pd
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from gerador import Params, gerar                    # noqa: E402
 from bracos import calcular                          # noqa: E402
 from metricas import ece                             # noqa: E402
-from figuras import (COR, ROTULO, ESTILO, RAIZ, RES, FIG,  # noqa: E402
-                     num, eixo_ptbr, VIRGULA)
+from figuras import RAIZ, RES, FIG                    # noqa: E402
+from paleta_sns import (COR, ROTULO, TRACO, LARGURA, DIVERGENTE,  # noqa: E402
+                        num, eixo_ptbr, VIRGULA, configurar_estilo, linha)
+
+configurar_estilo()
 
 # Mesmos parametros de varredura.py -- se divergirem, o ECE anotado na fig3
 # deixa de bater com ece_media de resultados/varredura.csv.
@@ -73,8 +79,9 @@ def predicoes_referencia():
 
 
 def fig3(P, y, ece_med):
-    # LOOKUP, A e B praticamente coincidem com a diagonal. Larguras e zorder
-    # decrescentes fazem os tres aparecerem em vez de um esconder o outro.
+    # LOOKUP, A e B praticamente coincidem com a diagonal. Larguras e alfas
+    # decrescentes (nao as fixas de paleta_sns.LARGURA) fazem os tres
+    # aparecerem em vez de um esconder o outro -- especifico desta figura.
     bracos = (("LOOKUP", 7.0, 0.32, 3), ("A", 3.0, 1.0, 4), ("B", 1.8, 1.0, 5),
               ("C", 2.6, 1.0, 6))
     fig, ax = plt.subplots(figsize=(8.6, 7.4))
@@ -88,9 +95,12 @@ def fig3(P, y, ece_med):
             m = idx == k
             if m.any():
                 xs.append(p[m].mean()); ys.append(y[m].mean()); ws.append(m.mean())
-        ax.plot(xs, ys, ESTILO[b] if b != "LOOKUP" else "-", color=COR[b], lw=lw,
-                alpha=alfa, zorder=z, solid_capstyle="round",
-                label=f"{ROTULO[b]}  (ECE = " + f"{ece_med[b]:.4f}".replace(".", ",") + ")")
+        rotulo = f"{ROTULO[b]}  (ECE = " + f"{ece_med[b]:.4f}".replace(".", ",") + ")"
+        resultado = sns.lineplot(x=xs, y=ys, ax=ax, color=COR[b], linewidth=lw,
+                                  alpha=alfa, zorder=z, legend=False, label=rotulo)
+        if TRACO[b]:
+            resultado.lines[-1].set_dashes(TRACO[b])
+        resultado.lines[-1].set_solid_capstyle("round")
         ax.scatter(xs, ys, s=30 + 900 * np.array(ws), color=COR[b],
                    alpha=0.45, edgecolors="none", zorder=2)
     ax.set_xlim(-0.02, 1.02); ax.set_ylim(-0.02, 1.02)
@@ -98,7 +108,7 @@ def fig3(P, y, ece_med):
     ax.set_ylabel("Frequência observada de fraude latente")
     ax.set_title("Diagrama de confiabilidade\n"
                  "(β = 0,55; π = 0,15; ruído = 0,16 — configuração de referência)")
-    ax.grid(alpha=0.25)
+    sns.despine(ax=ax, left=True)
     ax.legend(frameon=False, loc="upper left")
     eixo_ptbr(ax)
     ax.text(0.0, -0.145,
@@ -108,7 +118,7 @@ def fig3(P, y, ece_med):
             "idêntica a ece_media de resultados/varredura.csv.\n"
             "Ressalva: o ECE nulo da tabela empírica é degenerado — ela estima P(F | padrão) "
             "nos próprios dados em que é avaliada.",
-            transform=ax.transAxes, fontsize=9.5, color="#666666", va="top")
+            transform=ax.transAxes, fontsize=9.5, color=COR["LOOKUP"], va="top")
     fig.tight_layout()
     fig.savefig(os.path.join(FIG, "fig3_confiabilidade.png"),
                 bbox_inches="tight", metadata=META)
@@ -120,34 +130,40 @@ def fig3(P, y, ece_med):
 # --------------------------------------------------------------------------
 def fig4():
     E = ler("equidade.csv")
-    ruidos = sorted({float(L["f_base"]) for L in E})
-    tab = {(round(float(L["f_base"]), 4), round(float(L["beta"]), 4),
-            round(float(L["pi"]), 4)): float(L["corr_B"]) for L in E}
-    n_ok = sum(1 for v in tab.values() if v >= -0.10)
-    n_pos = sum(1 for v in tab.values() if v >= 0.0)
-    NT = len(tab)
+    df = pd.DataFrame(E)
+    for col in ("f_base", "beta", "pi", "corr_B"):
+        df[col] = df[col].astype(float)
+    ruidos = sorted(df["f_base"].unique())
+    n_ok = int((df["corr_B"] >= -0.10).sum())
+    n_pos = int((df["corr_B"] >= 0.0).sum())
+    NT = len(df)
 
-    fig, axes = plt.subplots(1, len(ruidos), figsize=(15.0, 5.2))
-    for ax, r in zip(axes, ruidos):
-        M = np.array([[tab[(round(r, 4), b, p)] for p in GRADE_PI] for b in GRADE_BETA])
-        im = ax.imshow(M, cmap="RdBu_r", vmin=-1, vmax=1, origin="lower", aspect="auto")
-        for i in range(M.shape[0]):
-            for j in range(M.shape[1]):
-                v = M[i, j]
-                ax.text(j, i, num(v), ha="center", va="center", fontsize=11,
-                        color="white" if abs(v) > 0.55 else "#222222",
-                        fontweight="bold" if v < -0.10 else "normal")
-                if v < -0.10:   # falha do criterio pre-registrado
-                    ax.add_patch(plt.Rectangle((j - 0.5, i - 0.5), 1, 1, fill=False,
+    fig, axes = plt.subplots(1, len(ruidos), figsize=(15.6, 5.4))
+    ultimo = None
+    for i, (ax, r) in enumerate(zip(axes, ruidos)):
+        sub = df[np.isclose(df["f_base"], r)]
+        M = (sub.pivot(index="beta", columns="pi", values="corr_B")
+                .reindex(index=GRADE_BETA, columns=GRADE_PI))
+        anot = M.map(lambda v: num(v))
+        ultimo = sns.heatmap(
+            M, ax=ax, cmap=DIVERGENTE, vmin=-1, vmax=1, center=0,
+            annot=anot, fmt="", annot_kws={"fontsize": 11},
+            linewidths=2, linecolor="white", cbar=False, square=False,
+        )
+        # Anel de reprovacao: borda preta nas celulas abaixo do criterio
+        # pre-registrado (corr >= -0,10). Mesma semantica visual da figura
+        # original -- reprovacao marcada por contorno, nao so por cor.
+        for yi, beta in enumerate(GRADE_BETA):
+            for xi, pi in enumerate(GRADE_PI):
+                if M.loc[beta, pi] < -0.10:
+                    ax.add_patch(plt.Rectangle((xi, yi), 1, 1, fill=False,
                                                edgecolor="#111111", lw=2.6))
-        ax.set_xticks(range(len(GRADE_PI)))
         ax.set_xticklabels([f"{p:.2f}".replace(".", ",") for p in GRADE_PI])
-        ax.set_yticks(range(len(GRADE_BETA)))
-        ax.set_yticklabels([f"{b:.2f}".replace(".", ",") for b in GRADE_BETA])
+        ax.set_yticklabels([f"{b:.2f}".replace(".", ",") for b in GRADE_BETA], rotation=0)
         ax.set_xlabel("π (prevalência de fraude)")
+        ax.set_ylabel("β (gradiente territorial)" if i == 0 else "")
         ax.set_title(f"ruído = {r:.2f}".replace(".", ","))
-    axes[0].set_ylabel("β (gradiente territorial)")
-    cb = fig.colorbar(im, ax=axes, fraction=0.022, pad=0.015)
+    cb = fig.colorbar(ultimo.collections[0], ax=axes, fraction=0.022, pad=0.015)
     cb.set_label("corr(cobertura, FPR entre inocentes) — braço B")
     cb.ax.yaxis.set_major_formatter(VIRGULA)
     fig.suptitle("Onde B inverte o sinal da disparidade territorial — e onde não inverte\n"
@@ -163,39 +179,39 @@ def fig4():
 # --------------------------------------------------------------------------
 # fig5 -- sensibilidade da diferenca contra a tabela empirica
 # --------------------------------------------------------------------------
-def _serie(V, beta, pi):
-    R = [L for L in V if round(float(L["beta"]), 4) == beta and round(float(L["pi"]), 4) == pi]
-    por_braco = {}
-    for b in ("RULE_CNT", "LOOKUP", "A", "B", "C"):
-        d = sorted((L for L in R if L["braco"] == b), key=lambda L: float(L["f_base"]))
-        por_braco[b] = (np.array([float(L["f_base"]) for L in d]),
-                        np.array([float(L["prec_media"]) for L in d]))
-    return por_braco
+def _serie(df, beta, pi):
+    sub = df[np.isclose(df["beta"], beta) & np.isclose(df["pi"], pi)]
+    return sub.sort_values("f_base")
 
 
 def fig5():
     V = ler("varredura.csv")
+    df = pd.DataFrame(V)
+    for col in ("f_base", "beta", "pi", "prec_media"):
+        df[col] = df[col].astype(float)
+
     fig, axes = plt.subplots(2, 4, figsize=(18.0, 8.6), sharex=True, sharey=True)
 
     def painel(ax, beta, pi, titulo):
-        S = _serie(V, beta, pi)
-        base = S["LOOKUP"][1]
-        ax.axhline(0, color=COR["LOOKUP"], lw=2.4, ls="-.")
+        sub = _serie(df, beta, pi)
+        base = sub[sub["braco"] == "LOOKUP"].set_index("f_base")["prec_media"]
+        ax.axhline(0, color=COR["LOOKUP"], lw=LARGURA["LOOKUP"], ls="-.")
         for b in ("RULE_CNT", "A", "B", "C"):
-            x, prec = S[b]
-            ax.plot(x, (prec - base) * 100, ESTILO[b], color=COR[b], lw=2.2)
+            d = sub[sub["braco"] == b].set_index("f_base")
+            diff = (d["prec_media"] - base) * 100
+            linha(ax, diff.index, diff.values, b)
         ax.set_title(titulo, fontsize=13)
-        ax.grid(alpha=0.25)
+        sns.despine(ax=ax, left=True)
         # Recorte: sem ele o unico ponto extremo da regra por contagem
         # (pi=0,10 e ruido=0,01: -9,1 p.p.) achata todos os demais paineis.
         ax.set_ylim(-4.6, 3.4)
         for b in ("RULE_CNT", "A", "B", "C"):
-            x, prec = S[b]
-            d = (prec - base) * 100
-            fora = d < -4.6
-            if fora.any():
+            d = sub[sub["braco"] == b].set_index("f_base")
+            diff = (d["prec_media"] - base) * 100
+            fora = diff[diff < -4.6]
+            if len(fora):
                 ax.annotate(f"{ROTULO[b]}: "
-                            + f"{d[fora].min():.1f}".replace("-", "−").replace(".", ",")
+                            + f"{fora.min():.1f}".replace("-", "−").replace(".", ",")
                             + " p.p. fora de escala",
                             xy=(0.03, 0.04), xycoords="axes fraction", fontsize=9.5,
                             color=COR[b])
@@ -212,7 +228,7 @@ def fig5():
     axes[1, 0].set_ylabel("Diferença contra a\ntabela empírica (p.p.)")
     for j in range(4):
         axes[1, j].set_xlabel("Ruído da evidência")
-    handles = [plt.Line2D([], [], color=COR[b], ls=ESTILO[b], lw=2.4, label=ROTULO[b])
+    handles = [plt.Line2D([], [], color=COR[b], lw=LARGURA[b], label=ROTULO[b])
                for b in ("LOOKUP", "RULE_CNT", "A", "B", "C")]
     fig.legend(handles=handles, frameon=False, ncol=5, loc="lower center",
                bbox_to_anchor=(0.5, -0.055), fontsize=12.5)

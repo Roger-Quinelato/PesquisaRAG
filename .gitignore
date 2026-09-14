@@ -14,3 +14,7 @@ relatorios/*.docx
 
 # Temporarios de Office
 ~$*
+
+.tlc/harness/state/
+.cursor/hooks.json
+.claude/settings.json
