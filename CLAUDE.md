@@ -24,7 +24,12 @@ figura e mensagens de commit.
   openpyxl, use `zipfile` + `xml.etree.ElementTree` sobre `xl/workbook.xml`,
   `xl/sharedStrings.xml` e `xl/worksheets/sheetN.xml`.
 - Repositório git inicializado, branch `main`. `resultados/` e `figuras/` são ignorados por
-  serem regeneráveis; `*.csv` tem `-text` no `.gitattributes` para preservar BOM e CRLF.
+  serem regeneráveis, exceto as figuras do pôster (`figuras/poster_*.png` e
+  `figuras/fig4_heatmap_beta_pi.png`), versionadas porque o README as exibe. `*.csv` tem
+  `-text` no `.gitattributes` para preservar BOM e CRLF.
+- Datasets, planilha, artigos em PDF, resumos de congresso, roteiro, parecer, `.claude/` e
+  `.tlc/` ficam **só na máquina local** (estão no `.gitignore`). Marcados com *(local)* na
+  tabela de Arquivos.
 
 ## Comandos
 
@@ -65,22 +70,23 @@ python -c "import fitz; d=fitz.open(r'C:\Pesquisa_RAG\Proposta_PIDTI_RAG_Bayesia
 
 | Arquivo | Conteúdo |
 |---|---|
-| `dataset_sintetico_v2.csv` | **Dataset em uso.** 5.000 casos, `fraude_latente` separada das evidências observáveis — divergem em 41,5% das linhas |
-| `dataset_sintetico_500_casos.csv` | **Legado, defeituoso.** Ver "Dataset legado" abaixo. Não usar para comparar abordagens |
+| `dataset_sintetico_v2.csv` *(local)* | **Dataset em uso.** 5.000 casos, `fraude_latente` separada das evidências observáveis — divergem em 41,5% das linhas. Regenerável com `exportar_dataset.py` |
+| `dataset_sintetico_500_casos.csv` *(local)* | **Legado, defeituoso.** Ver "Dataset legado" abaixo. Não usar para comparar abordagens |
 | `Proposta_PIDTI_RAG_Bayesiano2.pdf` | Proposta PIDTI: hipóteses H1–H3, arquitetura em 4 camadas, cronograma, referências |
-| `fontes_oficiais.csv` | 7 fontes oficiais (Receita Federal, Geoportal/SEDUH, BCB/SCR) com URL e uso pretendido |
-| `base_paper_rag_bayesiano.xlsx` | 4 abas: `Fontes Oficiais`, `Dataset Sintetico`, `Schema`, `Experimento` (desenho original em 7 etapas, parcialmente superado) |
-| `Resumo Congresso IC UnB - Modelo Preditivo.md` | Resumo de IC anterior (projeto de dengue). **É o modelo de formato e de registro** para qualquer resumo novo |
-| `Resumo Congresso IC UnB - RAG Bayesiano.md` | Resumo desta pesquisa |
-| `README.md` | Escopo do short paper e restrições de uso |
+| `fontes_oficiais.csv` *(local)* | 7 fontes oficiais (Receita Federal, Geoportal/SEDUH, BCB/SCR) com URL e uso pretendido |
+| `base_paper_rag_bayesiano.xlsx` *(local)* | 4 abas: `Fontes Oficiais`, `Dataset Sintetico`, `Schema`, `Experimento` (desenho original em 7 etapas, parcialmente superado) |
+| `Resumo Congresso IC UnB - Modelo Preditivo.md` *(local)* | Resumo de IC anterior (projeto de dengue). **É o modelo de formato e de registro** para qualquer resumo novo |
+| `Resumo Congresso IC UnB - RAG Bayesiano.md` *(local)* | Resumo desta pesquisa |
+| `README.md` | Apresentação da pesquisa com as figuras do pôster, reprodução e restrições de uso |
 
 ## Experimento
 
 `experimento/` — `gerador.py` (mecanismo causal), `bracos.py` (as seis abordagens),
 `metricas.py` (Brier, ECE, precisão@top-k, FPR por RA), `varredura.py`, `equidade.py`,
-`figuras.py`, `exportar_dataset.py`.
+`figuras.py`, `figuras_relatorio.py`, `figuras_poster.py`, `exportar_dataset.py`.
 
-**Dependências: apenas `numpy` e `matplotlib`.** Não instalar scipy, sklearn, PyMC, SDV nem
+**Dependências:** o experimento usa **apenas `numpy`**; os scripts de figura usam `matplotlib`,
+`pandas` e `seaborn`. Não instalar scipy, sklearn, PyMC, SDV nem
 geradores baseados em GAN. Nenhum é necessário, e um gerador *ajustado a dados* destruiria a
 verificabilidade da calibração, que depende de conhecer os parâmetros verdadeiros que geraram
 os dados.

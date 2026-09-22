@@ -1,60 +1,147 @@
-# Pesquisa RAG Bayesiano — Triagem Explicável de Inconsistências Cadastrais
+# Bayes, RAs e Viés: Influência da Localidade na Triagem de Crédito
 
 Pesquisa de Iniciação Científica sobre triagem explicável de inconsistências cadastrais e
 documentais em análise de crédito no DF/RIDE, combinando recuperação de evidências (RAG),
-tipificação simbólica e inferência bayesiana. O repositório reúne a proposta PIDTI, o
-experimento de simulação causal, os dados sintéticos, os relatórios técnicos e os resumos
-submetidos a congresso.
+tipificação simbólica e inferência bayesiana. Esta etapa responde a uma pergunta anterior à
+construção do sistema: **onde o dado territorial deve entrar em um modelo bayesiano de
+triagem, no prior ou na verossimilhança?**
 
-Guia de trabalho completo (ambiente, comandos, convenções, achados verificados): `CLAUDE.md`.
+- **Coordenador:** Filipe Balduino Pires Fernandes
+- **Estudantes:** Roger Dias Quinelato e João Victor Rikio Enomoto
+- **Instituição:** Escola Superior de Engenharia, Tecnologia e Inovação (ESETI/UnDF)
+- **Apresentado em:** 32º Congresso de Iniciação Científica da UnB e 23º do Distrito Federal
+- **Apoio:** UnDF e CNPq
 
-## Arquivos principais
+> **Uso restrito a pesquisa.** Todos os dados são sintéticos. Nada neste repositório deve ser
+> usado para conceder, negar ou decidir qualquer operação real de crédito.
 
-| Arquivo/pasta | Conteúdo |
+---
+
+## A pergunta
+
+A proposta original do projeto tinha duas hipóteses em conflito. A **H3** previa calibrar o
+prior com dados territoriais locais, por serem mais informativos. A **H2** previa que o
+sistema reduziria vieses contra populações vulneráveis. Um prior condicionado à Região
+Administrativa (RA) eleva a suspeita inicial de quem mora em certas regiões antes de o caso
+ser examinado. Esta etapa transforma esse conflito em experimento.
+
+![Figura 1](figuras/poster_objetivo_onde_entra_ra.png)
+*Figura 1. Onde cada variante do modelo insere a Região Administrativa.*
+
+## Como foi feito
+
+Como a fraude é uma variável latente e não existe base pública rotulada, o estudo usa
+**simulação de um mecanismo causal**: a probabilidade verdadeira de cada caso é conhecida, o
+que permite medir calibração. A fraude tem a **mesma probabilidade (15%) nas oito RAs**, e
+essa igualdade é o controle do experimento. Das três evidências documentais (situação
+cadastral, endereço e valor declarado), só o endereço depende da região: o falso positivo
+dele cresce onde a cobertura do cadastro territorial é menor. Por isso, qualquer disparidade
+entre regiões nos resultados vem da qualidade do dado, nunca da população.
+
+![Figura 2](figuras/poster_metodologia_mecanismo.png)
+*Figura 2. Falso positivo da evidência de endereço por RA, conforme a cobertura cadastral
+(estipulada, não medida).*
+
+O sistema não concede nem nega crédito: ele ordena uma fila de revisão humana. Por isso as
+métricas são o escore de Brier, o erro de calibração esperado (ECE), a precisão nos 10% de
+casos mais suspeitos e a fração de inocentes enviados à revisão em cada RA. Foram comparadas
+seis abordagens: duas regras determinísticas, uma tabela empírica usada como teto de
+referência e três variantes bayesianas do método de Fellegi-Sunter, **A** (sem território),
+**B** (RA na verossimilhança) e **C** (RA no prior). A varredura cobriu **224 configurações**,
+cada uma com 8 repetições de 40.000 casos, com critérios de aceitação declarados antes da
+execução.
+
+## Resultados
+
+**Bayes sem território não ganha nada, e território no prior quebra a calibração.** A
+variante A empata com a tabela empírica (diferença mediana de 0,06 p.p. na precisão). A
+variante B ganha pouco: +0,67 p.p. na mediana, positivo em 213 de 224 configurações. A
+variante C piorou Brier e ECE em **224 de 224** configurações; na configuração de referência,
+o ECE vai de 0,0025 para 0,2255. O mecanismo é dupla contagem: a taxa da região que calibra o
+prior é produzida pelas mesmas evidências que depois entram na verossimilhança.
+
+![Figura 3](figuras/poster_resultados_efeito_calibracao.png)
+*Figura 3. Precisão sob orçamento contra a tabela empírica (a) e erro de calibração (b).*
+
+**A discriminação territorial aparece sem nenhuma variável demográfica.** Com a mesma taxa de
+fraude em todas as regiões, a regra por contagem envia à revisão 5,6% dos inocentes de
+Ceilândia contra 2,9% dos do Plano Piloto (correlação de −0,997 entre cobertura e falso
+positivo, repetida em 48 de 48 configurações). O prior regional amplia a diferença para 12,6%
+contra 0,5%.
+
+![Figura 4](figuras/poster_resultados_equidade.png)
+*Figura 4. Fração de inocentes enviados à revisão em cada RA, segundo a cobertura cadastral.*
+
+**Mover a RA para a verossimilhança não resolve a equidade.** A variante B atendeu ao
+critério pré-registrado em apenas 33 de 48 configurações, quando o critério exigia todas. As
+falhas se concentram em ruído baixo com gradiente territorial íngreme e em ruído alto com
+prevalência alta. O achado reprovado foi mantido com o mesmo destaque dos demais.
+
+![Figura 5](figuras/poster_resultados_robustez.png)
+*Figura 5. Fração das configurações testadas em que cada achado se sustenta.*
+
+![Figura 6](figuras/fig4_heatmap_beta_pi.png)
+*Figura 6. Onde a variante B atende ou não ao critério de equidade, por ruído, gradiente
+territorial (β) e prevalência de fraude (π). Células com borda preta não atendem.*
+
+## Conclusão
+
+A posição do dado territorial importa mais do que o uso da inferência bayesiana em si. No
+prior, degrada a calibração e concentra o falso positivo nas regiões de cadastro precário. Na
+verossimilhança, melhora um pouco a precisão, mas não resolve a equidade: a diferença entre a
+RA mais e a menos penalizada é de 1,7 p.p. em A, 5,4 p.p. em B e 8,8 p.p. em C.
+
+![Figura 7](figuras/poster_conclusao_amplitude.png)
+*Figura 7. Diferença de falso positivo entre a RA mais e a menos penalizada, por variante.*
+
+Enquanto a cobertura cadastral variar entre as RAs, qualquer sistema que use o endereço como
+evidência penalizará quem mora onde o registro é pior, inclusive os construídos para serem
+neutros. Medir e publicar essa cobertura por RA é requisito de governança.
+
+**Limitações.** É um estudo de simulação: valem as direções dos efeitos, não os tamanhos
+exatos. A cobertura cadastral por RA foi estipulada; obtê-la no Geoportal/SEDUH é o próximo
+passo. A camada de recuperação de evidências (RAG) ainda não foi integrada.
+
+---
+
+## Estrutura do repositório
+
+| Caminho | Conteúdo |
 |---|---|
-| `dataset_sintetico_v2.csv` | **Dataset em uso.** 5.000 casos com `fraude_latente` separada das evidências observáveis |
-| `dataset_sintetico_500_casos.csv` | **Legado, defeituoso** — as flags de evidência reproduzem o `ground_truth` por construção. Ver "Dataset legado" no `CLAUDE.md`. Não usar para comparar abordagens |
-| `experimento/` | `gerador.py` (mecanismo causal), `bracos.py` (seis abordagens), `metricas.py`, `varredura.py`, `equidade.py`, `figuras.py`, `exportar_dataset.py` |
-| `relatorios/` | Relatório técnico, benchmark de estado da arte, parecer do CTO, ledger de números auditados e guia das figuras |
-| `Proposta_PIDTI_RAG_Bayesiano2.pdf` | Proposta PIDTI: hipóteses H1–H3, arquitetura em 4 camadas, cronograma, referências |
-| `fontes_oficiais.csv` | 7 fontes oficiais (Receita Federal, Geoportal/SEDUH, BCB/SCR) com URL e uso pretendido |
-| `base_paper_rag_bayesiano.xlsx` | Fontes, dataset, schema e desenho experimental original (parcialmente superado pelo `experimento/`) |
-| `Resumo Congresso IC UnB - RAG Bayesiano.md` | Resumo desta pesquisa submetido a congresso |
-| `Resumo Congresso IC UnB - Modelo Preditivo.md` | Resumo de IC anterior — modelo de formato e de registro para resumos novos |
+| `experimento/` | `gerador.py` (mecanismo causal), `bracos.py` (seis abordagens), `metricas.py`, `varredura.py`, `equidade.py`, `exportar_dataset.py` e os scripts de figura (`figuras.py`, `figuras_relatorio.py`, `figuras_poster.py`) |
+| `relatorios/` | Relatório técnico, benchmark de estado da arte, ledger de números auditados, guia das figuras e tabelas de apoio |
+| `figuras/` | Figuras do pôster (as demais são regeradas pelos scripts) |
+| `Proposta_PIDTI_RAG_Bayesiano2.pdf` | Proposta do projeto: hipóteses H1 a H3, arquitetura e cronograma |
+| `CLAUDE.md` | Guia de trabalho detalhado: achados verificados, decisões metodológicas e convenções |
 
-## Reproduzir o experimento
+## Como reproduzir
 
-Determinístico por semente, ~8 minutos:
+O experimento é determinístico por semente e leva cerca de 8 minutos:
 
 ```bash
-python experimento/varredura.py && python experimento/equidade.py && python experimento/figuras.py
+pip install numpy matplotlib pandas seaborn
+python experimento/varredura.py && python experimento/equidade.py
+python experimento/figuras.py && python experimento/figuras_relatorio.py && python experimento/figuras_poster.py
 ```
 
-Dependências: apenas `numpy` e `matplotlib`. Não há build, lint nem suíte de testes — a
-verificação é a reexecução (rodar duas vezes e comparar os CSVs, que devem ser idênticos).
-Detalhes de ambiente e comandos adicionais (regerar dataset, extrair texto do PDF da proposta)
-estão em `CLAUDE.md`.
+`varredura.py` e `equidade.py` usam só `numpy` e escrevem `resultados/`; os scripts de figura
+leem `resultados/` e escrevem `figuras/`. A verificação é a reexecução: duas rodadas produzem
+CSVs e PNGs idênticos. Para gerar um dataset de casos com a fraude latente:
 
-## Principais achados verificados
+```bash
+python experimento/exportar_dataset.py 5000   # escreve dataset_sintetico_v2.csv
+```
 
-Ver `CLAUDE.md` (seção "Achados verificados") e `relatorios/ledger_numeros.md` para os números
-auditados e a grade completa de configurações. Resumo:
+## Referências principais
 
-- A variante bayesiana sem território não supera a tabela empírica de forma relevante.
-- Condicionar o *prior* à taxa observada da região é dominado em 224/224 configurações, em
-  Brier e em ECE — o mecanismo é dupla contagem (double dipping).
-- Com taxa de fraude idêntica por construção entre Regiões Administrativas e nenhuma variável
-  demográfica no modelo, a discriminação territorial emerge sozinha a partir da qualidade
-  desigual da fonte de endereço.
-- Mover a Região Administrativa para a verossimilhança melhora a acurácia de forma modesta, mas
-  **não corrige a inequidade de forma robusta** sob o critério pré-registrado.
-- Conclusão que orienta as próximas fases: enquanto a cobertura cadastral variar entre Regiões
-  Administrativas, qualquer sistema que use endereço como evidência penalizará quem mora onde o
-  registro é pior — inclusive os construídos para serem neutros. Medir e publicar a cobertura
-  cadastral por RA é requisito de governança.
+- AKPINAR, N.-J.; LIPTON, Z. C.; CHOULDECHOVA, A. The impact of differential feature
+  under-reporting on algorithmic fairness. FAccT, 2024. arXiv:2401.08788.
+- FELLEGI, I. P.; SUNTER, A. B. A theory for record linkage. *Journal of the American
+  Statistical Association*, v. 64, p. 1183-1210, 1969.
+- LEWIS, P. et al. Retrieval-augmented generation for knowledge-intensive NLP tasks. NeurIPS,
+  2020. arXiv:2005.11401.
+- TORRES, D.; CHENG, W.; HUANG, H. FinAbstain: uncertainty-calibrated multimodal RAG for
+  selective financial forecasting. arXiv:2607.24875, 2026.
 
-## Importante — uso restrito a pesquisa
-
-Todos os identificadores, empresas, endereços e valores dos datasets são **sintéticos**. Não
-use nenhum arquivo deste repositório para concessão, negação ou qualquer decisão real de
-crédito. O objetivo é exclusivamente pesquisa experimental em cenários controlados.
+A lista completa, verificada contra as fontes, está em
+`relatorios/Relatorio_Benchmark_Estado_da_Arte.md`.
