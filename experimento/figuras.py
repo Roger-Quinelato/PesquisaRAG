@@ -11,8 +11,8 @@ import seaborn as sns
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from gerador import RAS, COBERTURA  # noqa: E402
-from paleta_sns import (COR, ROTULO, LARGURA, num, eixo_ptbr,  # noqa: E402
-                        configurar_estilo, linha)
+from paleta_sns import (COR, ROTULO, LARGURA, num, eixo_ptbr, chaves_legenda,  # noqa: E402
+                        configurar_estilo, linha, TINTA_SECUNDARIA, TINTA_MUTED)
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RES, FIG = os.path.join(RAIZ, "resultados"), os.path.join(RAIZ, "figuras")
@@ -26,14 +26,6 @@ def ler(nome):
         return list(csv.DictReader(fh))
 
 
-def _legenda(ax, bracos, **kw):
-    """Legenda com ordem fixa por identidade de braço -- nunca a ordem de
-    inserção do matplotlib, que seguiria a ordem do loop de plotagem."""
-    handles = [plt.Line2D([], [], color=COR[b], lw=LARGURA[b], label=ROTULO[b])
-               for b in bracos]
-    ax.legend(handles=handles, frameon=False, **kw)
-
-
 def fig1():
     R = [L for L in ler("varredura.csv")
          if float(L["beta"]) == REF_BETA and float(L["pi"]) == REF_PI]
@@ -43,7 +35,7 @@ def fig1():
     df["ece_media"] = df["ece_media"].astype(float)
     df = df.sort_values("f_base")
 
-    fig, ax = plt.subplots(1, 3, figsize=(17.5, 5.2))
+    fig, ax = plt.subplots(1, 3, figsize=(17.5, 6.0))
 
     # Painel 1 -- utilidade sob orcamento.
     for b in ROTULO:
@@ -51,7 +43,6 @@ def fig1():
         linha(ax[0], d["f_base"], d["prec_media"], b)
     ax[0].set_ylabel("Precisão no topo 10%")
     ax[0].set_title("Utilidade da triagem sob orçamento")
-    _legenda(ax[0], ROTULO.keys(), loc="upper right")
 
     # Painel 2 -- diferenca contra a tabela empirica. Sem ele o ganho de B
     # fica escondido sob as curvas sobrepostas -- e o tamanho do efeito e' o
@@ -64,7 +55,6 @@ def fig1():
         linha(ax[1], diff.index, diff.values, b)
     ax[1].set_ylabel("Diferença contra a tabela empírica (p.p.)")
     ax[1].set_title("Tamanho do efeito — o ganho de B é modesto")
-    _legenda(ax[1], ("RULE_CNT", "A", "B", "C"), loc="upper right")
 
     # Painel 3 -- calibracao.
     for b in ("LOOKUP", "A", "B", "C"):
@@ -72,14 +62,21 @@ def fig1():
         linha(ax[2], d["f_base"], d["ece_media"], b)
     ax[2].set_ylabel("Erro de calibração esperado (ECE)")
     ax[2].set_title("Calibração — território no prior colapsa")
-    _legenda(ax[2], ("LOOKUP", "A", "B", "C"))
 
     for a in ax:
         a.set_xlabel("Ruído da evidência (taxa de falso-positivo base)")
         sns.despine(ax=a, left=True)
     eixo_ptbr(*ax)
-    fig.tight_layout()
-    fig.savefig(os.path.join(FIG, "fig1_precisao_calibracao.png"), bbox_inches="tight")
+
+    # Legenda unica, fora da area de plotagem. Uma por painel cobriria as
+    # curvas (a de C sobe ate' o canto superior direito do painel 3) e
+    # repetiria tres vezes a mesma convencao de cor, que e' fixa em toda a
+    # pesquisa. Duas linhas de tres para nao estourar a largura.
+    fig.legend(handles=chaves_legenda(ROTULO.keys()), loc="lower center", ncol=3,
+               frameon=False, bbox_to_anchor=(0.5, 0.0), columnspacing=2.4,
+               handlelength=2.8)
+    fig.tight_layout(rect=(0, 0.14, 1, 1))
+    fig.savefig(os.path.join(FIG, "fig1_precisao_calibracao.png"))
     plt.close(fig)
 
 
@@ -97,22 +94,25 @@ def fig2():
     # das figuras 1, 3 e 5 -- aqui basta a letra e o mecanismo.
     rotulo_curto = {"RULE_CNT": "Regra por contagem", "A": "A (sem território)",
                     "B": "B (verossimilhança)", "C": "C (prior)"}
-    fig, ax = plt.subplots(figsize=(9.5, 6))
+    fig, ax = plt.subplots(figsize=(12.6, 6.3))
     for b in ("RULE_CNT", "A", "B", "C"):
         r = np.corrcoef(df["cobertura"], df[b])[0, 1]
         resultado = linha(ax, df["cobertura"], df[b], b, marker="o", markersize=8)
         resultado.lines[-1].set_label(f"{rotulo_curto[b]}  (r = {num(r)})")
-    ax.legend(frameon=False, loc="upper right")
+    # Fora da area de plotagem: dentro dela a caixa cobre o topo da curva de
+    # C, que e' justamente o ponto da figura (Ceilandia no extremo alto).
+    ax.legend(frameon=False, loc="upper left", bbox_to_anchor=(1.015, 1.0),
+              handlelength=2.8, borderaxespad=0)
 
     for _, row in df.iterrows():
         if row["ra"] == "Ceilândia":
             ax.annotate(row["ra"], (row["cobertura"], row["C"]),
                         textcoords="offset points", xytext=(14, -4),
-                        ha="left", fontsize=11, color=COR["LOOKUP"])
+                        ha="left", fontsize=11, color=TINTA_SECUNDARIA)
         elif row["ra"] == "Plano Piloto":
             ax.annotate(row["ra"], (row["cobertura"], row["C"]),
                         textcoords="offset points", xytext=(-6, 12),
-                        ha="right", fontsize=11, color=COR["LOOKUP"])
+                        ha="right", fontsize=11, color=TINTA_SECUNDARIA)
 
     ax.set_xlabel("Cobertura do cadastro territorial da Região Administrativa (%)")
     ax.set_ylabel("Inocentes enviados à revisão (%)")
@@ -121,16 +121,19 @@ def fig2():
     ax.margins(y=0.12)
     sns.despine(ax=ax, left=True)
     eixo_ptbr(ax)
-    # Ressalva obrigatoria: a inversao de sinal de B NAO e' robusta.
-    ax.text(0.0, -0.20,
-            "Configuração de referência (β = 0,55; π = 0,15; ruído = 0,16). "
-            "A correlação negativa em A e C se mantém em 48/48 configurações;\n"
-            "a inversão estrita de sinal em B ocorre em apenas 30/48 (o critério "
-            "pré-registrado, mais tolerante, é atendido em 33/48), falhando sob "
-            "ruído baixo com gradiente íngreme e sob ruído alto com prevalência alta.",
-            transform=ax.transAxes, fontsize=10, color=COR["LOOKUP"], va="top")
-    fig.tight_layout()
-    fig.savefig(os.path.join(FIG, "fig2_equidade_territorial.png"), bbox_inches="tight")
+    # Ressalva obrigatoria: a inversao de sinal de B NAO e' robusta. Quebrada
+    # a mao e ancorada na figura: uma linha unica em coordenadas do eixo
+    # estourava a tela e, com bbox_inches="tight", esmagava o grafico.
+    fig.text(0.07, 0.025,
+             "Configuração de referência (β = 0,55; π = 0,15; ruído = 0,16). "
+             "A correlação negativa em A e C se mantém em 48/48 configurações;\n"
+             "a inversão estrita de sinal em B ocorre em apenas 30/48 (o critério "
+             "pré-registrado, mais tolerante, é atendido em 33/48),\n"
+             "falhando sob ruído baixo com gradiente íngreme e sob ruído alto com "
+             "prevalência alta.",
+             fontsize=10, color=TINTA_MUTED, va="bottom", linespacing=1.5)
+    fig.subplots_adjust(left=0.07, right=0.66, top=0.86, bottom=0.27)
+    fig.savefig(os.path.join(FIG, "fig2_equidade_territorial.png"))
     plt.close(fig)
 
 

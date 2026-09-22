@@ -24,6 +24,7 @@ de matiz -- a mesma convenção que separa "dado" de "anotação".
 """
 import numpy as np
 import seaborn as sns
+from matplotlib.lines import Line2D
 from matplotlib.ticker import FuncFormatter
 from matplotlib.colors import LinearSegmentedColormap
 
@@ -133,6 +134,20 @@ def configurar_estilo():
         "figure.facecolor": "white",
     })
     sns.set_palette([AZUL, LARANJA, AGUA, VERMELHO])
+
+
+def chaves_legenda(bracos, rotulos=None, **kw):
+    """Chaves de legenda em ordem fixa por identidade de braço -- nunca a
+    ordem de inserção do matplotlib. O traço vai na chave: uma chave sólida
+    para uma curva tracejada faz o leitor procurar a série errada."""
+    rotulos = rotulos or ROTULO
+    saida = []
+    for b in bracos:
+        h = Line2D([], [], color=COR[b], lw=LARGURA[b], label=rotulos[b], **kw)
+        if TRACO[b]:
+            h.set_dashes(TRACO[b])
+        saida.append(h)
+    return saida
 
 
 def linha(ax, x, y, braco, **kw):
