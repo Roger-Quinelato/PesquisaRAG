@@ -5,8 +5,11 @@ __pycache__/
 venv/
 
 # Saidas regeneraveis pelo codigo
-figuras/*.png
 resultados/*.csv
+figuras/*.png
+# ...exceto as figuras do poster, exibidas no README
+!figuras/poster_*.png
+!figuras/fig4_heatmap_beta_pi.png
 
 # DOCX derivado do .md por experimento/gerar_docx.py -- o .md e' a fonte da verdade.
 # Para fixar em commit a versao exatamente submetida:  git add -f relatorios/*.docx
@@ -15,6 +18,20 @@ relatorios/*.docx
 # Temporarios de Office
 ~$*
 
-.tlc/harness/state/
-.cursor/hooks.json
-.claude/settings.json
+# Configuracao local de ferramentas de IA
+.claude/
+.tlc/
+.cursor/
+
+# Bases, datasets e artigos de apoio (ficam so na maquina local).
+# dataset_sintetico_v2.csv e' regeneravel: python experimento/exportar_dataset.py 5000
+*.xlsx
+dataset_sintetico_*.csv
+fontes_oficiais.csv
+2104.07440v1.pdf
+2509.09855v1.pdf
+
+# Documentos de congresso (resumos, roteiro, parecer interno)
+Resumo Congresso*.md
+relatorios/Roteiro_Apresentacao*.md
+relatorios/PARECER_CTO.md
