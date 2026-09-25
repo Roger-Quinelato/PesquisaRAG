@@ -35,7 +35,7 @@ figura e mensagens de commit.
 
 ## Comandos
 
-Reproduzir o experimento inteiro (determinístico por semente; ~8 min):
+Reproduzir o experimento inteiro (determinístico por semente; ~50 min com os braços treinados):
 
 ```bash
 python experimento/varredura.py && python experimento/equidade.py && python experimento/figuras.py
@@ -198,6 +198,40 @@ disparidade de forma robusta; (vi) ganho de precisão de `E_ML` sobre `LOOKUP` m
   contra 0,0023 de `A`; Brier 0,096–0,101 contra 0,069. Os scores saem comprimidos em torno de
   0,5. Para triagem que exige probabilidade interpretável, o AdaBoost precisaria de calibração
   posterior (Platt ou isotônica), o que seria um experimento novo, não feito.
+
+### A/B/C em `BernoulliNB` e braços Naive Bayes treinados (A_NB, B_NB, C_NB) — scikit-learn 1.9.1
+
+Com A/B/C reescritos em `BernoulliNB` com parâmetros injetados, `prec_*`, FPR por RA e
+`equidade.csv` saíram **bit a bit idênticos** à rodada anterior, e Brier/ECE diferem no máximo
+2,2e−16. RULE_OR, RULE_CNT, LOOKUP e os três AdaBoost também ficaram idênticos. Os vereditos (i) a
+(vi) não mudaram. Critérios declarados antes de rodar: (vii) ECE mediano de `A_NB` < 0,01;
+(viii) `C_NB` pior que `A_NB` em Brier e ECE em no máximo metade das configurações; (ix) `B_NB`
+sem corrigir a disparidade de forma robusta; (x) `B_NB` supera `LOOKUP` em mais de 112/224.
+
+- **(vii) passa.** ECE mediano de `A_NB` = **0,0031** (A: 0,0023), Brier 0,0689 (A: 0,0692). O
+  Naive Bayes treinado é calibrado, ao contrário do AdaBoost. `A_NB − LOOKUP` tem mediana de
+  **−0,069 p.p.** (positiva em 82/224) e corr < 0 em **48/48**: replica os dois achados centrais,
+  como `D_ML`.
+- **(viii) reprovado pelo critério, mas não pela dupla contagem.** `C_NB` é pior que `A_NB` em
+  Brier em **224/224** e em ECE em **203/224**. A magnitude, porém, é três ordens menor que a de
+  C: mediana de `C_NB − A_NB` = **+0,0003** no ECE e +0,00003 no Brier, contra **+0,29** e +0,11
+  de `C − A`. Como a fraude é igual em todas as RAs, qualquer prior por RA estimado do rótulo
+  é só ruído de estimação (~2.500 casos de treino por RA), e é esse ruído que piora `C_NB`. O
+  critério foi escrito como "no máximo metade" e reprovou; a leitura correta é que prior
+  regional estimado do rótulo custa pouco, e prior estimado das evidências (C) custa muito.
+  Não citar (viii) como "prior regional é inofensivo": ele é dominado, só que por pouco.
+- **(ix) passa: `B_NB` não corrige de forma robusta.** Atende corr ≥ −0,10 em **36/48** (B 33/48,
+  `E_ML` 40/48); inversão estrita em 35/48; corr < −0,5 em 9/48. Amplitude mediana **0,0355**,
+  1,9× a de `A_NB` (0,0183). Como B, inverte a disparidade em vez de eliminá-la: na referência,
+  Plano Piloto 5,98% contra Ceilândia 2,83%.
+- **(x) passa.** `B_NB − LOOKUP` tem mediana de **+0,432 p.p.** (mín −0,518; máx +2,731; positiva
+  em **184/224**), contra +0,673 de B (oráculo) e +0,067 de `E_ML`. `B_NB` supera B em 41/224.
+  Com a estrutura certa (verossimilhança por RA), aprender o efeito da RA do rótulo recupera
+  cerca de dois terços do ganho do oráculo; o AdaBoost com RA one-hot recupera cerca de um
+  décimo. Como B, o ganho é de ordenação: `B_NB` tem Brier menor que `A_NB` em 207/224, mas ECE
+  maior em 223/224.
+- `C_NB` tem corr < 0 em **48/48** (mediana −0,508, amplitude 0,0252): herda a disparidade de
+  `A_NB`, com o ruído dos priors por RA diluindo a correlação.
 
 ## Decisões metodológicas vigentes
 
