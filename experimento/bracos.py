@@ -9,23 +9,40 @@ A         Fellegi-Sunter com FPR global: RA ignorada
 B         RA na VEROSSIMILHANCA: FPR de endereco especifico da regiao
 C         RA no PRIOR: prior calibrado na taxa de inconsistencia observada
           da regiao -- o padrao que produz redlining
+
+A, B e C sao Fellegi-Sunter: prior em log-odds mais a soma das log-razoes de
+verossimilhanca por evidencia. Isso e' exatamente um Naive Bayes de Bernoulli
+com parametros conhecidos, entao sao escritos com o BernoulliNB do
+scikit-learn, com os parametros do gerador injetados em vez de ajustados. Nao
+ha treino: nenhum deles usa o rotulo F. Em relacao a formula direta em numpy,
+os scores diferem so no arredondamento (~1e-16), e a ordenacao nao muda.
 """
 import numpy as np
+from sklearn.naive_bayes import BernoulliNB
 
 BRACOS = ("RULE_OR", "RULE_CNT", "LOOKUP", "A", "B", "C")
 EPS = 1e-9
 
 
-def _sigmoid(x):
-    return 1.0 / (1.0 + np.exp(-x))
+def _nb_fixo(sens, fpr, prior):
+    """BernoulliNB com parametros dados, sem fit. Classe 0 = sem fraude
+    (P(E_j=1) = fpr_j), classe 1 = fraude (P(E_j=1) = sens_j)."""
+    nb = BernoulliNB(binarize=None)
+    nb.classes_ = np.array([0, 1])
+    nb.class_log_prior_ = np.log([1 - prior, prior])
+    nb.feature_log_prob_ = np.log(np.clip(np.vstack([fpr, sens]), EPS, 1 - EPS))
+    nb.n_features_in_ = len(sens)
+    return nb
 
 
-def log_lr(E, sens, fpr):
-    """Soma dos log da razao de verossimilhanca por evidencia.
-    Presente -> log(s/f); ausente -> log((1-s)/(1-f))."""
-    s = np.clip(np.broadcast_to(sens, E.shape), EPS, 1 - EPS)
-    f = np.clip(np.broadcast_to(fpr, E.shape), EPS, 1 - EPS)
-    return np.where(E == 1, np.log(s / f), np.log((1 - s) / (1 - f))).sum(axis=1)
+def _por_ra(E, ra, n_ras, modelo_da_ra):
+    """P(F=1|E) com um modelo por RA, aplicado so aos casos daquela RA."""
+    out = np.empty(len(E), dtype=float)
+    for r in range(n_ras):
+        m = ra == r
+        if m.any():
+            out[m] = modelo_da_ra(r).predict_proba(E[m])[:, 1]
+    return out
 
 
 def lookup(E, F):
@@ -45,19 +62,21 @@ def calcular(ra, F, E, f_true, params):
     """Retorna {nome_do_braco: score em [0,1]}."""
     sens = params.sens_arr
     f_glob = params.fpr_global()
-    log_prior = np.log(params.pi / (1 - params.pi))
+    n_ras = len(params.cobertura)
 
     observado = E.max(axis=1)
     taxa_ra = np.array([observado[ra == r].mean() if (ra == r).any() else params.pi
-                        for r in range(len(params.cobertura))])
+                        for r in range(n_ras)])
     taxa_ra = np.clip(taxa_ra, 0.01, 0.99)
-    prior_c = taxa_ra[ra]
 
+    # f_true so varia com a RA do caso, entao B e' um modelo por RA com o FPR
+    # verdadeiro daquela regiao; C e' um modelo por RA com o prior taxa_ra[r].
     return {
         "RULE_OR":  observado.astype(float),
         "RULE_CNT": E.sum(axis=1) / 3.0,
         "LOOKUP":   lookup(E, F),
-        "A": _sigmoid(log_prior + log_lr(E, sens, f_glob)),
-        "B": _sigmoid(log_prior + log_lr(E, sens, f_true)),
-        "C": _sigmoid(np.log(prior_c / (1 - prior_c)) + log_lr(E, sens, f_glob)),
+        "A": _nb_fixo(sens, f_glob, params.pi).predict_proba(E)[:, 1],
+        "B": _por_ra(E, ra, n_ras,
+                     lambda r: _nb_fixo(sens, params.fpr_por_ra(np.array([r]))[0], params.pi)),
+        "C": _por_ra(E, ra, n_ras, lambda r: _nb_fixo(sens, f_glob, taxa_ra[r])),
     }
