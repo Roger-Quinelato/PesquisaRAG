@@ -20,7 +20,9 @@ figura e mensagens de commit.
   **`python` não fica acessível pelo Bash** — use PowerShell para executar scripts.
 - Instalado: `numpy` 2.5.0, `matplotlib` 3.11.0, `pandas` 3.0.3, `pymupdf` (`fitz`) 1.27,
   `pypdf` 6.13, `pdfplumber` 0.11.
-- **Ausentes:** `openpyxl`, `scipy`, `sklearn`, `pymc`, `faker`. Para ler o `.xlsx` sem
+- **Precisa instalar** para rodar `varredura.py`/`equidade.py`: `scikit-learn` (testado com
+  1.9.1), usado só por `experimento/bracos_ml.py`.
+- **Ausentes:** `openpyxl`, `scipy`, `pymc`, `faker`. Para ler o `.xlsx` sem
   openpyxl, use `zipfile` + `xml.etree.ElementTree` sobre `xl/workbook.xml`,
   `xl/sharedStrings.xml` e `xl/worksheets/sheetN.xml`.
 - Repositório git inicializado, branch `main`. `resultados/` e `figuras/` são ignorados por
@@ -81,15 +83,17 @@ python -c "import fitz; d=fitz.open(r'C:\Pesquisa_RAG\Proposta_PIDTI_RAG_Bayesia
 
 ## Experimento
 
-`experimento/` — `gerador.py` (mecanismo causal), `bracos.py` (as seis abordagens),
-`metricas.py` (Brier, ECE, precisão@top-k, FPR por RA), `varredura.py`, `equidade.py`,
-`figuras.py`, `figuras_relatorio.py`, `figuras_poster.py`, `exportar_dataset.py`.
+`experimento/` — `gerador.py` (mecanismo causal), `bracos.py` (as seis abordagens fechadas),
+`bracos_ml.py` (os três braços AdaBoost), `metricas.py` (Brier, ECE, precisão@top-k, FPR por
+RA), `varredura.py`, `equidade.py`, `figuras.py`, `figuras_relatorio.py`, `figuras_poster.py`,
+`exportar_dataset.py`.
 
-**Dependências:** o experimento usa **apenas `numpy`**; os scripts de figura usam `matplotlib`,
-`pandas` e `seaborn`. Não instalar scipy, sklearn, PyMC, SDV nem
-geradores baseados em GAN. Nenhum é necessário, e um gerador *ajustado a dados* destruiria a
-verificabilidade da calibração, que depende de conhecer os parâmetros verdadeiros que geraram
-os dados.
+**Dependências:** o núcleo (`gerador.py`, `bracos.py`, `metricas.py`) usa **apenas `numpy`**.
+**Exceção isolada:** `bracos_ml.py` depende de `scikit-learn`, decisão do autor para os braços
+AdaBoost; nenhum outro módulo do experimento pode importá-lo. Os scripts de figura usam
+`matplotlib`, `pandas` e `seaborn`. Continua proibido instalar scipy, PyMC, SDV ou geradores
+baseados em GAN: um gerador *ajustado a dados* destruiria a verificabilidade da calibração, que
+depende de conhecer os parâmetros verdadeiros que geraram os dados.
 
 O gerador especifica um processo causal explícito: fraude latente `F` com probabilidade
 **idêntica em todas as RAs** (é o controle do experimento), três evidências ruidosas geradas a
@@ -97,9 +101,26 @@ partir de `F`, e a taxa de falso-positivo da evidência de *endereço* crescendo
 do cadastro territorial é baixa. Como a taxa de fraude é igual por construção, **qualquer
 disparidade territorial nos resultados é artefato da qualidade da fonte, nunca da população.**
 
-Seis braços: `RULE_OR` (binária), `RULE_CNT` (contagem), `LOOKUP` (tabela empírica — teto não
-paramétrico sem território), `A` (Fellegi-Sunter, RA ignorada), `B` (RA na verossimilhança),
-`C` (RA no prior).
+Seis braços fechados: `RULE_OR` (binária), `RULE_CNT` (contagem), `LOOKUP` (tabela empírica —
+teto não paramétrico sem território), `A` (Fellegi-Sunter, RA ignorada), `B` (RA na
+verossimilhança), `C` (RA no prior).
+
+Três braços AdaBoost (`bracos_ml.py`), que repetem o eixo "onde a RA entra": `D_ML` (RA ausente,
+como A), `E_ML` (RA one-hot como feature, como B) e `F_ML` (taxa de inconsistência da RA como
+feature, como C). Diferenças que precisam ser declaradas sempre que forem comparados aos seis:
+
+- São **treinados** com split 50/50 dentro de cada configuração e avaliados **só no teste**:
+  N efetivo ≈ 20.000 (coluna `n_efetivo` de `varredura.csv`), contra 40.000 dos fechados.
+  `LOOKUP` é ajustado e avaliado na mesma amostra; uma vitória de `E_ML` sobre ele é "no pior
+  caso para `E_ML`".
+- `E_ML` recebe só a identidade da RA; `B` recebe o FPR verdadeiro do gerador (oráculo).
+- `taxa_ra` de `F_ML` é estimada só no treino.
+- `predict_proba` do AdaBoost fica em [0,1], mas **não é calibração**: os scores saem
+  comprimidos em torno de 0,5, e o ECE deles mede sobretudo a forma do score do boosting.
+- Hiperparâmetros fixos e pré-registrados (100 stumps, taxa de aprendizado 1,0), nunca ajustados.
+- Os resultados dependem da versão do scikit-learn; o núcleo numpy não.
+- A ordem de consumo do `rng` é fixa: os seis fechados primeiro, depois o bloco ML. Mudar essa
+  ordem altera os números dos braços fechados.
 
 ## Achados verificados
 

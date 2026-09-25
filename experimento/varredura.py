@@ -14,7 +14,10 @@ import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from gerador import Params, gerar, RAS, COBERTURA          # noqa: E402
 from bracos import BRACOS, calcular                        # noqa: E402
+from bracos_ml import BRACOS_ML, calcular_ml               # noqa: E402
 from metricas import brier, ece, precisao_topk, fpr_por_ra  # noqa: E402
+
+TODOS = BRACOS + BRACOS_ML
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SAIDA = os.path.join(RAIZ, "resultados")
@@ -40,8 +43,20 @@ def uma_config(f_base, beta, pi, semente):
     for nome, s in scores.items():
         p = np.clip(s, 0.0, 1.0)
         prec, sel = precisao_topk(s, F, K, rng)
-        linha[nome] = {"prec": prec, "brier": brier(p, F), "ece": ece(p, F)}
+        linha[nome] = {"prec": prec, "brier": brier(p, F), "ece": ece(p, F), "n": N}
         fpr[nome] = fpr_por_ra(sel, ra, F, N, len(RAS))
+
+    # Bracos treinados: estritamente depois dos seis fechados, para nao mudar
+    # a sequencia do rng que eles consomem. `sel` aqui indexa o subconjunto
+    # de teste, nunca os N casos completos.
+    scores_ml, idx_teste = calcular_ml(ra, F, E, params, rng)
+    F_t, ra_t, n_t = F[idx_teste], ra[idx_teste], len(idx_teste)
+    for nome in BRACOS_ML:
+        s = scores_ml[nome]
+        p = np.clip(s, 0.0, 1.0)
+        prec, sel = precisao_topk(s, F_t, K, rng)
+        linha[nome] = {"prec": prec, "brier": brier(p, F_t), "ece": ece(p, F_t), "n": n_t}
+        fpr[nome] = fpr_por_ra(sel, ra_t, F_t, n_t, len(RAS))
     return linha, fpr
 
 
@@ -50,22 +65,24 @@ def main():
     combos = list(itertools.product(GRADE_RUIDO, GRADE_BETA, GRADE_PI))
     print(f"{len(combos)} configuracoes x {len(list(SEMENTES))} sementes x {N:,} casos")
 
-    linhas, fpr_ref = [], {b: [] for b in BRACOS}
+    linhas, fpr_ref = [], {b: [] for b in TODOS}
     for i, (f_base, beta, pi) in enumerate(combos, 1):
-        acumulado = {b: {m: [] for m in ("prec", "brier", "ece")} for b in BRACOS}
+        acumulado = {b: {m: [] for m in ("prec", "brier", "ece", "n")} for b in TODOS}
         for semente in SEMENTES:
             res, fpr = uma_config(f_base, beta, pi, semente)
-            for b in BRACOS:
-                for m in ("prec", "brier", "ece"):
+            for b in TODOS:
+                for m in ("prec", "brier", "ece", "n"):
                     acumulado[b][m].append(res[b][m])
                 if (round(beta, 4) == REF_BETA and round(pi, 4) == REF_PI
                         and abs(f_base - REF_RUIDO) < 1e-6):
                     fpr_ref[b].append(fpr[b])
-        for b in BRACOS:
+        for b in TODOS:
             linhas.append({
                 "f_base": f_base, "beta": beta, "pi": pi, "braco": b,
                 **{f"{m}_media": float(np.mean(acumulado[b][m])) for m in ("prec", "brier", "ece")},
                 **{f"{m}_dp": float(np.std(acumulado[b][m])) for m in ("prec", "brier", "ece")},
+                # Os bracos treinados sao avaliados so no teste: N menor, mais variancia.
+                "n_efetivo": float(np.mean(acumulado[b]["n"])),
             })
         if i % 28 == 0:
             print(f"  {i}/{len(combos)}")
@@ -80,10 +97,10 @@ def main():
     cam2 = os.path.join(SAIDA, "fpr_por_ra.csv")
     with open(cam2, "w", newline="", encoding="utf-8") as fh:
         w = csv.writer(fh)
-        w.writerow(["ra", "cobertura"] + list(BRACOS))
-        medias = {b: np.mean(fpr_ref[b], axis=0) for b in BRACOS}
+        w.writerow(["ra", "cobertura"] + list(TODOS))
+        medias = {b: np.mean(fpr_ref[b], axis=0) for b in TODOS}
         for r, nome in enumerate(RAS):
-            w.writerow([nome, COBERTURA[r]] + [f"{medias[b][r]:.6f}" for b in BRACOS])
+            w.writerow([nome, COBERTURA[r]] + [f"{medias[b][r]:.6f}" for b in TODOS])
     print(f"-> {cam2}")
 
     verificar(linhas, medias)
@@ -121,6 +138,36 @@ def verificar(linhas, medias_fpr):
     b_vence = sum(1 for v in idx.values()
                   if v["B"]["prec_media"] > max(v["A"]["prec_media"], v["LOOKUP"]["prec_media"]))
     print(f"\n(iii) B supera A e LOOKUP em precisao@10%: {b_vence}/{len(idx)} configuracoes")
+
+    # --- Bracos AdaBoost (D_ML/E_ML/F_ML), criterios declarados antes de rodar ---
+    # (a) um classificador discriminativo tambem falha na equidade sem dado de RA
+    #     de qualidade; (b) o ganho de precisao dele sobre LOOKUP supera o de B.
+    print("\n" + "-" * 66)
+    print("BRACOS ADABOOST (avaliados so no teste: N ~ metade)")
+    print("-" * 66)
+    f_brier = [k for k, v in idx.items()
+               if not (v["F_ML"]["brier_media"] > v["D_ML"]["brier_media"])]
+    f_ece = [k for k, v in idx.items()
+             if not (v["F_ML"]["ece_media"] > v["D_ML"]["ece_media"])]
+    print(f"(iv) F_ML pior que D_ML em Brier: {len(idx)-len(f_brier)}/{len(idx)} "
+          f"-> {'PASSA' if not f_brier else 'FALHA'}")
+    print(f"     F_ML pior que D_ML em ECE  : {len(idx)-len(f_ece)}/{len(idx)} "
+          f"-> {'PASSA' if not f_ece else 'FALHA'}")
+
+    c_f = np.corrcoef(COBERTURA, medias_fpr["F_ML"])[0, 1]
+    c_e = np.corrcoef(COBERTURA, medias_fpr["E_ML"])[0, 1]
+    print(f"\n(v)  corr(cobertura, FPR entre inocentes) na config de referencia:")
+    print(f"       F_ML = {c_f:+.3f}  (esperado NEGATIVO)       "
+          f"-> {'PASSA' if c_f < -0.5 else 'FALHA'}")
+    print(f"       E_ML = {c_e:+.3f}  (hipotese: nao corrige)  "
+          f"-> {'PASSA' if c_e < -0.1 else 'FALHA'}  (grade inteira: equidade.py)")
+
+    ganho_e = np.median([v["E_ML"]["prec_media"] - v["LOOKUP"]["prec_media"] for v in idx.values()])
+    ganho_b = np.median([v["B"]["prec_media"] - v["LOOKUP"]["prec_media"] for v in idx.values()])
+    print(f"\n(vi) mediana do ganho de precisao@10% sobre LOOKUP:")
+    print(f"       E_ML = {100*ganho_e:+.3f} p.p.   B = {100*ganho_b:+.3f} p.p.  "
+          f"-> {'PASSA' if ganho_e > ganho_b else 'FALHA'}")
+    print("       (E_ML fora da amostra; LOOKUP e B na propria amostra)")
 
 
 if __name__ == "__main__":
