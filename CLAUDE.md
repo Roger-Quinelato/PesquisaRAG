@@ -20,9 +20,9 @@ figura e mensagens de commit.
   **`python` não fica acessível pelo Bash** — use PowerShell para executar scripts.
 - Instalado: `numpy` 2.5.0, `matplotlib` 3.11.0, `pandas` 3.0.3, `pymupdf` (`fitz`) 1.27,
   `pypdf` 6.13, `pdfplumber` 0.11.
-- **Precisa instalar** para rodar `varredura.py`/`equidade.py`: `scikit-learn` (testado com
-  1.9.1), usado só por `experimento/bracos_ml.py`.
-- **Ausentes:** `openpyxl`, `scipy`, `pymc`, `faker`. Para ler o `.xlsx` sem
+- **Precisa instalar** para rodar o experimento: `scikit-learn` (testado com 1.9.1), que traz
+  o `scipy` como dependência.
+- **Ausentes:** `openpyxl`, `pymc`, `faker`. Para ler o `.xlsx` sem
   openpyxl, use `zipfile` + `xml.etree.ElementTree` sobre `xl/workbook.xml`,
   `xl/sharedStrings.xml` e `xl/worksheets/sheetN.xml`.
 - Repositório git inicializado, branch `main`. `resultados/` e `figuras/` são ignorados por
@@ -84,16 +84,15 @@ python -c "import fitz; d=fitz.open(r'C:\Pesquisa_RAG\Proposta_PIDTI_RAG_Bayesia
 ## Experimento
 
 `experimento/` — `gerador.py` (mecanismo causal), `bracos.py` (as seis abordagens fechadas),
-`bracos_ml.py` (os três braços AdaBoost), `metricas.py` (Brier, ECE, precisão@top-k, FPR por
-RA), `varredura.py`, `equidade.py`, `figuras.py`, `figuras_relatorio.py`, `figuras_poster.py`,
-`exportar_dataset.py`.
+`bracos_ml.py` (os seis braços treinados: três AdaBoost e três Naive Bayes), `metricas.py`
+(Brier, ECE, precisão@top-k, FPR por RA), `varredura.py`, `equidade.py`, `figuras.py`,
+`figuras_relatorio.py`, `figuras_poster.py`, `exportar_dataset.py`.
 
-**Dependências:** o núcleo (`gerador.py`, `bracos.py`, `metricas.py`) usa **apenas `numpy`**.
-**Exceção isolada:** `bracos_ml.py` depende de `scikit-learn`, decisão do autor para os braços
-AdaBoost; nenhum outro módulo do experimento pode importá-lo. Os scripts de figura usam
-`matplotlib`, `pandas` e `seaborn`. Continua proibido instalar scipy, PyMC, SDV ou geradores
-baseados em GAN: um gerador *ajustado a dados* destruiria a verificabilidade da calibração, que
-depende de conhecer os parâmetros verdadeiros que geraram os dados.
+**Bibliotecas válidas:** no experimento, `numpy` e `scikit-learn` (com o `scipy`, que vem com
+ele); nos scripts de figura, também `matplotlib`, `pandas` e `seaborn`. **Continuam proibidos**
+SDV, geradores baseados em GAN, PyMC e qualquer gerador *ajustado a dados*: ele destruiria a
+verificabilidade da calibração, que depende de conhecer os parâmetros verdadeiros que geraram
+os dados. O gerador (`gerador.py`) continua sendo um processo causal explícito em numpy.
 
 O gerador especifica um processo causal explícito: fraude latente `F` com probabilidade
 **idêntica em todas as RAs** (é o controle do experimento), três evidências ruidosas geradas a
@@ -103,24 +102,39 @@ disparidade territorial nos resultados é artefato da qualidade da fonte, nunca 
 
 Seis braços fechados: `RULE_OR` (binária), `RULE_CNT` (contagem), `LOOKUP` (tabela empírica —
 teto não paramétrico sem território), `A` (Fellegi-Sunter, RA ignorada), `B` (RA na
-verossimilhança), `C` (RA no prior).
+verossimilhança), `C` (RA no prior). A, B e C são escritos com o `BernoulliNB` do scikit-learn
+com os parâmetros do gerador **injetados, sem treino** (Fellegi-Sunter é um Naive Bayes de
+Bernoulli com parâmetros conhecidos); B e C usam um modelo por RA. Em relação à fórmula direta
+em numpy, os scores diferem só no arredondamento (~1e−16) e a ordenação não muda.
 
-Três braços AdaBoost (`bracos_ml.py`), que repetem o eixo "onde a RA entra": `D_ML` (RA ausente,
-como A), `E_ML` (RA one-hot como feature, como B) e `F_ML` (taxa de inconsistência da RA como
-feature, como C). Diferenças que precisam ser declaradas sempre que forem comparados aos seis:
+Seis braços treinados (`bracos_ml.py`), que repetem o eixo "onde a RA entra":
 
-- São **treinados** com split 50/50 dentro de cada configuração e avaliados **só no teste**:
-  N efetivo ≈ 20.000 (coluna `n_efetivo` de `varredura.csv`), contra 40.000 dos fechados.
-  `LOOKUP` é ajustado e avaliado na mesma amostra; uma vitória de `E_ML` sobre ele é "no pior
-  caso para `E_ML`".
-- `E_ML` recebe só a identidade da RA; `B` recebe o FPR verdadeiro do gerador (oráculo).
-- `taxa_ra` de `F_ML` é estimada só no treino.
+- AdaBoost: `D_ML` (RA ausente, como A), `E_ML` (RA one-hot como feature, como B) e `F_ML`
+  (taxa de inconsistência da RA como feature, como C).
+- Naive Bayes de Bernoulli treinado: `A_NB` (RA ausente), `B_NB` (verossimilhanças por RA,
+  prior global) e `C_NB` (verossimilhanças globais, prior `P(F=1|RA)` por RA). `C_NB` difere de
+  C **de propósito**: C usa a taxa de *evidências* da RA, a única observável sem rótulo, que
+  produz a dupla contagem; `C_NB` usa a taxa de *fraude*, que só existe porque o treino tem
+  rótulo.
+
+Diferenças que precisam ser declaradas sempre que forem comparados aos seis fechados:
+
+- São **treinados** com split 50/50 dentro de cada configuração (o mesmo split para os seis) e
+  avaliados **só no teste**: N efetivo ≈ 20.000 (coluna `n_efetivo` de `varredura.csv`), contra
+  40.000 dos fechados. `LOOKUP` é ajustado e avaliado na mesma amostra; uma vitória de um braço
+  treinado sobre ele é "no pior caso para o treinado".
+- `E_ML` e `B_NB` recebem só a identidade da RA; `B` recebe o FPR verdadeiro do gerador (oráculo).
+- `taxa_ra` de `F_ML` e as taxas de `C_NB` são estimadas só no treino.
 - `predict_proba` do AdaBoost fica em [0,1], mas **não é calibração**: os scores saem
   comprimidos em torno de 0,5, e o ECE deles mede sobretudo a forma do score do boosting.
-- Hiperparâmetros fixos e pré-registrados (100 stumps, taxa de aprendizado 1,0), nunca ajustados.
-- Os resultados dependem da versão do scikit-learn; o núcleo numpy não.
-- A ordem de consumo do `rng` é fixa: os seis fechados primeiro, depois o bloco ML. Mudar essa
-  ordem altera os números dos braços fechados.
+- Hiperparâmetros fixos e pré-registrados, nunca ajustados: AdaBoost com 100 stumps e taxa de
+  aprendizado 1,0; Naive Bayes com `alpha = 1,0`.
+- As evidências são `int8`: o `BernoulliNB.fit` precisa receber `float`, senão a contagem
+  estoura acima de 127 e o modelo sai com NaN.
+- Os resultados dependem da versão do scikit-learn.
+- A ordem de consumo do `rng` é fixa: os seis fechados primeiro, depois o bloco treinado (split,
+  três sementes do AdaBoost, e os `topk` na ordem de `BRACOS_ML`). O Naive Bayes não sorteia.
+  Mudar essa ordem altera os números.
 
 ## Achados verificados
 

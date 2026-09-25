@@ -55,6 +55,9 @@ ROTULO = {
     "D_ML": "D_ML — AdaBoost, território ignorado",
     "E_ML": "E_ML — AdaBoost, RA como feature",
     "F_ML": "F_ML — AdaBoost, taxa da RA como feature",
+    "A_NB": "A_NB — Naive Bayes treinado, território ignorado",
+    "B_NB": "B_NB — Naive Bayes treinado, RA na verossimilhança",
+    "C_NB": "C_NB — Naive Bayes treinado, RA no prior",
 }
 
 # Cor por identidade de braço -- fixa em toda figura. RULE_OR, RULE_CNT e
@@ -74,6 +77,9 @@ COR = {
     "D_ML": AZUL,
     "E_ML": LARANJA,
     "F_ML": AGUA,
+    "A_NB": AZUL,
+    "B_NB": LARANJA,
+    "C_NB": AGUA,
 }
 # Traços em pontos (on, off, ...) no formato que Line2D/seaborn aceitam.
 TRACO = {
@@ -86,9 +92,12 @@ TRACO = {
     "D_ML": (3, 1.5),           # pontilhado curto -- treinado, analogo a A/B/C
     "E_ML": (3, 1.5),
     "F_ML": (3, 1.5),
+    "A_NB": (6, 2),             # tracejado longo -- Naive Bayes treinado
+    "B_NB": (6, 2),
+    "C_NB": (6, 2),
 }
 LARGURA = {"RULE_OR": 1.6, "RULE_CNT": 1.8, "LOOKUP": 1.8, "A": 2.4, "B": 2.4, "C": 2.4,
-           "D_ML": 2.0, "E_ML": 2.0, "F_ML": 2.0}
+           "D_ML": 2.0, "E_ML": 2.0, "F_ML": 2.0, "A_NB": 2.0, "B_NB": 2.0, "C_NB": 2.0}
 
 # Diverging blue<->red com ponto médio cinza neutro -- os dois polos lêem
 # como opostos (quente/frio) e o meio lê como "nada", nunca um terceiro

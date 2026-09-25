@@ -169,6 +169,28 @@ def verificar(linhas, medias_fpr):
           f"-> {'PASSA' if ganho_e > ganho_b else 'FALHA'}")
     print("       (E_ML fora da amostra; LOOKUP e B na propria amostra)")
 
+    # --- Naive Bayes treinado (A_NB/B_NB/C_NB), criterios declarados antes de rodar ---
+    print("\n" + "-" * 66)
+    print("NAIVE BAYES TREINADO (avaliado so no teste: N ~ metade)")
+    print("-" * 66)
+    ece_anb = np.median([v["A_NB"]["ece_media"] for v in idx.values()])
+    print(f"(vii) A_NB calibrado, ECE mediano < 0,01: {ece_anb:.4f} "
+          f"-> {'PASSA' if ece_anb < 0.01 else 'FALHA'}")
+
+    c_dominado = sum(1 for v in idx.values()
+                     if v["C_NB"]["brier_media"] > v["A_NB"]["brier_media"]
+                     and v["C_NB"]["ece_media"] > v["A_NB"]["ece_media"])
+    print(f"(viii) C_NB pior que A_NB em Brier e ECE: {c_dominado}/{len(idx)} "
+          f"(hipotese: no maximo metade) -> {'PASSA' if c_dominado <= len(idx) // 2 else 'FALHA'}")
+
+    c_bnb = np.corrcoef(COBERTURA, medias_fpr["B_NB"])[0, 1]
+    print(f"(ix)  B_NB corr(cobertura, FPR) na referencia = {c_bnb:+.3f}  (grade inteira: equidade.py)")
+
+    bnb_vence = sum(1 for v in idx.values()
+                    if v["B_NB"]["prec_media"] > v["LOOKUP"]["prec_media"])
+    print(f"(x)   B_NB supera LOOKUP em precisao@10%: {bnb_vence}/{len(idx)} "
+          f"-> {'PASSA' if bnb_vence > len(idx) // 2 else 'FALHA'}")
+
 
 if __name__ == "__main__":
     main()

@@ -79,6 +79,11 @@ def main():
           f"hipotese 'nao corrige' {'PASSA' if not e_corrige.all() else 'FALHA'}")
     print("     amplitude mediana: " + "  ".join(f"{b} {amp[b]:.4f}" for b in amp))
 
+    # (ix) Naive Bayes treinado: B_NB nao corrige a disparidade de forma robusta.
+    bnb_corrige = np.array([L["corr_B_NB"] for L in linhas]) >= -0.1
+    print(f"\n(ix) B_NB com corr >= -0.1    : {bnb_corrige.sum()}/{len(linhas)} -> "
+          f"hipotese 'nao corrige' {'PASSA' if not bnb_corrige.all() else 'FALHA'}")
+
 
 if __name__ == "__main__":
     main()
