@@ -148,6 +148,43 @@ Não reabrir sem novo experimento. Todos saem de `resultados/`.
 - O ECE de `LOOKUP` é **zero degenerado** (~4,4e−17): a tabela empírica estima `P(F | padrão)`
   nos próprios dados em que é avaliada. Nunca citar como vantagem de calibração.
 
+### Braços AdaBoost (D_ML, E_ML, F_ML) — primeira rodada, scikit-learn 1.9.1
+
+Os seis braços fechados saíram **bit a bit idênticos** à rodada anterior (`varredura.csv`,
+`fpr_por_ra.csv`, `equidade.csv`). Critérios declarados antes de rodar: (iv) `F_ML` pior que
+`D_ML` em Brier e ECE; (v) `F_ML` com corr < −0,5 em toda a grade e `E_ML` sem corrigir a
+disparidade de forma robusta; (vi) ganho de precisão de `E_ML` sobre `LOOKUP` maior que o de `B`.
+
+- **O AdaBoost sem território replica o achado 1**: `D_ML − LOOKUP` tem mediana de **−0,066
+  p.p.** (positiva em 83/224), como `A` (−0,022 p.p., 86/224). E a disparidade territorial
+  emerge também nele: corr < 0 em **48/48** configurações. Os dois achados centrais não
+  dependem de o modelo ser Fellegi-Sunter.
+- **(vi) reprovado.** `E_ML − LOOKUP` tem mediana de **+0,067 p.p.** (positiva em 131/224),
+  contra +0,673 p.p. de `B`; `E_ML` supera `B` em só **12/224**. A comparação favorece `B`
+  (oráculo `f_true`, N inteiro, `LOOKUP` na própria amostra) contra `E_ML` (identidade da RA
+  aprendida com 20.000 casos, avaliada fora da amostra). Não dá para dizer que o boosting é
+  intrinsecamente pior; dá para dizer que ele não entrega o ganho que se esperava.
+- **(v) para `F_ML` reprovado: a dupla contagem de `C` não se reproduz.** `F_ML` tem corr < −0,5
+  em só **3/48** (corr +0,847 na referência) e se comporta como `E_ML`: diferença mediana de
+  precisão de 0,009 p.p. e FPR por RA quase idêntico. Mecanismo: `taxa_ra` assume 8 valores
+  distintos, ordenados pela cobertura, então funciona como codificação da própria RA; e um
+  classificador supervisionado **aprende o peso** da feature a partir do rótulo, enquanto `C`
+  soma a taxa como prior com peso fixo. A patologia de `C` é de plugar uma taxa derivada das
+  evidências como prior sem estimar o peso dela, e não de usar informação territorial agregada.
+- **(iv) passa (224/224), mas não pela dupla contagem.** `E_ML` também é pior que `D_ML` em
+  Brier e ECE em 224/224, e `F_ML − E_ML` no ECE tem mediana de +0,0009, contra +0,29 de
+  `C − A`. A piora vem de acrescentar qualquer feature territorial com metade dos dados de
+  treino. Não citar (iv) como evidência de dupla contagem no AdaBoost.
+- **(v) para `E_ML`: a hipótese "não corrige de forma robusta" passa.** `E_ML` atende ao limiar
+  corr ≥ −0,10 em **40/48** (B: 33/48); inversão estrita de sinal em **38/48** (B: 30/48); corr
+  < −0,5 em 4/48 (B: 11/48). É mais robusto que `B`, mas não em toda a grade, e a amplitude
+  mediana (**0,0315**) é 1,8× a de `D_ML` (0,0180): como `B`, redistribui o custo do falso
+  positivo em vez de eliminá-lo (na referência, Plano Piloto 4,70% contra Ceilândia 2,74%).
+- **Nenhum braço AdaBoost é calibrado.** ECE mediano de 0,152 (`D_ML`) a 0,170 (`E_ML`/`F_ML`),
+  contra 0,0023 de `A`; Brier 0,096–0,101 contra 0,069. Os scores saem comprimidos em torno de
+  0,5. Para triagem que exige probabilidade interpretável, o AdaBoost precisaria de calibração
+  posterior (Platt ou isotônica), o que seria um experimento novo, não feito.
+
 ## Decisões metodológicas vigentes
 
 Fixadas em revisão crítica e por experimento. Substituem partes do PDF e da aba `Experimento`,
