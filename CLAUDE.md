@@ -84,9 +84,10 @@ python -c "import fitz; d=fitz.open(r'C:\Pesquisa_RAG\Proposta_PIDTI_RAG_Bayesia
 ## Experimento
 
 `experimento/` — `gerador.py` (mecanismo causal), `bracos.py` (as seis abordagens fechadas),
-`bracos_ml.py` (os seis braços treinados: três AdaBoost e três Naive Bayes), `metricas.py`
-(Brier, ECE, precisão@top-k, FPR por RA), `varredura.py`, `equidade.py`, `figuras.py`,
-`figuras_relatorio.py`, `figuras_poster.py`, `exportar_dataset.py`.
+`bracos_ml.py` (os doze braços treinados: AdaBoost, Naive Bayes e AdaBoost calibrado),
+`metricas.py` (Brier, ECE, precisão@top-k, FPR por RA), `varredura.py`, `equidade.py`,
+`figuras.py`, `figuras_relatorio.py`, `figuras_poster.py`, `figuras_treinados.py` (figuras 6 a 8,
+dos braços treinados), `exportar_dataset.py`.
 
 **Bibliotecas válidas:** no experimento, `numpy` e `scikit-learn` (com o `scipy`, que vem com
 ele); nos scripts de figura, também `matplotlib`, `pandas` e `seaborn`. **Continuam proibidos**
@@ -107,7 +108,7 @@ com os parâmetros do gerador **injetados, sem treino** (Fellegi-Sunter é um Na
 Bernoulli com parâmetros conhecidos); B e C usam um modelo por RA. Em relação à fórmula direta
 em numpy, os scores diferem só no arredondamento (~1e−16) e a ordenação não muda.
 
-Seis braços treinados (`bracos_ml.py`), que repetem o eixo "onde a RA entra":
+Doze braços treinados (`bracos_ml.py`), que repetem o eixo "onde a RA entra":
 
 - AdaBoost: `D_ML` (RA ausente, como A), `E_ML` (RA one-hot como feature, como B) e `F_ML`
   (taxa de inconsistência da RA como feature, como C).
@@ -116,10 +117,13 @@ Seis braços treinados (`bracos_ml.py`), que repetem o eixo "onde a RA entra":
   C **de propósito**: C usa a taxa de *evidências* da RA, a única observável sem rótulo, que
   produz a dupla contagem; `C_NB` usa a taxa de *fraude*, que só existe porque o treino tem
   rótulo.
+- AdaBoost com calibração posterior: `D_PL`/`E_PL`/`F_PL` (Platt) e `D_ISO`/`E_ISO`/`F_ISO`
+  (isotônica). É o **mesmo** AdaBoost de `D_ML`/`E_ML`/`F_ML`, sem retreino; só o calibrador é
+  novo, aplicado ao `decision_function`.
 
 Diferenças que precisam ser declaradas sempre que forem comparados aos seis fechados:
 
-- São **treinados** com split 50/50 dentro de cada configuração (o mesmo split para os seis) e
+- São **treinados** com split 50/50 dentro de cada configuração (o mesmo split para os doze) e
   avaliados **só no teste**: N efetivo ≈ 20.000 (coluna `n_efetivo` de `varredura.csv`), contra
   40.000 dos fechados. `LOOKUP` é ajustado e avaliado na mesma amostra; uma vitória de um braço
   treinado sobre ele é "no pior caso para o treinado".
@@ -127,14 +131,26 @@ Diferenças que precisam ser declaradas sempre que forem comparados aos seis fec
 - `taxa_ra` de `F_ML` e as taxas de `C_NB` são estimadas só no treino.
 - `predict_proba` do AdaBoost fica em [0,1], mas **não é calibração**: os scores saem
   comprimidos em torno de 0,5, e o ECE deles mede sobretudo a forma do score do boosting.
+- Os calibradores são ajustados em predições **fora da dobra do treino** (validação cruzada de
+  5 dobras estratificadas, sem embaralhar, como `CalibratedClassifierCV(ensemble=False)`), então
+  o teste continua intocado. O Platt é a regressão logística sem penalidade (`C=inf`) e sem a
+  suavização de alvo 1/(N+2) do artigo original. O Platt preserva a ordenação do AdaBoost: a
+  diferença de precisão dele para o braço cru vem só do sorteio de desempate do `topk`. A
+  isotônica é monótona, mas pode fundir níveis e criar empates.
+- A `taxa_ra` de `F_ML` é calculada com as evidências do treino inteiro, inclusive nas dobras da
+  validação cruzada. Não vaza rótulo (só usa evidências), mas a dobra de validação não é
+  totalmente "fora da amostra" para essa feature.
 - Hiperparâmetros fixos e pré-registrados, nunca ajustados: AdaBoost com 100 stumps e taxa de
-  aprendizado 1,0; Naive Bayes com `alpha = 1,0`.
+  aprendizado 1,0; Naive Bayes com `alpha = 1,0`; 5 dobras na calibração.
 - As evidências são `int8`: o `BernoulliNB.fit` precisa receber `float`, senão a contagem
   estoura acima de 127 e o modelo sai com NaN.
 - Os resultados dependem da versão do scikit-learn.
 - A ordem de consumo do `rng` é fixa: os seis fechados primeiro, depois o bloco treinado (split,
-  três sementes do AdaBoost, e os `topk` na ordem de `BRACOS_ML`). O Naive Bayes não sorteia.
-  Mudar essa ordem altera os números.
+  três sementes do AdaBoost, e os `topk` na ordem de `BRACOS_ML`). O Naive Bayes não sorteia; os
+  calibrados reusam a semente do seu AdaBoost e as dobras não embaralham. Braço novo entra
+  sempre no **fim** de `BRACOS_ML`. Mudar essa ordem altera os números.
+- A validação cruzada roda as dobras em paralelo (`n_jobs=-1`); as dobras são independentes e o
+  resultado não depende do número de núcleos.
 
 ## Achados verificados
 
