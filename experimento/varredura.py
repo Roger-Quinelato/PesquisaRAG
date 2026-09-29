@@ -191,6 +191,32 @@ def verificar(linhas, medias_fpr):
     print(f"(x)   B_NB supera LOOKUP em precisao@10%: {bnb_vence}/{len(idx)} "
           f"-> {'PASSA' if bnb_vence > len(idx) // 2 else 'FALHA'}")
 
+    # --- AdaBoost calibrado (Platt e isotonica), criterios declarados antes de rodar ---
+    print("\n" + "-" * 66)
+    print("ADABOOST CALIBRADO (CV de 5 dobras no treino; avaliado so no teste)")
+    print("-" * 66)
+    ece_med = {b: np.median([v[b]["ece_media"] for v in idx.values()])
+               for b in ("D_ML", "D_PL", "D_ISO", "E_PL", "E_ISO", "F_PL", "F_ISO", "A_NB")}
+    print("(xi)  ECE mediano: " + "  ".join(f"{b} {ece_med[b]:.4f}" for b in ece_med))
+    print(f"      D_PL e D_ISO < 0,01 -> "
+          f"{'PASSA' if max(ece_med['D_PL'], ece_med['D_ISO']) < 0.01 else 'FALHA'}")
+
+    d_iso = np.median([v["D_ISO"]["prec_media"] - v["D_ML"]["prec_media"] for v in idx.values()])
+    d_pl = np.median([v["D_PL"]["prec_media"] - v["D_ML"]["prec_media"] for v in idx.values()])
+    print(f"(xii) mediana de prec D_ISO - D_ML = {100*d_iso:+.3f} p.p. (>= -0,1) "
+          f"-> {'PASSA' if d_iso >= -0.001 else 'FALHA'}   "
+          f"[D_PL - D_ML = {100*d_pl:+.3f} p.p., so desempate]")
+
+    for b in ("D_PL", "D_ISO"):
+        c = np.corrcoef(COBERTURA, medias_fpr[b])[0, 1]
+        print(f"(xiii) {b} corr(cobertura, FPR) na referencia = {c:+.3f}  (grade inteira: equidade.py)")
+
+    brier_ok = sum(1 for v in idx.values() if v["D_ISO"]["brier_media"] < v["D_ML"]["brier_media"])
+    print(f"(xiv) ECE mediano D_ISO <= A_NB: {ece_med['D_ISO']:.4f} vs {ece_med['A_NB']:.4f} "
+          f"-> {'PASSA' if ece_med['D_ISO'] <= ece_med['A_NB'] else 'FALHA'}")
+    print(f"      Brier D_ISO < D_ML: {brier_ok}/{len(idx)} "
+          f"-> {'PASSA' if brier_ok == len(idx) else 'FALHA'}")
+
 
 if __name__ == "__main__":
     main()

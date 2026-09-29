@@ -84,6 +84,16 @@ def main():
     print(f"\n(ix) B_NB com corr >= -0.1    : {bnb_corrige.sum()}/{len(linhas)} -> "
           f"hipotese 'nao corrige' {'PASSA' if not bnb_corrige.all() else 'FALHA'}")
 
+    # (xiii) Calibrar nao corrige a disparidade: D_PL e D_ISO com corr < 0 em toda a grade.
+    print("\n(xiii) calibrar nao corrige a disparidade:")
+    for b in ("D_PL", "D_ISO"):
+        neg_b = np.array([L[f"corr_{b}"] for L in linhas]) < 0
+        print(f"       {b} com corr < 0     : {neg_b.sum()}/{len(linhas)} -> "
+              f"{'PASSA' if neg_b.all() else 'FALHA'}")
+    for b in ("E_ML", "E_PL", "E_ISO"):
+        n_b = int((np.array([L[f"corr_{b}"] for L in linhas]) >= -0.1).sum())
+        print(f"       {b} com corr >= -0.1 : {n_b}/{len(linhas)}")
+
 
 if __name__ == "__main__":
     main()
