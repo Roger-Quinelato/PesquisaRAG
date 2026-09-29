@@ -11,6 +11,7 @@ import seaborn as sns
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from gerador import RAS, COBERTURA  # noqa: E402
+from bracos import BRACOS           # noqa: E402
 from paleta_sns import (COR, ROTULO, LARGURA, num, eixo_ptbr, chaves_legenda,  # noqa: E402
                         configurar_estilo, linha, TINTA_SECUNDARIA, TINTA_MUTED)
 
@@ -38,7 +39,7 @@ def fig1():
     fig, ax = plt.subplots(1, 3, figsize=(17.5, 6.0))
 
     # Painel 1 -- utilidade sob orcamento.
-    for b in ROTULO:
+    for b in BRACOS:
         d = df[df["braco"] == b]
         linha(ax[0], d["f_base"], d["prec_media"], b)
     ax[0].set_ylabel("Precisão no topo 10%")
@@ -72,7 +73,7 @@ def fig1():
     # curvas (a de C sobe ate' o canto superior direito do painel 3) e
     # repetiria tres vezes a mesma convencao de cor, que e' fixa em toda a
     # pesquisa. Duas linhas de tres para nao estourar a largura.
-    fig.legend(handles=chaves_legenda(ROTULO.keys()), loc="lower center", ncol=3,
+    fig.legend(handles=chaves_legenda(BRACOS), loc="lower center", ncol=3,
                frameon=False, bbox_to_anchor=(0.5, 0.0), columnspacing=2.4,
                handlelength=2.8)
     fig.tight_layout(rect=(0, 0.14, 1, 1))

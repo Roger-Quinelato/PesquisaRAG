@@ -20,7 +20,9 @@ figura e mensagens de commit.
   **`python` não fica acessível pelo Bash** — use PowerShell para executar scripts.
 - Instalado: `numpy` 2.5.0, `matplotlib` 3.11.0, `pandas` 3.0.3, `pymupdf` (`fitz`) 1.27,
   `pypdf` 6.13, `pdfplumber` 0.11.
-- **Ausentes:** `openpyxl`, `scipy`, `sklearn`, `pymc`, `faker`. Para ler o `.xlsx` sem
+- **Precisa instalar** para rodar o experimento: `scikit-learn` (testado com 1.9.1), que traz
+  o `scipy` como dependência.
+- **Ausentes:** `openpyxl`, `pymc`, `faker`. Para ler o `.xlsx` sem
   openpyxl, use `zipfile` + `xml.etree.ElementTree` sobre `xl/workbook.xml`,
   `xl/sharedStrings.xml` e `xl/worksheets/sheetN.xml`.
 - Repositório git inicializado, branch `main`. `resultados/` e `figuras/` são ignorados por
@@ -33,7 +35,8 @@ figura e mensagens de commit.
 
 ## Comandos
 
-Reproduzir o experimento inteiro (determinístico por semente; ~8 min):
+Reproduzir o experimento inteiro (determinístico por semente; ~3 h com os braços calibrados, 174 min
+medidos em 4 núcleos):
 
 ```bash
 python experimento/varredura.py && python experimento/equidade.py && python experimento/figuras.py
@@ -81,15 +84,17 @@ python -c "import fitz; d=fitz.open(r'C:\Pesquisa_RAG\Proposta_PIDTI_RAG_Bayesia
 
 ## Experimento
 
-`experimento/` — `gerador.py` (mecanismo causal), `bracos.py` (as seis abordagens),
+`experimento/` — `gerador.py` (mecanismo causal), `bracos.py` (as seis abordagens fechadas),
+`bracos_ml.py` (os doze braços treinados: AdaBoost, Naive Bayes e AdaBoost calibrado),
 `metricas.py` (Brier, ECE, precisão@top-k, FPR por RA), `varredura.py`, `equidade.py`,
-`figuras.py`, `figuras_relatorio.py`, `figuras_poster.py`, `exportar_dataset.py`.
+`figuras.py`, `figuras_relatorio.py`, `figuras_poster.py`, `figuras_treinados.py` (figuras 6 a 8,
+dos braços treinados), `exportar_dataset.py`.
 
-**Dependências:** o experimento usa **apenas `numpy`**; os scripts de figura usam `matplotlib`,
-`pandas` e `seaborn`. Não instalar scipy, sklearn, PyMC, SDV nem
-geradores baseados em GAN. Nenhum é necessário, e um gerador *ajustado a dados* destruiria a
+**Bibliotecas válidas:** no experimento, `numpy` e `scikit-learn` (com o `scipy`, que vem com
+ele); nos scripts de figura, também `matplotlib`, `pandas` e `seaborn`. **Continuam proibidos**
+SDV, geradores baseados em GAN, PyMC e qualquer gerador *ajustado a dados*: ele destruiria a
 verificabilidade da calibração, que depende de conhecer os parâmetros verdadeiros que geraram
-os dados.
+os dados. O gerador (`gerador.py`) continua sendo um processo causal explícito em numpy.
 
 O gerador especifica um processo causal explícito: fraude latente `F` com probabilidade
 **idêntica em todas as RAs** (é o controle do experimento), três evidências ruidosas geradas a
@@ -97,9 +102,56 @@ partir de `F`, e a taxa de falso-positivo da evidência de *endereço* crescendo
 do cadastro territorial é baixa. Como a taxa de fraude é igual por construção, **qualquer
 disparidade territorial nos resultados é artefato da qualidade da fonte, nunca da população.**
 
-Seis braços: `RULE_OR` (binária), `RULE_CNT` (contagem), `LOOKUP` (tabela empírica — teto não
-paramétrico sem território), `A` (Fellegi-Sunter, RA ignorada), `B` (RA na verossimilhança),
-`C` (RA no prior).
+Seis braços fechados: `RULE_OR` (binária), `RULE_CNT` (contagem), `LOOKUP` (tabela empírica —
+teto não paramétrico sem território), `A` (Fellegi-Sunter, RA ignorada), `B` (RA na
+verossimilhança), `C` (RA no prior). A, B e C são escritos com o `BernoulliNB` do scikit-learn
+com os parâmetros do gerador **injetados, sem treino** (Fellegi-Sunter é um Naive Bayes de
+Bernoulli com parâmetros conhecidos); B e C usam um modelo por RA. Em relação à fórmula direta
+em numpy, os scores diferem só no arredondamento (~1e−16) e a ordenação não muda.
+
+Doze braços treinados (`bracos_ml.py`), que repetem o eixo "onde a RA entra":
+
+- AdaBoost: `D_ML` (RA ausente, como A), `E_ML` (RA one-hot como feature, como B) e `F_ML`
+  (taxa de inconsistência da RA como feature, como C).
+- Naive Bayes de Bernoulli treinado: `A_NB` (RA ausente), `B_NB` (verossimilhanças por RA,
+  prior global) e `C_NB` (verossimilhanças globais, prior `P(F=1|RA)` por RA). `C_NB` difere de
+  C **de propósito**: C usa a taxa de *evidências* da RA, a única observável sem rótulo, que
+  produz a dupla contagem; `C_NB` usa a taxa de *fraude*, que só existe porque o treino tem
+  rótulo.
+- AdaBoost com calibração posterior: `D_PL`/`E_PL`/`F_PL` (Platt) e `D_ISO`/`E_ISO`/`F_ISO`
+  (isotônica). É o **mesmo** AdaBoost de `D_ML`/`E_ML`/`F_ML`, sem retreino; só o calibrador é
+  novo, aplicado ao `decision_function`.
+
+Diferenças que precisam ser declaradas sempre que forem comparados aos seis fechados:
+
+- São **treinados** com split 50/50 dentro de cada configuração (o mesmo split para os doze) e
+  avaliados **só no teste**: N efetivo ≈ 20.000 (coluna `n_efetivo` de `varredura.csv`), contra
+  40.000 dos fechados. `LOOKUP` é ajustado e avaliado na mesma amostra; uma vitória de um braço
+  treinado sobre ele é "no pior caso para o treinado".
+- `E_ML` e `B_NB` recebem só a identidade da RA; `B` recebe o FPR verdadeiro do gerador (oráculo).
+- `taxa_ra` de `F_ML` e as taxas de `C_NB` são estimadas só no treino.
+- `predict_proba` do AdaBoost fica em [0,1], mas **não é calibração**: os scores saem
+  comprimidos em torno de 0,5, e o ECE deles mede sobretudo a forma do score do boosting.
+- Os calibradores são ajustados em predições **fora da dobra do treino** (validação cruzada de
+  5 dobras estratificadas, sem embaralhar, como `CalibratedClassifierCV(ensemble=False)`), então
+  o teste continua intocado. O Platt é a regressão logística sem penalidade (`C=inf`) e sem a
+  suavização de alvo 1/(N+2) do artigo original. O Platt preserva a ordenação do AdaBoost: a
+  diferença de precisão dele para o braço cru vem só do sorteio de desempate do `topk`. A
+  isotônica é monótona, mas pode fundir níveis e criar empates.
+- A `taxa_ra` de `F_ML` é calculada com as evidências do treino inteiro, inclusive nas dobras da
+  validação cruzada. Não vaza rótulo (só usa evidências), mas a dobra de validação não é
+  totalmente "fora da amostra" para essa feature.
+- Hiperparâmetros fixos e pré-registrados, nunca ajustados: AdaBoost com 100 stumps e taxa de
+  aprendizado 1,0; Naive Bayes com `alpha = 1,0`; 5 dobras na calibração.
+- As evidências são `int8`: o `BernoulliNB.fit` precisa receber `float`, senão a contagem
+  estoura acima de 127 e o modelo sai com NaN.
+- Os resultados dependem da versão do scikit-learn.
+- A ordem de consumo do `rng` é fixa: os seis fechados primeiro, depois o bloco treinado (split,
+  três sementes do AdaBoost, e os `topk` na ordem de `BRACOS_ML`). O Naive Bayes não sorteia; os
+  calibrados reusam a semente do seu AdaBoost e as dobras não embaralham. Braço novo entra
+  sempre no **fim** de `BRACOS_ML`. Mudar essa ordem altera os números.
+- A validação cruzada roda as dobras em paralelo (`n_jobs=-1`); as dobras são independentes e o
+  resultado não depende do número de núcleos.
 
 ## Achados verificados
 
@@ -126,6 +178,109 @@ Não reabrir sem novo experimento. Todos saem de `resultados/`.
   triplo** da de `A` (0,017). O achado foi removido do resumo.
 - O ECE de `LOOKUP` é **zero degenerado** (~4,4e−17): a tabela empírica estima `P(F | padrão)`
   nos próprios dados em que é avaliada. Nunca citar como vantagem de calibração.
+
+### Braços AdaBoost (D_ML, E_ML, F_ML) — primeira rodada, scikit-learn 1.9.1
+
+Os seis braços fechados saíram **bit a bit idênticos** à rodada anterior (`varredura.csv`,
+`fpr_por_ra.csv`, `equidade.csv`). Critérios declarados antes de rodar: (iv) `F_ML` pior que
+`D_ML` em Brier e ECE; (v) `F_ML` com corr < −0,5 em toda a grade e `E_ML` sem corrigir a
+disparidade de forma robusta; (vi) ganho de precisão de `E_ML` sobre `LOOKUP` maior que o de `B`.
+
+- **O AdaBoost sem território replica o achado 1**: `D_ML − LOOKUP` tem mediana de **−0,066
+  p.p.** (positiva em 83/224), como `A` (−0,022 p.p., 86/224). E a disparidade territorial
+  emerge também nele: corr < 0 em **48/48** configurações. Os dois achados centrais não
+  dependem de o modelo ser Fellegi-Sunter.
+- **(vi) reprovado.** `E_ML − LOOKUP` tem mediana de **+0,067 p.p.** (positiva em 131/224),
+  contra +0,673 p.p. de `B`; `E_ML` supera `B` em só **12/224**. A comparação favorece `B`
+  (oráculo `f_true`, N inteiro, `LOOKUP` na própria amostra) contra `E_ML` (identidade da RA
+  aprendida com 20.000 casos, avaliada fora da amostra). Não dá para dizer que o boosting é
+  intrinsecamente pior; dá para dizer que ele não entrega o ganho que se esperava.
+- **(v) para `F_ML` reprovado: a dupla contagem de `C` não se reproduz.** `F_ML` tem corr < −0,5
+  em só **3/48** (corr +0,847 na referência) e se comporta como `E_ML`: diferença mediana de
+  precisão de 0,009 p.p. e FPR por RA quase idêntico. Mecanismo: `taxa_ra` assume 8 valores
+  distintos, ordenados pela cobertura, então funciona como codificação da própria RA; e um
+  classificador supervisionado **aprende o peso** da feature a partir do rótulo, enquanto `C`
+  soma a taxa como prior com peso fixo. A patologia de `C` é de plugar uma taxa derivada das
+  evidências como prior sem estimar o peso dela, e não de usar informação territorial agregada.
+- **(iv) passa (224/224), mas não pela dupla contagem.** `E_ML` também é pior que `D_ML` em
+  Brier e ECE em 224/224, e `F_ML − E_ML` no ECE tem mediana de +0,0009, contra +0,29 de
+  `C − A`. A piora vem de acrescentar qualquer feature territorial com metade dos dados de
+  treino. Não citar (iv) como evidência de dupla contagem no AdaBoost.
+- **(v) para `E_ML`: a hipótese "não corrige de forma robusta" passa.** `E_ML` atende ao limiar
+  corr ≥ −0,10 em **40/48** (B: 33/48); inversão estrita de sinal em **38/48** (B: 30/48); corr
+  < −0,5 em 4/48 (B: 11/48). É mais robusto que `B`, mas não em toda a grade, e a amplitude
+  mediana (**0,0315**) é 1,8× a de `D_ML` (0,0180): como `B`, redistribui o custo do falso
+  positivo em vez de eliminá-lo (na referência, Plano Piloto 4,70% contra Ceilândia 2,74%).
+- **Nenhum braço AdaBoost é calibrado.** ECE mediano de 0,152 (`D_ML`) a 0,170 (`E_ML`/`F_ML`),
+  contra 0,0023 de `A`; Brier 0,096–0,101 contra 0,069. Os scores saem comprimidos em torno de
+  0,5. Para triagem que exige probabilidade interpretável, o AdaBoost precisa de calibração
+  posterior; ver a seção dos braços calibrados abaixo.
+
+### A/B/C em `BernoulliNB` e braços Naive Bayes treinados (A_NB, B_NB, C_NB) — scikit-learn 1.9.1
+
+Com A/B/C reescritos em `BernoulliNB` com parâmetros injetados, `prec_*`, FPR por RA e
+`equidade.csv` saíram **bit a bit idênticos** à rodada anterior, e Brier/ECE diferem no máximo
+2,2e−16. RULE_OR, RULE_CNT, LOOKUP e os três AdaBoost também ficaram idênticos. Os vereditos (i) a
+(vi) não mudaram. Critérios declarados antes de rodar: (vii) ECE mediano de `A_NB` < 0,01;
+(viii) `C_NB` pior que `A_NB` em Brier e ECE em no máximo metade das configurações; (ix) `B_NB`
+sem corrigir a disparidade de forma robusta; (x) `B_NB` supera `LOOKUP` em mais de 112/224.
+
+- **(vii) passa.** ECE mediano de `A_NB` = **0,0031** (A: 0,0023), Brier 0,0689 (A: 0,0692). O
+  Naive Bayes treinado é calibrado, ao contrário do AdaBoost. `A_NB − LOOKUP` tem mediana de
+  **−0,069 p.p.** (positiva em 82/224) e corr < 0 em **48/48**: replica os dois achados centrais,
+  como `D_ML`.
+- **(viii) reprovado pelo critério, mas não pela dupla contagem.** `C_NB` é pior que `A_NB` em
+  Brier em **224/224** e em ECE em **203/224**. A magnitude, porém, é três ordens menor que a de
+  C: mediana de `C_NB − A_NB` = **+0,0003** no ECE e +0,00003 no Brier, contra **+0,29** e +0,11
+  de `C − A`. Como a fraude é igual em todas as RAs, qualquer prior por RA estimado do rótulo
+  é só ruído de estimação (~2.500 casos de treino por RA), e é esse ruído que piora `C_NB`. O
+  critério foi escrito como "no máximo metade" e reprovou; a leitura correta é que prior
+  regional estimado do rótulo custa pouco, e prior estimado das evidências (C) custa muito.
+  Não citar (viii) como "prior regional é inofensivo": ele é dominado, só que por pouco.
+- **(ix) passa: `B_NB` não corrige de forma robusta.** Atende corr ≥ −0,10 em **36/48** (B 33/48,
+  `E_ML` 40/48); inversão estrita em 35/48; corr < −0,5 em 9/48. Amplitude mediana **0,0355**,
+  1,9× a de `A_NB` (0,0183). Como B, inverte a disparidade em vez de eliminá-la: na referência,
+  Plano Piloto 5,98% contra Ceilândia 2,83%.
+- **(x) passa.** `B_NB − LOOKUP` tem mediana de **+0,432 p.p.** (mín −0,518; máx +2,731; positiva
+  em **184/224**), contra +0,673 de B (oráculo) e +0,067 de `E_ML`. `B_NB` supera B em 41/224.
+  Com a estrutura certa (verossimilhança por RA), aprender o efeito da RA do rótulo recupera
+  cerca de dois terços do ganho do oráculo; o AdaBoost com RA one-hot recupera cerca de um
+  décimo. Como B, o ganho é de ordenação: `B_NB` tem Brier menor que `A_NB` em 207/224, mas ECE
+  maior em 223/224.
+- `C_NB` tem corr < 0 em **48/48** (mediana −0,508, amplitude 0,0252): herda a disparidade de
+  `A_NB`, com o ruído dos priors por RA diluindo a correlação.
+
+### AdaBoost calibrado (D/E/F_PL e D/E/F_ISO) — scikit-learn 1.9.1
+
+Os 12 braços anteriores saíram **bit a bit idênticos** à rodada anterior (`varredura.csv`,
+`fpr_por_ra.csv`, `equidade.csv`); os vereditos (i) a (x) não mudaram. Critérios declarados e
+versionados em commit antes de rodar: (xi) ECE mediano de `D_PL` e `D_ISO` < 0,01; (xii) a
+isotônica não custa precisão (mediana de `D_ISO − D_ML` ≥ −0,1 p.p.); (xiii) calibrar não corrige
+a disparidade (`D_PL` e `D_ISO` com corr < 0 em 48/48); (xiv) ECE mediano de `D_ISO` ≤ o de
+`A_NB` e Brier de `D_ISO` < `D_ML` em 224/224.
+
+- **(xi) passa.** ECE mediano de `D_PL` = **0,0032** e de `D_ISO` = **0,0036** (`D_ML`: 0,152);
+  `E_PL`/`E_ISO`/`F_PL`/`F_ISO` entre 0,0042 e 0,0047. Os seis calibrados têm Brier e ECE menores
+  que o AdaBoost cru em **224/224**, e o Brier mediano cai de 0,096–0,101 para **0,0689**, o
+  mesmo de `A_NB`. A calibração posterior resolve o problema de calibração do boosting.
+- **(xii) passa.** `D_ISO − D_ML` tem mediana de **−0,057 p.p.** na precisão (positiva em
+  76/224; mín −0,58, máx +0,33): ao fundir níveis, a isotônica custa um pouco de ordenação.
+  `D_PL − D_ML` = −0,007 p.p. (105/224) é só o sorteio de desempate, porque o Platt preserva a
+  ordem.
+- **(xiii) passa.** `D_PL` e `D_ISO` têm corr < 0 em **48/48** (< −0,5 em 48/48 e 46/48).
+  Calibrar não mexe na disparidade: `E_PL` atende corr ≥ −0,10 em 40/48, igual a `E_ML`; `E_ISO`
+  em 37/48, com amplitude mediana 0,0259 contra 0,0315 de `E_ML`.
+- **(xiv) reprovado no ECE, aprovado no Brier.** ECE mediano de `D_ISO` 0,0036 contra 0,0031 de
+  `A_NB`: pior em **219/224** (mediana +0,00067). O Platt chega mais perto (+0,00018, pior em
+  194/224), e a isotônica é pior que o Platt aqui (+0,0005 no ECE, em 195/224; mecanismo não
+  investigado). Brier de `D_ISO` < `D_ML` em 224/224. Leitura: a
+  calibração fecha ~98% da distância de ECE, mas não alcança o Naive Bayes, que tem a estrutura
+  do gerador. Diferenças de 0,0005 no ECE não mudam nenhuma decisão de triagem; o que (xiv)
+  mostra é que o modelo gerativo certo continua sendo o teto de calibração.
+- **Nada muda nos achados centrais.** `D_PL − LOOKUP` = −0,075 p.p. e `D_ISO − LOOKUP` = −0,138
+  p.p.: sem território, o AdaBoost calibrado também empata com a tabela empírica. `E_PL − B_NB` =
+  −0,30 p.p. (positiva em 23/224): mesmo calibrado, o AdaBoost com RA como feature fica abaixo do
+  Naive Bayes com RA na verossimilhança. Calibrar corrige a forma do score, não a ordenação.
 
 ## Decisões metodológicas vigentes
 

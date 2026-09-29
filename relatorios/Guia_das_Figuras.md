@@ -1,7 +1,8 @@
 # Guia das figuras — o que cada gráfico mostra, por que importa e o que ele prova
 
-As cinco figuras em `figuras/` são geradas por `experimento/figuras.py` (Figuras 1 e 2) e
-`experimento/figuras_relatorio.py` (Figuras 3, 4 e 5), com paleta e estilo compartilhados em
+As figuras em `figuras/` são geradas por `experimento/figuras.py` (Figuras 1 e 2),
+`experimento/figuras_relatorio.py` (Figuras 3, 4 e 5) e `experimento/figuras_treinados.py`
+(Figuras 6, 7 e 8, dos braços treinados), com paleta e estilo compartilhados em
 `experimento/paleta_sns.py`. Nenhum número aqui é novo: todos vêm de `resultados/` e já estão
 auditados em `relatorios/ledger_numeros.md` e em `relatorios/Relatorio_Tecnico_RAG_Bayesiano.md`.
 Este guia serve para quem olha uma figura solta — num slide, num banner — e precisa saber o que
@@ -144,6 +145,68 @@ exatamente o padrão que a figura existe para mostrar.
 
 ---
 
+## Figuras 6 a 8 — braços treinados
+
+As três figuras abaixo vêm de `experimento/figuras_treinados.py` e comparam os seis braços
+fechados com os doze treinados: Naive Bayes (`A_NB`, `B_NB`, `C_NB`), AdaBoost (`D_ML`, `E_ML`,
+`F_ML`) e AdaBoost calibrado com Platt (`*_PL`) ou isotônica (`*_ISO`). A cor continua dizendo
+**onde a RA entra** (azul ausente, laranja verossimilhança ou feature, água prior ou taxa); o
+marcador diz a família do modelo. Ressalva que vale para as três: os treinados são avaliados só
+na metade de teste (N ≈ 20.000), e `B` recebe o falso positivo verdadeiro do gerador (oráculo).
+
+### Figura 6 — `fig6_treinados_precisao_ece.png`
+
+**O que mostra.** Uma linha por braço, agrupada pela posição da RA. No painel (a), a precisão nos
+10% mais suspeitos menos a da tabela empírica; no (b), o ECE em escala log. O marcador é a mediana
+nas 224 configurações e o traço, o intervalo interquartil.
+
+**Por que ela importa.** É a figura que separa o efeito de **onde a RA entra** do efeito de
+**qual modelo se usa**. Se a família do modelo mandasse, as linhas de mesmo marcador se
+agrupariam; em vez disso, quem se agrupa é a cor.
+
+**O que ela prova.** Sem território, todos empatam com a tabela empírica, qualquer que seja o
+modelo: medianas de −0,02 (`A`) a −0,14 p.p. (`D_ISO`). Com a RA na verossimilhança, só a
+estrutura bayesiana ganha: `B` +0,67 p.p. e `B_NB` +0,43 p.p., contra +0,03 a +0,07 p.p. dos
+AdaBoost com RA como feature, calibrados ou não. No prior, só `C`, que tira a taxa das
+evidências, perde (−0,65 p.p.); `C_NB`, com a taxa de fraude do rótulo, fica em −0,06. No painel
+(b), o AdaBoost cru é o único outro grupo descalibrado (ECE de 0,15 a 0,17, ao lado de `C` com
+0,29); com Platt ou isotônica ele desce para 0,003–0,005, a mesma faixa do Naive Bayes, mas sem
+alcançá-lo (critério (xiv) reprovado no ECE).
+
+### Figura 7 — `fig7_treinados_fpr_ra.png`
+
+**O que mostra.** Três painéis, um por posição da RA, com a fração de inocentes enviados à
+revisão em cada RA contra a cobertura cadastral, na configuração de referência. Em cada painel,
+o braço fechado, o Naive Bayes treinado e o AdaBoost. A legenda traz em quantas das 48
+configurações cada braço atende ao critério de equidade (corr ≥ −0,10).
+
+**Por que ela importa.** Estende a Figura 2 para os modelos treinados e responde se a
+disparidade territorial é um artefato do Fellegi-Sunter. Não é.
+
+**O que ela prova.** Sem território, as três curvas coincidem e todas penalizam a cobertura baixa
+(Ceilândia 4,5–4,8% contra Plano Piloto 3,2–3,3%), com critério atendido em 0/48. Com a RA na
+verossimilhança ou como feature, as três invertem a disparidade (Plano Piloto 4,7–6,0% contra
+Ceilândia 2,7–2,8%) e atendem ao critério em 33, 36 e 40 de 48, nunca em todas. No prior, só `C`
+amplifica (12,6% contra 0,5%); `C_NB` fica quase plano (3,9% contra 3,5%) e `F_ML` se comporta
+como `E_ML`, porque a taxa da RA, com peso aprendido do rótulo, vira só uma codificação da RA.
+
+### Figura 8 — `fig8_treinados_confiabilidade.png`
+
+**O que mostra.** Diagrama de confiabilidade na referência para `A`, `A_NB`, `D_ML`, `D_PL` e
+`D_ISO`, com o mesmo binning de `metricas.ece`. O ECE da legenda é a média por semente,
+idêntica à de `resultados/varredura.csv`, e o script confere isso a cada execução.
+
+**Por que ela importa.** Mostra a forma do erro de calibração do AdaBoost cru, que o número do
+ECE sozinho não mostra, e se a calibração posterior o corrige.
+
+**O que ela prova.** O AdaBoost cru comprime os scores entre ~0,17 e ~0,67: superestima o risco
+dos casos limpos e subestima o dos suspeitos (ECE 0,160). Platt e isotônica, ajustados em
+validação cruzada no treino, trazem a curva para a diagonal (ECE 0,0041 e 0,0053), junto de `A`
+(0,0025) e `A_NB` (0,0038). A calibração corrige a forma do score, mas não a ordenação: a
+precisão e o falso positivo por RA ficam praticamente onde estavam (Figuras 6 e 7).
+
+---
+
 ## Síntese — o que as cinco figuras provam em conjunto
 
 Lidas em sequência, as figuras contam uma história com três movimentos, na mesma ordem da
@@ -165,6 +228,12 @@ o mapa de onde ficam os 15 que falham); e a que mais fala fora da estatística �
 que qualidade desigual de cadastro produz disparidade territorial sem nenhuma variável
 demográfica no modelo).
 
-*Reprodução: `python experimento/figuras.py && python experimento/figuras_relatorio.py`, a partir
-de `resultados/` já gerado por `varredura.py` e `equidade.py`. Todas as figuras são determinísticas
+As Figuras 6 a 8 acrescentam uma quarta leitura: **os dois achados centrais não dependem do
+modelo**. Naive Bayes treinado e AdaBoost, calibrado ou não, empatam com a tabela empírica sem
+território e reproduzem a disparidade territorial; e só o prior tirado das evidências (`C`)
+produz a patologia de calibração.
+
+*Reprodução: `python experimento/figuras.py && python experimento/figuras_relatorio.py &&
+python experimento/figuras_treinados.py`, a partir de `resultados/` já gerado por `varredura.py`
+e `equidade.py`. Todas as figuras são determinísticas
 por semente — duas execuções produzem PNGs de hash SHA-256 idêntico.*
