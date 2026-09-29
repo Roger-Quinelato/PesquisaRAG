@@ -116,7 +116,8 @@ passo. A camada de recuperação de evidências (RAG) ainda não foi integrada.
 
 ## Como reproduzir
 
-O experimento é determinístico por semente. Com os braços AdaBoost, leva perto de uma hora:
+O experimento é determinístico por semente. Com os braços treinados e calibrados, leva perto de
+três horas em 4 núcleos:
 
 ```bash
 pip install numpy matplotlib pandas seaborn scikit-learn==1.9.1

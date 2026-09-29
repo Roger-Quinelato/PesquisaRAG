@@ -35,7 +35,8 @@ figura e mensagens de commit.
 
 ## Comandos
 
-Reproduzir o experimento inteiro (determinístico por semente; ~50 min com os braços treinados):
+Reproduzir o experimento inteiro (determinístico por semente; ~3 h com os braços calibrados, 174 min
+medidos em 4 núcleos):
 
 ```bash
 python experimento/varredura.py && python experimento/equidade.py && python experimento/figuras.py
@@ -212,8 +213,8 @@ disparidade de forma robusta; (vi) ganho de precisão de `E_ML` sobre `LOOKUP` m
   positivo em vez de eliminá-lo (na referência, Plano Piloto 4,70% contra Ceilândia 2,74%).
 - **Nenhum braço AdaBoost é calibrado.** ECE mediano de 0,152 (`D_ML`) a 0,170 (`E_ML`/`F_ML`),
   contra 0,0023 de `A`; Brier 0,096–0,101 contra 0,069. Os scores saem comprimidos em torno de
-  0,5. Para triagem que exige probabilidade interpretável, o AdaBoost precisaria de calibração
-  posterior (Platt ou isotônica), o que seria um experimento novo, não feito.
+  0,5. Para triagem que exige probabilidade interpretável, o AdaBoost precisa de calibração
+  posterior; ver a seção dos braços calibrados abaixo.
 
 ### A/B/C em `BernoulliNB` e braços Naive Bayes treinados (A_NB, B_NB, C_NB) — scikit-learn 1.9.1
 
@@ -248,6 +249,38 @@ sem corrigir a disparidade de forma robusta; (x) `B_NB` supera `LOOKUP` em mais 
   maior em 223/224.
 - `C_NB` tem corr < 0 em **48/48** (mediana −0,508, amplitude 0,0252): herda a disparidade de
   `A_NB`, com o ruído dos priors por RA diluindo a correlação.
+
+### AdaBoost calibrado (D/E/F_PL e D/E/F_ISO) — scikit-learn 1.9.1
+
+Os 12 braços anteriores saíram **bit a bit idênticos** à rodada anterior (`varredura.csv`,
+`fpr_por_ra.csv`, `equidade.csv`); os vereditos (i) a (x) não mudaram. Critérios declarados e
+versionados em commit antes de rodar: (xi) ECE mediano de `D_PL` e `D_ISO` < 0,01; (xii) a
+isotônica não custa precisão (mediana de `D_ISO − D_ML` ≥ −0,1 p.p.); (xiii) calibrar não corrige
+a disparidade (`D_PL` e `D_ISO` com corr < 0 em 48/48); (xiv) ECE mediano de `D_ISO` ≤ o de
+`A_NB` e Brier de `D_ISO` < `D_ML` em 224/224.
+
+- **(xi) passa.** ECE mediano de `D_PL` = **0,0032** e de `D_ISO` = **0,0036** (`D_ML`: 0,152);
+  `E_PL`/`E_ISO`/`F_PL`/`F_ISO` entre 0,0042 e 0,0047. Os seis calibrados têm Brier e ECE menores
+  que o AdaBoost cru em **224/224**, e o Brier mediano cai de 0,096–0,101 para **0,0689**, o
+  mesmo de `A_NB`. A calibração posterior resolve o problema de calibração do boosting.
+- **(xii) passa.** `D_ISO − D_ML` tem mediana de **−0,057 p.p.** na precisão (positiva em
+  76/224; mín −0,58, máx +0,33): ao fundir níveis, a isotônica custa um pouco de ordenação.
+  `D_PL − D_ML` = −0,007 p.p. (105/224) é só o sorteio de desempate, porque o Platt preserva a
+  ordem.
+- **(xiii) passa.** `D_PL` e `D_ISO` têm corr < 0 em **48/48** (< −0,5 em 48/48 e 46/48).
+  Calibrar não mexe na disparidade: `E_PL` atende corr ≥ −0,10 em 40/48, igual a `E_ML`; `E_ISO`
+  em 37/48, com amplitude mediana 0,0259 contra 0,0315 de `E_ML`.
+- **(xiv) reprovado no ECE, aprovado no Brier.** ECE mediano de `D_ISO` 0,0036 contra 0,0031 de
+  `A_NB`: pior em **219/224** (mediana +0,00067). O Platt chega mais perto (+0,00018, pior em
+  194/224), e a isotônica é pior que o Platt aqui (+0,0005 no ECE, em 195/224; mecanismo não
+  investigado). Brier de `D_ISO` < `D_ML` em 224/224. Leitura: a
+  calibração fecha ~98% da distância de ECE, mas não alcança o Naive Bayes, que tem a estrutura
+  do gerador. Diferenças de 0,0005 no ECE não mudam nenhuma decisão de triagem; o que (xiv)
+  mostra é que o modelo gerativo certo continua sendo o teto de calibração.
+- **Nada muda nos achados centrais.** `D_PL − LOOKUP` = −0,075 p.p. e `D_ISO − LOOKUP` = −0,138
+  p.p.: sem território, o AdaBoost calibrado também empata com a tabela empírica. `E_PL − B_NB` =
+  −0,30 p.p. (positiva em 23/224): mesmo calibrado, o AdaBoost com RA como feature fica abaixo do
+  Naive Bayes com RA na verossimilhança. Calibrar corrige a forma do score, não a ordenação.
 
 ## Decisões metodológicas vigentes
 
