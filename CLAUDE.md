@@ -52,8 +52,9 @@ Regerar o dataset de casos com rótulo latente:
 python experimento/exportar_dataset.py 5000
 ```
 
-Não há build, lint nem suíte de testes. A verificação é a reexecução: rodar duas vezes e
-comparar os CSVs, que devem ser idênticos.
+Testes rápidos (só numpy, segundos): `python -m unittest discover tests`. Não há build nem
+lint. A verificação dos resultados é a reexecução: rodar duas vezes e comparar os CSVs, que devem
+ser idênticos. Protocolos em `docs/`.
 
 Extrair o texto da proposta (8 páginas):
 
@@ -83,6 +84,9 @@ python -c "import fitz; d=fitz.open(r'C:\Pesquisa_RAG\Proposta_PIDTI_RAG_Bayesia
 | `README.md` | Apresentação da pesquisa com as figuras do pôster, reprodução e restrições de uso |
 
 ## Experimento
+
+Pastas: `experimento/` (simulação), `src/` (sistema, vazio até D5), `tests/`, `docs/`
+(protocolos), `data/` e `notebooks/` (conteúdo só local).
 
 `experimento/` — `gerador.py` (mecanismo causal), `bracos.py` (as seis abordagens),
 `metricas.py` (Brier, ECE, precisão@top-k, FPR por RA), `varredura.py`, `equidade.py`,

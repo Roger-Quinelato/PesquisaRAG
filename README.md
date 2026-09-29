@@ -109,6 +109,11 @@ passo. A camada de recuperação de evidências (RAG) ainda não foi integrada.
 | Caminho | Conteúdo |
 |---|---|
 | `experimento/` | `gerador.py` (mecanismo causal), `bracos.py` (seis abordagens), `metricas.py`, `varredura.py`, `equidade.py`, `exportar_dataset.py` e os scripts de figura (`figuras.py`, `figuras_relatorio.py`, `figuras_poster.py`) |
+| `src/` | Código do sistema (RAG, motor bayesiano, XAI) — reservado para as fases D5, D7 e D9 |
+| `tests/` | Testes do experimento (`python -m unittest discover tests`) |
+| `data/` | Estrutura para dados locais; nenhum dado é versionado |
+| `docs/` | Protocolos: versionamento, baselines e métricas, protocolo experimental |
+| `notebooks/` | Exploração e estudo; não é fonte de número publicado |
 | `relatorios/` | Relatório técnico, benchmark de estado da arte, ledger de números auditados, guia das figuras e tabelas de apoio |
 | `figuras/` | Figuras do pôster (as demais são regeradas pelos scripts) |
 | `Proposta_PIDTI_RAG_Bayesiano2.pdf` | Proposta do projeto: hipóteses H1 a H3, arquitetura e cronograma |

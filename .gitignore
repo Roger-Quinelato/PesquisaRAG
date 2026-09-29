@@ -35,3 +35,10 @@ fontes_oficiais.csv
 Resumo Congresso*.md
 relatorios/Roteiro_Apresentacao*.md
 relatorios/PARECER_CTO.md
+
+# data/: estrutura versionada, conteudo so na maquina local
+data/*
+!data/README.md
+
+# Notebooks: checkpoints
+.ipynb_checkpoints/
