@@ -23,7 +23,10 @@ figura e mensagens de commit.
 - **Ausentes:** `openpyxl`, `scipy`, `sklearn`, `pymc`, `faker`. Para ler o `.xlsx` sem
   openpyxl, use `zipfile` + `xml.etree.ElementTree` sobre `xl/workbook.xml`,
   `xl/sharedStrings.xml` e `xl/worksheets/sheetN.xml`.
-- Repositório git inicializado, branch `main`. `resultados/` e `figuras/` são ignorados por
+- Branches: `main` (estável, só recebe PR de `develop` ou `hotfix/*`), `develop` (integração,
+  base de todo branch novo) e `<tipo>/<card>-<descricao>` por tarefa. Commits no formato
+  `<tipo>(<escopo>): <descrição>` em português. Regras completas em `CONTRIBUTING.md`.
+- `resultados/` e `figuras/` são ignorados por
   serem regeneráveis, exceto as figuras do pôster (`figuras/poster_*.png` e
   `figuras/fig4_heatmap_beta_pi.png`), versionadas porque o README as exibe. `*.csv` tem
   `-text` no `.gitattributes` para preservar BOM e CRLF.
