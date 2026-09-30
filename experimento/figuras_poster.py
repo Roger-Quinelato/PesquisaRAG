@@ -20,13 +20,12 @@ import seaborn as sns
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from gerador import RAS, COBERTURA, IDX_ENDERECO, Params  # noqa: E402
+from configuracao import (RES, FIG, REF_BETA, REF_PI, REF_RUIDO,  # noqa: E402
+                          LIMIAR_CORR_RULE, LIMIAR_CORR_B)
 from paleta_sns import (COR, LARGURA, TRACO, num, eixo_ptbr, VIRGULA,  # noqa: E402
                         configurar_estilo, linha, chaves_legenda,
                         TINTA_PRIMARIA, TINTA_SECUNDARIA, TINTA_MUTED, EIXO)
 
-RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-RES, FIG = os.path.join(RAIZ, "resultados"), os.path.join(RAIZ, "figuras")
-REF_F, REF_BETA, REF_PI = 0.16, 0.55, 0.15
 META = {"Software": None}   # hash estável entre execuções
 DPI = 300
 ROT = {"RULE_CNT": "Regra por contagem", "LOOKUP": "Tabela empírica",
@@ -42,6 +41,7 @@ sns.set_context("talk", rc={"axes.titlesize": 20, "axes.labelsize": 16,
 
 
 def ler(nome):
+    """Le resultados/<nome> como DataFrame."""
     return pd.read_csv(os.path.join(RES, nome), encoding="utf-8")
 
 
@@ -49,25 +49,30 @@ MARGEM = 0.03   # título, legenda e rodapé alinhados à esquerda da figura
 
 
 def titulo(fig, texto, y=0.965):
+    """Título da figura, alinhado à margem esquerda."""
     fig.text(MARGEM, y, texto, fontsize=20, fontweight="bold", color=TINTA_PRIMARIA,
              va="top")
 
 
 def painel(ax, texto):
+    """Subtítulo de painel, alinhado à esquerda."""
     ax.set_title(texto, loc="left", fontsize=15, color=TINTA_SECUNDARIA, pad=10)
 
 
 def rodape(fig, texto, y=0.025):
+    """Nota de rodapé em tinta suave, alinhada à margem esquerda."""
     fig.text(MARGEM, y, texto, fontsize=12, color=TINTA_MUTED, va="bottom",
              linespacing=1.45)
 
 
 def salvar(fig, nome):
+    """Grava figuras/<nome> com DPI e metadados fixos e fecha a figura."""
     fig.savefig(os.path.join(FIG, nome), dpi=DPI, metadata=META)
     plt.close(fig)
 
 
 def pct(v, casas=1):
+    """Número sem sinal com vírgula decimal (ex.: 12,6)."""
     return f"{v:.{casas}f}".replace(".", ",")
 
 
@@ -75,6 +80,8 @@ def pct(v, casas=1):
 # Objetivo -- onde a RA entra na regra de Bayes (diagrama, sem dados)
 # --------------------------------------------------------------------------
 def objetivo():
+    """Diagrama sem dados: onde cada variante (A, B, C) insere a RA
+    na regra de Bayes."""
     fig, ax = plt.subplots(figsize=(10.5, 5.6))
     fig.subplots_adjust(left=MARGEM, right=0.98, top=0.88, bottom=0.03)
     ax.set_xlim(0, 10.5)
@@ -123,6 +130,8 @@ def objetivo():
 # Metodologia -- o mecanismo: só o endereço piora onde o cadastro é pior
 # --------------------------------------------------------------------------
 def metodologia():
+    """Falso positivo da evidência de endereço por RA na config padrão:
+    parcela base e parcela devida à cobertura cadastral."""
     p = Params()
     total = p.fpr_por_ra(np.arange(len(RAS)))[:, IDX_ENDERECO] * 100
     base = np.full(len(RAS), p.f_base * 100)
@@ -159,6 +168,8 @@ def metodologia():
 # Resultados -- tamanho do efeito e calibração (versão enxuta da fig1)
 # --------------------------------------------------------------------------
 def efeito_calibracao():
+    """Precisão sob orçamento contra a tabela empírica (a) e ECE (b) ao
+    longo do ruído, na config de referência."""
     df = ler("varredura.csv")
     df = df[np.isclose(df["beta"], REF_BETA) & np.isclose(df["pi"], REF_PI)]
     df = df.sort_values("f_base")
@@ -180,7 +191,7 @@ def efeito_calibracao():
     for b in ("A", "B", "C"):
         d = df[df["braco"] == b]
         linha(ax[1], d["f_base"], d["ece_media"], b)
-    fim_ab = df[(df["braco"].isin(["A", "B"])) & np.isclose(df["f_base"], REF_F)]["ece_media"].max()
+    fim_ab = df[(df["braco"].isin(["A", "B"])) & np.isclose(df["f_base"], REF_RUIDO)]["ece_media"].max()
     ax[1].annotate(f"A e B ≈ {num(fim_ab, 3).lstrip('+')}", (0.30, fim_ab),
                    xytext=(0, 14), textcoords="offset points", ha="center",
                    fontsize=13, color=TINTA_SECUNDARIA)
@@ -202,6 +213,8 @@ def efeito_calibracao():
 # Resultados -- quem paga o falso positivo (versão enxuta da fig2)
 # --------------------------------------------------------------------------
 def equidade():
+    """Fração de inocentes enviados à revisão por RA contra a cobertura
+    cadastral, por braço."""
     df = ler("fpr_por_ra.csv").sort_values("cobertura")
     df["cobertura"] *= 100
     eq = ler("equidade.csv")
@@ -241,6 +254,7 @@ def equidade():
 # Resultados -- robustez dos achados na grade inteira
 # --------------------------------------------------------------------------
 def robustez():
+    """Fração das configurações da grade em que cada achado se sustenta."""
     v = ler("varredura.csv").pivot_table(index=["f_base", "beta", "pi"], columns="braco",
                                          values=["prec_media", "brier_media", "ece_media"])
     eq = ler("equidade.csv")
@@ -248,8 +262,8 @@ def robustez():
     c_pior = int(((v["brier_media"]["C"] > v["brier_media"]["A"])
                   & (v["ece_media"]["C"] > v["ece_media"]["A"])).sum())
     b_prec = int((v["prec_media"]["B"] > v["prec_media"]["LOOKUP"]).sum())
-    cnt_neg = int((eq["corr_RULE_CNT"] < -0.5).sum())
-    b_eq = int((eq["corr_B"] >= -0.10).sum())
+    cnt_neg = int((eq["corr_RULE_CNT"] < LIMIAR_CORR_RULE).sum())
+    b_eq = int((eq["corr_B"] >= LIMIAR_CORR_B).sum())
     achados = [
         ("RA no prior (C) piora a calibração", c_pior, nv, "C", True),
         ("RA na verossimilhança (B) ganha precisão", b_prec, nv, "B", True),
@@ -283,6 +297,8 @@ def robustez():
 # Conclusão -- amplitude da disparidade entre RAs
 # --------------------------------------------------------------------------
 def amplitude():
+    """Diferença de FPR entre a RA mais e a menos penalizada (mediana e
+    faixa na grade), por variante bayesiana."""
     eq = ler("equidade.csv")
     bracos = ("A", "B", "C")
     med = {b: eq[f"amplitude_{b}"].median() * 100 for b in bracos}

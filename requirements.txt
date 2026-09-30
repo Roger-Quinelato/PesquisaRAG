@@ -1,0 +1,8 @@
+# Versões fixadas: as mesmas do ambiente que gerou os números publicados.
+# O experimento (varredura.py, equidade.py, exportar_dataset.py) usa só numpy;
+# matplotlib, pandas e seaborn servem aos scripts de figura.
+# Não adicionar scipy, sklearn, PyMC nem SDV (ver CLAUDE.md).
+numpy==2.5.0
+matplotlib==3.11.0
+pandas==3.0.3
+seaborn==0.13.2

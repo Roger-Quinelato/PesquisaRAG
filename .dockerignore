@@ -1,0 +1,7 @@
+# Lista de permissao: a imagem so precisa destes tres caminhos.
+*
+!requirements.txt
+!experimento/
+!tests/
+**/__pycache__
+**/*.pyc

@@ -137,14 +137,17 @@ Para fechar uma release:
 
 | Item | Valor atual |
 |---|---|
-| Python | 3.x no Windows 11, via PowerShell |
+| Python | 3.x no Windows 11, via PowerShell; 3.12 na imagem Docker |
 | Experimento | só `numpy` |
 | Figuras | `matplotlib`, `pandas`, `seaborn` |
 | Testes | `unittest` (biblioteca padrão), sem dependência extra |
+| Versões | fixadas em `requirements.txt` |
+| Imagem | `Dockerfile` na raiz (`docker build -t pesquisarag .`; ver `README.md`) |
 
-A fixação de versões (`requirements.txt` ou `pyproject.toml`) e a imagem Docker são escopo dos
-cards D1.T3 (#19) e D1.T4 (#20). Até lá, registre no relatório as versões de `numpy` e
-`matplotlib` usadas na execução que gerou os números.
+Registre no relatório se os números saíram do ambiente local ou da imagem Docker, com as
+versões de `numpy` e `matplotlib`. Ao atualizar uma versão em `requirements.txt`, rode o
+pipeline e confirme que os CSVs de `resultados/` não mudaram; se mudarem, o commit altera
+número publicado e precisa dizer isso no corpo.
 
 ## 8. Checklist de verificação
 
