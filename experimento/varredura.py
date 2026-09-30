@@ -1,10 +1,26 @@
 """Varredura de sensibilidade + verificacao dos criterios de aceitacao.
 
-Uso:  python experimento/varredura.py
-Saida: resultados/varredura.csv, resultados/fpr_por_ra.csv e um veredito
-       impresso sobre cada criterio declarado ANTES de rodar.
+Uso:  python experimento/varredura.py [--workers W] [--familias F1,F2]
+                                      [--aceitar-cache F1,F2] [--sem-cache]
+                                      [--conferir K]
+Saida: resultados/varredura.csv, resultados/fpr_por_ra.csv (referencia),
+       resultados/fpr_grade.csv (FPR por RA de toda a grade, lido por
+       equidade.py), resultados/manifesto.sha256 e um veredito impresso sobre
+       cada criterio declarado ANTES de rodar.
+
+As metricas por (configuracao, semente, braco) ficam em resultados/cache/, uma
+familia por arquivo (ver pipeline.py). Por padrao so se calcula o que falta ou
+cuja chave de codigo mudou:
+  --familias F        recalcula F mesmo com cache valido;
+  --aceitar-cache F   usa o cache de F mesmo com a chave desatualizada (quando
+                      a mudanca de codigo comprovadamente nao afeta F);
+  --sem-cache         recalcula tudo;
+  --conferir K        reexecuta K configuracoes (8 sementes) e compara bit a
+                      bit com o cache -- a conferencia de determinismo.
 """
+import argparse
 import csv
+import hashlib
 import itertools
 import os
 import sys
@@ -12,15 +28,16 @@ import sys
 import numpy as np
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from gerador import Params, gerar, RAS, COBERTURA          # noqa: E402
-from bracos import BRACOS, calcular                        # noqa: E402
-from bracos_ml import BRACOS_ML, calcular_ml               # noqa: E402
-from metricas import brier, ece, precisao_topk, fpr_por_ra  # noqa: E402
+from gerador import RAS, COBERTURA                         # noqa: E402
+from bracos import BRACOS                                  # noqa: E402
+from bracos_ml import BRACOS_ML                            # noqa: E402
+from pipeline import FAMILIAS, executar, _cfg               # noqa: E402
 
 TODOS = BRACOS + BRACOS_ML
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SAIDA = os.path.join(RAIZ, "resultados")
+CACHE = os.path.join(SAIDA, "cache")
 
 N = 40_000
 K = 0.10
@@ -31,61 +48,76 @@ GRADE_PI = (0.05, 0.10, 0.15, 0.25)
 
 # Config de referencia, usada nas figuras e na tabela por RA
 REF_BETA, REF_PI, REF_RUIDO = 0.55, 0.15, 0.16
+METRICAS = ("prec", "brier", "ece")
 
 
-def uma_config(f_base, beta, pi, semente):
-    params = Params(pi=pi, f_base=f_base, beta=beta)
-    rng = np.random.default_rng(semente)
-    ra, F, E, f_true = gerar(N, params, rng)
-    scores = calcular(ra, F, E, f_true, params)
-
-    linha, fpr = {}, {}
-    for nome, s in scores.items():
-        p = np.clip(s, 0.0, 1.0)
-        prec, sel = precisao_topk(s, F, K, rng)
-        linha[nome] = {"prec": prec, "brier": brier(p, F), "ece": ece(p, F), "n": N}
-        fpr[nome] = fpr_por_ra(sel, ra, F, N, len(RAS))
-
-    # Bracos treinados: estritamente depois dos seis fechados, para nao mudar
-    # a sequencia do rng que eles consomem. `sel` aqui indexa o subconjunto
-    # de teste, nunca os N casos completos.
-    scores_ml, idx_teste = calcular_ml(ra, F, E, params, rng)
-    F_t, ra_t, n_t = F[idx_teste], ra[idx_teste], len(idx_teste)
-    for nome in BRACOS_ML:
-        s = scores_ml[nome]
-        p = np.clip(s, 0.0, 1.0)
-        prec, sel = precisao_topk(s, F_t, K, rng)
-        linha[nome] = {"prec": prec, "brier": brier(p, F_t), "ece": ece(p, F_t), "n": n_t}
-        fpr[nome] = fpr_por_ra(sel, ra_t, F_t, n_t, len(RAS))
-    return linha, fpr
+def e_referencia(f_base, beta, pi):
+    return (round(beta, 4) == REF_BETA and round(pi, 4) == REF_PI
+            and abs(f_base - REF_RUIDO) < 1e-6)
 
 
-def main():
+def atualizar_manifesto():
+    """SHA-256 de cada CSV de resultados/. Conferencia completa de uma segunda
+    rodada:  sha256sum -c resultados/manifesto.sha256  (a partir da raiz)."""
+    nomes = sorted(n for n in os.listdir(SAIDA) if n.endswith(".csv"))
+    with open(os.path.join(SAIDA, "manifesto.sha256"), "w", encoding="utf-8", newline="\n") as fh:
+        for nome in nomes:
+            with open(os.path.join(SAIDA, nome), "rb") as arq:
+                fh.write(f"{hashlib.sha256(arq.read()).hexdigest()}  resultados/{nome}\n")
+
+
+def _lista(texto):
+    fams = tuple(f for f in texto.split(",") if f)
+    ruins = set(fams) - set(FAMILIAS)
+    if ruins:
+        raise SystemExit(f"familias desconhecidas: {sorted(ruins)}; validas: {list(FAMILIAS)}")
+    return fams
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--workers", type=int, default=os.cpu_count())
+    ap.add_argument("--familias", default="", help="recalcula estas familias (ex.: calibrados)")
+    ap.add_argument("--aceitar-cache", default="", help="usa o cache destas mesmo desatualizado")
+    ap.add_argument("--sem-cache", action="store_true", help="recalcula todas as familias")
+    ap.add_argument("--conferir", type=int, default=0, metavar="K",
+                    help="reexecuta K configuracoes e compara bit a bit com o cache")
+    args = ap.parse_args(argv)
+    forcar = tuple(FAMILIAS) if args.sem_cache else _lista(args.familias)
+    aceitar = _lista(args.aceitar_cache)
+
     os.makedirs(SAIDA, exist_ok=True)
     combos = list(itertools.product(GRADE_RUIDO, GRADE_BETA, GRADE_PI))
-    print(f"{len(combos)} configuracoes x {len(list(SEMENTES))} sementes x {N:,} casos")
+    print(f"{len(combos)} configuracoes x {len(list(SEMENTES))} sementes x {N:,} casos"
+          f"  ({args.workers} processos)")
 
-    linhas, fpr_ref = [], {b: [] for b in TODOS}
-    for i, (f_base, beta, pi) in enumerate(combos, 1):
-        acumulado = {b: {m: [] for m in ("prec", "brier", "ece", "n")} for b in TODOS}
-        for semente in SEMENTES:
-            res, fpr = uma_config(f_base, beta, pi, semente)
-            for b in TODOS:
-                for m in ("prec", "brier", "ece", "n"):
-                    acumulado[b][m].append(res[b][m])
-                if (round(beta, 4) == REF_BETA and round(pi, 4) == REF_PI
-                        and abs(f_base - REF_RUIDO) < 1e-6):
-                    fpr_ref[b].append(fpr[b])
+    def progresso(i, total):
+        if i % 224 == 0 or i == total:
+            print(f"  {i}/{total}", flush=True)
+
+    tudo = executar(combos, SEMENTES, N, K, CACHE, forcar=forcar, aceitar_velho=aceitar,
+                    workers=args.workers, progresso=progresso)
+
+    # Agregacao na ordem das sementes, identica a da varredura sequencial antiga:
+    # medias de floats lidos em repr (ida e volta exata) saem bit a bit iguais.
+    linhas, grade, fpr_ref = [], [], {b: [] for b in TODOS}
+    for f_base, beta, pi in combos:
+        regs = [tudo[(_cfg(f_base, beta, pi), s)] for s in SEMENTES]
         for b in TODOS:
+            por_semente = [r[b] for r in regs]
             linhas.append({
                 "f_base": f_base, "beta": beta, "pi": pi, "braco": b,
-                **{f"{m}_media": float(np.mean(acumulado[b][m])) for m in ("prec", "brier", "ece")},
-                **{f"{m}_dp": float(np.std(acumulado[b][m])) for m in ("prec", "brier", "ece")},
+                **{f"{m}_media": float(np.mean([r[m] for r in por_semente])) for m in METRICAS},
+                **{f"{m}_dp": float(np.std([r[m] for r in por_semente])) for m in METRICAS},
                 # Os bracos treinados sao avaliados so no teste: N menor, mais variancia.
-                "n_efetivo": float(np.mean(acumulado[b]["n"])),
+                "n_efetivo": float(np.mean([r["n"] for r in por_semente])),
             })
-        if i % 28 == 0:
-            print(f"  {i}/{len(combos)}")
+            media_fpr = np.mean([r["fpr"] for r in por_semente], axis=0)
+            grade.append([repr(float(f_base)), repr(float(beta)), repr(float(pi)), b,
+                          *(repr(float(x)) for x in media_fpr)])
+            if e_referencia(f_base, beta, pi):
+                fpr_ref[b] = [r["fpr"] for r in por_semente]
 
     cam = os.path.join(SAIDA, "varredura.csv")
     with open(cam, "w", newline="", encoding="utf-8") as fh:
@@ -103,7 +135,52 @@ def main():
             w.writerow([nome, COBERTURA[r]] + [f"{medias[b][r]:.6f}" for b in TODOS])
     print(f"-> {cam2}")
 
+    cam3 = os.path.join(SAIDA, "fpr_grade.csv")
+    with open(cam3, "w", newline="", encoding="utf-8") as fh:
+        w = csv.writer(fh)
+        w.writerow(["f_base", "beta", "pi", "braco"] + [f"fpr_{r}" for r in range(len(RAS))])
+        w.writerows(grade)
+    print(f"-> {cam3}")
+    atualizar_manifesto()
+
     verificar(linhas, medias)
+
+    if args.conferir:
+        conferir(args.conferir, combos, tudo, args.workers)
+
+
+def amostra_conferencia(combos, k):
+    """Referencia primeiro; o resto sorteado com semente fixa. Sempre a mesma."""
+    ref = [c for c in combos if e_referencia(*c)]
+    resto = [c for c in combos if not e_referencia(*c)]
+    escolha = np.random.default_rng(12345).choice(len(resto), size=max(0, k - len(ref)),
+                                                 replace=False)
+    return ref + [resto[i] for i in sorted(escolha)]
+
+
+def conferir(k, combos, tudo, workers):
+    """Reexecuta a amostra em processos novos e compara cada registro bit a bit."""
+    from concurrent.futures import ProcessPoolExecutor
+    from pipeline import _tarefa, _inicializar_worker
+    amostra = amostra_conferencia(combos, k)
+    tarefas = [(float(f), float(b), float(p), s, tuple(FAMILIAS), N, K)
+               for f, b, p in amostra for s in SEMENTES]
+    print(f"\nConferencia de determinismo: {len(amostra)} configuracoes x "
+          f"{len(list(SEMENTES))} sementes")
+    with ProcessPoolExecutor(max_workers=workers, initializer=_inicializar_worker) as ex:
+        novos = list(ex.map(_tarefa, tarefas))
+    difere = []
+    for args, novo in zip(tarefas, novos):
+        antigo = tudo[(_cfg(*args[:3]), args[3])]
+        for b in TODOS:
+            a, n = antigo[b], novo[b]
+            if not (all(a[m] == n[m] for m in ("prec", "brier", "ece", "n"))
+                    and np.array_equal(a["fpr"], n["fpr"], equal_nan=True)):
+                difere.append((args[:4], b))
+    if difere:
+        print(f"  NAO BATE em {len(difere)} registros, ex.: {difere[:5]}")
+        raise SystemExit(1)
+    print(f"  OK: {len(tarefas) * len(TODOS)} registros bit a bit iguais")
 
 
 def verificar(linhas, medias_fpr):

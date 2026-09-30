@@ -41,10 +41,17 @@ from sklearn.model_selection import StratifiedKFold, cross_val_predict
 from sklearn.naive_bayes import BernoulliNB
 from sklearn.tree import DecisionTreeClassifier
 
-# Braco novo sempre no fim: a ordem define a sequencia de rng dos topk, e
-# acrescentar no meio mudaria os numeros dos que vem depois.
+# Braco novo sempre no FIM, e nenhum braco e' removido (um aposentado mantem
+# o slot): a ordem define a sequencia de rng historica que fluxos.py replica,
+# e acrescentar no meio mudaria o desempate dos que vem depois.
 BRACOS_ML = ("D_ML", "E_ML", "F_ML", "A_NB", "B_NB", "C_NB",
              "D_PL", "E_PL", "F_PL", "D_ISO", "E_ISO", "F_ISO")
+FAMILIAS_ML = {
+    "adaboost": ("D_ML", "E_ML", "F_ML"),
+    "nb": ("A_NB", "B_NB", "C_NB"),
+    "calibrados": ("D_PL", "E_PL", "F_PL", "D_ISO", "E_ISO", "F_ISO"),
+}
+assert sorted(sum(FAMILIAS_ML.values(), ())) == sorted(BRACOS_ML)
 FRAC_TREINO = 0.5
 # Fixos e pre-registrados, nao ajustados por configuracao. O stump e' explicito
 # para nao depender do default da versao; desde o scikit-learn 1.8 o AdaBoost
@@ -61,16 +68,17 @@ def _adaboost(semente):
                               random_state=semente)
 
 
-def _calibrados(modelo, X_tr, y_tr, X_te, semente):
+def _calibrados(modelo, X_tr, y_tr, X_te, semente, n_jobs=-1):
     """Platt e isotonica para um AdaBoost ja ajustado em todo o treino.
 
     As predicoes fora da dobra vem de AdaBoosts com os mesmos hiperparametros e
     a mesma semente, um por dobra. As dobras nao embaralham, entao nada aqui
     consome o rng do experimento; a ordem do treino ja e' aleatoria (casos iid,
-    split sorteado). As dobras sao independentes: n_jobs=-1 nao muda o resultado."""
+    split sorteado). As dobras sao independentes: n_jobs nao muda o resultado
+    (dentro do pool de varredura.py usa-se 1, para nao disputar nucleos)."""
     oof = cross_val_predict(_adaboost(semente), X_tr, y_tr,
                             cv=StratifiedKFold(N_DOBRAS), method="decision_function",
-                            n_jobs=-1)
+                            n_jobs=n_jobs)
     s_te = modelo.decision_function(X_te)
     platt = LogisticRegression(C=np.inf).fit(oof[:, None], y_tr)
     iso = IsotonicRegression(y_min=0.0, y_max=1.0, out_of_bounds="clip").fit(oof, y_tr)
@@ -104,41 +112,52 @@ def _naive_bayes(Et, Ft, rat, Es, ras, n_ras):
     return {"A_NB": a.predict_proba(Es)[:, 1], "B_NB": b, "C_NB": c}
 
 
-def calcular_ml(ra, F, E, params, rng):
-    """Retorna (scores_teste, idx_teste). scores_teste[nome] tem shape
-    (n_teste,), alinhado a idx_teste: as metricas devem usar F[idx_teste]
-    e ra[idx_teste], nunca os arrays completos.
+def calcular_ml(ra, F, E, params, treino, sementes, familias=tuple(FAMILIAS_ML), n_jobs=-1):
+    """Retorna (scores_teste, idx_teste) so para os bracos das `familias` pedidas.
+    scores_teste[nome] tem shape (n_teste,), alinhado a idx_teste: as metricas
+    devem usar F[idx_teste] e ra[idx_teste], nunca os arrays completos.
 
-    Consome o rng em ordem fixa: 1 sorteio para o split, 3 sementes
-    (D, E, F; os calibrados reusam a do seu AdaBoost). O scikit-learn recebe
-    inteiros, entao os sorteios internos dele nao consomem o rng do experimento."""
-    treino = rng.random(len(F)) < FRAC_TREINO
+    Nao sorteia nada: o split (`treino`) e as 3 sementes do AdaBoost (D, E, F;
+    os calibrados reusam a do seu AdaBoost) vem de fluxos.fluxos, que replica a
+    sequencia de rng historica. Por isso cada familia pode rodar isolada e sair
+    igual a quando roda junto com as outras."""
+    desconhecidas = set(familias) - set(FAMILIAS_ML)
+    if desconhecidas:
+        raise ValueError(f"familias desconhecidas: {sorted(desconhecidas)}")
     idx_treino, idx_teste = np.flatnonzero(treino), np.flatnonzero(~treino)
-    semente_d, semente_e, semente_f = (int(rng.integers(0, 2**32 - 1)) for _ in range(3))
 
     Et, Es = E[idx_treino], E[idx_teste]
     rat, ras = ra[idx_treino], ra[idx_teste]
     Ft = F[idx_treino]
     n_ras = len(params.cobertura)
+    scores_teste = {}
 
-    onehot = np.eye(n_ras)
-    Xe_tr, Xe_te = np.hstack([Et, onehot[rat]]), np.hstack([Es, onehot[ras]])
+    if "nb" in familias:
+        scores_teste.update(_naive_bayes(Et, Ft, rat, Es, ras, n_ras))
 
-    # Mesma formula de taxa_ra usada por C em bracos.calcular, mas estimada
-    # so no treino, para a feature do caso de teste nao depender do proprio teste.
-    obs_tr = Et.max(axis=1)
-    taxa_ra = np.array([obs_tr[rat == r].mean() if (rat == r).any() else params.pi
-                        for r in range(n_ras)])
-    taxa_ra = np.clip(taxa_ra, 0.01, 0.99)
-    Xf_tr, Xf_te = np.hstack([Et, taxa_ra[rat][:, None]]), np.hstack([Es, taxa_ra[ras][:, None]])
+    if "adaboost" in familias or "calibrados" in familias:
+        onehot = np.eye(n_ras)
+        Xe_tr, Xe_te = np.hstack([Et, onehot[rat]]), np.hstack([Es, onehot[ras]])
 
-    entradas = {"D": (Et, Es, semente_d), "E": (Xe_tr, Xe_te, semente_e),
-                "F": (Xf_tr, Xf_te, semente_f)}
-    modelos = {k: _adaboost(sem).fit(X_tr, Ft) for k, (X_tr, _, sem) in entradas.items()}
+        # Mesma formula de taxa_ra usada por C em bracos.calcular, mas estimada
+        # so no treino, para a feature do caso de teste nao depender do proprio teste.
+        obs_tr = Et.max(axis=1)
+        taxa_ra = np.array([obs_tr[rat == r].mean() if (rat == r).any() else params.pi
+                            for r in range(n_ras)])
+        taxa_ra = np.clip(taxa_ra, 0.01, 0.99)
+        Xf_tr, Xf_te = np.hstack([Et, taxa_ra[rat][:, None]]), np.hstack([Es, taxa_ra[ras][:, None]])
 
-    scores_teste = {f"{k}_ML": modelos[k].predict_proba(entradas[k][1])[:, 1] for k in entradas}
-    scores_teste.update(_naive_bayes(Et, Ft, rat, Es, ras, n_ras))
-    for k, (X_tr, X_te, sem) in entradas.items():
-        scores_teste[f"{k}_PL"], scores_teste[f"{k}_ISO"] = _calibrados(
-            modelos[k], X_tr, Ft, X_te, sem)
-    return {b: scores_teste[b] for b in BRACOS_ML}, idx_teste
+        entradas = {"D": (Et, Es, sementes[0]), "E": (Xe_tr, Xe_te, sementes[1]),
+                    "F": (Xf_tr, Xf_te, sementes[2])}
+        # O AdaBoost e' deterministico pela semente: os calibrados, rodando sem a
+        # familia adaboost, reajustam exatamente o mesmo modelo base.
+        modelos = {k: _adaboost(sem).fit(X_tr, Ft) for k, (X_tr, _, sem) in entradas.items()}
+        if "adaboost" in familias:
+            for k in entradas:
+                scores_teste[f"{k}_ML"] = modelos[k].predict_proba(entradas[k][1])[:, 1]
+        if "calibrados" in familias:
+            for k, (X_tr, X_te, sem) in entradas.items():
+                scores_teste[f"{k}_PL"], scores_teste[f"{k}_ISO"] = _calibrados(
+                    modelos[k], X_tr, Ft, X_te, sem, n_jobs)
+
+    return {b: scores_teste[b] for b in BRACOS_ML if b in scores_teste}, idx_teste
