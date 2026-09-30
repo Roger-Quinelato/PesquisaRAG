@@ -108,7 +108,7 @@ passo. A camada de recuperação de evidências (RAG) ainda não foi integrada.
 
 | Caminho | Conteúdo |
 |---|---|
-| `experimento/` | `gerador.py` (mecanismo causal), `bracos.py` (seis abordagens fechadas), `bracos_ml.py` (braços treinados: AdaBoost, Naive Bayes e AdaBoost calibrado), `metricas.py`, `varredura.py`, `equidade.py`, `exportar_dataset.py` e os scripts de figura (`figuras.py`, `figuras_relatorio.py`, `figuras_poster.py`, `figuras_treinados.py`) |
+| `experimento/` | `gerador.py` (mecanismo causal), `bracos.py` (seis abordagens fechadas), `bracos_ml.py` (braços treinados: AdaBoost, Naive Bayes e AdaBoost calibrado), `metricas.py`, `fluxos.py` e `pipeline.py` (aleatoriedade reproduzível, cache e paralelismo), `varredura.py`, `equidade.py`, `exportar_dataset.py` e os scripts de figura (`figuras.py`, `figuras_relatorio.py`, `figuras_poster.py`, `figuras_treinados.py`) |
 | `relatorios/` | Relatório técnico, benchmark de estado da arte, ledger de números auditados, guia das figuras e tabelas de apoio |
 | `figuras/` | Figuras do pôster (as demais são regeradas pelos scripts) |
 | `Proposta_PIDTI_RAG_Bayesiano2.pdf` | Proposta do projeto: hipóteses H1 a H3, arquitetura e cronograma |
@@ -116,8 +116,8 @@ passo. A camada de recuperação de evidências (RAG) ainda não foi integrada.
 
 ## Como reproduzir
 
-O experimento é determinístico por semente. Com os braços treinados e calibrados, leva perto de
-três horas em 4 núcleos:
+O experimento é determinístico por semente. A grade completa leva ~73 min em 4 núcleos, e
+as rodadas seguintes só recalculam o que mudou:
 
 ```bash
 pip install numpy matplotlib pandas seaborn scikit-learn==1.9.1
@@ -126,12 +126,15 @@ python experimento/figuras.py && python experimento/figuras_relatorio.py && pyth
 python experimento/figuras_treinados.py
 ```
 
-`varredura.py` e `equidade.py` escrevem `resultados/`; os scripts de figura leem `resultados/`
-e escrevem `figuras/`. O gerador de dados é um processo causal explícito em `numpy`; os braços
+`varredura.py` calcula a grade em paralelo, guarda as métricas por família em
+`resultados/cache/` e escreve `resultados/`; `equidade.py` só lê a saída dela; os scripts de
+figura leem `resultados/` e escrevem `figuras/`. O gerador de dados é um processo causal explícito em `numpy`; os braços
 usam o `scikit-learn`. As variantes A, B e C são Naive Bayes com os parâmetros do gerador fixados,
 sem treino. Os braços em `bracos_ml.py` (AdaBoost, Naive Bayes treinado e AdaBoost calibrado com Platt
-ou regressão isotônica) são treinados com metade de cada amostra e avaliados na outra metade. A verificação é a reexecução: duas rodadas
-produzem CSVs e PNGs idênticos (com a mesma versão do `scikit-learn`). Para gerar um dataset de
+ou regressão isotônica) são treinados com metade de cada amostra e avaliados na outra metade. A verificação é a
+reexecução: `python experimento/varredura.py --conferir 8` refaz uma amostra da grade e confere bit
+a bit, e duas rodadas completas produzem CSVs e PNGs idênticos (com a mesma versão do
+`scikit-learn`). Para gerar um dataset de
 casos com a fraude latente:
 
 ```bash
