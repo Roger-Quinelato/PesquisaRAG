@@ -116,6 +116,7 @@ passo. A camada de recuperação de evidências (RAG) ainda não foi integrada.
 | `notebooks/` | Exploração e estudo; não é fonte de número publicado |
 | `relatorios/` | Relatório técnico, benchmark de estado da arte, ledger de números auditados, guia das figuras e tabelas de apoio |
 | `figuras/` | Figuras do pôster (as demais são regeradas pelos scripts) |
+| `requirements.txt`, `Dockerfile` | Versões fixadas das dependências e imagem mínima para reproduzir o experimento |
 | `Proposta_PIDTI_RAG_Bayesiano2.pdf` | Proposta do projeto: hipóteses H1 a H3, arquitetura e cronograma |
 | `CLAUDE.md` | Guia de trabalho detalhado: achados verificados, decisões metodológicas e convenções |
 | `CONTRIBUTING.md` | Modelo de branches (`main`, `develop`, branches por tarefa), convenção de commits e regras de PR |
@@ -125,7 +126,7 @@ passo. A camada de recuperação de evidências (RAG) ainda não foi integrada.
 O experimento é determinístico por semente e leva cerca de 8 minutos:
 
 ```bash
-pip install numpy matplotlib pandas seaborn
+pip install -r requirements.txt
 python experimento/varredura.py && python experimento/equidade.py
 python experimento/figuras.py && python experimento/figuras_relatorio.py && python experimento/figuras_poster.py
 ```
@@ -137,6 +138,27 @@ CSVs e PNGs idênticos. Para gerar um dataset de casos com a fraude latente:
 ```bash
 python experimento/exportar_dataset.py 5000   # escreve dataset_sintetico_v2.csv
 ```
+
+### Com Docker
+
+A imagem fixa Python 3.12 e as versões de `requirements.txt`, e não depende do ambiente local:
+
+```bash
+docker build -t pesquisarag .
+docker run --rm pesquisarag          # roda os testes (poucos segundos)
+```
+
+Para o pipeline completo, monte `resultados/` e `figuras/` como volumes, para que as saídas
+fiquem no diretório local:
+
+```bash
+docker run --rm -v "$PWD/resultados:/pesquisa/resultados" -v "$PWD/figuras:/pesquisa/figuras" \
+    pesquisarag sh -c "python experimento/varredura.py && python experimento/equidade.py \
+    && python experimento/figuras.py && python experimento/figuras_relatorio.py \
+    && python experimento/figuras_poster.py"
+```
+
+No PowerShell, troque `$PWD` por `${PWD}` e as barras invertidas de continuação por crases (`` ` ``).
 
 ## Referências principais
 
