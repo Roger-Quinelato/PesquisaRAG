@@ -48,6 +48,8 @@ def uma_config(f_base, beta, pi, semente, com_fpr=False):
 
 
 def main():
+    """Roda a grade inteira, escreve varredura.csv e fpr_por_ra.csv e
+    imprime o veredito dos criterios de aceitacao."""
     os.makedirs(RES, exist_ok=True)
     combos = list(itertools.product(GRADE_RUIDO, GRADE_BETA, GRADE_PI))
     print(f"{len(combos)} configuracoes x {len(SEMENTES)} sementes x {N:,} casos")

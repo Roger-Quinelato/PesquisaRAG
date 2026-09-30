@@ -57,6 +57,8 @@ def predicoes_referencia():
 
 
 def fig3(P, y, ece_med):
+    """Diagrama de confiabilidade de LOOKUP, A, B e C na config de
+    referencia, com o ECE medio por semente na legenda."""
     # LOOKUP, A e B praticamente coincidem com a diagonal. Larguras e alfas
     # decrescentes (nao as fixas de paleta_sns.LARGURA) fazem os tres
     # aparecerem em vez de um esconder o outro -- especifico desta figura.
@@ -107,6 +109,9 @@ def fig3(P, y, ece_med):
 # fig4 -- onde B inverte o sinal da correlacao
 # --------------------------------------------------------------------------
 def fig4():
+    """Heatmap de corr(cobertura, FPR) de B na grade beta x pi, um painel
+    por ruido, com borda nas celulas que reprovam o criterio. Retorna
+    (n_ok, n_pos, total)."""
     E = ler("equidade.csv")
     df = pd.DataFrame(E)
     for col in ("f_base", "beta", "pi", "corr_B"):
@@ -158,11 +163,14 @@ def fig4():
 # fig5 -- sensibilidade da diferenca contra a tabela empirica
 # --------------------------------------------------------------------------
 def _serie(df, beta, pi):
+    """Linhas de varredura.csv com (beta, pi) dados, ordenadas por ruido."""
     sub = df[np.isclose(df["beta"], beta) & np.isclose(df["pi"], pi)]
     return sub.sort_values("f_base")
 
 
 def fig5():
+    """Diferenca de precisao contra a tabela empirica ao variar beta (linha
+    superior) e pi (linha inferior), um painel por valor."""
     V = ler("varredura.csv")
     df = pd.DataFrame(V)
     for col in ("f_base", "beta", "pi", "prec_media"):
@@ -171,6 +179,7 @@ def fig5():
     fig, axes = plt.subplots(2, 4, figsize=(18.0, 8.6), sharex=True, sharey=True)
 
     def painel(ax, beta, pi, titulo):
+        """Desenha um painel de fig5 e anota os pontos fora de escala."""
         sub = _serie(df, beta, pi)
         base = sub[sub["braco"] == "LOOKUP"].set_index("f_base")["prec_media"]
         ax.axhline(0, color=COR["LOOKUP"], lw=LARGURA["LOOKUP"], ls="-.")

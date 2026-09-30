@@ -19,6 +19,9 @@ SAIDA = os.path.join(RAIZ, "dataset_sintetico_v2.csv")
 
 
 def main(n=5000, semente=20260907):
+    """Gera n casos na config padrao (Params()) e escreve
+    dataset_sintetico_v2.csv (';' e UTF-8 com BOM); imprime quantas linhas
+    tem OR(evidencias) diferente da fraude latente, que deve ser substancial."""
     params = Params()
     ra, F, E, f_true = gerar(n, params, np.random.default_rng(semente))
     with open(SAIDA, "w", newline="", encoding="utf-8-sig") as fh:

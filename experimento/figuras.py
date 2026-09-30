@@ -18,6 +18,8 @@ configurar_estilo()
 
 
 def fig1():
+    """Tres paineis ao longo do ruido, na config de referencia: precisao
+    no topo 10%, diferenca contra a tabela empirica (p.p.) e ECE."""
     R = [L for L in ler("varredura.csv")
          if float(L["beta"]) == REF_BETA and float(L["pi"]) == REF_PI]
     df = pd.DataFrame(R)
@@ -72,6 +74,8 @@ def fig1():
 
 
 def fig2():
+    """FPR entre inocentes por RA contra a cobertura cadastral, com a
+    correlacao de cada braco na legenda e a ressalva de robustez de B."""
     R = ler("fpr_por_ra.csv")
     df = pd.DataFrame(R)
     df["cobertura"] = df["cobertura"].astype(float) * 100

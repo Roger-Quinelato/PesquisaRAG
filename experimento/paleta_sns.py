@@ -90,6 +90,7 @@ def num(x, casas=2):
 
 
 def _tick_ptbr(x, _pos=None):
+    """Formata um tick com vírgula decimal e menos tipográfico."""
     return f"{x:g}".replace("-", "−").replace(".", ",")
 
 

@@ -25,6 +25,8 @@ FPR_MAX = 0.95
 
 @dataclass(frozen=True)
 class Params:
+    """Parametros do mecanismo causal. Os defaults sao a config de
+    referencia usada no resumo e no poster."""
     pi: float = 0.15                 # P(F=1), igual em toda RA
     f_base: float = 0.16             # falso-positivo base das evidencias
     beta: float = 0.55               # quanto a falta de cobertura infla o FP de endereco
@@ -33,6 +35,7 @@ class Params:
 
     @property
     def sens_arr(self):
+        """Sensibilidades P(E_j=1 | F=1) como array."""
         return np.asarray(self.sens)
 
     def _fpr(self, cobertura):

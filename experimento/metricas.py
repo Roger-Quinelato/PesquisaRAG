@@ -5,6 +5,7 @@ BINS = 10
 
 
 def brier(p, y):
+    """Brier score: erro quadratico medio entre probabilidade e rotulo."""
     return float(np.mean((p - y) ** 2))
 
 
@@ -37,6 +38,8 @@ def topk(score, k, rng):
 
 
 def precisao_topk(score, y, k, rng):
+    """Fracao de fraudes entre os k*n casos selecionados pelo score.
+    Retorna (precisao, indices_selecionados)."""
     sel = topk(score, k, rng)
     return float(y[sel].mean()), sel
 
