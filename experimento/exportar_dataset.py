@@ -13,8 +13,8 @@ import numpy as np
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from gerador import Params, gerar, RAS, COBERTURA, EVIDENCIAS  # noqa: E402
+from configuracao import RAIZ                                  # noqa: E402
 
-RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SAIDA = os.path.join(RAIZ, "dataset_sintetico_v2.csv")
 
 
@@ -40,4 +40,4 @@ def main(n=5000, semente=20260907):
 
 
 if __name__ == "__main__":
-    main(int(sys.argv[1]) if len(sys.argv) > 1 else 5000)
+    main(*map(int, sys.argv[1:2]))

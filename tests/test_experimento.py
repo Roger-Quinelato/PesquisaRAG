@@ -86,7 +86,7 @@ class TestMetricas(unittest.TestCase):
         ra = np.array([0, 0, 1, 1])
         y = np.array([0, 1, 0, 0])
         sel = np.array([0, 1, 2])
-        np.testing.assert_allclose(fpr_por_ra(sel, ra, y, 4, 2), [1.0, 0.5])
+        np.testing.assert_allclose(fpr_por_ra(sel, ra, y, 2), [1.0, 0.5])
 
 
 class TestBracos(unittest.TestCase):

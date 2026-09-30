@@ -1,7 +1,7 @@
 """As duas figuras do banner. Le resultados/, escreve figuras/. Renderizacao
 via seaborn (sobre matplotlib); paleta e estilo compartilhados estao em
 paleta_sns.py."""
-import csv, os, sys
+import os, sys
 import numpy as np
 import pandas as pd
 import matplotlib
@@ -10,20 +10,11 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from gerador import RAS, COBERTURA  # noqa: E402
+from configuracao import FIG, REF_BETA, REF_PI, ler  # noqa: E402
 from paleta_sns import (COR, ROTULO, LARGURA, num, eixo_ptbr, chaves_legenda,  # noqa: E402
                         configurar_estilo, linha, TINTA_SECUNDARIA, TINTA_MUTED)
 
-RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-RES, FIG = os.path.join(RAIZ, "resultados"), os.path.join(RAIZ, "figuras")
-REF_BETA, REF_PI = 0.55, 0.15
-
 configurar_estilo()
-
-
-def ler(nome):
-    with open(os.path.join(RES, nome), encoding="utf-8") as fh:
-        return list(csv.DictReader(fh))
 
 
 def fig1():

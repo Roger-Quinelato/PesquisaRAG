@@ -22,7 +22,6 @@ objeto de comparação de identidade nesta pesquisa: são referências de
 contexto (o piso e o teto), e por isso usam tons de tinta (texto) em vez
 de matiz -- a mesma convenção que separa "dado" de "anotação".
 """
-import numpy as np
 import seaborn as sns
 from matplotlib.lines import Line2D
 from matplotlib.ticker import FuncFormatter

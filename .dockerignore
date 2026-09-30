@@ -1,22 +1,7 @@
-# A imagem só precisa de requirements.txt, experimento/ e tests/.
-.git/
-.github/
-.claude/
-.tlc/
-.cursor/
-__pycache__/
-*.pyc
-.venv/
-venv/
-resultados/
-figuras/
-relatorios/
-docs/
-data/
-notebooks/
-src/
-*.pdf
-*.xlsx
-*.csv
-*.docx
-*.md
+# Lista de permissao: a imagem so precisa destes tres caminhos.
+*
+!requirements.txt
+!experimento/
+!tests/
+**/__pycache__
+**/*.pyc

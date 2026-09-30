@@ -108,7 +108,7 @@ passo. A camada de recuperação de evidências (RAG) ainda não foi integrada.
 
 | Caminho | Conteúdo |
 |---|---|
-| `experimento/` | `gerador.py` (mecanismo causal), `bracos.py` (seis abordagens), `metricas.py`, `varredura.py`, `equidade.py`, `exportar_dataset.py` e os scripts de figura (`figuras.py`, `figuras_relatorio.py`, `figuras_poster.py`) |
+| `experimento/` | `reproduzir.py` (pipeline inteiro), `configuracao.py` (parâmetros compartilhados), `gerador.py` (mecanismo causal), `bracos.py` (seis abordagens), `metricas.py`, `varredura.py`, `equidade.py`, `exportar_dataset.py` e os scripts de figura (`figuras.py`, `figuras_relatorio.py`, `figuras_poster.py`) |
 | `src/` | Código do sistema (RAG, motor bayesiano, XAI) — reservado para as fases D5, D7 e D9 |
 | `tests/` | Testes do experimento (`python -m unittest discover tests`) |
 | `data/` | Estrutura para dados locais; nenhum dado é versionado |
@@ -127,12 +127,14 @@ O experimento é determinístico por semente e leva cerca de 8 minutos:
 
 ```bash
 pip install -r requirements.txt
-python experimento/varredura.py && python experimento/equidade.py
-python experimento/figuras.py && python experimento/figuras_relatorio.py && python experimento/figuras_poster.py
+python experimento/reproduzir.py
 ```
 
-`varredura.py` e `equidade.py` usam só `numpy` e escrevem `resultados/`; os scripts de figura
-leem `resultados/` e escrevem `figuras/`. A verificação é a reexecução: duas rodadas produzem
+`reproduzir.py` roda, em ordem, `varredura.py` e `equidade.py` (só `numpy`; escrevem
+`resultados/`) e os três scripts de figura (leem `resultados/` e escrevem `figuras/`). Cada
+etapa também roda sozinha, como `python experimento/varredura.py`. Os parâmetros compartilhados
+(tamanho da simulação, grades, configuração de referência e limiares pré-registrados) ficam em
+`experimento/configuracao.py`. A verificação é a reexecução: duas rodadas produzem
 CSVs e PNGs idênticos. Para gerar um dataset de casos com a fraude latente:
 
 ```bash
@@ -153,12 +155,10 @@ fiquem no diretório local:
 
 ```bash
 docker run --rm -v "$PWD/resultados:/pesquisa/resultados" -v "$PWD/figuras:/pesquisa/figuras" \
-    pesquisarag sh -c "python experimento/varredura.py && python experimento/equidade.py \
-    && python experimento/figuras.py && python experimento/figuras_relatorio.py \
-    && python experimento/figuras_poster.py"
+    pesquisarag python experimento/reproduzir.py
 ```
 
-No PowerShell, troque `$PWD` por `${PWD}` e as barras invertidas de continuação por crases (`` ` ``).
+No PowerShell, troque `$PWD` por `${PWD}` e a barra invertida de continuação por crase (`` ` ``).
 
 ## Referências principais
 

@@ -1,15 +1,24 @@
 """Metricas de calibracao e de utilidade decisoria sob orcamento."""
 import numpy as np
 
+BINS = 10
+
 
 def brier(p, y):
     return float(np.mean((p - y) ** 2))
 
 
-def ece(p, y, bins=10):
-    """Expected Calibration Error, bins de largura igual."""
+def bins_ece(p, bins=BINS):
+    """Indice do bin de cada probabilidade: bins de largura igual em [0, 1].
+    Usado por ece() e pelo diagrama de confiabilidade, que assim nao tem
+    como divergir do numero publicado."""
     edges = np.linspace(0.0, 1.0, bins + 1)
-    idx = np.clip(np.digitize(p, edges[1:-1]), 0, bins - 1)
+    return np.clip(np.digitize(p, edges[1:-1]), 0, bins - 1)
+
+
+def ece(p, y, bins=BINS):
+    """Expected Calibration Error, bins de largura igual."""
+    idx = bins_ece(p, bins)
     total = 0.0
     for b in range(bins):
         m = idx == b
@@ -32,10 +41,10 @@ def precisao_topk(score, y, k, rng):
     return float(y[sel].mean()), sel
 
 
-def fpr_por_ra(sel, ra, y, n, n_ras):
+def fpr_por_ra(sel, ra, y, n_ras):
     """Entre os NAO-fraudes de cada RA, fracao mandada a revisao humana.
     E' a metrica de equidade: mede quem paga o custo do falso positivo."""
-    marcado = np.zeros(n, dtype=bool)
+    marcado = np.zeros(len(ra), dtype=bool)
     marcado[sel] = True
     out = np.full(n_ras, np.nan)
     for r in range(n_ras):

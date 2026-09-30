@@ -20,13 +20,12 @@ import seaborn as sns
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from gerador import RAS, COBERTURA, IDX_ENDERECO, Params  # noqa: E402
+from configuracao import (RES, FIG, REF_BETA, REF_PI, REF_RUIDO,  # noqa: E402
+                          LIMIAR_CORR_RULE, LIMIAR_CORR_B)
 from paleta_sns import (COR, LARGURA, TRACO, num, eixo_ptbr, VIRGULA,  # noqa: E402
                         configurar_estilo, linha, chaves_legenda,
                         TINTA_PRIMARIA, TINTA_SECUNDARIA, TINTA_MUTED, EIXO)
 
-RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-RES, FIG = os.path.join(RAIZ, "resultados"), os.path.join(RAIZ, "figuras")
-REF_F, REF_BETA, REF_PI = 0.16, 0.55, 0.15
 META = {"Software": None}   # hash estável entre execuções
 DPI = 300
 ROT = {"RULE_CNT": "Regra por contagem", "LOOKUP": "Tabela empírica",
@@ -180,7 +179,7 @@ def efeito_calibracao():
     for b in ("A", "B", "C"):
         d = df[df["braco"] == b]
         linha(ax[1], d["f_base"], d["ece_media"], b)
-    fim_ab = df[(df["braco"].isin(["A", "B"])) & np.isclose(df["f_base"], REF_F)]["ece_media"].max()
+    fim_ab = df[(df["braco"].isin(["A", "B"])) & np.isclose(df["f_base"], REF_RUIDO)]["ece_media"].max()
     ax[1].annotate(f"A e B ≈ {num(fim_ab, 3).lstrip('+')}", (0.30, fim_ab),
                    xytext=(0, 14), textcoords="offset points", ha="center",
                    fontsize=13, color=TINTA_SECUNDARIA)
@@ -248,8 +247,8 @@ def robustez():
     c_pior = int(((v["brier_media"]["C"] > v["brier_media"]["A"])
                   & (v["ece_media"]["C"] > v["ece_media"]["A"])).sum())
     b_prec = int((v["prec_media"]["B"] > v["prec_media"]["LOOKUP"]).sum())
-    cnt_neg = int((eq["corr_RULE_CNT"] < -0.5).sum())
-    b_eq = int((eq["corr_B"] >= -0.10).sum())
+    cnt_neg = int((eq["corr_RULE_CNT"] < LIMIAR_CORR_RULE).sum())
+    b_eq = int((eq["corr_B"] >= LIMIAR_CORR_B).sum())
     achados = [
         ("RA no prior (C) piora a calibração", c_pior, nv, "C", True),
         ("RA na verossimilhança (B) ganha precisão", b_prec, nv, "B", True),

@@ -10,7 +10,7 @@ Saida: figuras/fig3_confiabilidade.png
 Deterministico: mesmas sementes de varredura.py e metadados de PNG fixos, de
 modo que duas execucoes produzem bytes identicos.
 """
-import csv, os, sys
+import os, sys
 import numpy as np
 import pandas as pd
 import matplotlib
@@ -21,43 +21,22 @@ import seaborn as sns
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from gerador import Params, gerar                    # noqa: E402
 from bracos import calcular                          # noqa: E402
-from metricas import ece                             # noqa: E402
-from figuras import RAIZ, RES, FIG                    # noqa: E402
+from metricas import ece, bins_ece, BINS              # noqa: E402
+from configuracao import (FIG, N, SEMENTES, REF_BETA, REF_PI, REF_RUIDO,  # noqa: E402
+                          GRADE_BETA, GRADE_PI, LIMIAR_CORR_B, eh_referencia, ler)
 from paleta_sns import (COR, ROTULO, TRACO, LARGURA, DIVERGENTE,  # noqa: E402
                         num, eixo_ptbr, VIRGULA, configurar_estilo, linha)
 
 configurar_estilo()
 
-# Mesmos parametros de varredura.py -- se divergirem, o ECE anotado na fig3
-# deixa de bater com ece_media de resultados/varredura.csv.
-N = 40_000
-SEMENTES = range(8)
-BINS = 10
-REF_BETA, REF_PI, REF_RUIDO = 0.55, 0.15, 0.16
-GRADE_BETA = (0.25, 0.40, 0.55, 0.70)
-GRADE_PI = (0.05, 0.10, 0.15, 0.25)
 # Metadados fixos: sem isso o PNG carrega a versao do matplotlib e o hash muda
 # entre ambientes, tornando o teste de determinismo inconclusivo.
 META = {"Software": None}
 
 
-def ler(nome):
-    with open(os.path.join(RES, nome), encoding="utf-8") as fh:
-        return list(csv.DictReader(fh))
-
-
 # --------------------------------------------------------------------------
 # fig3 -- diagrama de confiabilidade
 # --------------------------------------------------------------------------
-def _bins_ece(p):
-    """Binning IDENTICO ao de metricas.ece: 10 bins de largura igual,
-    np.digitize sobre as bordas internas. Replicado (e nao importado) porque
-    metricas.ece devolve so o escalar; qualquer divergencia aqui faria a
-    figura contradizer o numero publicado de ECE."""
-    edges = np.linspace(0.0, 1.0, BINS + 1)
-    return np.clip(np.digitize(p, edges[1:-1]), 0, BINS - 1)
-
-
 def predicoes_referencia():
     """Regera as predicoes por caso na config de referencia. A grade agregada
     nao as guarda. Devolve (scores_empilhados, F_empilhado, ece_media_por_braco)."""
@@ -67,8 +46,7 @@ def predicoes_referencia():
         rng = np.random.default_rng(semente)
         ra, F, E, f_true = gerar(N, params, rng)
         acum_y.append(F)
-        for b, s in calcular(ra, F, E, f_true, params).items():
-            p = np.clip(s, 0.0, 1.0)
+        for b, p in calcular(ra, F, E, f_true, params).items():
             acum_p.setdefault(b, []).append(p)
             ece_sem.setdefault(b, []).append(ece(p, F))
     y = np.concatenate(acum_y)
@@ -89,7 +67,7 @@ def fig3(P, y, ece_med):
             label="Calibração perfeita", zorder=1)
     for b, lw, alfa, z in bracos:
         p = P[b]
-        idx = _bins_ece(p)
+        idx = bins_ece(p)
         xs, ys, ws = [], [], []
         for k in range(BINS):
             m = idx == k
@@ -134,7 +112,7 @@ def fig4():
     for col in ("f_base", "beta", "pi", "corr_B"):
         df[col] = df[col].astype(float)
     ruidos = sorted(df["f_base"].unique())
-    n_ok = int((df["corr_B"] >= -0.10).sum())
+    n_ok = int((df["corr_B"] >= LIMIAR_CORR_B).sum())
     n_pos = int((df["corr_B"] >= 0.0).sum())
     NT = len(df)
 
@@ -155,7 +133,7 @@ def fig4():
         # original -- reprovacao marcada por contorno, nao so por cor.
         for yi, beta in enumerate(GRADE_BETA):
             for xi, pi in enumerate(GRADE_PI):
-                if M.loc[beta, pi] < -0.10:
+                if M.loc[beta, pi] < LIMIAR_CORR_B:
                     ax.add_patch(plt.Rectangle((xi, yi), 1, 1, fill=False,
                                                edgecolor="#111111", lw=2.6))
         ax.set_xticklabels([f"{p:.2f}".replace(".", ",") for p in GRADE_PI])
@@ -196,18 +174,17 @@ def fig5():
         sub = _serie(df, beta, pi)
         base = sub[sub["braco"] == "LOOKUP"].set_index("f_base")["prec_media"]
         ax.axhline(0, color=COR["LOOKUP"], lw=LARGURA["LOOKUP"], ls="-.")
+        diffs = {}
         for b in ("RULE_CNT", "A", "B", "C"):
             d = sub[sub["braco"] == b].set_index("f_base")
-            diff = (d["prec_media"] - base) * 100
-            linha(ax, diff.index, diff.values, b)
+            diffs[b] = (d["prec_media"] - base) * 100
+            linha(ax, diffs[b].index, diffs[b].values, b)
         ax.set_title(titulo, fontsize=13)
         sns.despine(ax=ax, left=True)
         # Recorte: sem ele o unico ponto extremo da regra por contagem
         # (pi=0,10 e ruido=0,01: -9,1 p.p.) achata todos os demais paineis.
         ax.set_ylim(-4.6, 3.4)
-        for b in ("RULE_CNT", "A", "B", "C"):
-            d = sub[sub["braco"] == b].set_index("f_base")
-            diff = (d["prec_media"] - base) * 100
+        for b, diff in diffs.items():
             fora = diff[diff < -4.6]
             if len(fora):
                 ax.annotate(f"{ROTULO[b]}: "
@@ -246,8 +223,7 @@ def conferir_ece(ece_med):
     de referencia. Se nao bater, o binning da fig3 esta errado."""
     alvo = {}
     for L in ler("varredura.csv"):
-        if (abs(float(L["f_base"]) - REF_RUIDO) < 1e-6
-                and float(L["beta"]) == REF_BETA and float(L["pi"]) == REF_PI):
+        if eh_referencia(float(L["f_base"]), float(L["beta"]), float(L["pi"])):
             alvo[L["braco"]] = float(L["ece_media"])
     print("\nCoerencia do ECE (recalculado x resultados/varredura.csv):")
     ok = True
