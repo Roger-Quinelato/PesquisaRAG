@@ -114,7 +114,7 @@ passo. A camada de recuperação de evidências (RAG) ainda não foi integrada.
 | `data/` | Estrutura para dados locais; nenhum dado é versionado |
 | `docs/` | Protocolos: versionamento, baselines e métricas, protocolo experimental |
 | `notebooks/` | Exploração e estudo; não é fonte de número publicado |
-| `relatorios/` | Relatório técnico, benchmark de estado da arte, ledger de números auditados, guia das figuras e tabelas de apoio |
+| `relatorios/` | Relatório técnico, benchmark de estado da arte, levantamento de modelos do Hugging Face para a fase RAG, ledger de números auditados, guia das figuras e tabelas de apoio |
 | `figuras/` | Figuras do pôster (as demais são regeradas pelos scripts) |
 | `Proposta_PIDTI_RAG_Bayesiano2.pdf` | Proposta do projeto: hipóteses H1 a H3, arquitetura e cronograma |
 | `CLAUDE.md` | Guia de trabalho detalhado: achados verificados, decisões metodológicas e convenções |
