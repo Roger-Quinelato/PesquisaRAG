@@ -186,7 +186,9 @@ e não são deriváveis dos arquivos.
   nenhuma das duas é open source pela OSI. A proposta PIDTI lista SDV no stack e afirma uso
   "exclusivamente open source": as duas coisas são incompatíveis e a proposta precisa ser
   corrigida. Alternativa OSI: `synthcity` (Apache 2.0). Nada disso é necessário — o gerador
-  causal roda em numpy.
+  causal roda em numpy. O mesmo vale para o **LLM**: a proposta cita "Ollama + Llama-3/Mistral",
+  e a licença Llama 3.x não é OSI. Modelos Apache-2.0 equivalentes (Ministral 3, Qwen3.5,
+  Gemma 4) e a triagem por papel estão em `relatorios/Benchmark_Modelos_HuggingFace.md`.
 
 ## Dataset legado — por que `dataset_sintetico_500_casos.csv` não serve
 
