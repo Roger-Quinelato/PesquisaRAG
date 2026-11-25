@@ -131,8 +131,12 @@ Terceira: **o experimento precisa do controle**. Fixar π idêntico entre regiõ
 atribuir a disparidade observada à fonte e não à população. Nenhum dado observacional oferece
 essa garantia, porque nele as duas explicações são inseparáveis.
 
-Pelos mesmos motivos o experimento não usa scipy, sklearn, PyMC nem geradores baseados em GAN. As
-dependências são `numpy` e `matplotlib`.
+Pelos mesmos motivos o experimento não usa PyMC, SDV nem geradores baseados em GAN ou ajustados a
+dados. O gerador é um processo causal em `numpy`. Os braços usam o `scikit-learn`: `A`, `B` e `C` como
+`BernoulliNB` com os parâmetros do gerador injetados (sem treino, scores idênticos à fórmula direta até
+~1e−16), e, numa extensão posterior a este relatório, doze braços treinados (AdaBoost, Naive Bayes e
+AdaBoost calibrado; ver `CLAUDE.md`). **Os números das seções 3.0 a 3.9 são dos seis braços fechados e
+não mudaram com essa extensão.**
 
 ### 2.3 Os seis braços
 
@@ -645,12 +649,13 @@ relativa de modelagem.
 
 ## 6. Reprodutibilidade
 
-**Ambiente.** Windows 11, PowerShell. Dependências: `numpy` e `matplotlib` apenas. O experimento
+**Ambiente.** Windows 11, PowerShell. Dependências: `numpy`, `scikit-learn` (1.9.1) e `matplotlib` (versões em `requirements.txt`). O experimento
 é determinístico por semente: duas execuções produzem CSVs idênticos, e as figuras do relatório
 produzem PNGs de hash SHA-256 idêntico.
 
-**Comandos.** Da raiz do repositório (`C:\Pesquisa_RAG`), em ordem, tempo total aproximado de
-8 minutos:
+**Comandos.** Da raiz do repositório, em ordem. Com apenas os seis braços fechados (o escopo deste
+relatório) o tempo era de cerca de 8 minutos; com os doze braços treinados que hoje fazem parte de
+`varredura.py`, são cerca de 3 horas (174 min medidos em 4 núcleos):
 
 ```powershell
 python experimento/varredura.py      # -> resultados/varredura.csv, resultados/fpr_por_ra.csv

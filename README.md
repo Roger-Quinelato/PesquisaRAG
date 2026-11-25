@@ -127,8 +127,9 @@ O experimento é determinístico por semente. Com os braços treinados e calibra
 três horas em 4 núcleos:
 
 ```bash
-pip install -r requirements.txt
-python experimento/reproduzir.py
+uv venv --python 3.12 .venv                      # uma vez; o uv reaproveita o cache global
+uv pip install --python .venv/Scripts/python.exe -r requirements.txt   # Linux/macOS: .venv/bin/python
+.venv/Scripts/python.exe experimento/reproduzir.py
 ```
 
 `reproduzir.py` roda, em ordem, `varredura.py` e `equidade.py` (escrevem `resultados/`) e os

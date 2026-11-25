@@ -1,8 +1,10 @@
 # Versões fixadas: as mesmas do ambiente que gerou os números publicados.
-# O experimento (varredura.py, equidade.py, exportar_dataset.py) usa só numpy;
-# matplotlib, pandas e seaborn servem aos scripts de figura.
-# Não adicionar scipy, sklearn, PyMC nem SDV (ver CLAUDE.md).
+# O experimento (varredura.py, equidade.py, exportar_dataset.py) usa numpy e
+# scikit-learn (que traz o scipy); matplotlib, pandas e seaborn servem aos
+# scripts de figura. Os braços treinados dependem da versão do scikit-learn.
+# Não adicionar PyMC nem SDV (ver CLAUDE.md).
 numpy==2.5.0
+scikit-learn==1.9.1
 matplotlib==3.11.0
 pandas==3.0.3
 seaborn==0.13.2

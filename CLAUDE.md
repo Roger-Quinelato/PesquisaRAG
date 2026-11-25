@@ -18,7 +18,11 @@ figura e mensagens de commit.
 - A ferramenta **Bash tem o PATH quebrado**: só enxerga `git`. Prefixe todo comando com
   `export PATH="/usr/bin:/bin:$PATH"` para ter `cat`, `grep`, `sed`, `ls`. Mesmo assim
   **`python` não fica acessível pelo Bash** — use PowerShell para executar scripts.
-- Instalado: `numpy` 2.5.0, `matplotlib` 3.11.0, `pandas` 3.0.3, `pymupdf` (`fitz`) 1.27,
+- **Use o `.venv/` do projeto** (criado com `uv venv --python 3.12 .venv` e
+  `uv pip install --python .venv/Scripts/python.exe -r requirements.txt`; o uv reaproveita o
+  cache global, então nada é baixado duas vezes). Não instale pacotes no Python global. Rode os
+  scripts com `.venv/Scripts/python.exe`.
+- Instalado no Python global (legado, não usar): `numpy` 2.5.0, `matplotlib` 3.11.0, `pandas` 3.0.3, `pymupdf` (`fitz`) 1.27,
   `pypdf` 6.13, `pdfplumber` 0.11.
 - **Precisa instalar** para rodar o experimento: `scikit-learn` (testado com 1.9.1), que traz
   o `scipy` como dependência.
@@ -55,7 +59,7 @@ Regerar o dataset de casos com rótulo latente:
 python experimento/exportar_dataset.py 5000
 ```
 
-Testes rápidos (só numpy, segundos): `python -m unittest discover tests`. Não há build nem
+Testes rápidos (segundos): `python -m unittest discover tests`. Não há build nem
 lint. A verificação dos resultados é a reexecução: rodar duas vezes e comparar os CSVs, que devem
 ser idênticos. Protocolos em `docs/`.
 
