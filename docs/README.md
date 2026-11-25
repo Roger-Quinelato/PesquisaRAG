@@ -7,6 +7,8 @@
 | [`protocolo_experimental_v1.md`](protocolo_experimental_v1.md) | D2.T7 — protocolo experimental v1 |
 | [`catalogo_fontes_locais.md`](catalogo_fontes_locais.md) | D3.T1 — fontes de dados locais (nenhum dado baixado ainda) |
 | [`matriz_qualidade_fontes.md`](matriz_qualidade_fontes.md) | D3.T2 — definição operacional de cobertura e matriz de qualidade |
+| [`correcoes_proposta_pidti.md`](correcoes_proposta_pidti.md) | Incompatibilidades da proposta com os resultados (licenças, H3, ineditismo), para decisão |
+| [`plano_d5_rag.md`](plano_d5_rag.md) | D5 — plano da fase RAG com critérios declarados antes de rodar |
 
 Os relatórios de resultados (relatório técnico, benchmark, ledger de números) ficam em
 `relatorios/`. Aqui fica o *como se faz*, lá o *o que se encontrou*.
