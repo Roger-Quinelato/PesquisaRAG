@@ -15,69 +15,73 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from gerador import Params, gerar, RAS, COBERTURA          # noqa: E402
 from bracos import BRACOS, calcular                        # noqa: E402
 from metricas import brier, ece, precisao_topk, fpr_por_ra  # noqa: E402
+from configuracao import (RES, N, K, SEMENTES, GRADE_BETA, GRADE_PI,  # noqa: E402
+                          LIMIAR_CORR_RULE, LIMIAR_CORR_B, eh_referencia, veredito)
 
-RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SAIDA = os.path.join(RAIZ, "resultados")
-
-N = 40_000
-K = 0.10
-SEMENTES = range(8)
 GRADE_RUIDO = np.round(np.linspace(0.01, 0.40, 14), 4)
-GRADE_BETA = (0.25, 0.40, 0.55, 0.70)
-GRADE_PI = (0.05, 0.10, 0.15, 0.25)
-
-# Config de referencia, usada nas figuras e na tabela por RA
-REF_BETA, REF_PI, REF_RUIDO = 0.55, 0.15, 0.16
+METRICAS = ("prec", "brier", "ece")
 
 
-def uma_config(f_base, beta, pi, semente):
-    params = Params(pi=pi, f_base=f_base, beta=beta)
+def simular(params, semente):
+    """Uma semente: gera N casos, pontua os seis bracos e seleciona o topo K
+    de cada um. A ordem dos sorteios (gerar, depois o desempate do topk de
+    cada braco na ordem de BRACOS) e' o que torna a saida reprodutivel.
+    Retorna (ra, F, scores, {braco: (precisao, indices_selecionados)})."""
     rng = np.random.default_rng(semente)
     ra, F, E, f_true = gerar(N, params, rng)
     scores = calcular(ra, F, E, f_true, params)
+    topo = {b: precisao_topk(s, F, K, rng) for b, s in scores.items()}
+    return ra, F, scores, topo
 
+
+def uma_config(f_base, beta, pi, semente, com_fpr=False):
+    """Metricas escalares de cada braco numa (config, semente); com_fpr
+    acrescenta o FPR por RA, que so a config de referencia usa."""
+    ra, F, scores, topo = simular(Params(pi=pi, f_base=f_base, beta=beta), semente)
     linha, fpr = {}, {}
     for nome, s in scores.items():
-        p = np.clip(s, 0.0, 1.0)
-        prec, sel = precisao_topk(s, F, K, rng)
-        linha[nome] = {"prec": prec, "brier": brier(p, F), "ece": ece(p, F)}
-        fpr[nome] = fpr_por_ra(sel, ra, F, N, len(RAS))
+        prec, sel = topo[nome]
+        linha[nome] = {"prec": prec, "brier": brier(s, F), "ece": ece(s, F)}
+        if com_fpr:
+            fpr[nome] = fpr_por_ra(sel, ra, F, len(RAS))
     return linha, fpr
 
 
 def main():
-    os.makedirs(SAIDA, exist_ok=True)
+    """Roda a grade inteira, escreve varredura.csv e fpr_por_ra.csv e
+    imprime o veredito dos criterios de aceitacao."""
+    os.makedirs(RES, exist_ok=True)
     combos = list(itertools.product(GRADE_RUIDO, GRADE_BETA, GRADE_PI))
-    print(f"{len(combos)} configuracoes x {len(list(SEMENTES))} sementes x {N:,} casos")
+    print(f"{len(combos)} configuracoes x {len(SEMENTES)} sementes x {N:,} casos")
 
     linhas, fpr_ref = [], {b: [] for b in BRACOS}
     for i, (f_base, beta, pi) in enumerate(combos, 1):
-        acumulado = {b: {m: [] for m in ("prec", "brier", "ece")} for b in BRACOS}
+        ref = eh_referencia(f_base, beta, pi)
+        acumulado = {b: {m: [] for m in METRICAS} for b in BRACOS}
         for semente in SEMENTES:
-            res, fpr = uma_config(f_base, beta, pi, semente)
+            res, fpr = uma_config(f_base, beta, pi, semente, com_fpr=ref)
             for b in BRACOS:
-                for m in ("prec", "brier", "ece"):
+                for m in METRICAS:
                     acumulado[b][m].append(res[b][m])
-                if (round(beta, 4) == REF_BETA and round(pi, 4) == REF_PI
-                        and abs(f_base - REF_RUIDO) < 1e-6):
+                if ref:
                     fpr_ref[b].append(fpr[b])
         for b in BRACOS:
             linhas.append({
                 "f_base": f_base, "beta": beta, "pi": pi, "braco": b,
-                **{f"{m}_media": float(np.mean(acumulado[b][m])) for m in ("prec", "brier", "ece")},
-                **{f"{m}_dp": float(np.std(acumulado[b][m])) for m in ("prec", "brier", "ece")},
+                **{f"{m}_media": float(np.mean(acumulado[b][m])) for m in METRICAS},
+                **{f"{m}_dp": float(np.std(acumulado[b][m])) for m in METRICAS},
             })
         if i % 28 == 0:
             print(f"  {i}/{len(combos)}")
 
-    cam = os.path.join(SAIDA, "varredura.csv")
+    cam = os.path.join(RES, "varredura.csv")
     with open(cam, "w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=list(linhas[0].keys()))
         w.writeheader()
         w.writerows(linhas)
     print(f"\n-> {cam}  ({len(linhas)} linhas)")
 
-    cam2 = os.path.join(SAIDA, "fpr_por_ra.csv")
+    cam2 = os.path.join(RES, "fpr_por_ra.csv")
     with open(cam2, "w", newline="", encoding="utf-8") as fh:
         w = csv.writer(fh)
         w.writerow(["ra", "cobertura"] + list(BRACOS))
@@ -99,24 +103,18 @@ def verificar(linhas, medias_fpr):
     for L in linhas:
         idx.setdefault((L["f_base"], L["beta"], L["pi"]), {})[L["braco"]] = L
 
-    falhas_brier = [k for k, v in idx.items()
-                    if not (v["C"]["brier_media"] > v["A"]["brier_media"])]
-    falhas_ece = [k for k, v in idx.items()
-                  if not (v["C"]["ece_media"] > v["A"]["ece_media"])]
-    print(f"(i)  C pior que A em Brier: {len(idx)-len(falhas_brier)}/{len(idx)} "
-          f"-> {'PASSA' if not falhas_brier else 'FALHA'}")
-    print(f"     C pior que A em ECE  : {len(idx)-len(falhas_ece)}/{len(idx)} "
-          f"-> {'PASSA' if not falhas_ece else 'FALHA'}")
+    for m, rotulo in (("brier", "(i)  C pior que A em Brier"),
+                      ("ece", "     C pior que A em ECE  ")):
+        ok = sum(1 for v in idx.values() if v["C"][f"{m}_media"] > v["A"][f"{m}_media"])
+        print(f"{rotulo}: {ok}/{len(idx)} -> {veredito(ok == len(idx))}")
 
-    c_rule = np.corrcoef(COBERTURA, medias_fpr["RULE_CNT"])[0, 1]
-    c_b = np.corrcoef(COBERTURA, medias_fpr["B"])[0, 1]
-    c_c = np.corrcoef(COBERTURA, medias_fpr["C"])[0, 1]
+    c = {b: np.corrcoef(COBERTURA, medias_fpr[b])[0, 1] for b in ("RULE_CNT", "B", "C")}
     print(f"\n(ii) corr(cobertura, FPR entre inocentes) na config de referencia:")
-    print(f"       RULE_CNT = {c_rule:+.3f}  (esperado NEGATIVO)  "
-          f"-> {'PASSA' if c_rule < -0.5 else 'FALHA'}")
-    print(f"       B        = {c_b:+.3f}  (esperado >= 0)      "
-          f"-> {'PASSA' if c_b >= -0.1 else 'FALHA'}")
-    print(f"       C        = {c_c:+.3f}  (redlining amplificado)")
+    print(f"       RULE_CNT = {c['RULE_CNT']:+.3f}  (esperado NEGATIVO)  "
+          f"-> {veredito(c['RULE_CNT'] < LIMIAR_CORR_RULE)}")
+    print(f"       B        = {c['B']:+.3f}  (esperado >= 0)      "
+          f"-> {veredito(c['B'] >= LIMIAR_CORR_B)}")
+    print(f"       C        = {c['C']:+.3f}  (redlining amplificado)")
 
     b_vence = sum(1 for v in idx.values()
                   if v["B"]["prec_media"] > max(v["A"]["prec_media"], v["LOOKUP"]["prec_media"]))

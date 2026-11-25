@@ -57,6 +57,7 @@ def escrever_inline(paragrafo, texto, negrito=False, italico=False):
 
 
 def linha_de_tabela(linha):
+    """True se a linha Markdown e' uma linha de tabela (| ... |)."""
     return linha.lstrip().startswith("|") and linha.rstrip().endswith("|")
 
 
@@ -91,6 +92,7 @@ def celulas(linha):
 
 
 def eh_separador_de_tabela(linha):
+    """True se a linha e' o separador de cabecalho (|---|:--:|)."""
     return bool(re.fullmatch(r"\|[\s:|-]+\|", linha.strip()))
 
 
@@ -122,6 +124,9 @@ def inserir_tabela(doc, blocos):
 
 
 def inserir_imagem(doc, src, alt, base):
+    """Insere a imagem centralizada com a legenda em italico. Procura o
+    caminho relativo ao .md, a raiz e o proprio src; se nao achar, deixa
+    um aviso em negrito no documento e retorna False."""
     for cand in (os.path.join(base, src), os.path.join(RAIZ, src), src):
         caminho = os.path.normpath(cand)
         if os.path.isfile(caminho):
@@ -142,6 +147,7 @@ def inserir_imagem(doc, src, alt, base):
 
 
 def converter(caminho_md):
+    """Converte um .md em .docx ao lado dele e retorna o caminho de saida."""
     base = os.path.dirname(os.path.abspath(caminho_md))
     with open(caminho_md, encoding="utf-8") as fh:
         linhas = fh.read().splitlines()
@@ -245,6 +251,8 @@ def converter(caminho_md):
 
 
 def main():
+    """Converte os .md passados na linha de comando, ou todos os de
+    relatorios/. Retorna o codigo de saida do processo."""
     alvos = sys.argv[1:]
     if not alvos:
         if not os.path.isdir(RELATORIOS):

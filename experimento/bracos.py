@@ -17,14 +17,20 @@ EPS = 1e-9
 
 
 def _sigmoid(x):
+    """Log-odds -> probabilidade."""
     return 1.0 / (1.0 + np.exp(-x))
+
+
+def _logit(p):
+    """Probabilidade -> log-odds. Inversa de _sigmoid."""
+    return np.log(p / (1 - p))
 
 
 def log_lr(E, sens, fpr):
     """Soma dos log da razao de verossimilhanca por evidencia.
     Presente -> log(s/f); ausente -> log((1-s)/(1-f))."""
-    s = np.clip(np.broadcast_to(sens, E.shape), EPS, 1 - EPS)
-    f = np.clip(np.broadcast_to(fpr, E.shape), EPS, 1 - EPS)
+    s = np.clip(sens, EPS, 1 - EPS)
+    f = np.clip(fpr, EPS, 1 - EPS)
     return np.where(E == 1, np.log(s / f), np.log((1 - s) / (1 - f))).sum(axis=1)
 
 
@@ -44,8 +50,8 @@ def lookup(E, F):
 def calcular(ra, F, E, f_true, params):
     """Retorna {nome_do_braco: score em [0,1]}."""
     sens = params.sens_arr
-    f_glob = params.fpr_global()
-    log_prior = np.log(params.pi / (1 - params.pi))
+    log_prior = _logit(params.pi)
+    llr_glob = log_lr(E, sens, params.fpr_global())   # compartilhado por A e C
 
     observado = E.max(axis=1)
     taxa_ra = np.array([observado[ra == r].mean() if (ra == r).any() else params.pi
@@ -57,7 +63,7 @@ def calcular(ra, F, E, f_true, params):
         "RULE_OR":  observado.astype(float),
         "RULE_CNT": E.sum(axis=1) / 3.0,
         "LOOKUP":   lookup(E, F),
-        "A": _sigmoid(log_prior + log_lr(E, sens, f_glob)),
+        "A": _sigmoid(log_prior + llr_glob),
         "B": _sigmoid(log_prior + log_lr(E, sens, f_true)),
-        "C": _sigmoid(np.log(prior_c / (1 - prior_c)) + log_lr(E, sens, f_glob)),
+        "C": _sigmoid(_logit(prior_c) + llr_glob),
     }

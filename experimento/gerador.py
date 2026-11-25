@@ -19,11 +19,14 @@ RAS = ["Plano Piloto", "Águas Claras", "Guará", "Taguatinga",
 COBERTURA = np.array([0.97, 0.94, 0.90, 0.84, 0.76, 0.70, 0.62, 0.55])
 
 EVIDENCIAS = ["status", "endereco", "valor"]
-IDX_ENDERECO = 1
+IDX_ENDERECO = EVIDENCIAS.index("endereco")
+FPR_MAX = 0.95
 
 
 @dataclass(frozen=True)
 class Params:
+    """Parametros do mecanismo causal. Os defaults sao a config de
+    referencia usada no resumo e no poster."""
     pi: float = 0.15                 # P(F=1), igual em toda RA
     f_base: float = 0.16             # falso-positivo base das evidencias
     beta: float = 0.55               # quanto a falta de cobertura infla o FP de endereco
@@ -32,19 +35,23 @@ class Params:
 
     @property
     def sens_arr(self):
+        """Sensibilidades P(E_j=1 | F=1) como array."""
         return np.asarray(self.sens)
+
+    def _fpr(self, cobertura):
+        """P(E_j=1 | F=0) dada a cobertura cadastral (escalar ou vetor).
+        So o endereco depende dela; as demais evidencias ficam em f_base."""
+        f = np.full(np.shape(cobertura) + (len(EVIDENCIAS),), self.f_base, dtype=float)
+        f[..., IDX_ENDERECO] = self.f_base + self.beta * (1.0 - cobertura)
+        return np.clip(f, 0.0, FPR_MAX)
 
     def fpr_por_ra(self, ra):
         """P(E_j=1 | F=0) para cada caso. So o endereco depende da RA."""
-        f = np.full((len(ra), 3), self.f_base, dtype=float)
-        f[:, IDX_ENDERECO] = self.f_base + self.beta * (1.0 - self.cobertura[ra])
-        return np.clip(f, 0.0, 0.95)
+        return self._fpr(self.cobertura[ra])
 
     def fpr_global(self):
         """O que um modelo que ignora territorio enxerga: a media marginal."""
-        f = np.full(3, self.f_base, dtype=float)
-        f[IDX_ENDERECO] = self.f_base + self.beta * (1.0 - self.cobertura.mean())
-        return np.clip(f, 0.0, 0.95)
+        return self._fpr(self.cobertura.mean())
 
 
 def gerar(n, params, rng):
@@ -53,5 +60,5 @@ def gerar(n, params, rng):
     F = (rng.random(n) < params.pi).astype(np.int8)
     f_true = params.fpr_por_ra(ra)
     p = np.where(F[:, None] == 1, params.sens_arr[None, :], f_true)
-    E = (rng.random((n, 3)) < p).astype(np.int8)
+    E = (rng.random((n, len(EVIDENCIAS))) < p).astype(np.int8)
     return ra, F, E, f_true

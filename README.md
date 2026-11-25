@@ -108,7 +108,7 @@ passo. A camada de recuperação de evidências (RAG) ainda não foi integrada.
 
 | Caminho | Conteúdo |
 |---|---|
-| `experimento/` | `gerador.py` (mecanismo causal), `bracos.py` (seis abordagens), `metricas.py`, `varredura.py`, `equidade.py`, `exportar_dataset.py` e os scripts de figura (`figuras.py`, `figuras_relatorio.py`, `figuras_poster.py`) |
+| `experimento/` | `reproduzir.py` (pipeline inteiro), `configuracao.py` (parâmetros compartilhados), `gerador.py` (mecanismo causal), `bracos.py` (seis abordagens), `metricas.py`, `varredura.py`, `equidade.py`, `exportar_dataset.py` e os scripts de figura (`figuras.py`, `figuras_relatorio.py`, `figuras_poster.py`) |
 | `src/` | Código do sistema (RAG, motor bayesiano, XAI) — reservado para as fases D5, D7 e D9 |
 | `tests/` | Testes do experimento (`python -m unittest discover tests`) |
 | `data/` | Estrutura para dados locais; nenhum dado é versionado |
@@ -116,6 +116,7 @@ passo. A camada de recuperação de evidências (RAG) ainda não foi integrada.
 | `notebooks/` | Exploração e estudo; não é fonte de número publicado |
 | `relatorios/` | Relatório técnico, benchmark de estado da arte, ledger de números auditados, guia das figuras e tabelas de apoio |
 | `figuras/` | Figuras do pôster (as demais são regeradas pelos scripts) |
+| `requirements.txt`, `Dockerfile` | Versões fixadas das dependências e imagem mínima para reproduzir o experimento |
 | `Proposta_PIDTI_RAG_Bayesiano2.pdf` | Proposta do projeto: hipóteses H1 a H3, arquitetura e cronograma |
 | `CLAUDE.md` | Guia de trabalho detalhado: achados verificados, decisões metodológicas e convenções |
 | `CONTRIBUTING.md` | Modelo de branches (`main`, `develop`, branches por tarefa), convenção de commits e regras de PR |
@@ -125,18 +126,39 @@ passo. A camada de recuperação de evidências (RAG) ainda não foi integrada.
 O experimento é determinístico por semente e leva cerca de 8 minutos:
 
 ```bash
-pip install numpy matplotlib pandas seaborn
-python experimento/varredura.py && python experimento/equidade.py
-python experimento/figuras.py && python experimento/figuras_relatorio.py && python experimento/figuras_poster.py
+pip install -r requirements.txt
+python experimento/reproduzir.py
 ```
 
-`varredura.py` e `equidade.py` usam só `numpy` e escrevem `resultados/`; os scripts de figura
-leem `resultados/` e escrevem `figuras/`. A verificação é a reexecução: duas rodadas produzem
+`reproduzir.py` roda, em ordem, `varredura.py` e `equidade.py` (só `numpy`; escrevem
+`resultados/`) e os três scripts de figura (leem `resultados/` e escrevem `figuras/`). Cada
+etapa também roda sozinha, como `python experimento/varredura.py`. Os parâmetros compartilhados
+(tamanho da simulação, grades, configuração de referência e limiares pré-registrados) ficam em
+`experimento/configuracao.py`. A verificação é a reexecução: duas rodadas produzem
 CSVs e PNGs idênticos. Para gerar um dataset de casos com a fraude latente:
 
 ```bash
 python experimento/exportar_dataset.py 5000   # escreve dataset_sintetico_v2.csv
 ```
+
+### Com Docker
+
+A imagem fixa Python 3.12 e as versões de `requirements.txt`, e não depende do ambiente local:
+
+```bash
+docker build -t pesquisarag .
+docker run --rm pesquisarag          # roda os testes (poucos segundos)
+```
+
+Para o pipeline completo, monte `resultados/` e `figuras/` como volumes, para que as saídas
+fiquem no diretório local:
+
+```bash
+docker run --rm -v "$PWD/resultados:/pesquisa/resultados" -v "$PWD/figuras:/pesquisa/figuras" \
+    pesquisarag python experimento/reproduzir.py
+```
+
+No PowerShell, troque `$PWD` por `${PWD}` e a barra invertida de continuação por crase (`` ` ``).
 
 ## Referências principais
 
