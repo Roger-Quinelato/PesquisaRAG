@@ -92,9 +92,24 @@ Cada card do quadro "PIDTI- RAG BAYNESIANO" tem uma issue correspondente. Épico
 são issues com o rótulo `épico`, e as tarefas (`Dn.Tm`) são sub-issues do épico. Rótulos de
 estado: `backlog`, `em andamento`. Quando um PR fecha a issue, mova o card para FINALIZADOS.
 
+## Ambiente Python
+
+Use um ambiente isolado na raiz do repositório (`.venv/`, já ignorado pelo git), nunca o Python
+global. Com o [uv](https://docs.astral.sh/uv/), os pacotes ficam em um cache compartilhado e não
+são baixados de novo a cada ambiente:
+
+```bash
+uv venv --python 3.12 .venv
+uv pip install --python .venv/Scripts/python.exe -r requirements.txt   # Linux/macOS: .venv/bin/python
+.venv/Scripts/python.exe -m unittest discover tests
+```
+
+As versões em `requirements.txt` são as que geraram os números publicados.
+
 ## Restrições
 
 - Todos os dados são **sintéticos**. Não use para nenhuma decisão real de crédito.
 - Datasets, planilhas, PDFs de artigos e resumos de congresso ficam fora do git (`.gitignore`).
-- O experimento usa apenas `numpy`; não adicione scipy, sklearn, PyMC, SDV nem geradores
-  ajustados a dados (ver `CLAUDE.md`).
+- O experimento usa `numpy` e `scikit-learn` (versão fixada em `requirements.txt`); não adicione
+  PyMC, SDV nem geradores ajustados a dados (ver `CLAUDE.md`). Os resultados dependem da versão
+  do scikit-learn: ao atualizá-la, rode o pipeline e declare no commit se os números mudaram.

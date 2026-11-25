@@ -101,8 +101,12 @@ Formato dos CSVs de `resultados/`: vírgula como delimitador, UTF-8 **sem** BOM
 
 ## 5. Modelos
 
-O experimento não tem artefato treinado: os "modelos" (braços) são funções fechadas dos parâmetros
-do gerador, definidas em `experimento/bracos.py`. Versionar o código é versionar o modelo.
+O experimento não persiste nenhum artefato treinado. Os seis braços fechados (`experimento/bracos.py`)
+são funções dos parâmetros do gerador. Os doze braços treinados (`experimento/bracos_ml.py`: AdaBoost,
+Naive Bayes e AdaBoost calibrado) são reajustados a cada (configuração, semente), com hiperparâmetros
+fixos e pré-registrados, e descartados ao fim da rodada. Em ambos os casos versionar o código, a semente
+e a **versão do scikit-learn** é versionar o modelo; os números dos braços treinados mudam com a versão
+da biblioteca.
 
 Quando o sistema tiver componentes com estado (índice vetorial do RAG, parâmetros estimados do
 motor bayesiano):
@@ -138,14 +142,14 @@ Para fechar uma release:
 | Item | Valor atual |
 |---|---|
 | Python | 3.x no Windows 11, via PowerShell; 3.12 na imagem Docker |
-| Experimento | só `numpy` |
+| Experimento | `numpy` e `scikit-learn` (1.9.1) |
 | Figuras | `matplotlib`, `pandas`, `seaborn` |
 | Testes | `unittest` (biblioteca padrão), sem dependência extra |
 | Versões | fixadas em `requirements.txt` |
 | Imagem | `Dockerfile` na raiz (`docker build -t pesquisarag .`; ver `README.md`) |
 
 Registre no relatório se os números saíram do ambiente local ou da imagem Docker, com as
-versões de `numpy` e `matplotlib`. Ao atualizar uma versão em `requirements.txt`, rode o
+versões de `numpy`, `scikit-learn` e `matplotlib`. Ao atualizar uma versão em `requirements.txt`, rode o
 pipeline e confirme que os CSVs de `resultados/` não mudaram; se mudarem, o commit altera
 número publicado e precisa dizer isso no corpo.
 

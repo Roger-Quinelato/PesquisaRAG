@@ -3,7 +3,7 @@
 #   docker build -t pesquisarag .
 #   docker run --rm pesquisarag                     # testes (poucos segundos)
 #
-# Pipeline completo (~8 min), com as saídas gravadas no diretório local:
+# Pipeline completo (~3 h em 4 núcleos, com os braços treinados), com as saídas gravadas no diretório local:
 #
 #   docker run --rm -v "$PWD/resultados:/pesquisa/resultados" \
 #       -v "$PWD/figuras:/pesquisa/figuras" pesquisarag python experimento/reproduzir.py

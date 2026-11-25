@@ -1,4 +1,4 @@
-"""Roda o pipeline inteiro na ordem certa (~8 min, deterministico por semente).
+"""Roda o pipeline inteiro na ordem certa (~3 h em 4 nucleos, deterministico por semente).
 
 Uso:  python experimento/reproduzir.py
 
@@ -12,7 +12,7 @@ import subprocess
 import sys
 
 ETAPAS = ("varredura.py", "equidade.py", "figuras.py",
-          "figuras_relatorio.py", "figuras_poster.py")
+          "figuras_relatorio.py", "figuras_poster.py", "figuras_treinados.py")
 
 
 def main():
