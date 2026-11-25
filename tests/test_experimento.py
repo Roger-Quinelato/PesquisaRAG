@@ -18,6 +18,7 @@ sys.path.insert(0, os.path.join(RAIZ, "experimento"))
 from gerador import Params, gerar, COBERTURA           # noqa: E402
 from bracos import BRACOS, calcular                     # noqa: E402
 from bracos_ml import BRACOS_ML, FRAC_TREINO, calcular_ml  # noqa: E402
+from intervalos import diferenca_pareada, resumo, ler_sementes  # noqa: E402
 from metricas import brier, ece, topk, fpr_por_ra       # noqa: E402
 
 N = 20_000
@@ -226,6 +227,57 @@ class TestBracosTreinados(unittest.TestCase):
                 m = codigo == c
                 if m.any():
                     self.assertEqual(len(np.unique(s[m])), 1, (nome, c))
+
+
+class TestIntervalos(unittest.TestCase):
+    """Intervalos pareados por semente (experimento/intervalos.py)."""
+
+    @staticmethod
+    def _dados(dif, ruido, semente=0, s=8):
+        rng = np.random.default_rng(semente)
+        base = rng.random(s)
+        return {(0.1, 0.5, 0.15): {
+            # padrao alternado de media exatamente zero: o teste nao depende de sorte
+            "X": {"prec": base + dif + ruido * np.tile([1.0, -1.0], s // 2)},
+            "Y": {"prec": base}}}
+
+    def test_diferenca_grande_exclui_zero(self):
+        L = diferenca_pareada(self._dados(0.5, 0.01), "X", "Y")[0]
+        self.assertTrue(L["exclui_zero"])
+        self.assertGreater(L["ic_inf"], 0)
+        self.assertAlmostEqual(L["media"], 0.5, delta=0.05)
+
+    def test_diferenca_nula_inclui_zero(self):
+        L = diferenca_pareada(self._dados(0.0, 0.05), "X", "Y")[0]
+        self.assertFalse(L["exclui_zero"])
+        self.assertLess(L["ic_inf"], 0)
+        self.assertGreater(L["ic_sup"], 0)
+
+    def test_sinal_inverte_com_a_ordem(self):
+        d = self._dados(0.3, 0.01)
+        a = diferenca_pareada(d, "X", "Y")[0]
+        b = diferenca_pareada(d, "Y", "X")[0]
+        self.assertAlmostEqual(a["media"], -b["media"])
+        self.assertAlmostEqual(a["ic_inf"], -b["ic_sup"])
+
+    def test_resumo_conta_as_configuracoes(self):
+        d = self._dados(0.5, 0.01)
+        d.update({(0.2, 0.5, 0.15): self._dados(0.0, 0.05, 1)[(0.1, 0.5, 0.15)]})
+        r = resumo(diferenca_pareada(d, "X", "Y"))
+        self.assertEqual((r["configuracoes"], r["ic_positivo"], r["ic_inclui_zero"]), (2, 1, 1))
+
+    def test_ida_e_volta_do_csv_e_exata(self):
+        import csv, tempfile
+        valores = [0.1, 1 / 3, 2 ** -40]
+        with tempfile.TemporaryDirectory() as t:
+            cam = os.path.join(t, "s.csv")
+            with open(cam, "w", newline="", encoding="utf-8") as fh:
+                w = csv.writer(fh)
+                w.writerow(["f_base", "beta", "pi", "braco", "semente", "prec", "brier", "ece", "n"])
+                for k, v in enumerate(valores):
+                    w.writerow([0.1, 0.5, 0.15, "A", k, repr(v), repr(v), repr(v), 10])
+            lido = ler_sementes(cam)[(0.1, 0.5, 0.15)]["A"]["prec"]
+        np.testing.assert_array_equal(lido, np.array(valores))
 
 
 if __name__ == "__main__":

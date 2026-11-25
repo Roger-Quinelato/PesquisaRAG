@@ -1,7 +1,8 @@
 """Varredura de sensibilidade + verificacao dos criterios de aceitacao.
 
 Uso:  python experimento/varredura.py
-Saida: resultados/varredura.csv, resultados/fpr_por_ra.csv e um veredito
+Saida: resultados/varredura.csv, resultados/varredura_sementes.csv (valores
+       brutos por semente), resultados/fpr_por_ra.csv e um veredito
        impresso sobre cada criterio declarado ANTES de rodar.
 """
 import csv
@@ -57,7 +58,7 @@ def main():
     combos = list(itertools.product(GRADE_RUIDO, GRADE_BETA, GRADE_PI))
     print(f"{len(combos)} configuracoes x {len(list(SEMENTES))} sementes x {N:,} casos")
 
-    linhas, fpr_ref = [], {b: [] for b in TODOS}
+    linhas, fpr_ref, por_semente = [], {b: [] for b in TODOS}, []
     for i, (f_base, beta, pi) in enumerate(combos, 1):
         acumulado = {b: {m: [] for m in ("prec", "brier", "ece", "n")} for b in TODOS}
         for semente in SEMENTES:
@@ -67,6 +68,15 @@ def main():
                     acumulado[b][m].append(res[b][m])
                 if eh_referencia(f_base, beta, pi):
                     fpr_ref[b].append(fpr[b])
+        # Valores brutos por semente, num arquivo a parte: permitem intervalos de
+        # confianca sem mudar nenhuma coluna de varredura.csv. repr() de float
+        # nativo preserva o valor exato na ida e volta.
+        for b in TODOS:
+            for k, semente in enumerate(SEMENTES):
+                por_semente.append({
+                    "f_base": f_base, "beta": beta, "pi": pi, "braco": b, "semente": semente,
+                    **{m: repr(float(acumulado[b][m][k])) for m in ("prec", "brier", "ece")},
+                    "n": int(acumulado[b]["n"][k])})
         for b in TODOS:
             linhas.append({
                 "f_base": f_base, "beta": beta, "pi": pi, "braco": b,
@@ -84,6 +94,13 @@ def main():
         w.writeheader()
         w.writerows(linhas)
     print(f"\n-> {cam}  ({len(linhas)} linhas)")
+
+    cam_s = os.path.join(SAIDA, "varredura_sementes.csv")
+    with open(cam_s, "w", newline="", encoding="utf-8") as fh:
+        w = csv.DictWriter(fh, fieldnames=list(por_semente[0].keys()))
+        w.writeheader()
+        w.writerows(por_semente)
+    print(f"-> {cam_s}  ({len(por_semente)} linhas)")
 
     cam2 = os.path.join(SAIDA, "fpr_por_ra.csv")
     with open(cam2, "w", newline="", encoding="utf-8") as fh:

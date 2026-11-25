@@ -624,7 +624,7 @@ agregação probabilística isoladamente, assumindo as evidências como dadas. N
 sustenta afirmação sobre o desempenho de RAG, sobre qualidade de recuperação em fontes oficiais
 ou sobre a integração entre as duas camadas. Isso constitui a fase subsequente.
 
-**Não há intervalo de confiança construível a partir dos resultados persistidos.** Os arquivos de
+**Não há intervalo de confiança construível a partir dos resultados persistidos nesta versão do relatório.** (A partir da próxima rodada completa, `varredura.py` também grava `resultados/varredura_sementes.csv`, e `experimento/intervalos.py` calcula intervalos t pareados por semente; os números deste relatório não foram recalculados com eles.) Os arquivos de
 `resultados/` guardam apenas a **média** e o **desvio-padrão** entre as 8 sementes por célula; os
 valores por semente não são gravados. Não é possível construir intervalo para nenhuma das
 medianas de grade, nem erro-padrão da mediana, nem teste de significância, sem reexecutar
