@@ -108,7 +108,7 @@ passo. A camada de recuperação de evidências (RAG) ainda não foi integrada.
 
 | Caminho | Conteúdo |
 |---|---|
-| `experimento/` | `reproduzir.py` (pipeline inteiro), `configuracao.py` (parâmetros compartilhados), `gerador.py` (mecanismo causal), `bracos.py` (seis abordagens), `metricas.py`, `varredura.py`, `equidade.py`, `exportar_dataset.py` e os scripts de figura (`figuras.py`, `figuras_relatorio.py`, `figuras_poster.py`) |
+| `experimento/` | `reproduzir.py` (pipeline inteiro), `configuracao.py` (parâmetros compartilhados), `gerador.py` (mecanismo causal), `bracos.py` (seis abordagens fechadas), `bracos_ml.py` (braços treinados: AdaBoost, Naive Bayes e AdaBoost calibrado), `metricas.py`, `varredura.py`, `equidade.py`, `exportar_dataset.py` e os scripts de figura (`figuras.py`, `figuras_relatorio.py`, `figuras_poster.py`, `figuras_treinados.py`) |
 | `src/` | Código do sistema (RAG, motor bayesiano, XAI) — reservado para as fases D5, D7 e D9 |
 | `tests/` | Testes do experimento (`python -m unittest discover tests`) |
 | `data/` | Estrutura para dados locais; nenhum dado é versionado |
@@ -123,19 +123,24 @@ passo. A camada de recuperação de evidências (RAG) ainda não foi integrada.
 
 ## Como reproduzir
 
-O experimento é determinístico por semente e leva cerca de 8 minutos:
+O experimento é determinístico por semente. Com os braços treinados e calibrados, leva perto de
+três horas em 4 núcleos:
 
 ```bash
 pip install -r requirements.txt
 python experimento/reproduzir.py
 ```
 
-`reproduzir.py` roda, em ordem, `varredura.py` e `equidade.py` (só `numpy`; escrevem
-`resultados/`) e os três scripts de figura (leem `resultados/` e escrevem `figuras/`). Cada
-etapa também roda sozinha, como `python experimento/varredura.py`. Os parâmetros compartilhados
-(tamanho da simulação, grades, configuração de referência e limiares pré-registrados) ficam em
-`experimento/configuracao.py`. A verificação é a reexecução: duas rodadas produzem
-CSVs e PNGs idênticos. Para gerar um dataset de casos com a fraude latente:
+`reproduzir.py` roda, em ordem, `varredura.py` e `equidade.py` (escrevem `resultados/`) e os
+scripts de figura (leem `resultados/` e escrevem `figuras/`). Cada etapa também roda sozinha,
+como `python experimento/varredura.py`. Os parâmetros compartilhados (tamanho da simulação,
+grades, configuração de referência e limiares pré-registrados) ficam em
+`experimento/configuracao.py`. O gerador de dados é um processo causal explícito em `numpy`; os
+braços usam o `scikit-learn`. As variantes A, B e C são Naive Bayes com os parâmetros do gerador
+fixados, sem treino. Os braços em `bracos_ml.py` (AdaBoost, Naive Bayes treinado e AdaBoost
+calibrado com Platt ou regressão isotônica) são treinados com metade de cada amostra e avaliados
+na outra metade. A verificação é a reexecução: duas rodadas produzem CSVs e PNGs idênticos (com a
+mesma versão do `scikit-learn`). Para gerar um dataset de casos com a fraude latente:
 
 ```bash
 python experimento/exportar_dataset.py 5000   # escreve dataset_sintetico_v2.csv
