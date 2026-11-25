@@ -69,7 +69,7 @@ comparando o hash.
 
 | Script | Sementes | Casos por semente | Saída |
 |---|---|---|---|
-| `varredura.py` | `range(8)` | 40.000 | `resultados/varredura.csv`, `resultados/fpr_por_ra.csv` |
+| `varredura.py` | `range(8)` | 40.000 | `resultados/varredura.csv`, `resultados/varredura_sementes.csv` (valores brutos por semente), `resultados/fpr_por_ra.csv` |
 | `equidade.py` | `range(8)` | 40.000 | `resultados/equidade.csv` |
 | `exportar_dataset.py` | `20260907` | 5.000 (padrão) | `dataset_sintetico_v2.csv` |
 
