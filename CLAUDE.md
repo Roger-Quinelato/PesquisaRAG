@@ -99,7 +99,8 @@ Pastas: `experimento/` (simulação), `src/` (sistema, vazio até D5), `tests/`,
 pré-registrados), `gerador.py` (mecanismo causal), `bracos.py` (as seis abordagens fechadas),
 `bracos_ml.py` (os doze braços treinados: AdaBoost, Naive Bayes e AdaBoost calibrado),
 `metricas.py` (Brier, ECE, precisão@top-k, FPR por RA), `varredura.py`, `equidade.py`,
-`figuras.py`, `figuras_relatorio.py`, `figuras_poster.py`, `figuras_treinados.py` (figuras 6 a 8,
+`intervalos.py` (IC t pareado por semente, lê `varredura_sementes.csv`), `figuras.py`,
+`figuras_relatorio.py`, `figuras_poster.py`, `figuras_treinados.py` (figuras 6 a 8,
 dos braços treinados), `exportar_dataset.py`.
 
 **Bibliotecas válidas:** no experimento, `numpy` e `scikit-learn` (com o `scipy`, que vem com
