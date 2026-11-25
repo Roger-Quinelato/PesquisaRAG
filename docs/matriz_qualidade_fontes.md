@@ -46,7 +46,7 @@ texto de qualquer resultado que a use:
 |---|---|---|---|---|---|---|
 | F1 Geoportal (Lotes Registrados) | `?` | `?` | lote (pela descrição da camada) | `?` | `?` | Cadastro oficial; tende a ser pior justamente onde há ocupação irregular, o que **é** o fenômeno medido |
 | F2 Portal da Regularização | todo o DF (por RA, segundo o IPE) | `?` | núcleo urbano | `?` | `?` | Só inclui núcleos que entraram no processo |
-| F3 Diagnóstico IPE-DF | por RA | `?` | agregado | PDF público | sim (PDF datado) | Estudo pontual, não série |
+| F3 Diagnóstico IPE-DF (sumário) | 3 de 8 RAs legíveis no mapa | 2023 | núcleo urbano, sem lotes | PDF público | sim (PDF datado) | Estudo pontual, não série; só núcleos que entraram no Portal. **Insuficiente para `c_r`** (catálogo §1.1) |
 | F5 PDAD 2021 | 33 RAs | 2021 | domicílio (amostra) | microdados com dicionário | `?` | Amostral; erro de amostragem em RA pequena |
 
 ## 4. O que fica estipulado até a medição
