@@ -3,55 +3,55 @@ sobrevive a variacao de beta e pi?
 
 corr(cobertura_cadastral, FPR entre inocentes) por braco.
 Negativa = quem mora onde o cadastro e' ruim paga mais falso positivo.
+
+Nao calcula nada: le resultados/fpr_grade.csv, escrito por varredura.py. Os
+ruidos daqui (0,07; 0,16; 0,28) sao os mesmos floats da grade da varredura, e o
+pipeline por semente e' o mesmo, entao o resultado e' bit a bit igual ao de
+recalcular. Rode varredura.py antes.
 """
 import csv, itertools, os, sys
 import numpy as np
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from gerador import Params, gerar, RAS, COBERTURA          # noqa: E402
-from bracos import BRACOS, calcular                        # noqa: E402
-from bracos_ml import BRACOS_ML, calcular_ml               # noqa: E402
-from metricas import precisao_topk, fpr_por_ra             # noqa: E402
+from gerador import COBERTURA                              # noqa: E402
+from varredura import TODOS, GRADE_BETA, GRADE_PI, SAIDA, atualizar_manifesto  # noqa: E402
 
-TODOS = BRACOS + BRACOS_ML
-
-RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-N, K, SEMENTES = 40_000, 0.10, range(8)
 GRADE_RUIDO = (0.07, 0.16, 0.28)
-GRADE_BETA = (0.25, 0.40, 0.55, 0.70)
-GRADE_PI = (0.05, 0.10, 0.15, 0.25)
+
+
+def ler_grade():
+    cam = os.path.join(SAIDA, "fpr_grade.csv")
+    if not os.path.exists(cam):
+        raise SystemExit(f"{cam} nao existe: rode experimento/varredura.py antes.")
+    grade = {}
+    with open(cam, encoding="utf-8", newline="") as fh:
+        for L in csv.DictReader(fh):
+            chave = (float(L["f_base"]), float(L["beta"]), float(L["pi"]), L["braco"])
+            grade[chave] = np.array([float(L[f"fpr_{r}"]) for r in range(len(COBERTURA))])
+    return grade
 
 
 def main():
-    os.makedirs(os.path.join(RAIZ, "resultados"), exist_ok=True)
+    grade = ler_grade()
     linhas = []
     for f_base, beta, pi in itertools.product(GRADE_RUIDO, GRADE_BETA, GRADE_PI):
-        params = Params(pi=pi, f_base=f_base, beta=beta)
-        acc = {b: [] for b in TODOS}
-        for semente in SEMENTES:
-            rng = np.random.default_rng(semente)
-            ra, F, E, f_true = gerar(N, params, rng)
-            for b, s in calcular(ra, F, E, f_true, params).items():
-                _, sel = precisao_topk(s, F, K, rng)
-                acc[b].append(fpr_por_ra(sel, ra, F, N, len(RAS)))
-            # Bracos treinados depois dos fechados (mesma ordem de rng de varredura.py).
-            scores_ml, idx_teste = calcular_ml(ra, F, E, params, rng)
-            F_t, ra_t = F[idx_teste], ra[idx_teste]
-            for b in BRACOS_ML:
-                _, sel = precisao_topk(scores_ml[b], F_t, K, rng)
-                acc[b].append(fpr_por_ra(sel, ra_t, F_t, len(idx_teste), len(RAS)))
         linha = {"f_base": f_base, "beta": beta, "pi": pi}
         for b in TODOS:
-            m = np.mean(acc[b], axis=0)
+            # Media por semente do FPR por RA, gravada pela varredura em repr.
+            m = grade.get((f_base, beta, pi, b))
+            if m is None:
+                raise SystemExit(f"fpr_grade.csv nao cobre ({f_base}, {beta}, {pi}, {b}): "
+                                 "rode experimento/varredura.py com a grade completa.")
             linha[f"corr_{b}"] = float(np.corrcoef(COBERTURA, m)[0, 1])
             linha[f"amplitude_{b}"] = float(np.ptp(m))
         linhas.append(linha)
 
-    cam = os.path.join(RAIZ, "resultados", "equidade.csv")
+    cam = os.path.join(SAIDA, "equidade.csv")
     with open(cam, "w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=list(linhas[0].keys()))
         w.writeheader(); w.writerows(linhas)
     print(f"-> {cam}  ({len(linhas)} configuracoes)\n")
+    atualizar_manifesto()
 
     print("corr(cobertura, FPR entre inocentes) -- min / mediana / max na grade")
     print(f"{'braco':>9} | {'min':>7} {'mediana':>8} {'max':>7} | {'amplitude mediana':>18}")

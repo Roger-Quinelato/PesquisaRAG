@@ -18,13 +18,23 @@ def ece(p, y, bins=10):
     return float(total)
 
 
+def topk_desempate(score, k, u):
+    """Indices dos k*n maiores. Empates desfeitos pelo vetor aleatorio `u`, ja
+    sorteado -- essencial, porque um score binario empata em massa e ordenacao
+    estavel o favoreceria artificialmente. Receber `u` pronto (de fluxos.py)
+    permite desempatar um braco sem rodar os outros."""
+    tamanho = max(1, int(round(k * len(score))))
+    return np.lexsort((u, -score))[:tamanho]
+
+
 def topk(score, k, rng):
-    """Indices dos k*n maiores. Empates desfeitos aleatoriamente -- essencial,
-    porque um score binario empata em massa e ordenacao estavel o favoreceria
-    artificialmente."""
-    n = len(score)
-    tamanho = max(1, int(round(k * n)))
-    return np.lexsort((rng.random(n), -score))[:tamanho]
+    """Mesmo que topk_desempate, sorteando `u` do rng na hora."""
+    return topk_desempate(score, k, rng.random(len(score)))
+
+
+def precisao_topk_desempate(score, y, k, u):
+    sel = topk_desempate(score, k, u)
+    return float(y[sel].mean()), sel
 
 
 def precisao_topk(score, y, k, rng):

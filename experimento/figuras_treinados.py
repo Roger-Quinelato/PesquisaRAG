@@ -22,11 +22,11 @@ from matplotlib.transforms import blended_transform_factory
 import seaborn as sns
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from gerador import Params, gerar                                  # noqa: E402
+from gerador import Params                                         # noqa: E402
 from bracos import BRACOS, calcular                                # noqa: E402
 from bracos_ml import BRACOS_ML, calcular_ml                       # noqa: E402
-from metricas import ece, precisao_topk                            # noqa: E402
-from varredura import K                                            # noqa: E402
+from fluxos import fluxos                                          # noqa: E402
+from metricas import ece                                           # noqa: E402
 from figuras import FIG                                            # noqa: E402
 import figuras                                                     # noqa: E402
 from figuras_relatorio import (META, N, SEMENTES, BINS, _bins_ece,  # noqa: E402
@@ -199,21 +199,18 @@ BRACOS_F8 = ("A", "A_NB", "D_ML", "D_PL", "D_ISO")
 
 
 def predicoes_referencia():
-    """Regera as predicoes por caso na referencia, replicando a ordem de rng de
-    varredura.uma_config: gerar, calcular, os seis topk dos fechados e so' entao
-    calcular_ml. Qualquer desvio muda o split, e conferir_ece acusa."""
+    """Regera as predicoes por caso na referencia. fluxos.fluxos entrega os
+    mesmos dados, split e sementes da varredura; conferir_ece acusa desvio."""
     params = Params(pi=REF_PI, f_base=REF_RUIDO, beta=REF_BETA)
     P, Y, ece_sem = {b: [] for b in BRACOS_F8}, {b: [] for b in BRACOS_F8}, \
         {b: [] for b in BRACOS_F8}
     for semente in SEMENTES:
-        rng = np.random.default_rng(semente)
-        ra, F, E, f_true = gerar(N, params, rng)
-        fechados = calcular(ra, F, E, f_true, params)
-        for s in fechados.values():
-            precisao_topk(s, F, K, rng)
-        treinados, idx_teste = calcular_ml(ra, F, E, params, rng)
+        fx = fluxos(semente, params, N)
+        fechados = calcular(fx.ra, fx.F, fx.E, fx.f_true, params)
+        treinados, idx_teste = calcular_ml(fx.ra, fx.F, fx.E, params, fx.treino, fx.sementes,
+                                           ("nb", "adaboost", "calibrados"))
         for b in BRACOS_F8:
-            s, y = (fechados[b], F) if b in fechados else (treinados[b], F[idx_teste])
+            s, y = (fechados[b], fx.F) if b in fechados else (treinados[b], fx.F[idx_teste])
             p = np.clip(s, 0.0, 1.0)
             P[b].append(p); Y[b].append(y); ece_sem[b].append(ece(p, y))
     return ({b: np.concatenate(v) for b, v in P.items()},

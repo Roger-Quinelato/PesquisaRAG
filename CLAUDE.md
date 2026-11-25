@@ -35,16 +35,34 @@ figura e mensagens de commit.
 
 ## Comandos
 
-Reproduzir o experimento inteiro (determinístico por semente; ~3 h com os braços calibrados, 174 min
-medidos em 4 núcleos):
+Reproduzir o experimento inteiro (determinístico por semente; ~73 min em 4 núcleos sem cache, contra 174 min da versão sequencial; ~25 s lendo do cache):
 
 ```bash
 python experimento/varredura.py && python experimento/equidade.py && python experimento/figuras.py
 ```
 
 `varredura.py` varre 224 configurações × 8 sementes × 40.000 casos, imprime o veredito dos
-critérios de aceitação e escreve `resultados/`. `equidade.py` testa o critério de equidade na
-grade completa de β × π. `figuras.py` lê `resultados/` e escreve `figuras/`.
+critérios de aceitação e escreve `resultados/`: `varredura.csv`, `fpr_por_ra.csv` (referência),
+`fpr_grade.csv` (FPR por RA de toda a grade) e `manifesto.sha256`. `equidade.py` **não calcula
+nada**: lê `fpr_grade.csv` e testa o critério de equidade nas 48 configurações de β × π × ruído,
+em segundos (os ruídos dele são os mesmos floats da grade). `figuras.py` lê `resultados/` e
+escreve `figuras/`.
+
+Opções de `varredura.py` (ver `pipeline.py`):
+
+- as tarefas são as 1.792 (configuração, semente), distribuídas em `--workers` processos (padrão:
+  todos os núcleos). O número de processos não muda nenhum número;
+- as métricas por (configuração, semente, braço) ficam em `resultados/cache/<família>.csv`, uma
+  família por arquivo (`fechados`, `nb`, `adaboost`, `calibrados`). Cada família tem uma chave:
+  o SHA-256 do código de que ela depende e das versões de numpy/scikit-learn. Por padrão só se
+  calcula o que falta ou cuja chave mudou; uma rodada interrompida retoma de onde parou;
+- `--familias calibrados` recalcula essa família mesmo com cache válido;
+  `--aceitar-cache nb,adaboost` usa o cache dessas famílias mesmo com a chave desatualizada
+  (quando a mudança de código comprovadamente não as afeta; imprime aviso); `--sem-cache`
+  recalcula tudo;
+- `--conferir 8` reexecuta 8 configurações (a de referência e 7 sorteadas com semente fixa) × 8
+  sementes em processos novos e compara cada registro bit a bit com o cache: é a conferência de
+  determinismo de rotina (~3 min).
 
 Regerar o dataset de casos com rótulo latente:
 
@@ -52,8 +70,9 @@ Regerar o dataset de casos com rótulo latente:
 python experimento/exportar_dataset.py 5000
 ```
 
-Não há build, lint nem suíte de testes. A verificação é a reexecução: rodar duas vezes e
-comparar os CSVs, que devem ser idênticos.
+Não há build, lint nem suíte de testes. A verificação é a reexecução: `--conferir 8` na rotina;
+para a conferência completa (depois de mudar dependência ou o núcleo), uma segunda rodada com
+`--sem-cache` seguida de `sha256sum -c resultados/manifesto.sha256` (a partir da raiz).
 
 Extrair o texto da proposta (8 páginas):
 
@@ -88,7 +107,9 @@ python -c "import fitz; d=fitz.open(r'C:\Pesquisa_RAG\Proposta_PIDTI_RAG_Bayesia
 `bracos_ml.py` (os doze braços treinados: AdaBoost, Naive Bayes e AdaBoost calibrado),
 `metricas.py` (Brier, ECE, precisão@top-k, FPR por RA), `varredura.py`, `equidade.py`,
 `figuras.py`, `figuras_relatorio.py`, `figuras_poster.py`, `figuras_treinados.py` (figuras 6 a 8,
-dos braços treinados), `exportar_dataset.py`.
+dos braços treinados), `exportar_dataset.py`, `fluxos.py` (toda a aleatoriedade de uma semente,
+na ordem histórica) e `pipeline.py` (métricas por semente, cache por família e pool de
+processos).
 
 **Bibliotecas válidas:** no experimento, `numpy` e `scikit-learn` (com o `scipy`, que vem com
 ele); nos scripts de figura, também `matplotlib`, `pandas` e `seaborn`. **Continuam proibidos**
@@ -146,11 +167,15 @@ Diferenças que precisam ser declaradas sempre que forem comparados aos seis fec
 - As evidências são `int8`: o `BernoulliNB.fit` precisa receber `float`, senão a contagem
   estoura acima de 127 e o modelo sai com NaN.
 - Os resultados dependem da versão do scikit-learn.
-- A ordem de consumo do `rng` é fixa: os seis fechados primeiro, depois o bloco treinado (split,
-  três sementes do AdaBoost, e os `topk` na ordem de `BRACOS_ML`). O Naive Bayes não sorteia; os
-  calibrados reusam a semente do seu AdaBoost e as dobras não embaralham. Braço novo entra
-  sempre no **fim** de `BRACOS_ML`. Mudar essa ordem altera os números.
-- A validação cruzada roda as dobras em paralelo (`n_jobs=-1`); as dobras são independentes e o
+- A ordem de consumo do `rng` é fixa e histórica: dados, um desempate por braço fechado (na
+  ordem de `BRACOS`), split, três sementes do AdaBoost e um desempate por braço treinado (na ordem
+  de `BRACOS_ML`). `fluxos.py` refaz essa sequência inteira sem calcular modelo e entrega a cada
+  braço o seu vetor, por isso uma família roda isolada com os mesmos números. O Naive Bayes não
+  sorteia; os calibrados reusam a semente do seu AdaBoost e as dobras não embaralham. Braço novo
+  entra sempre no **fim** de `BRACOS` ou `BRACOS_ML`, e nenhum braço é removido (um aposentado
+  mantém o slot). Mudar essa ordem altera os números.
+- A validação cruzada da calibração roda as dobras em paralelo (`n_jobs=-1`) quando chamada
+  sozinha, e com `n_jobs=1` dentro do pool de `varredura.py`. As dobras são independentes: o
   resultado não depende do número de núcleos.
 
 ## Achados verificados

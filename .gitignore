@@ -6,6 +6,8 @@ venv/
 
 # Saidas regeneraveis pelo codigo
 resultados/*.csv
+resultados/manifesto.sha256
+resultados/cache/
 figuras/*.png
 # ...exceto as figuras do poster, exibidas no README
 !figuras/poster_*.png
